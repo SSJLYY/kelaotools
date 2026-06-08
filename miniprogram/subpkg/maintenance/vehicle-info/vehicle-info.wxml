@@ -1,0 +1,135 @@
+<!-- 车辆信息页 -->
+<page-meta page-style="background:#1A1A2E;" />
+<view class="page" style="background: #1A1A2E;">
+
+  <!-- 顶部车型展示区 -->
+  <view class="hero-section">
+    <!-- 导航栏 -->
+    <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+      <view class="nav-content" style="height: {{navBarHeight}}px;">
+        <view class="nav-back" bindtap="onBack">
+          <text style="font-size:48rpx;font-weight:300;color:#FFF;">‹</text>
+        </view>
+        <view class="nav-right-btns">
+          <text class="nav-icon" bindtap="onEdit">✎</text>
+          <text class="nav-icon" bindtap="onDelete">🗑</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 车型名称 -->
+    <view class="hero-info">
+      <text class="hero-model">{{car.model || '极氪 001'}}</text>
+      <text class="hero-year">{{car.year || '2025'}}款</text>
+    </view>
+
+    <!-- 配置标签 -->
+    <view class="hero-tags">
+      <view class="hero-color-tag" wx:if="{{car.color}}">
+        <view class="color-dot" style="background-color: {{carColorHex}};"></view>
+        <text>{{car.color}}</text>
+      </view>
+      <text class="hero-tag">{{car.year || ''}}款</text>
+    </view>
+
+    <!-- 汽车图标区 -->
+    <view class="hero-car-area">
+      <text class="hero-car-emoji">{{carEmoji}}</text>
+      <view class="hero-plate" wx:if="{{car.plate && car.plate.length > 3}}">
+        <text class="plate-text">{{car.plate}}</text>
+      </view>
+    </view>
+
+    <!-- 里程和电池 -->
+    <view class="hero-stats">
+      <view class="hero-stat">
+        <text class="hero-stat-value">{{carSpec.totalMileage || '--'}}</text>
+        <text class="hero-stat-label">总里程(km)</text>
+      </view>
+      <view class="hero-stat">
+        <text class="hero-stat-value">{{carSpec.range || '--'}}</text>
+        <text class="hero-stat-label">续航里程(km)</text>
+      </view>
+      <view class="hero-stat">
+        <text class="hero-stat-value">{{carSpec.batteryHealth || '--'}}</text>
+        <text class="hero-stat-label">电池健康度</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 基本参数 -->
+  <view class="spec-section">
+    <text class="spec-section-title">基本参数</text>
+    <view class="spec-grid">
+      <view class="spec-item" wx:for="{{basicSpecs}}" wx:key="label">
+        <text class="spec-label">{{item.label}}</text>
+        <text class="spec-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 动力参数 -->
+  <view class="spec-section">
+    <text class="spec-section-title">动力参数</text>
+    <view class="spec-grid">
+      <view class="spec-item" wx:for="{{powerSpecs}}" wx:key="label">
+        <text class="spec-label">{{item.label}}</text>
+        <text class="spec-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 性能参数 -->
+  <view class="spec-section">
+    <text class="spec-section-title">性能参数</text>
+    <view class="spec-grid">
+      <view class="spec-item" wx:for="{{perfSpecs}}" wx:key="label">
+        <text class="spec-label">{{item.label}}</text>
+        <text class="spec-value">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 充电相关功能快捷入口 -->
+  <view class="spec-section">
+    <text class="spec-section-title">相关功能</text>
+    <view class="func-grid">
+      <view class="func-item" bindtap="onNavigate" data-path="/subpkg/charging-log/charging-log/charging-log">
+        <view class="func-icon-box" style="background:#DBEAFE;">
+          <text class="func-emoji">📋</text>
+        </view>
+        <text class="func-name">充电记录</text>
+        <text class="func-arrow">›</text>
+      </view>
+      <view class="func-item" bindtap="onNavigate" data-path="/subpkg/charging-calc/charging-cost/charging-cost">
+        <view class="func-icon-box" style="background:#EDE9FE;">
+          <text class="func-emoji">⚡</text>
+        </view>
+        <text class="func-name">充电计算器</text>
+        <text class="func-arrow">›</text>
+      </view>
+      <view class="func-item" bindtap="onNavigate" data-path="/subpkg/maintenance/maintenance-ledger/maintenance-ledger">
+        <view class="func-icon-box" style="background:#FEF3C7;">
+          <text class="func-emoji">🔧</text>
+        </view>
+        <text class="func-name">费用记录</text>
+        <text class="func-arrow">›</text>
+      </view>
+      <view class="func-item" bindtap="onNavigate" data-path="/subpkg/ride-log/carpool-revenue/carpool-revenue">
+        <view class="func-icon-box" style="background:#D1FAE5;">
+          <text class="func-emoji">🚘</text>
+        </view>
+        <text class="func-name">顺风车收入</text>
+        <text class="func-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-btns">
+    <button class="bottom-btn btn-edit" bindtap="onEdit">编辑车辆</button>
+    <button class="bottom-btn btn-delete" bindtap="onDelete">删除车辆</button>
+  </view>
+
+  <view class="safe-bottom" style="height:40rpx;"></view>
+</view>

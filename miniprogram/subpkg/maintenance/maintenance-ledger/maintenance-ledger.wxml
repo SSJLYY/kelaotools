@@ -1,0 +1,115 @@
+<view class="page">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">‹</view>
+      <view class="nav-title">{{mode === 'add' ? '添加记录' : '养车账本'}}</view>
+      <view class="nav-spacer"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <block wx:if="{{mode === 'list'}}">
+    <scroll-view class="category-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="category-list">
+        <view
+          wx:for="{{categories}}"
+          wx:key="key"
+          class="category-chip {{activeType === item.key ? 'chip-active' : ''}}"
+          bindtap="onCategoryTap"
+          data-type="{{item.key}}"
+        >{{item.name}}</view>
+      </view>
+    </scroll-view>
+
+    <view class="section-header">
+      <view>
+        <text class="section-title">费用记录</text>
+        <text class="section-sub">共 {{filteredRecords.length}} 条记录</text>
+      </view>
+      <view class="header-actions">
+        <button class="stats-btn" bindtap="showStats">统计</button>
+        <button class="add-btn" bindtap="showAdd">+ 添加</button>
+      </view>
+    </view>
+
+    <view class="record-list" wx:if="{{filteredRecords.length > 0}}">
+      <view class="record-card" wx:for="{{filteredRecords}}" wx:key="id">
+        <view class="record-icon">{{item.icon}}</view>
+        <view class="record-main">
+          <text class="record-title">{{item.typeName}}</text>
+          <text class="record-note">{{item.note || item.location || '暂无备注'}}</text>
+        </view>
+        <view class="record-right">
+          <text class="record-amount">¥{{item.amountText}}</text>
+          <text class="delete-link" bindtap="onDelete" data-id="{{item.id}}">删除</text>
+          <text class="record-date">{{item.date}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:else>
+      <text class="empty-icon">📋</text>
+      <text class="empty-title">暂无费用记录</text>
+      <text class="empty-sub">点击添加，记录你的第一笔养车费用</text>
+      <button class="empty-add" bindtap="showAdd">+ 添加记录</button>
+    </view>
+
+    <button class="float-add" bindtap="showAdd">+</button>
+  </block>
+
+  <block wx:else>
+    <view class="form-title-row">
+      <text class="form-title">添加记录</text>
+      <text class="close-btn" bindtap="showList">×</text>
+    </view>
+
+    <view class="form-card">
+      <view class="field-group">
+        <text class="field-label">费用类型</text>
+        <picker range="{{typeOptions}}" range-key="name" value="{{typeIndex}}" bindchange="onTypeChange">
+          <view class="picker-field">
+            <text class="{{form.typeName ? 'field-value' : 'field-placeholder'}}">{{form.typeName || '请选择费用类型'}}</text>
+            <text class="field-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">关联车辆</text>
+        <view class="car-row">
+          <text class="car-name">{{form.carName}}</text>
+          <text class="switch-car" bindtap="onSwitchCar">切换</text>
+        </view>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">消费日期</text>
+        <picker mode="date" value="{{form.date}}" bindchange="onDateChange">
+          <view class="picker-field">
+            <text class="field-value">{{form.date}}</text>
+            <text class="field-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">费用金额（元）</text>
+        <input class="amount-input" type="digit" value="{{form.amount}}" placeholder="0.00" bindinput="onAmountInput" />
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">消费地点</text>
+        <input class="text-input" value="{{form.location}}" placeholder="请输入消费地点（选填）" maxlength="30" bindinput="onLocationInput" />
+      </view>
+
+      <view class="field-group last-field">
+        <text class="field-label">备注</text>
+        <input class="text-input" value="{{form.note}}" placeholder="最多50字（选填）" maxlength="50" bindinput="onNoteInput" />
+      </view>
+    </view>
+
+    <button class="save-btn" bindtap="saveRecord">保存记录</button>
+  </block>
+
+  <view class="safe-bottom"></view>
+</view>

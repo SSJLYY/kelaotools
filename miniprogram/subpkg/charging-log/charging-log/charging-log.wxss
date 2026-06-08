@@ -1,0 +1,52 @@
+/* 充电记录列表 */
+
+/* nav */
+.nav-bar { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(255,255,255,0.97); border-bottom:1rpx solid rgba(0,0,0,0.05); }
+.nav-content { display:flex; align-items:center; padding:0 24rpx; }
+.nav-back { width:80rpx; }
+.nav-back-icon { font-size:48rpx; font-weight:300; color:var(--text-primary); }
+.nav-title-text { flex:1; text-align:center; font-size:34rpx; font-weight:600; }
+.nav-right-btn { width:80rpx; text-align:right; }
+.nav-report-text { font-size:var(--font-sm); color:var(--primary); font-weight:600; }
+
+/* summary */
+.summary-bar { display:flex; align-items:center; justify-content:space-between; padding:18rpx 28rpx; background:#FFF; border-bottom:1rpx solid #F0F0F0; }
+.summary-text { font-size:var(--font-xs); color:var(--text-light); }
+.summary-amount { font-size:var(--font-lg); font-weight:800; color:var(--primary); }
+
+/* list */
+.record-list { padding:12rpx 24rpx; }
+.record-card { display:flex; align-items:center; justify-content:space-between; padding:24rpx 20rpx; background:#FFF; border-radius:var(--radius-lg); margin-bottom:12rpx; box-shadow:var(--shadow-sm); }
+.record-card:active { background:#FAFAFA; }
+.record-left { display:flex; align-items:center; flex:1; overflow:hidden; }
+.record-icon-box { width:72rpx; height:72rpx; border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.record-icon { font-size:36rpx; }
+.record-info { margin-left:18rpx; flex:1; overflow:hidden; }
+.record-top { display:flex; align-items:center; justify-content:space-between; }
+.record-type { font-size:var(--font-md); font-weight:600; color:var(--text-primary); }
+.record-price { font-size:var(--font-lg); font-weight:800; color:var(--text-primary); }
+.record-detail { font-size:var(--font-xs); color:var(--text-secondary); display:block; margin-top:4rpx; }
+.record-date { font-size:20rpx; color:var(--text-light); display:block; margin-top:4rpx; }
+.record-arrow { font-size:32rpx; color:#CCC; margin-left:12rpx; }
+
+/* empty */
+.empty-state { display:flex; flex-direction:column; align-items:center; padding:120rpx 48rpx; }
+.empty-box { text-align:center; margin-bottom:48rpx; }
+.empty-emoji { font-size:100rpx; display:block; }
+.empty-title { font-size:var(--font-lg); font-weight:700; color:var(--text-primary); display:block; margin-top:24rpx; }
+.empty-desc { font-size:var(--font-sm); color:var(--text-light); display:block; margin-top:10rpx; }
+.empty-btn {
+  width:360rpx; height:88rpx; background:linear-gradient(135deg,#0066FF,#5B3FFF);
+  border-radius:44rpx; font-size:var(--font-md); font-weight:600; color:#FFF;
+  display:flex; align-items:center; justify-content:center; border:none;
+}
+
+/* fab */
+.fab-btn {
+  position:fixed; bottom:120rpx; right:32rpx; z-index:50;
+  width:100rpx; height:100rpx; border-radius:50%;
+  background:linear-gradient(135deg,#0066FF,#5B3FFF);
+  box-shadow:0 8rpx 24rpx rgba(0,102,255,0.35);
+  display:flex; align-items:center; justify-content:center;
+}
+.fab-icon { font-size:48rpx; font-weight:300; color:#FFF; }

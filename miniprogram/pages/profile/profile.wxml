@@ -1,0 +1,64 @@
+<!-- 个人信息 -->
+<view class="page" style="background:#F5F5F7;min-height:100vh;">
+
+  <!-- 导航 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack"><text class="nav-back-icon">‹</text></view>
+      <view class="nav-title-text">个人信息</view>
+      <view style="width:80rpx;"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 用户头像区 -->
+  <view class="avatar-card">
+    <image class="avatar-img" src="{{userAvatar}}" mode="aspectFill" />
+    <view class="avatar-info">
+      <text class="avatar-name">{{userName}}</text>
+      <text class="avatar-tag">氪佬 · 永久免费</text>
+      <text class="avatar-date">注册日期：{{registerDate}}</text>
+    </view>
+  </view>
+
+  <!-- 信息列表 -->
+  <view class="info-card">
+    <view class="info-item">
+      <text class="info-label">用户昵称</text>
+      <text class="info-value">{{userName}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">绑定车辆</text>
+      <text class="info-value">{{bindCar || '暂无'}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">登录方式</text>
+      <text class="info-value">微信授权</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">最后活跃</text>
+      <text class="info-value">{{lastActive}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">充电记录</text>
+      <text class="info-value">{{chargingCount}} 条</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">注册日期</text>
+      <text class="info-value">{{registerDate}}</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">当前版本</text>
+      <text class="info-value">v1.0.0</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="action-area">
+    <button class="action-btn sync-btn" bindtap="onSync" loading="{{syncing}}">🔄 手动同步数据</button>
+    <button class="action-btn logout-btn" bindtap="onLogout">退出登录</button>
+    <text class="clear-text" bindtap="onClearData">清除本地数据</text>
+  </view>
+
+  <view style="height:40rpx;"></view>
+</view>

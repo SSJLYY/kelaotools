@@ -1,0 +1,121 @@
+<view class="page">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">‹</view>
+      <view class="nav-title">{{mode === 'add' ? '添加停车场' : '停车场到期提醒'}}</view>
+      <view class="nav-spacer"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <block wx:if="{{mode === 'list'}}">
+    <view class="stats-row">
+      <view class="stat-card danger"><text class="stat-num">{{expiringCount}}</text><text class="stat-label">即将到期</text></view>
+      <view class="stat-card success"><text class="stat-num">{{activeCount}}</text><text class="stat-label">生效中</text></view>
+    </view>
+
+    <view class="list-wrap" wx:if="{{parkingList.length > 0}}">
+      <view class="parking-card" wx:for="{{parkingList}}" wx:key="id">
+        <view class="card-top">
+          <view>
+            <text class="parking-name">🅿️ {{item.name}}</text>
+            <text class="parking-sub">{{item.cardTypeName}} · {{item.carName || item.spot}}</text>
+          </view>
+          <view class="status-pill {{item.days <= 3 ? 'status-danger' : item.days <= 7 ? 'status-warn' : 'status-ok'}}">{{item.days <= 0 ? '已到期' : item.days + '天后到期'}}</view>
+        </view>
+        <view class="info-grid">
+          <text>到期日：{{item.expireDate}}</text>
+          <text>费用：¥{{item.feeText}}</text>
+          <text>车位：{{item.spot || '--'}}</text>
+        </view>
+        <view class="card-actions">
+          <button class="edit-btn" bindtap="onEdit" data-id="{{item.id}}">编辑</button>
+          <button class="delete-btn" bindtap="onDelete" data-id="{{item.id}}">删除</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="empty-state" wx:else>
+      <text class="empty-icon">🅿️</text>
+      <text class="empty-title">暂无停车场记录</text>
+      <text class="empty-sub">添加停车场租期，到期前自动提醒</text>
+    </view>
+
+    <button class="float-add" bindtap="showAdd">+</button>
+  </block>
+
+  <block wx:else>
+    <view class="form-card">
+      <view class="field-group">
+        <text class="field-label">停车场名称</text>
+        <input class="text-input" value="{{form.name}}" placeholder="如：公司停车场" maxlength="30" bindinput="onInputName" />
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">关联车辆</text>
+        <view class="car-pill-row"><text class="car-pill">{{form.carName}}</text><text class="switch-car" bindtap="onSwitchCar">切换</text></view>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">车牌名称</text>
+        <input class="text-input" value="{{form.spot}}" placeholder="请输入车位/车牌名称" maxlength="30" bindinput="onInputSpot" />
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">卡类型</text>
+        <view class="card-type-row">
+          <view wx:for="{{cardTypes}}" wx:key="key" class="card-type {{form.cardType === item.key ? 'type-active' : ''}}" bindtap="onSelectCardType" data-key="{{item.key}}">{{item.name}}</view>
+        </view>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">费用</text>
+        <view class="input-with-unit">
+          <input class="unit-input" type="digit" value="{{form.fee}}" placeholder="0" bindinput="onInputFee" />
+          <text class="unit-text">元</text>
+        </view>
+      </view>
+
+      <view class="preset-box">
+        <text class="preset-title">预设各卡价格（续费时自动选择）</text>
+        <view class="preset-grid">
+          <view class="preset-item"><text>月卡</text><input type="digit" value="{{form.monthPrice}}" placeholder="元" bindinput="onInputMonthPrice" /></view>
+          <view class="preset-item"><text>季卡</text><input type="digit" value="{{form.seasonPrice}}" placeholder="元" bindinput="onInputSeasonPrice" /></view>
+          <view class="preset-item"><text>半年卡</text><input type="digit" value="{{form.halfYearPrice}}" placeholder="元" bindinput="onInputHalfYearPrice" /></view>
+          <view class="preset-item"><text>年卡</text><input type="digit" value="{{form.yearPrice}}" placeholder="元" bindinput="onInputYearPrice" /></view>
+        </view>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">开始日期</text>
+        <picker mode="date" value="{{form.startDate}}" bindchange="onPickStart">
+          <view class="date-field">{{form.startDate}}</view>
+        </picker>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">到期日期</text>
+        <picker mode="date" value="{{form.expireDate}}" bindchange="onPickExpire">
+          <view class="date-field">{{form.expireDate}}</view>
+        </picker>
+      </view>
+
+      <view class="field-group">
+        <text class="field-label">剩余天数</text>
+        <view class="input-with-unit">
+          <input class="unit-input" type="number" value="{{form.remainDays}}" placeholder="30" bindinput="onInputRemainDays" />
+          <text class="unit-text">天</text>
+        </view>
+      </view>
+
+      <view class="field-group last-field">
+        <text class="field-label">备注</text>
+        <input class="text-input" value="{{form.note}}" placeholder="选填" maxlength="50" bindinput="onInputNote" />
+      </view>
+    </view>
+
+    <button class="save-btn" bindtap="onSave">{{editingId ? '保存修改' : '添加'}}</button>
+  </block>
+
+  <view class="safe-bottom"></view>
+</view>

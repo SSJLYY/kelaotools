@@ -1,0 +1,95 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tools/tools",
+    "pages/community/community",
+    "pages/mine/mine",
+    "pages/my-car/my-car",
+    "pages/car-setting/car-setting",
+    "pages/tips/tips",
+    "pages/tips-detail/tips-detail",
+    "pages/all-tools/all-tools",
+    "pages/profile/profile",
+    "pages/add-desktop-guide/add-desktop-guide",
+    "pages/feature-intro/feature-intro",
+    "pages/favorites/favorites",
+    "pages/data-statistics/data-statistics"
+  ],
+  "subPackages": [
+    {
+      "root": "subpkg/charging-calc",
+      "pages": [
+        "charging-cost/charging-cost",
+        "scene-code/scene-code",
+        "test-drive/test-drive"
+      ]
+    },
+    {
+      "root": "subpkg/charging-log",
+      "pages": [
+        "charging-log/charging-log",
+        "charging-add/charging-add",
+        "charging-report/charging-report",
+        "charging-detail/charging-detail"
+      ]
+    },
+    {
+      "root": "subpkg/maintenance",
+      "pages": [
+        "maintenance-ledger/maintenance-ledger",
+        "vehicle-info/vehicle-info",
+        "add-car/add-car",
+        "parking-reminder/parking-reminder"
+      ]
+    },
+    {
+      "root": "subpkg/ride-log",
+      "pages": [
+        "carpool-revenue/carpool-revenue",
+        "loan-calc/loan-calc",
+        "loan-records/loan-records",
+        "consumption/consumption"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#F5F5F7",
+    "navigationBarTitleText": "氪佬工具箱",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#0066FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/icons/home.png",
+        "selectedIconPath": "assets/images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/tools/tools",
+        "text": "场景码",
+        "iconPath": "assets/images/icons/scene.png",
+        "selectedIconPath": "assets/images/icons/scene-active.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "音效",
+        "iconPath": "assets/images/icons/sound.png",
+        "selectedIconPath": "assets/images/icons/sound-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/images/icons/mine.png",
+        "selectedIconPath": "assets/images/icons/mine-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

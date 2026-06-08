@@ -1,0 +1,7 @@
+<view style="text-align:center;padding:200rpx 48rpx;">
+  <text style="font-size:100rpx;display:block;">🧪</text>
+  <text style="font-size:32rpx;font-weight:700;display:block;margin-top:24rpx;">极氪试驾邀请</text>
+  <text style="font-size:24rpx;color:#999;display:block;margin-top:12rpx;">预约试驾功能即将上线</text>
+  <text style="font-size:22rpx;color:#CCC;display:block;margin-top:8rpx;">届时可申请极氪全系车型试驾体验</text>
+  <button style="margin-top:48rpx;width:280rpx;height:80rpx;background:linear-gradient(135deg,#0066FF,#5B3FFF);border-radius:40rpx;color:#FFF;font-size:28rpx;font-weight:600;border:none;" open-type="share">分享给朋友</button>
+</view>

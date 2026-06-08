@@ -1,0 +1,320 @@
+/* 车辆设置 - 样式 */
+
+/* 页面基础 */
+.page {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: var(--bg-page);
+}
+
+/* 导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.05);
+}
+.nav-content {
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+}
+.nav-back { width: 80rpx; }
+.nav-back-icon {
+  font-size: 52rpx;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.nav-title-text {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.nav-right-placeholder { width: 80rpx; }
+
+/* 页面说明 */
+.page-intro { padding: 20rpx 28rpx 8rpx; }
+.intro-text {
+  font-size: var(--font-xs);
+  color: var(--text-light);
+}
+
+/* 设置区域 */
+.setting-section {
+  padding: 0 24rpx 16rpx;
+}
+.year-section {
+  padding-bottom: 0; /* 颜色区域处理底部间距 */
+}
+.section-label {
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+  padding: 24rpx 0 20rpx;
+}
+.label-text {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.label-hint {
+  font-size: var(--font-xs);
+  color: var(--text-light);
+}
+
+/* 车系网格 */
+.series-grid {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.series-card {
+  flex: 0 0 calc(50% - 8rpx);
+  width: calc(50% - 8rpx);
+  margin-bottom: 16rpx;
+  background: var(--bg-white);
+  border-radius: 20rpx;
+  padding: 24rpx 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  border: 2rpx solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.series-hover {
+  background: #F8F8FA;
+  transform: scale(0.98);
+}
+.series-selected {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #F0F5FF, #F8FAFF);
+  box-shadow: 0 2rpx 16rpx rgba(0, 102, 255, 0.1);
+}
+.series-coming {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.series-icon-box {
+  width: 80rpx;
+  height: 80rpx;
+  min-width: 80rpx;
+  border-radius: 16rpx;
+  background: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.series-emoji { font-size: 42rpx; line-height: 1; }
+.series-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+.series-name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.series-desc {
+  font-size: 22rpx;
+  color: var(--text-light);
+  line-height: 1.3;
+}
+.series-check {
+  position: absolute;
+  top: 12rpx; right: 12rpx;
+  width: 36rpx; height: 36rpx;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #FFF;
+  font-size: 22rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.series-badge {
+  position: absolute;
+  top: 12rpx; right: 12rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 9999rpx;
+  background: #FDE68A;
+  color: #92400E;
+  font-size: 18rpx;
+  font-weight: 500;
+}
+
+/* 年款标签 */
+.year-tags {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.year-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140rpx;
+  padding: 18rpx 36rpx;
+  background: var(--bg-white);
+  border-radius: 16rpx;
+  border: 2rpx solid #E5E7EB;
+  box-shadow: 0 1rpx 6rpx rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+.year-tag-hover {
+  background: #F8F8FA;
+}
+.year-tag-selected {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #F0F5FF, #F8FAFF);
+  box-shadow: 0 2rpx 12rpx rgba(0, 102, 255, 0.12);
+}
+.year-tag-text {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.year-tag-selected .year-tag-text {
+  color: var(--primary);
+}
+
+/* 车身颜色网格 */
+.color-section {
+  padding-bottom: 120rpx; /* 给底部固定按钮留空间 */
+}
+.color-grid {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.color-card {
+  flex: 0 0 calc(50% - 8rpx);
+  width: calc(50% - 8rpx);
+  margin-bottom: 16rpx;
+  background: var(--bg-white);
+  border-radius: 16rpx;
+  padding: 18rpx 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  border: 2rpx solid #F0F0F0;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+.color-hover {
+  background: #F8F8FA;
+  transform: scale(0.98);
+}
+.color-selected {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, #F0F5FF, #F8FAFF);
+  box-shadow: 0 2rpx 16rpx rgba(0, 102, 255, 0.10);
+}
+.color-swatch {
+  width: 80rpx;
+  height: 56rpx;
+  min-width: 80rpx;
+  border-radius: 12rpx;
+  position: relative;
+  overflow: hidden;
+}
+.color-swatch-border {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 2rpx solid #E0E0E0;
+  border-radius: 12rpx;
+}
+.color-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 0;
+}
+.color-selected .color-name {
+  color: var(--primary);
+}
+.color-check {
+  position: absolute;
+  top: 10rpx; right: 10rpx;
+  width: 32rpx; height: 32rpx;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #FFF;
+  font-size: 20rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 当前选择提示 */
+.selected-summary {
+  margin: 24rpx 28rpx;
+  padding: 24rpx 28rpx;
+  background: var(--primary-light);
+  border-radius: var(--radius-md);
+  border-left: 6rpx solid var(--primary);
+  display: flex;
+  align-items: center;
+}
+.summary-label { font-size: var(--font-sm); color: var(--text-secondary); }
+.summary-value {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--primary);
+  margin-left: 8rpx;
+}
+
+/* 底部保存按钮 */
+.bottom-btn-area {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  padding: 20rpx 28rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: var(--bg-white);
+  border-top: 1rpx solid var(--border-color);
+}
+.save-btn {
+  width: 100%;
+  height: 92rpx;
+  background: linear-gradient(135deg, #0066FF, #5B3FFF);
+  border-radius: 46rpx;
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  letter-spacing: 1rpx;
+}
+.save-btn-disabled {
+  background: #E5E7EB;
+  color: #B0B0B0;
+  opacity: 1;
+}

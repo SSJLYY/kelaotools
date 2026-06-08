@@ -1,0 +1,92 @@
+<!-- 我的车辆 -->
+<view class="page" style="min-height:100vh;background:#F5F5F7;">
+
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">
+        <text class="nav-back-icon">‹</text>
+      </view>
+      <view class="nav-title-text">我的车辆</view>
+      <view class="nav-right-placeholder"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 车辆列表（有车时展示） -->
+  <block wx:if="{{carList.length > 0}}">
+    <view class="section" wx:for="{{carList}}" wx:key="id">
+      <view class="car-card" bindtap="onEditCar" data-id="{{item.id}}" hover-class="car-card-hover">
+        <view class="car-card-top">
+          <view class="car-icon-box">
+            <text class="car-icon-emoji">🚗</text>
+          </view>
+          <view class="car-info">
+            <text class="car-model">{{item.model}} {{item.year || ''}}款</text>
+            <text class="car-detail-line" wx:if="{{item.color}}">{{item.color}}</text>
+            <text class="car-detail-line car-plate" wx:if="{{item.plate && item.plate.length > 3}}">{{item.plate}}</text>
+          </view>
+          <view class="car-right">
+            <text class="car-arrow">›</text>
+          </view>
+        </view>
+        <view class="car-card-bottom" wx:if="{{item.color || item.vin || item.purchaseDate}}">
+          <text class="car-meta" wx:if="{{item.color}}">{{item.color}}</text>
+          <text class="car-meta" wx:if="{{item.vin}}">VIN: {{item.vin}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 空状态 -->
+  <block wx:if="{{carList.length === 0}}">
+    <view class="empty-section">
+      <view class="empty-illustration">
+        <view class="empty-car-box">
+          <text class="empty-car-emoji">🚗</text>
+        </view>
+        <view class="empty-dots">
+          <view class="dot"></view>
+          <view class="dot dot-small"></view>
+          <view class="dot"></view>
+        </view>
+      </view>
+      <text class="empty-title">全面掌握您的爱车信息</text>
+      <text class="empty-desc">解锁更多功能</text>
+
+      <!-- 功能联动说明 -->
+      <view class="feature-list">
+        <view class="feature-item">
+          <text class="feature-icon">🔋</text>
+          <view class="feature-text">
+            <text class="feature-name">充电优惠券</text>
+            <text class="feature-desc">查询充电套餐，省钱更省心</text>
+          </view>
+        </view>
+        <view class="feature-item">
+          <text class="feature-icon">🗓️</text>
+          <view class="feature-text">
+            <text class="feature-name">保养提醒</text>
+            <text class="feature-desc">保养到期自动提醒，将极氪状态下线状态</text>
+          </view>
+        </view>
+        <view class="feature-item">
+          <text class="feature-icon">📜</text>
+          <view class="feature-text">
+            <text class="feature-name">车辆档案</text>
+            <text class="feature-desc">随时查看参数、开启场景码功能</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 底部添加按钮 -->
+  <view class="add-btn-fixed safe-bottom" bindtap="onAddCar">
+    <view class="add-btn-inner">
+      <text class="add-btn-icon">＋</text>
+      <text class="add-btn-text">添加车辆</text>
+    </view>
+  </view>
+
+</view>

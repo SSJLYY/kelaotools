@@ -1,0 +1,107 @@
+<!-- 车辆设置 - 车系和年款选择 -->
+<view class="page">
+
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">
+        <text class="nav-back-icon">‹</text>
+      </view>
+      <view class="nav-title-text">车辆设置</view>
+      <view class="nav-right-placeholder"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 页面说明 -->
+  <view class="page-intro">
+    <text class="intro-text">选择车系、年款和颜色，替代滚轮选择更直观</text>
+  </view>
+
+  <!-- ===== 车系选择 ===== -->
+  <view class="setting-section">
+    <view class="section-label">
+      <text class="label-text">车系</text>
+      <text class="label-hint">选择你的极氪车型</text>
+    </view>
+    <view class="series-grid">
+      <view
+        wx:for="{{carSeries}}" wx:key="id"
+        class="series-card {{selectedSeries === item.id ? 'series-selected' : ''}} {{item.comingSoon ? 'series-coming' : ''}}"
+        bindtap="{{item.comingSoon ? '' : 'onSelectSeries'}}"
+        data-id="{{item.id}}"
+        hover-class="series-hover"
+      >
+        <view class="series-icon-box">
+          <text class="series-emoji">{{item.emoji}}</text>
+        </view>
+        <view class="series-info">
+          <text class="series-name">{{item.name}}</text>
+          <text class="series-desc">{{item.desc}}</text>
+        </view>
+        <view wx:if="{{selectedSeries === item.id}}" class="series-check">✓</view>
+        <view wx:if="{{item.comingSoon}}" class="series-badge">即将上市</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 年款选择（选车系后才显示） ===== -->
+  <view class="setting-section year-section" wx:if="{{selectedSeries}}">
+    <view class="section-label">
+      <text class="label-text">年款</text>
+    </view>
+    <view class="year-tags">
+      <view
+        wx:for="{{years}}" wx:key="*this"
+        class="year-tag {{selectedYear === item ? 'year-tag-selected' : ''}}"
+        bindtap="onSelectYear"
+        data-year="{{item}}"
+        hover-class="year-tag-hover"
+      >
+        <text class="year-tag-text">{{item}}款</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- ===== 车身颜色选择（选车系后才显示） ===== -->
+  <view class="setting-section color-section" wx:if="{{currentColors.length > 0}}">
+    <view class="section-label">
+      <text class="label-text">车身颜色</text>
+      <text wx:if="{{selectedColor}}" class="label-hint">已选：{{selectedColorName}}</text>
+    </view>
+    <view class="color-grid">
+      <view
+        wx:for="{{currentColors}}" wx:key="id"
+        class="color-card {{selectedColor === item.id ? 'color-selected' : ''}}"
+        bindtap="onSelectColor"
+        data-id="{{item.id}}"
+        hover-class="color-hover"
+      >
+        <view class="color-swatch" style="background-color: {{item.hex}};">
+          <view wx:if="{{item.name === '极昼白'}}" class="color-swatch-border"></view>
+        </view>
+        <text class="color-name">{{item.name}}</text>
+        <view wx:if="{{selectedColor === item.id}}" class="color-check">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 当前选择提示 -->
+  <view class="selected-summary" wx:if="{{selectedSeries && selectedYear && selectedColor}}">
+    <text class="summary-label">已选择：</text>
+    <text class="summary-value">{{selectedSeriesName}} {{selectedYear}}款 · {{selectedColorName}}</text>
+  </view>
+
+  <!-- 底部保存按钮 -->
+  <view class="bottom-btn-area safe-bottom">
+    <button
+      class="save-btn {{selectedSeries && selectedYear && selectedColor ? '' : 'save-btn-disabled'}}"
+      bindtap="onSave"
+      disabled="{{!selectedSeries || !selectedYear || !selectedColor}}"
+      loading="{{saving}}"
+    >
+      保存车辆
+    </button>
+  </view>
+
+</view>

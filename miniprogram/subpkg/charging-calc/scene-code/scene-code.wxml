@@ -1,0 +1,100 @@
+<!-- 场景码详情 -->
+<view class="page">
+
+  <!-- 导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">‹</view>
+      <view class="nav-title-text">{{scene.title || '场景码'}}</view>
+      <view class="nav-placeholder"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 场景详情卡片 -->
+  <view class="detail-card">
+    <!-- 标题区 -->
+    <view class="detail-header">
+      <view class="detail-top-row">
+        <text class="detail-title">{{scene.title}}</text>
+        <button class="favorite-btn {{isFaved ? 'favorite-active' : ''}}" bindtap="onFav">
+          <text class="favorite-star">{{isFaved ? '★' : '☆'}}</text>
+          <text>{{isFaved ? '已收藏' : '收藏'}}</text>
+        </button>
+      </view>
+      <view class="detail-tags">
+        <text class="detail-tag" wx:for="{{scene.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+      <text class="detail-desc">{{scene.desc}}</text>
+    </view>
+
+    <!-- 场景码展示 -->
+    <view class="code-display">
+      <text class="code-label">场景码</text>
+      <view class="code-box" bindtap="onCopyCode">
+        <text class="code-value">{{scene.code}}</text>
+        <text class="code-copy-icon">📋</text>
+      </view>
+    </view>
+
+    <!-- 快捷操作 -->
+    <view class="action-btns">
+      <button class="action-btn action-primary" bindtap="onCopyCode">
+        <text class="action-btn-icon">📋</text>
+        <text class="action-btn-text">复制场景码</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 如何添加 -->
+  <view class="howto-section">
+    <text class="howto-title">如何添加场景码</text>
+    
+    <view class="howto-steps">
+      <view class="howto-step">
+        <view class="step-circle">
+          <text class="step-num">1</text>
+        </view>
+        <view class="step-content">
+          <text class="step-title">复制场景码</text>
+          <text class="step-desc">点击上方"复制场景码"按钮，将场景码复制到剪贴板</text>
+        </view>
+      </view>
+
+      <view class="step-connector"></view>
+
+      <view class="howto-step">
+        <view class="step-circle">
+          <text class="step-num">2</text>
+        </view>
+        <view class="step-content">
+          <text class="step-title">车机添加场景码</text>
+          <text class="step-desc">打开车机"智慧场景"→ 点击右上角"+" → 选择"导入场景码" → 粘贴输入场景码</text>
+        </view>
+      </view>
+
+      <view class="step-connector"></view>
+
+      <view class="howto-step">
+        <view class="step-circle">
+          <text class="step-num">3</text>
+        </view>
+        <view class="step-content">
+          <text class="step-title">极氪APP添加</text>
+          <text class="step-desc">打开极氪APP → 爱车 → 智慧场景 → 右上角导入 → 粘贴场景码完成添加</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 温馨提示 -->
+  <view class="tip-box">
+    <text class="tip-box-icon">💡</text>
+    <view class="tip-box-content">
+      <text class="tip-box-title">温馨提示</text>
+      <text class="tip-box-desc">场景码使用前请确保车机系统已升级至最新版本，部分功能需极氪OS 5.0及以上版本支持</text>
+    </view>
+  </view>
+
+  <view class="safe-bottom" style="height: 40rpx;"></view>
+</view>

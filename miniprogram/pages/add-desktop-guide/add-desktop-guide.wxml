@@ -1,0 +1,71 @@
+<view class="page">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">‹</view>
+      <view class="nav-title">添加到桌面</view>
+      <view class="nav-spacer"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <view class="hero-card">
+    <view class="hero-icon">⚡</view>
+    <view class="hero-text">
+      <text class="hero-title">把氪佬工具箱放到常用入口</text>
+      <text class="hero-sub">添加到手机桌面 + 添加到我的小程序，一次设置两个入口，日常用车更快打开。</text>
+    </view>
+  </view>
+
+  <view class="guide-section">
+    <view class="section-title-row">
+      <text class="section-badge">入口 1</text>
+      <text class="section-title">添加到手机桌面</text>
+    </view>
+    <view class="mock-screen">
+      <view class="mock-top">
+        <text class="mock-title">氪佬工具箱</text>
+        <view class="mock-menu"><text>•••</text><text class="mock-divider"></text><text>○</text></view>
+      </view>
+      <view class="mock-arrow">点右上角「•••」</view>
+      <view class="mock-panel">
+        <view class="mock-option active-option">＋ 添加到桌面</view>
+        <view class="mock-option">⭐ 添加到我的小程序</view>
+        <view class="mock-option">↗ 分享给朋友</view>
+      </view>
+    </view>
+    <view class="step-list">
+      <view class="step-item"><text class="step-no">1</text><text>打开小程序后，点击右上角「•••」菜单。</text></view>
+      <view class="step-item"><text class="step-no">2</text><text>选择「添加到桌面」，按系统提示完成授权。</text></view>
+      <view class="step-item"><text class="step-no">3</text><text>回到手机桌面，即可像 App 一样快速打开。</text></view>
+    </view>
+  </view>
+
+  <view class="guide-section">
+    <view class="section-title-row">
+      <text class="section-badge blue">入口 2</text>
+      <text class="section-title">添加到我的小程序</text>
+    </view>
+    <view class="mini-program-card">
+      <view class="mini-header">微信 · 我的 / 最近使用</view>
+      <view class="mini-grid">
+        <view class="mini-icon selected">氪</view>
+        <view class="mini-icon">车</view>
+        <view class="mini-icon">充</view>
+      </view>
+      <text class="mini-tip">下拉微信首页，也能从「我的小程序」快速进入</text>
+    </view>
+    <view class="step-list">
+      <view class="step-item"><text class="step-no">1</text><text>点击右上角「•••」菜单。</text></view>
+      <view class="step-item"><text class="step-no">2</text><text>选择「添加到我的小程序」。</text></view>
+      <view class="step-item"><text class="step-no">3</text><text>以后微信首页下拉，就能在常用小程序里找到它。</text></view>
+    </view>
+  </view>
+
+  <view class="tips-card">
+    <text class="tips-title">找不到按钮怎么办？</text>
+    <text class="tips-text">不同手机或微信版本菜单名称可能略有差异，可先复制小程序名称，在微信搜索「氪佬工具箱」重新进入。</text>
+    <button class="copy-btn" bindtap="onCopyName">复制小程序名称</button>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

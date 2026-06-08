@@ -1,0 +1,66 @@
+<!-- 充电月度报告 -->
+<view class="page" style="background:#1A1A2E; min-height:100vh;">
+
+  <!-- 导航 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack"><text style="color:#FFF;font-size:48rpx;font-weight:300;">‹</text></view>
+      <text class="nav-title" style="color:#FFF;">{{year}}年{{month}}月 充电报告</text>
+      <view style="width:80rpx;"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 报告主体 -->
+  <view class="report-card">
+    <!-- 总费用大数字 -->
+    <view class="report-amount">
+      <text class="report-currency">¥</text>
+      <text class="report-fee">{{report.totalFee}}</text>
+    </view>
+    <text class="report-subtitle">本月充电总费用</text>
+
+    <!-- 统计网格 -->
+    <view class="report-stats">
+      <view class="report-stat">
+        <text class="report-stat-value">{{report.count}}次</text>
+        <text class="report-stat-label">充电次数</text>
+      </view>
+      <view class="report-stat">
+        <text class="report-stat-value">{{report.totalKwh}}kWh</text>
+        <text class="report-stat-label">总充电量</text>
+      </view>
+      <view class="report-stat">
+        <text class="report-stat-value">¥{{report.avgFee}}/次</text>
+        <text class="report-stat-label">平均费用</text>
+      </view>
+    </view>
+
+    <!-- 最爱渠道 -->
+    <view class="report-row">
+      <text class="report-row-label">最爱渠道</text>
+      <text class="report-row-value">{{report.favStation || '--'}}</text>
+    </view>
+
+    <!-- 类型分布 -->
+    <view class="report-row" wx:if="{{typeBreakdown.length > 0}}">
+      <text class="report-row-label">充电类型</text>
+      <view class="type-breakdown">
+        <text wx:for="{{typeBreakdown}}" wx:key="type">{{item.name}} {{item.count}}次</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 如果无数据 -->
+  <view class="empty-report" wx:if="{{report.count === 0}}">
+    <text class="empty-emoji">📭</text>
+    <text class="empty-text">本月暂无充电记录</text>
+  </view>
+
+  <!-- 分享按钮 -->
+  <view class="share-area">
+    <button class="share-btn" open-type="share">📤 分享给氪友</button>
+  </view>
+
+  <view class="safe-bottom" style="height:40rpx;"></view>
+</view>

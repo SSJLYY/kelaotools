@@ -1,0 +1,116 @@
+<view class="page">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">‹</view>
+      <view class="nav-title">数据统计</view>
+      <view class="nav-spacer"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <view class="period-tabs">
+    <view
+      wx:for="{{periods}}"
+      wx:key="key"
+      class="period-tab {{activePeriod === item.key ? 'period-active' : ''}}"
+      bindtap="onPeriodTap"
+      data-key="{{item.key}}"
+    >{{item.name}}</view>
+  </view>
+
+  <text class="source-tip">数据来源于充电记录、费用备忘和顺风车收入</text>
+
+  <view class="insight-card">
+    <text class="insight-icon">💡</text>
+    <text class="insight-text">充电均次 {{avgChargingCostText}} · 日均用车成本仅 {{dailyCarCostText}}</text>
+  </view>
+
+  <view class="card budget-card">
+    <text class="section-title">{{periodTitle}}预算</text>
+    <view class="budget-actions" wx:if="{{!budgetEditing}}">
+      <button class="budget-set" bindtap="onBudgetEdit">{{budgetText}}</button>
+      <button class="budget-save" bindtap="onBudgetEdit">保存</button>
+    </view>
+    <view class="budget-editor" wx:else>
+      <input class="budget-input" type="digit" value="{{budgetInput}}" bindinput="onBudgetInput" placeholder="输入上限" />
+      <button class="budget-save" bindtap="onBudgetSave">保存</button>
+    </view>
+  </view>
+  <view class="budget-progress" wx:if="{{budgetPercent > 0}}">
+    <view class="budget-progress-inner" style="width: {{budgetPercent}}%;"></view>
+  </view>
+
+  <view class="card overview-card">
+    <text class="section-title">{{periodTitle}}概览</text>
+    <view class="overview-row primary-row">
+      <view class="overview-item">
+        <text class="overview-value expense">{{totalExpenseText}}</text>
+        <text class="overview-label">总支出</text>
+      </view>
+      <view class="overview-divider"></view>
+      <view class="overview-item">
+        <text class="overview-value income">{{totalIncomeText}}</text>
+        <text class="overview-label">总收入</text>
+      </view>
+      <view class="overview-divider"></view>
+      <view class="overview-item">
+        <text class="overview-value {{balanceClass}}">{{balanceText}}</text>
+        <text class="overview-label">结余</text>
+      </view>
+    </view>
+    <view class="thin-line"></view>
+    <view class="overview-row daily-row">
+      <view class="overview-item">
+        <text class="daily-value">{{dailyExpenseText}}</text>
+        <text class="overview-label">日均支出</text>
+      </view>
+      <view class="overview-item">
+        <text class="daily-value">{{dailyIncomeText}}</text>
+        <text class="overview-label">日均收入</text>
+      </view>
+    </view>
+  </view>
+
+  <text class="block-title">支出分类</text>
+  <view class="card category-card">
+    <view class="category-row" wx:for="{{expenseCategories}}" wx:key="key">
+      <view class="category-name">
+        <text class="legend-dot" style="background: {{item.color}};"></text>
+        <text>{{item.name}}</text>
+      </view>
+      <view class="category-bar-wrap">
+        <view class="category-bar" style="width: {{item.percent}}%; background: {{item.color}};"></view>
+      </view>
+      <text class="category-percent">{{item.percent}}%</text>
+    </view>
+  </view>
+
+  <text class="block-title">充电概览</text>
+  <view class="charging-grid">
+    <view class="charging-card" wx:for="{{chargingOverview}}" wx:key="label">
+      <text class="charging-value">{{item.value}}</text>
+      <text class="charging-label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <text class="block-title">近6个月收支趋势</text>
+  <view class="card trend-card">
+    <view class="trend-legend">
+      <view class="trend-legend-item"><text class="legend-dot blue"></text><text>充电</text></view>
+      <view class="trend-legend-item"><text class="legend-dot gray"></text><text>支出</text></view>
+      <view class="trend-legend-item"><text class="legend-dot green"></text><text>顺风车</text></view>
+    </view>
+    <view class="chart-area">
+      <view class="month-group" wx:for="{{trendMonths}}" wx:key="label">
+        <view class="bar-box">
+          <view class="bar charging" style="height: {{item.chargingHeight}}rpx;"></view>
+          <view class="bar expense-bar" style="height: {{item.expenseHeight}}rpx;"></view>
+          <view class="bar income-bar" style="height: {{item.incomeHeight}}rpx;"></view>
+        </view>
+        <text class="month-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

@@ -1,0 +1,81 @@
+<view class="page">
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">‹</view>
+      <view class="nav-title">充电费用计算</view>
+      <view class="nav-spacer"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <view class="calc-card">
+    <text class="car-title">{{carName}}</text>
+    <view class="car-meta">
+      <text>电池总容量</text><text class="meta-strong">{{batteryCapacity}} kWh</text><text>· WLTP</text><text class="meta-strong">{{wltpRange}} km</text>
+    </view>
+    <view class="card-line"></view>
+
+    <view class="charge-section">
+      <text class="field-label">当前电量</text>
+      <view class="charge-row">
+        <text class="charge-percent">{{currentCharge}}%</text>
+        <input class="charge-input" type="number" value="{{currentCharge}}" bindinput="onCurrentInput" />
+      </view>
+      <slider class="charge-slider" value="{{currentCharge}}" min="0" max="99" step="1" activeColor="#2F66F6" backgroundColor="#E2E8F0" block-size="24" bindchange="onCurrentSlider" />
+    </view>
+
+    <view class="charge-section target-section">
+      <text class="field-label">目标电量</text>
+      <view class="charge-row">
+        <text class="charge-percent">{{targetCharge}}%</text>
+        <input class="charge-input" type="number" value="{{targetCharge}}" bindinput="onTargetInput" />
+      </view>
+      <slider class="charge-slider" value="{{targetCharge}}" min="1" max="100" step="1" activeColor="#2F66F6" backgroundColor="#E2E8F0" block-size="24" bindchange="onTargetSlider" />
+    </view>
+
+    <view class="quick-row">
+      <button class="quick-target" wx:for="{{quickTargets}}" wx:key="*this" bindtap="onQuickTarget" data-target="{{item}}">充到 {{item}}%</button>
+    </view>
+
+    <view class="card-line price-line"></view>
+
+    <view class="price-head">
+      <text class="field-label">充电单价</text>
+      <view class="preset-row">
+        <button class="price-preset {{activePricePreset === item.value ? 'preset-active' : ''}}" wx:for="{{pricePresets}}" wx:key="value" bindtap="onPricePreset" data-price="{{item.value}}">{{item.label}}</button>
+      </view>
+    </view>
+    <view class="price-input-wrap">
+      <input class="price-input" type="digit" value="{{unitPrice}}" bindinput="onPriceInput" />
+      <text class="price-unit">元/kWh</text>
+    </view>
+  </view>
+
+  <view class="result-card">
+    <view class="result-item">
+      <text class="result-label">需要充电</text>
+      <view class="result-value-row"><text class="result-value dark">{{needKwhText}}</text><text class="result-unit">kWh</text></view>
+    </view>
+    <view class="result-divider"></view>
+    <view class="result-item">
+      <text class="result-label">预估费用</text>
+      <text class="result-value blue">¥{{estimatedFeeText}}</text>
+    </view>
+  </view>
+
+  <view class="coupon-card">
+    <view class="coupon-title-row">
+      <text class="coupon-icon">🎫</text>
+      <text class="coupon-title">可用优惠券</text>
+    </view>
+    <view class="coupon-list">
+      <view class="coupon-chip {{item.available ? '' : 'coupon-disabled'}}" wx:for="{{coupons}}" wx:key="title">
+        <text class="coupon-name">{{item.title}}</text>
+        <text class="coupon-pay">{{item.payText}}</text>
+      </view>
+    </view>
+    <text class="coupon-tip">充电前在对应平台领券，可节省更多</text>
+  </view>
+
+  <view class="safe-bottom"></view>
+</view>

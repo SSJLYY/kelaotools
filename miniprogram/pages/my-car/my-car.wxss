@@ -1,0 +1,254 @@
+/* 我的车辆 - 样式 */
+
+/* 导航栏 */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(245, 245, 247, 0.95);
+  backdrop-filter: blur(20rpx);
+}
+.nav-content {
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+}
+.nav-back {
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.nav-back-icon {
+  font-size: 52rpx;
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1;
+}
+.nav-title-text {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.nav-right-placeholder {
+  width: 80rpx;
+}
+
+/* 车辆卡片 */
+.section {
+  margin: 16rpx 24rpx;
+}
+.car-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 24rpx 28rpx;
+  box-shadow: var(--shadow-sm);
+}
+.car-card-hover {
+  background: #F8F8FA;
+}
+.car-card-top {
+  display: flex;
+  align-items: center;
+}
+.car-icon-box {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #E8F2FF, #EDE9FE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.car-icon-emoji {
+  font-size: 44rpx;
+}
+.car-info {
+  flex: 1;
+  margin-left: 20rpx;
+  min-width: 0;
+}
+.car-model {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+}
+.car-detail-line {
+  font-size: var(--font-xs);
+  color: var(--text-light);
+  margin-top: 4rpx;
+  display: block;
+}
+.car-plate {
+  color: var(--primary);
+  font-weight: 500;
+}
+.car-right {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.car-arrow {
+  font-size: 40rpx;
+  color: #C0C0C0;
+  font-weight: 300;
+}
+.car-card-bottom {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--border-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.car-meta {
+  font-size: 22rpx;
+  color: var(--text-light);
+  padding: 4rpx 14rpx;
+  background: var(--bg-page);
+  border-radius: 8rpx;
+}
+
+/* 空状态 */
+.empty-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60rpx 48rpx 120rpx;
+}
+
+.empty-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.empty-car-box {
+  width: 160rpx;
+  height: 160rpx;
+  background: linear-gradient(135deg, #E8F2FF, #F0F4FF);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-car-emoji {
+  font-size: 80rpx;
+}
+
+.empty-dots {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 24rpx;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #D1D5DB;
+}
+.dot-small {
+  width: 10rpx;
+  height: 10rpx;
+  background: #E5E7EB;
+}
+
+.empty-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8rpx;
+}
+
+.empty-desc {
+  font-size: var(--font-sm);
+  color: var(--text-light);
+  margin-bottom: 48rpx;
+}
+
+/* 功能介绍 */
+.feature-list {
+  width: 100%;
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: 24rpx 28rpx;
+  box-shadow: var(--shadow-sm);
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid var(--border-light);
+}
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-name {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+}
+
+.feature-desc {
+  font-size: var(--font-xs);
+  color: var(--text-light);
+  margin-top: 4rpx;
+  display: block;
+  line-height: 1.5;
+}
+
+/* 底部添加按钮 */
+.add-btn-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 24rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  background: var(--bg-white);
+  border-top: 1rpx solid var(--border-color);
+}
+
+.add-btn-inner {
+  width: 100%;
+  height: 88rpx;
+  background: linear-gradient(135deg, #0066FF, #5B3FFF);
+  border-radius: var(--radius-full, 44rpx);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn-icon {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-right: 8rpx;
+}
+
+.add-btn-text {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: #FFFFFF;
+}

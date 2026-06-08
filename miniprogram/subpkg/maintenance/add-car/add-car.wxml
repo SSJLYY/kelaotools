@@ -1,0 +1,176 @@
+<!-- 添加车辆 -->
+<view class="page" style="min-height:100vh;background:#F5F5F7;">
+
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack">
+        <text class="nav-back-icon">‹</text>
+      </view>
+      <view class="nav-title-text">添加车辆</view>
+      <view class="nav-right-placeholder"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 步骤指示 -->
+  <view class="step-bar">
+    <view class="step-item {{step >= 1 ? 'step-active' : ''}}">
+      <view class="step-circle">
+        <text wx:if="{{step > 1}}" class="step-check">✓</text>
+        <text wx:else class="step-num">1</text>
+      </view>
+      <text class="step-label">选择车型</text>
+    </view>
+    <view class="step-line {{step >= 2 ? 'step-line-active' : ''}}"></view>
+    <view class="step-item {{step >= 2 ? 'step-active' : ''}}">
+      <view class="step-circle">
+        <text class="step-num">2</text>
+      </view>
+      <text class="step-label">填写信息</text>
+    </view>
+  </view>
+
+  <!-- 步骤1: 选择车型 -->
+  <block wx:if="{{step === 1}}">
+    <view class="section-title">选择您的极氪车型</view>
+    
+    <view class="model-grid">
+      <view 
+        wx:for="{{models}}" wx:key="id" 
+        class="model-card {{selectedModel === item.id ? 'model-selected' : ''}}"
+        bindtap="onSelectModel"
+        data-id="{{item.id}}"
+      >
+        <view class="model-icon-box" style="background: {{item.bgColor}};">
+          <text class="model-emoji">{{item.emoji}}</text>
+        </view>
+        <text class="model-name">{{item.name}}</text>
+        <text class="model-sub">{{item.subtitle}}</text>
+        <view wx:if="{{selectedModel === item.id}}" class="model-check-mark">✓</view>
+      </view>
+    </view>
+
+    <view class="bottom-btn-area">
+      <button class="primary-btn {{selectedModel ? '' : 'btn-disabled'}}" bindtap="onNextStep" disabled="{{!selectedModel}}">
+        下一步
+      </button>
+    </view>
+  </block>
+
+  <!-- 步骤2: 填写信息 -->
+  <block wx:if="{{step === 2}}">
+    <view class="section-title">填写车辆信息</view>
+
+    <!-- 已选车型 -->
+    <view class="selected-model-badge">
+      <text class="badge-icon">🚗</text>
+      <text class="badge-text">{{selectedModelName}}</text>
+      <text class="badge-change" bindtap="onChangeModel">更换</text>
+    </view>
+
+    <!-- 表单区域 -->
+    <view class="form-section">
+      <!-- 车牌号 -->
+      <view class="form-item">
+        <text class="form-label">车牌号</text>
+        <view class="plate-input-group">
+          <view class="plate-province" bindtap="onSelectProvince">
+            <text class="plate-province-text">{{plateProvince || '京'}}</text>
+            <text class="plate-dropdown">▾</text>
+          </view>
+          <input 
+            class="plate-input" 
+            placeholder="请输入车牌" 
+            placeholder-class="plate-placeholder"
+            value="{{plateNumber}}"
+            bindinput="onPlateInput"
+            maxlength="7"
+          />
+        </view>
+      </view>
+
+      <!-- VIN码 -->
+      <view class="form-item">
+        <text class="form-label">VIN码（车架号）</text>
+        <view class="input-wrapper">
+          <input 
+            class="form-input {{vinFocus ? 'input-focus' : ''}}"
+            placeholder="请填写VIN码（后6位）"
+            placeholder-class="input-placeholder"
+            value="{{vin}}"
+            bindinput="onVinInput"
+            maxlength="17"
+            focus="{{vinFocus}}"
+            bindfocus="onVinFocus"
+            bindblur="onVinBlur"
+          />
+          <text wx:if="{{vin.length >= 6}}" class="input-check">✓</text>
+          <text class="input-scan" bindtap="onScanVin">📷</text>
+        </view>
+      </view>
+
+      <!-- 购车日期 -->
+      <view class="form-item">
+        <text class="form-label">购车日期</text>
+      <picker mode="date" value="{{purchaseDate}}" end="{{dateMax}}" bindchange="onDatePickChange">
+        <view class="input-wrapper">
+          <text class="form-input {{purchaseDate ? '' : 'input-placeholder-fallback'}}">
+            {{purchaseDate || '请选择日期'}}
+          </text>
+          <text class="input-arrow">›</text>
+        </view>
+      </picker>
+      </view>
+
+      <!-- 设置为默认车辆 -->
+      <view class="form-item">
+        <view class="form-switch-row">
+          <view>
+            <text class="form-label">设为默认车辆</text>
+            <text class="form-label-sub">首页将默认展示该车辆信息</text>
+          </view>
+          <switch 
+            checked="{{isDefault}}" 
+            bindchange="onSwitchDefault"
+            color="#0066FF"
+          />
+        </view>
+      </view>
+    </view>
+
+    <!-- 提示 -->
+    <view class="form-tip">
+      <text class="tip-icon">💡</text>
+      <text class="tip-text">完善车辆信息后可解锁：场景码自动匹配、保养提醒、充电优惠等专属功能</text>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="bottom-btn-area">
+      <button class="primary-btn" bindtap="onSubmit" loading="{{submitting}}">
+        完成添加
+      </button>
+    </view>
+  </block>
+
+  <!-- 省份选择器（弹层） -->
+  <view class="province-overlay" wx:if="{{showProvincePicker}}" bindtap="onCloseProvince">
+    <view class="province-panel" catchtap="nop">
+      <view class="province-header">
+        <text class="province-title">选择省份</text>
+        <text class="province-close" bindtap="onCloseProvince">✕</text>
+      </view>
+      <view class="province-grid">
+        <view 
+          wx:for="{{provinces}}" wx:key="*this"
+          class="province-cell {{plateProvince === item ? 'province-cell-active' : ''}}"
+          bindtap="onPickProvince"
+          data-code="{{item}}"
+        >
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

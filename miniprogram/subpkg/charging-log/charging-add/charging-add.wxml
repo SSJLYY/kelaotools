@@ -1,0 +1,105 @@
+<!-- 添加充电记录 -->
+<view class="page">
+
+  <!-- 导航 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack"><text class="nav-back-icon">‹</text></view>
+      <view class="nav-title-text">添加充电记录</view>
+      <view class="nav-right-placeholder"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 表单 -->
+  <view class="form-section">
+    <!-- 车辆 -->
+    <view class="form-item">
+      <text class="form-label">选择车辆</text>
+      <picker mode="selector" range="{{carList}}" range-key="label" bindchange="onCarChange">
+        <view class="input-wrapper">
+          <text class="input-value {{selectedCar ? '' : 'placeholder'}}">{{selectedCar || '请选择车辆'}}</text>
+          <text class="input-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 日期 -->
+    <view class="form-item">
+      <text class="form-label">充电日期</text>
+      <picker mode="date" value="{{dateValue}}" bindchange="onDateChange">
+        <view class="input-wrapper">
+          <text class="input-value">{{dateValue}}</text>
+          <text class="input-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 充电类型 -->
+    <view class="form-item">
+      <text class="form-label">充电类型</text>
+      <view class="type-selector">
+        <view class="type-option {{chargeType==='fast'?'type-active':''}}" bindtap="onTypeTap" data-type="fast">
+          <text class="type-icon">⚡</text>
+          <text class="type-name">快充</text>
+        </view>
+        <view class="type-option {{chargeType==='slow'?'type-active':''}}" bindtap="onTypeTap" data-type="slow">
+          <text class="type-icon">🔌</text>
+          <text class="type-name">慢充</text>
+        </view>
+        <view class="type-option {{chargeType==='home'?'type-active':''}}" bindtap="onTypeTap" data-type="home">
+          <text class="type-icon">🏠</text>
+          <text class="type-name">家充</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 费用 -->
+    <view class="form-item">
+      <text class="form-label">充电费用（元）</text>
+      <view class="input-wrapper">
+        <input class="form-input" type="digit" placeholder="请输入费用" value="{{fee}}" bindinput="onFeeInput" />
+        <text class="input-suffix">元</text>
+      </view>
+    </view>
+
+    <!-- 充电度数 -->
+    <view class="form-item">
+      <text class="form-label">充电电量（kWh）</text>
+      <view class="input-wrapper">
+        <input class="form-input" type="digit" placeholder="请输入电量" value="{{kwh}}" bindinput="onKwhInput" />
+        <text class="input-suffix">kWh</text>
+      </view>
+    </view>
+
+    <!-- 充电站名称 -->
+    <view class="form-item">
+      <text class="form-label">充电站名称</text>
+      <view class="input-wrapper">
+        <input class="form-input" placeholder="如：极充站·上海虹桥" value="{{station}}" bindinput="onStationInput" />
+      </view>
+    </view>
+
+    <!-- 优惠券 -->
+    <view class="form-item">
+      <view class="switch-row">
+        <view>
+          <text class="form-label">使用优惠券</text>
+          <text class="form-label-sub">抵扣后金额为最终支付金额</text>
+        </view>
+        <switch checked="{{useCoupon}}" bindchange="onCouponSwitch" color="#0066FF" />
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="form-item">
+      <text class="form-label">备注</text>
+      <textarea class="form-textarea" placeholder="充电时间段、峰谷电价等（选填）" value="{{note}}" bindinput="onNoteInput" maxlength="100" />
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="bottom-btn-area safe-bottom">
+    <button class="save-btn" bindtap="onSave" loading="{{saving}}">保存记录</button>
+  </view>
+</view>

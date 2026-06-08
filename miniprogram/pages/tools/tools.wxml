@@ -1,0 +1,70 @@
+<!-- 智慧场景码 -->
+<view class="page">
+
+  <!-- 顶部导航 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-title-text">智慧场景码</view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-box" bindtap="onSearchFocus">
+      <text class="search-icon">🔍</text>
+      <text class="search-placeholder">搜索场景码</text>
+    </view>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view class="category-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="category-list">
+      <view
+        wx:for="{{categories}}" wx:key="*this"
+        class="category-tag {{activeCategory === item ? 'tag-active' : ''}}"
+        bindtap="onCategoryTap" data-cat="{{item}}"
+      >
+        {{item}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 提示条 -->
+  <view class="scene-tip" wx:if="{{activeCategory === ''}}">
+    <text class="scene-tip-icon">💡</text>
+    <text class="scene-tip-text">场景码来源于网络收集，如有失效请前往"帮助与教程"反馈</text>
+  </view>
+
+  <!-- 场景码列表 -->
+  <view class="scene-list">
+    <view
+      wx:for="{{filteredList}}" wx:key="id"
+      class="scene-card"
+      bindtap="onSceneTap" data-id="{{item.id}}"
+    >
+      <view class="scene-card-left">
+        <text class="scene-card-title">{{item.title}}</text>
+        <text class="scene-card-desc">{{item.desc}}</text>
+        <view class="scene-card-tags">
+          <text class="scene-tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+        </view>
+      </view>
+      <view class="scene-card-right">
+        <view class="scene-code-badge">
+          <text class="scene-code-num">{{item.code}}</text>
+        </view>
+        <button class="scene-copy-btn" catchtap="onCopyCode" data-code="{{item.code}}">复制</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{filteredList.length === 0 && !loading}}">
+    <text class="empty-emoji">📭</text>
+    <text class="empty-text">暂无该分类场景码</text>
+    <text class="empty-sub">更多场景码持续收集中</text>
+  </view>
+
+  <view class="safe-bottom" style="height: 80rpx;"></view>
+</view>

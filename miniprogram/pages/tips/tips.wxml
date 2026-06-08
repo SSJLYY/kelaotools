@@ -1,0 +1,43 @@
+<!-- 用车小贴士列表 -->
+<view class="page" style="background:#F5F5F7;min-height:100vh;">
+
+  <!-- 导航 -->
+  <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
+    <view class="nav-content" style="height: {{navBarHeight}}px;">
+      <view class="nav-back" bindtap="onBack"><text class="nav-back-icon">‹</text></view>
+      <view class="nav-title-text">用车小贴士</view>
+      <view style="width:80rpx;"></view>
+    </view>
+  </view>
+  <view style="height: {{navTotalHeight}}px;"></view>
+
+  <!-- 分类标签 -->
+  <scroll-view class="category-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="category-list">
+      <view wx:for="{{categories}}" wx:key="*this"
+        class="category-tag {{activeCategory===item?'tag-active':''}}"
+        bindtap="onCatTap" data-cat="{{item}}">{{item}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 小贴士列表 -->
+  <view class="tips-list">
+    <view wx:for="{{filteredTips}}" wx:key="id" class="tip-card" bindtap="onTipTap" data-id="{{item.id}}">
+      <view class="tip-top">
+        <view class="tip-icon-box" style="background:{{item.iconBg}};">
+          <text class="tip-emoji">{{item.icon}}</text>
+        </view>
+        <view class="tip-info">
+          <text class="tip-title">{{item.title}}</text>
+          <text class="tip-summary">{{item.summary}}</text>
+        </view>
+      </view>
+      <view class="tip-bottom" wx:if="{{item.tags}}">
+        <text class="tip-tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view style="height:40rpx;"></view>
+</view>

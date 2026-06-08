@@ -1,0 +1,22 @@
+/* 充电月报 */
+.nav-bar { position:fixed; top:0; left:0; right:0; z-index:100; }
+.nav-content { display:flex; align-items:center; padding:0 24rpx; }
+.nav-back { width:80rpx; }
+.report-card { margin:20rpx 24rpx; background:rgba(255,255,255,0.08); border-radius:var(--radius-xl); padding:40rpx 28rpx; }
+.report-amount { text-align:center; }
+.report-currency { font-size:40rpx; font-weight:600; color:rgba(255,255,255,0.5); }
+.report-fee { font-size:96rpx; font-weight:900; color:#FFF; }
+.report-subtitle { font-size:var(--font-xs); color:rgba(255,255,255,0.45); text-align:center; display:block; margin-top:8rpx; }
+.report-stats { display:flex; margin:36rpx 0; padding:24rpx 0; border-top:1rpx solid rgba(255,255,255,0.08); border-bottom:1rpx solid rgba(255,255,255,0.08); }
+.report-stat { flex:1; text-align:center; }
+.report-stat-value { font-size:var(--font-lg); font-weight:800; color:#FFF; display:block; }
+.report-stat-label { font-size:20rpx; color:rgba(255,255,255,0.45); display:block; margin-top:6rpx; }
+.report-row { display:flex; align-items:center; justify-content:space-between; padding:18rpx 0; }
+.report-row-label { font-size:var(--font-sm); color:rgba(255,255,255,0.5); }
+.report-row-value { font-size:var(--font-sm); color:#FFF; font-weight:600; max-width:60%; text-align:right; }
+.type-breakdown { display:flex; gap:16rpx; font-size:var(--font-xs); color:rgba(255,255,255,0.7); }
+.empty-report { text-align:center; padding:120rpx 0; }
+.empty-emoji { font-size:80rpx; display:block; }
+.empty-text { color:rgba(255,255,255,0.4); font-size:var(--font-md); display:block; margin-top:20rpx; }
+.share-area { padding:32rpx 48rpx; }
+.share-btn { width:100%; height:92rpx; background:linear-gradient(135deg,#0066FF,#5B3FFF); border-radius:46rpx; border:none; font-size:var(--font-md); font-weight:600; color:#FFF; display:flex; align-items:center; justify-content:center; }

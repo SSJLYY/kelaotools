@@ -1,0 +1,56 @@
+<!-- 自定义音效 -->
+<view class="page" style="background:#F5F5F7;min-height:100vh;">
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-box" bindtap="onSearch">
+      <text class="search-icon">🔍</text>
+      <text class="search-placeholder">搜索音效</text>
+    </view>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view class="cat-scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="cat-list">
+      <view wx:for="{{categories}}" wx:key="*this"
+        class="cat-tag {{(item==='全部' && !activeCat) || activeCat===item ? 'cat-active' : ''}}" bindtap="onCatTap" data-cat="{{item}}"
+      >{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- 分享横幅 -->
+  <view class="share-banner" bindtap="onShare">
+    <text class="share-icon">📢</text>
+    <text class="share-text">分享你喜欢的小程序给车友吧</text>
+    <button class="share-btn" open-type="share" size="mini">分享</button>
+  </view>
+
+  <!-- 音效列表 -->
+  <view class="sound-list">
+    <view wx:for="{{filteredSounds}}" wx:key="id" class="sound-card">
+      <view class="sound-main">
+        <view class="sound-play-btn {{item.playing?'playing':''}}" bindtap="onPlay" data-id="{{item.id}}">
+          <text class="play-icon">{{item.playing ? '⏸' : '▶'}}</text>
+        </view>
+        <view class="sound-info">
+          <text class="sound-title">{{item.title}}</text>
+          <text class="sound-source">{{item.source}}</text>
+        </view>
+        <view class="sound-actions">
+          <text class="sound-car-icon">{{item.carIcon}}</text>
+          <text class="sound-duration">{{item.duration}}</text>
+          <button class="sound-fav-btn {{item.isFaved ? 'sound-fav-active' : ''}}" catchtap="onFav" data-id="{{item.id}}">{{item.isFaved ? '已藏' : '收藏'}}</button>
+          <button class="sound-copy-btn" catchtap="onCopy" data-code="{{item.code}}">复制</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{filteredSounds.length===0}}">
+    <text class="empty-emoji">🎵</text>
+    <text class="empty-text">暂无该分类音效</text>
+  </view>
+
+  <view style="height:40rpx;"></view>
+</view>
