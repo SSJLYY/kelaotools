@@ -187,3 +187,5 @@ See the `LICENSE` file for details.
 ### Disclaimer
 
 This project is provided as an open-source learning and personal utility project. Vehicle specs, cost estimates, scene codes, and sound codes in this project are for reference only. Please refer to actual vehicle data, official platforms, and real bills. Users are responsible for any risks or losses arising from the use of this project.
+
+项目参考微信小程序"鹏友工具箱"
