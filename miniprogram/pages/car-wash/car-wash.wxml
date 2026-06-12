@@ -1,0 +1,127 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack">
+        <text class="nav-icon">←</text>
+      </view>
+      <view class="nav-title">洗车日记</view>
+      <view class="nav-right" wx:if="{{mode === 'list'}}" bindtap="showAdd">
+        <text class="nav-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表模式 -->
+  <view wx:if="{{mode === 'list'}}" class="content">
+    <!-- 统计卡片 -->
+    <view class="stats-card">
+      <view class="stats-item">
+        <text class="stats-value">¥{{totalAmount}}</text>
+        <text class="stats-label">累计洗车</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-value">¥{{monthAmount}}</text>
+        <text class="stats-label">本月洗车</text>
+      </view>
+      <view class="stats-divider"></view>
+      <view class="stats-item">
+        <text class="stats-value">{{records.length}}</text>
+        <text class="stats-label">洗车次数</text>
+      </view>
+    </view>
+
+    <!-- 记录列表 -->
+    <view wx:if="{{records.length > 0}}" class="record-list">
+      <view wx:for="{{records}}" wx:key="id" class="record-card">
+        <view class="record-header">
+          <view class="record-type">{{item.type}}</view>
+          <view class="record-amount">¥{{item.amountText}}</view>
+        </view>
+        <view class="record-info">
+          <text class="record-date">{{item.date}}</text>
+          <text wx:if="{{item.location}}" class="record-location">{{item.location}}</text>
+        </view>
+        <view wx:if="{{item.note}}" class="record-note">{{item.note}}</view>
+        <view class="record-footer">
+          <text class="record-car">{{item.carName}}</text>
+          <text class="record-delete" bindtap="onDelete" data-id="{{item.id}}">删除</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-state">
+      <text class="empty-icon">🚿</text>
+      <text class="empty-text">还没有洗车记录</text>
+      <view class="empty-btn" bindtap="showAdd">记录洗车</view>
+    </view>
+  </view>
+
+  <!-- 添加模式 -->
+  <view wx:if="{{mode === 'add'}}" class="content">
+    <view class="form-card">
+      <view class="form-title">记录洗车</view>
+
+      <view class="form-item">
+        <text class="form-label">洗车方式 *</text>
+        <picker mode="selector" range="{{washTypes}}" bindchange="onTypeChange">
+          <view class="form-picker">
+            <text>{{form.type || '请选择洗车方式'}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">日期</text>
+        <picker mode="date" value="{{form.date}}" bindchange="onDateChange">
+          <view class="form-picker">
+            <text>{{form.date}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">费用 (元) *</text>
+        <input
+          class="form-input"
+          type="digit"
+          placeholder="请输入洗车费用"
+          value="{{form.amount}}"
+          bindinput="onAmountInput"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">地点</text>
+        <input
+          class="form-input"
+          placeholder="如：XX洗车店"
+          value="{{form.location}}"
+          bindinput="onLocationInput"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <textarea
+          class="form-textarea"
+          placeholder="可选，如：精洗、打蜡等"
+          value="{{form.note}}"
+          bindinput="onNoteInput"
+          maxlength="50"
+        />
+      </view>
+
+      <view class="form-tip">保存后将自动同步到养车账本</view>
+
+      <view class="form-btns">
+        <view class="btn-cancel" bindtap="showList">取消</view>
+        <view class="btn-save" bindtap="saveRecord">保存</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,9 +1,17 @@
-function getNavBarInfo() {
+let cachedNavBarInfo = null;
+
+function getNavBarInfo(force = false) {
+  if (!force && cachedNavBarInfo) return cachedNavBarInfo;
+
   let windowInfo = {};
   let menuButton = {};
 
   try {
-    windowInfo = wx.getWindowInfo ? wx.getWindowInfo() : wx.getSystemInfoSync();
+    if (wx.getWindowInfo) {
+      windowInfo = wx.getWindowInfo();
+    } else if (wx.getSystemInfoSync) {
+      windowInfo = wx.getSystemInfoSync();
+    }
   } catch (e) {
     windowInfo = {};
   }
@@ -25,11 +33,13 @@ function getNavBarInfo() {
 
   navBarHeight = Math.max(navBarHeight, 44);
 
-  return {
+  cachedNavBarInfo = {
     statusBarHeight,
     navBarHeight,
     navTotalHeight: statusBarHeight + navBarHeight,
   };
+
+  return cachedNavBarInfo;
 }
 
 module.exports = {

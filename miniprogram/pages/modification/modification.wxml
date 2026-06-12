@@ -1,0 +1,164 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack">
+        <text class="nav-icon">←</text>
+      </view>
+      <view class="nav-title">改装与配件</view>
+      <view class="nav-right" wx:if="{{mode === 'list'}}" bindtap="showAdd">
+        <text class="nav-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表模式 -->
+  <view wx:if="{{mode === 'list'}}" class="content">
+    <!-- 统计卡片 -->
+    <view class="stats-card">
+      <view class="stats-value">¥{{totalAmount}}</view>
+      <view class="stats-label">累计改装配件花费</view>
+    </view>
+
+    <!-- 分类筛选 -->
+    <scroll-view scroll-x class="category-scroll">
+      <view class="category-list">
+        <view
+          wx:for="{{categories}}"
+          wx:key="key"
+          class="category-tag {{activeCategory === item.key ? 'active' : ''}}"
+          bindtap="onCategoryTap"
+          data-category="{{item.key}}"
+        >
+          <text class="category-icon">{{item.icon}}</text>
+          <text class="category-name">{{item.name}}</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 记录列表 -->
+    <view wx:if="{{filteredRecords.length > 0}}" class="record-list">
+      <view wx:for="{{filteredRecords}}" wx:key="id" class="record-card">
+        <view class="record-header">
+          <view class="record-category">
+            <text class="category-icon">{{item.categoryIcon}}</text>
+            <text class="category-name">{{item.categoryName}}</text>
+          </view>
+          <view class="record-amount">¥{{item.amountText}}</view>
+        </view>
+        <view class="record-name">{{item.name}}</view>
+        <view class="record-info">
+          <text wx:if="{{item.brand}}" class="info-item">品牌: {{item.brand}}</text>
+          <text wx:if="{{item.type}}" class="info-item">{{item.type}}</text>
+        </view>
+        <view class="record-meta">
+          <text class="record-date">{{item.date}}</text>
+          <text wx:if="{{item.source}}" class="record-source">{{item.source}}</text>
+        </view>
+        <view wx:if="{{item.note}}" class="record-note">{{item.note}}</view>
+        <view class="record-footer">
+          <text class="record-car">{{item.carName}}</text>
+          <text class="record-delete" bindtap="onDelete" data-id="{{item.id}}">删除</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-state">
+      <text class="empty-icon">🏎️</text>
+      <text class="empty-text">还没有改装记录</text>
+      <view class="empty-btn" bindtap="showAdd">添加记录</view>
+    </view>
+  </view>
+
+  <!-- 添加模式 -->
+  <view wx:if="{{mode === 'add'}}" class="content">
+    <view class="form-card">
+      <view class="form-title">添加改装/配件记录</view>
+
+      <view class="form-item">
+        <text class="form-label">类型 *</text>
+        <picker mode="selector" range="{{recordTypes}}" bindchange="onTypeChange">
+          <view class="form-picker">
+            <text>{{form.type || '请选择类型'}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">名称 *</text>
+        <input
+          class="form-input"
+          placeholder="如：碳纤维尾翼、运动轮毂"
+          value="{{form.name}}"
+          bindinput="onInput"
+          data-field="name"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">金额 (元) *</text>
+        <input
+          class="form-input"
+          type="digit"
+          placeholder="请输入金额"
+          value="{{form.amount}}"
+          bindinput="onInput"
+          data-field="amount"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">日期</text>
+        <picker mode="date" value="{{form.date}}" bindchange="onDateChange">
+          <view class="form-picker">
+            <text>{{form.date}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">品牌</text>
+        <input
+          class="form-input"
+          placeholder="如：Brembo、AP Racing"
+          value="{{form.brand}}"
+          bindinput="onInput"
+          data-field="brand"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">购买渠道</text>
+        <input
+          class="form-input"
+          placeholder="如：淘宝、京东、实体店"
+          value="{{form.source}}"
+          bindinput="onInput"
+          data-field="source"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <textarea
+          class="form-textarea"
+          placeholder="可选，如：安装店家、使用感受"
+          value="{{form.note}}"
+          bindinput="onInput"
+          data-field="note"
+          maxlength="100"
+        />
+      </view>
+
+      <view class="form-tip">保存后将自动同步到养车账本</view>
+
+      <view class="form-btns">
+        <view class="btn-cancel" bindtap="showList">取消</view>
+        <view class="btn-save" bindtap="saveRecord">保存</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -49,11 +49,15 @@ Page({
       { id: 30, title: '极氪MIX派对模式', desc: '车内灯光、音乐和空间布局提示联动，适合朋友聚会氛围', tags: ['车型','娱乐'], code: '72221014' },
     ],
     filteredList: [],
+    filterSignature: '',
   },
 
   onLoad() {
-    this.initNavBar();
-    this.refreshFilteredList();
+    this.setData({
+      ...getNavBarInfo(),
+      filteredList: this.data.sceneList,
+      filterSignature: '__',
+    });
   },
 
   initNavBar() {
@@ -69,6 +73,9 @@ Page({
   },
 
   refreshFilteredList() {
+    const signature = `${this.data.activeCategory || ''}__${this.data.searchText || ''}`;
+    if (signature === this.data.filterSignature) return;
+
     let list = this.data.sceneList;
     if (this.data.activeCategory) {
       list = list.filter(item => item.tags.includes(this.data.activeCategory));
@@ -81,7 +88,7 @@ Page({
         item.code.toLowerCase().includes(kw)
       );
     }
-    this.setData({ filteredList: list });
+    this.setData({ filteredList: list, filterSignature: signature });
   },
 
   // 搜索
@@ -109,6 +116,13 @@ Page({
     return {
       title: '极氪智慧场景码 - 一键控车更方便',
       path: '/pages/tools/tools',
+    };
+  },
+
+  // 分享到朋友圈
+  onShareTimeline() {
+    return {
+      title: '极氪智慧场景码 - 一键控车更方便',
     };
   },
 });

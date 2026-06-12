@@ -1,6 +1,7 @@
 // 氪佬工具箱 - 首页
 const i18n = require('../../i18n/index');
 const { getNavBarInfo } = require('../../utils/nav');
+const toolsConfig = require('../../config/tools.config');
 
 Page({
   data: {
@@ -39,18 +40,42 @@ Page({
 
     // 每日小贴士
     dailyTip: { icon: '💡', title: '', summary: '' },
+
+    // 工具列表（根据排序配置动态生成）
+    toolList: [],
+
+    // 首页提醒
+    reminders: { loan: true, parking: true, budget: true },
+
+    // 优化：标记首页是否已加载过
+    _dataLoaded: false,
   },
 
   onLoad() {
     this.initSystemInfo();
     this.initDailyTip();
+    this.loadToolList();
   },
 
   onShow() {
     this.renderI18n();
     this.checkCarBinding();
-    this.loadDataOverview();
-    this.initDailyTip();
+    this.loadReminders();
+    this.loadToolList();
+
+    // 优化：首次加载后不再重复拉取全部数据，仅在数据变化时刷新
+    if (!this.data._dataLoaded) {
+      this.loadDataOverview();
+      this.setData({ _dataLoaded: true });
+    } else {
+      // 后续切换仅做轻量刷新
+      this.loadDataOverviewLite();
+    }
+  },
+
+  onHide() {
+    // 优化：切到微信聊天时标记页面不可见，暂停可能的轮询
+    this._pageHidden = true;
   },
 
   // 初始化系统信息
@@ -63,17 +88,72 @@ Page({
     // 多语言更新 app.js langVersion 触发 onShow 刷新
   },
 
+  // ---- 工具列表（支持排序） ----
+  loadToolList() {
+    try {
+      const saved = wx.getStorageSync('kt_tool_sort');
+      const defaultTools = toolsConfig.toolList;
+
+      if (saved && Array.isArray(saved) && saved.length > 0) {
+        const toolMap = {};
+        defaultTools.forEach(t => { toolMap[t.id] = t; });
+        const sorted = [];
+        saved.forEach(s => {
+          if (toolMap[s.id] && s.enabled !== false) {
+            sorted.push(toolMap[s.id]);
+          }
+        });
+        // 未保存过的新工具追加到末尾
+        const sortedIds = new Set(sorted.map(t => t.id));
+        defaultTools.forEach(t => {
+          if (!sortedIds.has(t.id)) sorted.push(t);
+        });
+        this.setData({ toolList: sorted });
+      } else {
+        this.setData({ toolList: defaultTools });
+      }
+    } catch (e) {
+      this.setData({ toolList: toolsConfig.toolList });
+    }
+  },
+
+  // ---- 提醒设置 ----
+  loadReminders() {
+    try {
+      const saved = wx.getStorageSync('kt_home_reminders');
+      if (saved) {
+        this.setData({
+          reminders: {
+            loan: saved.loan !== false,
+            parking: saved.parking !== false,
+            budget: saved.budget !== false,
+          },
+        });
+      }
+    } catch (e) {}
+  },
+
   // ---- 车辆绑定 ----
   checkCarBinding() {
     try {
       const myCar = wx.getStorageSync('kt_my_car');
       if (myCar) {
+        // 优化：添加或切换车辆后立刻显示最新信息
+        const prevPlate = this.data.myCar?.plate;
+        const newPlate = myCar?.plate;
+        const needRefresh = prevPlate !== newPlate;
+
         this.setData({
           hasCar: true,
           myCar,
           welcomeName: myCar.plate || myCar.model || '极氪车主',
           welcomeSub: myCar.year ? `${myCar.year}款 · 已绑定` : '已绑定车辆',
         });
+
+        // 车辆变化时立即刷新数据概览
+        if (needRefresh && this.data._dataLoaded) {
+          this.loadDataOverview();
+        }
       } else {
         this.setData({
           hasCar: false,
@@ -87,7 +167,7 @@ Page({
     }
   },
 
-  // ---- 数据概览 ----
+  // ---- 数据概览（完整版，首次加载） ----
   loadDataOverview() {
     try {
       const now = new Date();
@@ -139,6 +219,27 @@ Page({
     } catch (e) {
       // storage 读取失败
     }
+  },
+
+  // 优化：轻量级刷新（切换页面回来时，不重新读取所有 storage）
+  loadDataOverviewLite() {
+    try {
+      const now = new Date();
+      const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
+      const chargingLogs = wx.getStorageSync('kt_charging_logs') || [];
+      const monthRecords = chargingLogs.filter(l => (l.createdAt || 0) >= monthStart);
+      const hasMonthRecords = monthRecords.length > 0;
+      const monthCharging = monthRecords.reduce((sum, l) => sum + (l.fee || 0), 0);
+      const totalFee = (monthCharging / 100).toFixed(2);
+
+      this.setData({
+        hasChargingRecords: hasMonthRecords,
+        tipBarText: hasMonthRecords
+          ? `本月已充电 ${monthRecords.length} 次，总费用 ¥${totalFee}`
+          : '本月暂无充电记录，快去充一次吧',
+        overviewCharging: this.formatMoney(monthCharging),
+      });
+    } catch (e) {}
   },
 
   // 格式化金额
@@ -316,6 +417,8 @@ Page({
   onPullDownRefresh() {
     this.checkCarBinding();
     this.loadDataOverview();
+    this.loadToolList();
+    this.loadReminders();
     setTimeout(() => wx.stopPullDownRefresh(), 500);
   },
 
@@ -324,6 +427,13 @@ Page({
     return {
       title: '氪佬工具箱 - 极氪车主一站式用车助手',
       path: '/pages/index/index',
+    };
+  },
+
+  // 分享到朋友圈
+  onShareTimeline() {
+    return {
+      title: '氪佬工具箱 - 极氪车主一站式用车助手',
     };
   },
 });

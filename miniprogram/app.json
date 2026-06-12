@@ -13,7 +13,10 @@
     "pages/add-desktop-guide/add-desktop-guide",
     "pages/feature-intro/feature-intro",
     "pages/favorites/favorites",
-    "pages/data-statistics/data-statistics"
+    "pages/data-statistics/data-statistics",
+    "pages/charging-station/charging-station",
+    "pages/car-wash/car-wash",
+    "pages/modification/modification"
   ],
   "subPackages": [
     {

@@ -1,10 +1,10 @@
-<!-- 个人信息 -->
+<!-- 个人信息 & 设置 -->
 <view class="page" style="background:#F5F5F7;min-height:100vh;">
 
   <!-- 导航 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
     <view class="nav-content" style="height: {{navBarHeight}}px;">
-      <view class="nav-back" bindtap="onBack"><text class="nav-back-icon">‹</text></view>
+      <view class="nav-back" bindtap="onBack"><text class="nav-back-icon">&lsaquo;</text></view>
       <view class="nav-title-text">个人信息</view>
       <view style="width:80rpx;"></view>
     </view>
@@ -44,12 +44,57 @@
       <text class="info-value">{{chargingCount}} 条</text>
     </view>
     <view class="info-item">
-      <text class="info-label">注册日期</text>
-      <text class="info-value">{{registerDate}}</text>
-    </view>
-    <view class="info-item">
       <text class="info-label">当前版本</text>
-      <text class="info-value">v1.0.0</text>
+      <text class="info-value">v1.1.0</text>
+    </view>
+  </view>
+
+  <!-- 首页提醒开关 -->
+  <view class="section-title">首页提醒设置</view>
+  <view class="info-card">
+    <view class="info-item" bindtap="onToggleReminder" data-key="loan">
+      <view class="info-left">
+        <text class="info-icon">🏦</text>
+        <text class="info-label">车贷提醒</text>
+      </view>
+      <switch checked="{{reminders.loan}}" color="#0066FF" />
+    </view>
+    <view class="info-item" bindtap="onToggleReminder" data-key="parking">
+      <view class="info-left">
+        <text class="info-icon">🅿️</text>
+        <text class="info-label">停车提醒</text>
+      </view>
+      <switch checked="{{reminders.parking}}" color="#0066FF" />
+    </view>
+    <view class="info-item" bindtap="onToggleReminder" data-key="budget">
+      <view class="info-left">
+        <text class="info-icon">💰</text>
+        <text class="info-label">预算提醒</text>
+      </view>
+      <switch checked="{{reminders.budget}}" color="#0066FF" />
+    </view>
+  </view>
+
+  <!-- 工具排序 -->
+  <view class="section-title">
+    首页工具排序
+    <text class="edit-btn" bindtap="{{editingSort ? 'onDoneSort' : 'onEditSort'}}">
+      {{editingSort ? '完成' : '编辑'}}
+    </text>
+  </view>
+  <view class="info-card tool-sort-card">
+    <view wx:for="{{toolSortList}}" wx:key="id" class="tool-sort-item">
+      <view class="tool-sort-left">
+        <image wx:if="{{!editingSort}}" class="tool-icon" src="{{item.icon}}" mode="aspectFit" />
+        <view wx:if="{{editingSort}}" class="tool-toggle" bindtap="onToggleTool" data-id="{{item.id}}">
+          <text class="toggle-icon {{item.enabled ? 'active' : ''}}">{{item.enabled ? '✓' : ''}}</text>
+        </view>
+        <text class="tool-name {{!item.enabled ? 'disabled' : ''}}">{{item.key}}</text>
+      </view>
+      <view wx:if="{{editingSort}}" class="tool-sort-btns">
+        <text class="sort-btn" bindtap="onMoveUp" data-id="{{item.id}}">▲</text>
+        <text class="sort-btn" bindtap="onMoveDown" data-id="{{item.id}}">▼</text>
+      </view>
     </view>
   </view>
 

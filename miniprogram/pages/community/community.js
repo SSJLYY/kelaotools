@@ -98,4 +98,11 @@ Page({
   onShareAppMessage() {
     return { title: '极氪专属自定义音效，让你的爱车与众不同', path: '/pages/community/community' };
   },
+
+  // 分享到朋友圈
+  onShareTimeline() {
+    return {
+      title: '极氪专属自定义音效，让你的爱车与众不同',
+    };
+  },
 });

@@ -40,6 +40,9 @@ module.exports = {
       carpoolRevenue: 'Carpool Revenue',
       sceneCode: 'Scene Codes',
       vehicleInfo: 'Vehicle Info',
+      chargingStation: 'Station Favorites',
+      carWash: 'Car Wash Diary',
+      modification: 'Mods & Accessories',
     },
   },
 

@@ -11,6 +11,10 @@ Page({
     loading: false,
   },
 
+  // 修复：用于防止快速切换tab时漏拉数据的标志
+  _pendingRefresh: false,
+  _lastLoadTime: 0,
+
   onLoad() {
     this.initNavBar();
   },
@@ -19,11 +23,32 @@ Page({
     this.loadRecords();
   },
 
+  onHide() {
+    // 修复：页面隐藏时标记，如果数据正在加载中则标记为待刷新
+    if (this.data.loading) {
+      this._pendingRefresh = true;
+    }
+  },
+
   initNavBar() {
     this.setData(getNavBarInfo());
   },
 
   loadRecords() {
+    // 修复：防止重复加载，但如果上次加载被中断则强制刷新
+    const now = Date.now();
+    if (this.data.loading && !this._pendingRefresh) {
+      return;
+    }
+    // 快速切换保护：至少间隔200ms才重新加载
+    if (now - this._lastLoadTime < 200 && !this._pendingRefresh) {
+      return;
+    }
+
+    this._lastLoadTime = now;
+    this._pendingRefresh = false;
+    this.setData({ loading: true });
+
     try {
       const logs = wx.getStorageSync('kt_charging_logs') || [];
       // 按时间倒序
@@ -50,9 +75,10 @@ Page({
       this.setData({
         records,
         totalAmount: (total / 100).toFixed(2),
+        loading: false,
       });
     } catch (e) {
-      this.setData({ records: [], totalAmount: '0.00' });
+      this.setData({ records: [], totalAmount: '0.00', loading: false });
     }
   },
 

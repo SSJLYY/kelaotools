@@ -28,6 +28,8 @@ module.exports = {
       items: [
         { id: 'charging-log', key: 'tools.items.chargingLog', icon: '/assets/images/icons/charging-log.png', path: '/subpkg/charging-log/charging-log/charging-log' },
         { id: 'carpool-revenue', key: 'tools.items.carpoolRevenue', icon: '/assets/images/icons/carpool.png', path: '/subpkg/ride-log/carpool-revenue/carpool-revenue' },
+        { id: 'car-wash', key: 'tools.items.carWash', icon: '/assets/images/icons/car-wash.png', path: '/pages/car-wash/car-wash' },
+        { id: 'modification', key: 'tools.items.modification', icon: '/assets/images/icons/modification.png', path: '/pages/modification/modification' },
       ],
     },
     {
@@ -35,6 +37,7 @@ module.exports = {
       items: [
         { id: 'maintenance-ledger', key: 'tools.items.maintenanceLedger', icon: '/assets/images/icons/maintenance.png', path: '/subpkg/maintenance/maintenance-ledger/maintenance-ledger' },
         { id: 'vehicle-info', key: 'tools.items.vehicleInfo', icon: '/assets/images/icons/vehicle-info.png', path: '/subpkg/maintenance/vehicle-info/vehicle-info' },
+        { id: 'charging-station', key: 'tools.items.chargingStation', icon: '/assets/images/icons/charging-station.png', path: '/pages/charging-station/charging-station' },
       ],
     },
   ],

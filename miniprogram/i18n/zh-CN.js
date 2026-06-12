@@ -43,6 +43,9 @@ module.exports = {
       carpoolRevenue: '顺风车收入',
       sceneCode: '智慧场景码',
       vehicleInfo: '车辆信息',
+      chargingStation: '充电桩收藏',
+      carWash: '洗车日记',
+      modification: '改装与配件',
     },
   },
 

@@ -22,7 +22,7 @@
     <view class="category-list">
       <view
         wx:for="{{categories}}" wx:key="*this"
-        class="category-tag {{activeCategory === item ? 'tag-active' : ''}}"
+        class="category-tag {{(item === '全部' && !activeCategory) || activeCategory === item ? 'tag-active' : ''}}"
         bindtap="onCategoryTap" data-cat="{{item}}"
       >
         {{item}}
