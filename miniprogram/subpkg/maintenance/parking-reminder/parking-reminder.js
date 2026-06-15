@@ -81,10 +81,10 @@ Page({
   loadCarName() {
     try {
       const car = wx.getStorageSync('kt_my_car') || {};
-      const carName = car.model ? `${car.model}${car.year ? ` ${car.year}款` : ''}` : '小鹏 G9 2026款';
+      const carName = car.model ? `${car.model}${car.year ? ` ${car.year}款` : ''}` : '极氪 001 2025款';
       this.setData({ 'form.carName': carName, 'form.spot': this.data.form.spot || carName });
     } catch (e) {
-      this.setData({ 'form.carName': '小鹏 G9 2026款', 'form.spot': this.data.form.spot || '小鹏 G9 2026款' });
+      this.setData({ 'form.carName': '极氪 001 2025款', 'form.spot': this.data.form.spot || '极氪 001 2025款' });
     }
   },
 
@@ -94,8 +94,8 @@ Page({
       editingId: '',
       form: {
         name: '',
-        carName: this.data.form?.carName || '小鹏 G9 2026款',
-        spot: this.data.form?.carName || '小鹏 G9 2026款',
+        carName: this.data.form?.carName || '极氪 001 2025款',
+        spot: this.data.form?.carName || '极氪 001 2025款',
         cardType: 'month',
         fee: '',
         monthPrice: '',
@@ -207,9 +207,11 @@ Page({
 
   onInputRemainDays(e) {
     const remainDays = Number(e.detail.value || 0);
+    // 输入剩余天数后，反推开始日期 = 到期日 - 剩余天数
+    const startDate = addDays(this.data.form.expireDate, -remainDays);
     this.setData({
       'form.remainDays': remainDays,
-      'form.expireDate': addDays(this.data.form.startDate, remainDays),
+      'form.startDate': startDate,
       'form.cardType': 'custom',
     });
   },

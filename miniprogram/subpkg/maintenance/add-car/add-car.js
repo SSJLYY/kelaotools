@@ -31,7 +31,7 @@ Page({
     plateNumber: '',
     vin: '',
     purchaseDate: '',
-    isDefault: true,
+    isDefault: false,
 
     // 状态
     vinFocus: false,

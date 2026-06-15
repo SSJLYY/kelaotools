@@ -16,6 +16,7 @@
 .stat-divider { width:1rpx;height:48rpx;background:#F0F0F0;align-self:center; }
 
 .menu-card { margin:20rpx 24rpx;background:#FFF;border-radius:16rpx;overflow:hidden; }
+.menu-card-title { font-size:24rpx;font-weight:600;color:#999;padding:20rpx 24rpx 8rpx;border-bottom:1rpx solid #F5F5F5; }
 .menu-item { display:flex;align-items:center;justify-content:space-between;padding:26rpx 24rpx;border-bottom:1rpx solid #F5F5F5;font-size:var(--font-md);color:var(--text-primary); }
 .menu-item:last-child { border-bottom:none; }
 .menu-arrow { font-size:28rpx;color:#CCC; }

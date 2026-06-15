@@ -16,7 +16,16 @@
     "pages/data-statistics/data-statistics",
     "pages/charging-station/charging-station",
     "pages/car-wash/car-wash",
-    "pages/modification/modification"
+    "pages/modification/modification",
+    "pages/driving-guide/driving-guide",
+    "pages/changelog/changelog",
+    "pages/mileage-log/mileage-log",
+    "pages/maintenance-reminder/maintenance-reminder",
+    "pages/monthly-report/monthly-report",
+    "pages/data-export/data-export",
+    "pages/station-review/station-review",
+    "pages/price-trend/price-trend",
+    "pages/car-community/car-community"
   ],
   "subPackages": [
     {
@@ -51,6 +60,7 @@
         "carpool-revenue/carpool-revenue",
         "loan-calc/loan-calc",
         "loan-records/loan-records",
+        "loan-edit/loan-edit",
         "consumption/consumption"
       ]
     }

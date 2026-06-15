@@ -21,11 +21,15 @@ App({
     langVersion: 0,
     cloudEnv: '',
     cloudReady: false,
+    darkMode: false,
   },
 
   checkUpdate() {
     if (!wx.getUpdateManager) return;
     const um = wx.getUpdateManager();
+    const currentVersion = '2.4.1';
+    const lastVersion = wx.getStorageSync('kt_last_update_version');
+
     um.onUpdateReady(() => {
       wx.showModal({
         title: '新版本已就绪',
@@ -35,6 +39,25 @@ App({
         },
       });
     });
+
+    // 每版仅弹一次更新说明，延迟到页面完全渲染后
+    if (lastVersion !== currentVersion) {
+      setTimeout(() => {
+        try {
+          wx.showModal({
+            title: 'v' + currentVersion + ' 更新说明',
+            content: '首页公告更新至v2.4\n"我的"页新增全部功能入口\n首页工具列表动态化\n多项体验优化',
+            showCancel: false,
+            confirmText: '知道了',
+            success: () => {
+              wx.setStorageSync('kt_last_update_version', currentVersion);
+            },
+          });
+        } catch (e) {
+          wx.setStorageSync('kt_last_update_version', currentVersion);
+        }
+      }, 3000);
+    }
   },
 
   initCloudIfNeeded() {
@@ -58,22 +81,30 @@ App({
         { cloud: 'tool_sort', local: 'kt_tool_sort' },
         { cloud: 'home_reminders', local: 'kt_home_reminders' },
         { cloud: 'charging_stations', local: 'kt_charging_stations' },
+        { cloud: 'car_wash_logs', local: 'kt_car_wash_logs' },
+        { cloud: 'modification_logs', local: 'kt_modification_logs' },
+        { cloud: 'mileage_logs', local: 'kt_mileage_logs' },
+        { cloud: 'maintenance_reminders', local: 'kt_maintenance_reminders' },
+        { cloud: 'my_cars', local: 'kt_my_cars' },
+        { cloud: 'my_car', local: 'kt_my_car' },
       ];
 
       settingsKeys.forEach(({ cloud, local }) => {
-        db.collection('user_settings').where({
-          key: cloud,
-        }).get().then(res => {
-          if (res.data && res.data.length > 0) {
-            const cloudData = res.data[0].value;
-            const localData = wx.getStorageSync(local);
-            // 如果本地没有数据或云端数据更新，则恢复
-            if (!localData || (res.data[0].updatedAt > (wx.getStorageSync(local + '_sync_time') || 0))) {
-              wx.setStorageSync(local, cloudData);
-              wx.setStorageSync(local + '_sync_time', Date.now());
+        try {
+          db.collection('user_settings').where({
+            key: cloud,
+          }).get().then(res => {
+            if (res.data && res.data.length > 0) {
+              const cloudData = res.data[0].value;
+              const localData = wx.getStorageSync(local);
+              // 如果本地没有数据或云端数据更新，则恢复
+              if (!localData || (res.data[0].updatedAt > (wx.getStorageSync(local + '_sync_time') || 0))) {
+                wx.setStorageSync(local, cloudData);
+                wx.setStorageSync(local + '_sync_time', Date.now());
+              }
             }
-          }
-        }).catch(() => {});
+          }).catch(() => {});
+        } catch (e) {}
       });
     } catch (e) {}
   },
@@ -130,6 +161,8 @@ App({
         { cloud: 'ride_logs', local: 'kt_ride_logs' },
         { cloud: 'car_wash_logs', local: 'kt_car_wash_logs' },
         { cloud: 'modification_logs', local: 'kt_modification_logs' },
+        { cloud: 'my_cars', local: 'kt_my_cars' },
+        { cloud: 'my_car', local: 'kt_my_car' },
       ];
 
       let completed = 0;

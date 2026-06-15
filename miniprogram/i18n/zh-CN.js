@@ -36,6 +36,7 @@ module.exports = {
     calculator: '计算工具',
     recorder: '记录工具',
     maintenance: '养车工具',
+    practical: '实用工具',
     items: {
       chargingCostCalc: '充电费用计算',
       chargingLog: '充电记录',
@@ -46,6 +47,8 @@ module.exports = {
       chargingStation: '充电桩收藏',
       carWash: '洗车日记',
       modification: '改装与配件',
+      drivingGuide: '提车指南',
+      changelog: '更新日志',
     },
   },
 

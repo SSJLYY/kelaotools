@@ -15,6 +15,18 @@
   </view>
   <view class="nav-placeholder" style="height: {{navTotalHeight}}px;"></view>
 
+  <!-- ===== 公告通知栏 ===== -->
+  <view class="notice-bar" wx:if="{{notices.length > 0}}">
+    <swiper class="notice-swiper" vertical autoplay circular interval="3000" duration="500">
+      <swiper-item wx:for="{{notices}}" wx:key="id">
+        <view class="notice-item">
+          <text class="notice-tag {{item.type === 'new' ? 'notice-tag-new' : 'notice-tag-update'}}">{{item.type === 'new' ? '新' : '更'}}</text>
+          <text class="notice-text">{{item.text}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
   <!-- ===== 用户欢迎区 ===== -->
   <view class="welcome-section">
     <view class="welcome-row">
@@ -75,20 +87,6 @@
     </view>
   </view>
 
-  <!-- ===== 充电月度报告卡片（有车且有记录时显示） ===== -->
-  <view class="section" wx:if="{{hasCar && hasChargingRecords}}">
-    <view class="report-card-home" bindtap="onGoReport">
-      <view class="report-card-left">
-        <text class="report-card-period">{{reportYear}}年{{reportMonth}}月</text>
-        <text class="report-card-title">充电报告已生成</text>
-      </view>
-      <view class="report-card-right">
-        <text class="report-card-amount">{{overviewCharging}}</text>
-        <text class="report-card-action">查看并分享 ›</text>
-      </view>
-    </view>
-  </view>
-
   <!-- ===== 快捷入口（2x2 网格） ===== -->
   <view class="section">
     <view class="quick-grid">
@@ -101,9 +99,9 @@
         <view class="quick-icon" style="background: #DBEAFE;">🚗</view>
         <text class="quick-name">车辆信息</text>
       </view>
-      <view class="quick-item quick-empty">
-        <view class="quick-icon" style="background: #F3F4F6; opacity: 0.5;">📋</view>
-        <text class="quick-name" style="color:#CCC;">待开放</text>
+      <view class="quick-item" bindtap="onGoDrivingGuide">
+        <view class="quick-icon" style="background: #D1FAE5;">📋</view>
+        <text class="quick-name">提车指南</text>
       </view>
       <view class="quick-item" bindtap="onGoTestDrive" data-type="testdrive" data-path="/subpkg/charging-calc/test-drive/test-drive">
         <view class="quick-icon" style="background: #D1FAE5;">🧪</view>
@@ -163,57 +161,20 @@
       <text class="section-more" bindtap="onMoreTools">更多 ›</text>
     </view>
     <view class="tool-list">
-      <view class="tool-item" bindtap="onToolTap" data-path="/subpkg/charging-calc/charging-cost/charging-cost">
+      <view class="tool-item" wx:for="{{toolList}}" wx:key="id" wx:if="{{index < 5}}" bindtap="onToolTap" data-path="{{item.path}}">
         <view class="tool-item-left">
           <view class="tool-icon-box" style="background: #EDE9FE;">
             <text class="tool-emoji">⚡</text>
           </view>
           <view class="tool-item-info">
-            <text class="tool-item-title">充电费用计算</text>
-            <text class="tool-item-desc">精准计算充电费用，省钱一目了然</text>
+            <text class="tool-item-title">{{item.key}}</text>
           </view>
         </view>
         <text class="tool-arrow">›</text>
       </view>
-
-      <view class="tool-item" bindtap="onToolTap" data-path="/subpkg/charging-log/charging-log/charging-log">
-        <view class="tool-item-left">
-          <view class="tool-icon-box" style="background: #DBEAFE;">
-            <text class="tool-emoji">📋</text>
-          </view>
-          <view class="tool-item-info">
-            <text class="tool-item-title">充电记录</text>
-            <text class="tool-item-desc">记录每一次充电，数据一目了然</text>
-          </view>
-        </view>
-        <text class="tool-arrow">›</text>
-      </view>
-
-      <view class="tool-item" bindtap="onToolTap" data-path="/subpkg/maintenance/maintenance-ledger/maintenance-ledger">
-        <view class="tool-item-left">
-          <view class="tool-icon-box" style="background: #FEF3C7;">
-            <text class="tool-emoji">🔧</text>
-          </view>
-          <view class="tool-item-info">
-            <text class="tool-item-title">养车账本</text>
-            <text class="tool-item-desc">记录保养、维修、保险等用车费用</text>
-          </view>
-        </view>
-        <text class="tool-arrow">›</text>
-      </view>
-
-      <view class="tool-item" bindtap="onToolTap" data-path="/subpkg/ride-log/carpool-revenue/carpool-revenue">
-        <view class="tool-item-left">
-          <view class="tool-icon-box" style="background: #D1FAE5;">
-            <text class="tool-emoji">🚘</text>
-          </view>
-          <view class="tool-item-info">
-            <text class="tool-item-title">顺风车收入</text>
-            <text class="tool-item-desc">记录顺风车收入，出行赚钱两不误</text>
-          </view>
-        </view>
-        <text class="tool-arrow">›</text>
-      </view>
+    </view>
+    <view class="tool-count">
+      <text class="tool-count-text">共 {{toolList.length}} 个工具，点击查看更多</text>
     </view>
   </view>
 

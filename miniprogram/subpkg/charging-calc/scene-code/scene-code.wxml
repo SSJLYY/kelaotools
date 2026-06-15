@@ -96,5 +96,13 @@
     </view>
   </view>
 
+  <!-- 失效反馈 -->
+  <view class="feedback-section" wx:if="{{!feedbackSubmitted}}">
+    <text class="feedback-link" bindtap="onFeedback">场景码失效？点此反馈</text>
+  </view>
+  <view class="feedback-section" wx:else>
+    <text class="feedback-done">已反馈，感谢您的帮助</text>
+  </view>
+
   <view class="safe-bottom" style="height: 40rpx;"></view>
 </view>

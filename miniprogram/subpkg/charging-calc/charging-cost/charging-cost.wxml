@@ -49,12 +49,33 @@
       <input class="price-input" type="digit" value="{{unitPrice}}" bindinput="onPriceInput" />
       <text class="price-unit">元/kWh</text>
     </view>
+
+    <!-- 充电损耗 -->
+    <view class="loss-section">
+      <view class="loss-toggle" bindtap="onToggleLoss">
+        <text class="field-label">充电损耗</text>
+        <view class="toggle-switch {{lossEnabled ? 'toggle-on' : ''}}">
+          <view class="toggle-thumb"></view>
+        </view>
+      </view>
+      <view class="loss-detail" wx:if="{{lossEnabled}}">
+        <view class="loss-presets">
+          <button class="loss-preset-btn {{lossRate === item ? 'loss-active' : ''}}" wx:for="{{lossPresets}}" wx:key="*this" bindtap="onLossPreset" data-rate="{{item}}">{{item}}%</button>
+        </view>
+        <view class="loss-slider-row">
+          <slider class="loss-slider" value="{{lossRate}}" min="0" max="50" step="1" activeColor="#F59E0B" backgroundColor="#E2E8F0" block-size="20" bindchange="onLossSlider" />
+          <input class="loss-input" type="number" value="{{lossRate}}" bindinput="onLossInput" />
+          <text class="loss-unit">%</text>
+        </view>
+        <text class="loss-tip">实际从电网取电量会因损耗增加，费率按实际取电量计算</text>
+      </view>
+    </view>
   </view>
 
   <view class="result-card">
     <view class="result-item">
-      <text class="result-label">需要充电</text>
-      <view class="result-value-row"><text class="result-value dark">{{needKwhText}}</text><text class="result-unit">kWh</text></view>
+      <text class="result-label">{{lossEnabled ? '实际取电' : '需要充电'}}</text>
+      <view class="result-value-row"><text class="result-value dark">{{lossEnabled ? actualKwhText : needKwhText}}</text><text class="result-unit">kWh</text></view>
     </view>
     <view class="result-divider"></view>
     <view class="result-item">

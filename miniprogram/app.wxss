@@ -43,6 +43,23 @@ page {
   box-sizing: border-box;
 }
 
+/* 深色模式 */
+page.dark-mode {
+  --primary: #4D94FF;
+  --primary-light: #1a2a3a;
+  --text-primary: #E5E5E5;
+  --text-secondary: #A0A0A0;
+  --text-light: #707070;
+  --text-placeholder: #505050;
+  --bg-page: #121212;
+  --bg-white: #1E1E1E;
+  --border-color: #333333;
+  --border-light: #2A2A2A;
+  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
+}
+
 /* ========================================
    通用工具类
    ======================================== */

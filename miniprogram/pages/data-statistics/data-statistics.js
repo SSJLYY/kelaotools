@@ -10,6 +10,8 @@ const EXPENSE_COLORS = {
   charging: '#2F66F6',
   maintenance: '#64748B',
   rideCost: '#F59E0B',
+  carWash: '#06B6D4',
+  modification: '#8B5CF6',
 };
 
 Page({
@@ -34,6 +36,7 @@ Page({
     dailyIncomeText: '¥0',
     avgChargingCostText: '¥0',
     dailyCarCostText: '¥0',
+    insightText: '充电均次 ¥0 · 日均用车成本仅 ¥0',
 
     expenseCategories: [],
     chargingOverview: [
@@ -98,20 +101,39 @@ Page({
     const charging = raw.charging.filter(item => this.inRange(item.time, range));
     const maintenance = raw.maintenance.filter(item => this.inRange(item.time, range));
     const rides = raw.rides.filter(item => this.inRange(item.time, range));
+    const carWash = raw.carWash.filter(item => this.inRange(item.time, range));
+    const modification = raw.modification.filter(item => this.inRange(item.time, range));
+    const mileage = raw.mileage.filter(item => this.inRange(item.time, range));
 
     const chargingFee = charging.reduce((sum, item) => sum + item.fee, 0);
     const chargingKwh = charging.reduce((sum, item) => sum + item.kwh, 0);
     const maintenanceFee = maintenance.reduce((sum, item) => sum + item.fee, 0);
     const rideRevenue = rides.reduce((sum, item) => sum + item.revenue, 0);
     const rideCost = rides.reduce((sum, item) => sum + item.cost, 0);
+    const carWashFee = carWash.reduce((sum, item) => sum + item.fee, 0);
+    const modificationFee = modification.reduce((sum, item) => sum + item.fee, 0);
+    const totalMileage = mileage.reduce((sum, item) => sum + item.mileage, 0);
+    const totalConsumption = mileage.reduce((sum, item) => sum + item.consumption, 0);
+    const avgConsumption = totalMileage > 0 ? ((totalConsumption / totalMileage) * 100).toFixed(1) : '0';
 
-    const totalExpense = chargingFee + maintenanceFee + rideCost;
+    const totalExpense = chargingFee + maintenanceFee + rideCost + carWashFee + modificationFee;
     const totalIncome = rideRevenue;
     const balance = totalIncome - totalExpense;
     const days = this.getElapsedDays(range, now);
     const avgChargingCost = charging.length ? chargingFee / 100 / charging.length : 0;
     const dailyCarCost = totalExpense / 100 / days;
     const budget = Number(this.getBudgets()[this.data.activePeriod] || 0);
+
+    // 找出最大支出类型
+    const typeAmounts = [
+      { name: '充电', amount: chargingFee },
+      { name: '养车', amount: maintenanceFee },
+      { name: '洗车', amount: carWashFee },
+      { name: '改装', amount: modificationFee },
+    ].filter(item => item.amount > 0);
+    const maxType = typeAmounts.length > 0
+      ? typeAmounts.reduce((a, b) => (a.amount > b.amount ? a : b))
+      : null;
 
     this.setData({
       periodTitle: range.title,
@@ -125,10 +147,13 @@ Page({
       dailyIncomeText: this.formatMoney(totalIncome / days),
       avgChargingCostText: `¥${this.formatNumber(avgChargingCost)}`,
       dailyCarCostText: `¥${this.formatNumber(dailyCarCost)}`,
-      expenseCategories: this.buildExpenseCategories(chargingFee, maintenanceFee, rideCost),
+      insightText: maxType ? `最大支出类型：${maxType.name}（${this.formatMoney(maxType.amount)}）` : `充电均次 ${this.formatNumber(avgChargingCost)} · 日均用车成本仅 ${this.formatNumber(dailyCarCost)}`,
+      expenseCategories: this.buildExpenseCategories(chargingFee, maintenanceFee, rideCost, carWashFee, modificationFee),
       chargingOverview: [
         { label: '充电', value: `${charging.length}次` },
         { label: '费用', value: this.formatMoney(chargingFee) },
+        { label: '里程', value: `${totalMileage.toFixed(0)}km` },
+        { label: '能耗', value: `${avgConsumption}kWh` },
       ],
       trendMonths: this.buildTrend(raw, now),
     });
@@ -139,25 +164,49 @@ Page({
       const chargingLogs = wx.getStorageSync('kt_charging_logs') || [];
       const maintenanceLogs = wx.getStorageSync('kt_maintenance_logs') || [];
       const rideLogs = wx.getStorageSync('kt_ride_logs') || [];
+      const carWashLogs = wx.getStorageSync('kt_car_wash_logs') || [];
+      const modificationLogs = wx.getStorageSync('kt_modification_logs') || [];
+      const mileageLogs = wx.getStorageSync('kt_mileage_logs') || [];
+
+      // 收集洗车和改装的同步记录ID，用于从养车账本中排除
+      const syncIds = new Set();
+      carWashLogs.forEach(item => syncIds.add(`wash_${item.id}`));
+      modificationLogs.forEach(item => syncIds.add(`mod_${item.id}`));
+
       return {
         charging: chargingLogs.map(item => ({
           fee: Number(item.fee || 0),
           kwh: Number(item.kwh || 0),
           time: this.resolveTime(item),
         })),
-        maintenance: maintenanceLogs.map(item => ({
-          fee: Number(item.fee || 0),
-          typeName: item.typeName || '养车',
-          time: this.resolveTime(item),
-        })),
+        maintenance: maintenanceLogs
+          .filter(item => !syncIds.has(item.id))
+          .map(item => ({
+            fee: Number(item.fee || 0),
+            typeName: item.typeName || '养车',
+            time: this.resolveTime(item),
+          })),
         rides: rideLogs.map(item => ({
           revenue: Number(item.revenue || 0),
           cost: Number(item.cost || 0),
           time: this.resolveTime(item),
         })),
+        carWash: carWashLogs.map(item => ({
+          fee: Number(item.amount || 0),
+          time: this.resolveTime(item),
+        })),
+        modification: modificationLogs.map(item => ({
+          fee: Number(item.amount || 0),
+          time: this.resolveTime(item),
+        })),
+        mileage: mileageLogs.map(item => ({
+          mileage: Number(item.mileage || 0),
+          consumption: Number(item.consumption || 0),
+          time: this.resolveTime(item),
+        })),
       };
     } catch (e) {
-      return { charging: [], maintenance: [], rides: [] };
+      return { charging: [], maintenance: [], rides: [], carWash: [], modification: [], mileage: [] };
     }
   },
 
@@ -206,11 +255,13 @@ Page({
     return Math.max(1, Math.ceil((end - range.start + 1) / 86400000));
   },
 
-  buildExpenseCategories(chargingFee, maintenanceFee, rideCost) {
+  buildExpenseCategories(chargingFee, maintenanceFee, rideCost, carWashFee, modificationFee) {
     const items = [
       { key: 'charging', name: '充电', amount: chargingFee, color: EXPENSE_COLORS.charging },
       { key: 'maintenance', name: '养车', amount: maintenanceFee, color: EXPENSE_COLORS.maintenance },
       { key: 'rideCost', name: '顺风车成本', amount: rideCost, color: EXPENSE_COLORS.rideCost },
+      { key: 'carWash', name: '洗车', amount: carWashFee, color: EXPENSE_COLORS.carWash },
+      { key: 'modification', name: '改装', amount: modificationFee, color: EXPENSE_COLORS.modification },
     ].filter(item => item.amount > 0);
     const total = items.reduce((sum, item) => sum + item.amount, 0);
     if (!total) {
@@ -232,11 +283,13 @@ Page({
       const range = { start: startDate.getTime(), end: endDate.getTime() };
       const charging = raw.charging.filter(item => this.inRange(item.time, range)).reduce((sum, item) => sum + item.fee, 0);
       const maintenance = raw.maintenance.filter(item => this.inRange(item.time, range)).reduce((sum, item) => sum + item.fee, 0);
+      const carWash = raw.carWash.filter(item => this.inRange(item.time, range)).reduce((sum, item) => sum + item.fee, 0);
+      const modification = raw.modification.filter(item => this.inRange(item.time, range)).reduce((sum, item) => sum + item.fee, 0);
       const rideRevenue = raw.rides.filter(item => this.inRange(item.time, range)).reduce((sum, item) => sum + item.revenue, 0);
       months.push({
         label: `${startDate.getMonth() + 1}月`,
         charging,
-        expense: charging + maintenance,
+        expense: charging + maintenance + carWash + modification,
         income: rideRevenue,
       });
     }

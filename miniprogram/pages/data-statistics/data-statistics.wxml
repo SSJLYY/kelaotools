@@ -18,11 +18,11 @@
     >{{item.name}}</view>
   </view>
 
-  <text class="source-tip">数据来源于充电记录、费用备忘和顺风车收入</text>
+  <text class="source-tip">数据来源于充电记录、养车账本、洗车日记、改装配件和顺风车收入</text>
 
   <view class="insight-card">
     <text class="insight-icon">💡</text>
-    <text class="insight-text">充电均次 {{avgChargingCostText}} · 日均用车成本仅 {{dailyCarCostText}}</text>
+    <text class="insight-text">{{insightText}}</text>
   </view>
 
   <view class="card budget-card">

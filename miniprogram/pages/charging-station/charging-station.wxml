@@ -34,6 +34,7 @@
       <view wx:for="{{filteredStations}}" wx:key="id" class="station-card">
         <view class="station-header">
           <view class="station-brand">{{item.brand}}</view>
+          <view class="station-power" wx:if="{{item.powerSummary}}">⚡ {{item.powerSummary}}</view>
           <view class="station-delete" bindtap="onDelete" data-id="{{item.id}}">删除</view>
         </view>
         <view wx:if="{{item.name}}" class="station-name">{{item.name}}</view>

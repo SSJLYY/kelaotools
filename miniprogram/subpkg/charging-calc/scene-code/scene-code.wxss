@@ -156,3 +156,8 @@
 .tip-box-desc {
   font-size: 22rpx; color: #A16207; line-height: 1.6; display: block;
 }
+
+/* 失效反馈 */
+.feedback-section { text-align: center; padding: 24rpx 0; }
+.feedback-link { font-size: 26rpx; color: #0066FF; text-decoration: underline; }
+.feedback-done { font-size: 26rpx; color: #999; }

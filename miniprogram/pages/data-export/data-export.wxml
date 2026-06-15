@@ -1,0 +1,75 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack">
+        <text class="nav-icon">←</text>
+      </view>
+      <view class="nav-title">数据导出</view>
+      <view style="width:44px;"></view>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 导出说明 -->
+    <view class="tip-card">
+      <text class="tip-icon">💡</text>
+      <text class="tip-text">导出的数据为CSV格式，可用Excel或WPS打开查看</text>
+    </view>
+
+    <!-- 选择导出内容 -->
+    <view class="section-card">
+      <view class="section-header">
+        <text class="section-title">选择导出内容</text>
+        <text class="select-all" bindtap="onSelectAll">全选/取消</text>
+      </view>
+      <view class="type-list">
+        <view wx:for="{{exportTypes}}" wx:key="id" class="type-item {{item.checked ? 'checked' : ''}}" bindtap="onToggleType" data-index="{{index}}">
+          <view class="type-checkbox {{item.checked ? 'checked' : ''}}">
+            <text wx:if="{{item.checked}}" class="check-icon">✓</text>
+          </view>
+          <text class="type-icon">{{item.icon}}</text>
+          <text class="type-name">{{item.name}}</text>
+          <text class="type-count">{{item.count}}条</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 日期范围 -->
+    <view class="section-card">
+      <text class="section-title">日期范围</text>
+      <radio-group bindchange="onDateRangeChange" class="radio-group">
+        <view class="radio-list">
+          <label wx:for="{{dateRangeOptions}}" wx:key="value" class="radio-item {{dateRange === item.value ? 'active' : ''}}">
+            <radio value="{{item.value}}" checked="{{dateRange === item.value}}" color="#0066FF" />
+            <text class="radio-label">{{item.label}}</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+
+    <!-- 导出格式 -->
+    <view class="section-card">
+      <text class="section-title">导出格式</text>
+      <radio-group bindchange="onFormatChange" class="radio-group">
+        <view class="radio-list">
+          <label class="radio-item {{exportFormat === 'csv' ? 'active' : ''}}">
+            <radio value="csv" checked="{{exportFormat === 'csv'}}" color="#0066FF" />
+            <text class="radio-label">CSV（推荐）</text>
+          </label>
+          <label class="radio-item {{exportFormat === 'excel' ? 'active' : ''}}">
+            <radio value="excel" checked="{{exportFormat === 'excel'}}" color="#0066FF" disabled />
+            <text class="radio-label">Excel（即将支持）</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+
+    <!-- 导出按钮 -->
+    <view class="export-section">
+      <button class="export-btn" bindtap="onExport" disabled="{{exporting}}">
+        {{exporting ? '导出中...' : '导出数据'}}
+      </button>
+    </view>
+  </view>
+</view>

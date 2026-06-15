@@ -331,3 +331,114 @@
   height: 42rpx;
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+/* 充电损耗 */
+.loss-section {
+  margin-top: 28rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #E2E8F0;
+}
+
+.loss-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-switch {
+  width: 88rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background: #CBD5E1;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.toggle-on {
+  background: #F59E0B;
+}
+
+.toggle-thumb {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #FFF;
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  transition: left 0.2s;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.15);
+}
+
+.toggle-on .toggle-thumb {
+  left: 44rpx;
+}
+
+.loss-detail {
+  margin-top: 20rpx;
+}
+
+.loss-presets {
+  display: flex;
+  gap: 12rpx;
+}
+
+.loss-preset-btn {
+  flex: 1;
+  height: 54rpx;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 12rpx;
+  background: #F1F5F9;
+  color: #64748B;
+  font-size: 24rpx;
+  font-weight: 900;
+  line-height: 54rpx;
+}
+
+.loss-preset-btn::after {
+  border: none;
+}
+
+.loss-active {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.loss-slider-row {
+  display: flex;
+  align-items: center;
+  margin-top: 16rpx;
+}
+
+.loss-slider {
+  flex: 1;
+  margin: 0;
+}
+
+.loss-input {
+  width: 80rpx;
+  height: 52rpx;
+  border-radius: 10rpx;
+  background: #F1F5F9;
+  color: #0F172A;
+  font-size: 28rpx;
+  font-weight: 900;
+  text-align: center;
+}
+
+.loss-unit {
+  margin-left: 8rpx;
+  color: #94A3B8;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.loss-tip {
+  display: block;
+  margin-top: 14rpx;
+  color: #94A3B8;
+  font-size: 22rpx;
+  font-weight: 700;
+}

@@ -9,6 +9,9 @@ Page({
     userName: '极氪车主', registerDate: '', bindCar: '暂无',
     lastActive: '', chargingCount: 0, syncing: false,
 
+    // 深色模式
+    darkMode: false,
+
     // 提醒开关
     reminders: {
       loan: true,
@@ -26,6 +29,7 @@ Page({
     this.loadUserInfo();
     this.loadReminders();
     this.loadToolSort();
+    this.loadDarkMode();
   },
 
   onShow() {
@@ -88,6 +92,39 @@ Page({
         title: reminders[key] ? '已开启提醒' : '已关闭提醒',
         icon: 'success',
       });
+    });
+  },
+
+  // ---- 深色模式 ----
+  loadDarkMode() {
+    try {
+      const darkMode = wx.getStorageSync('kt_dark_mode') || false;
+      this.setData({ darkMode });
+      this.applyDarkMode(darkMode);
+    } catch (e) {}
+  },
+
+  onToggleDarkMode() {
+    const darkMode = !this.data.darkMode;
+    this.setData({ darkMode }, () => {
+      this.applyDarkMode(darkMode);
+      wx.setStorageSync('kt_dark_mode', darkMode);
+      wx.showToast({
+        title: darkMode ? '已开启深色模式' : '已关闭深色模式',
+        icon: 'success',
+      });
+    });
+  },
+
+  applyDarkMode(darkMode) {
+    const app = getApp();
+    if (app.globalData) {
+      app.globalData.darkMode = darkMode;
+    }
+    // 更新导航栏颜色
+    wx.setNavigationBarColor({
+      frontColor: darkMode ? '#ffffff' : '#000000',
+      backgroundColor: darkMode ? '#1a1a1a' : '#F5F5F7',
     });
   },
 

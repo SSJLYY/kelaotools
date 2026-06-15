@@ -1,0 +1,19 @@
+.page { min-height: 100vh; background: #F5F5F7; }
+.nav-bar { position: fixed; left: 0; right: 0; z-index: 100; background: #F5F5F7; }
+.nav-bar-inner { display: flex; align-items: center; padding: 0 16px; }
+.nav-left, .nav-right { width: 60px; height: 44px; display: flex; align-items: center; }
+.nav-icon { font-size: 20px; color: #333; }
+.nav-title { flex: 1; text-align: center; font-size: 17px; font-weight: 600; color: #333; }
+.timeline { padding: 16px 16px 0 32px; position: relative; }
+.version-card { position: relative; padding-left: 24px; padding-bottom: 24px; }
+.version-dot { position: absolute; left: -8px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: #ddd; border: 2px solid #fff; z-index: 1; }
+.dot-active { background: #0066FF; box-shadow: 0 0 0 4px rgba(0,102,255,0.2); }
+.version-line { position: absolute; left: -3px; top: 20px; bottom: 0; width: 2px; background: #E5E7EB; }
+.version-content { background: #fff; border-radius: 12px; padding: 16px; }
+.version-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.version-number { font-size: 18px; font-weight: 700; color: #333; }
+.version-date { font-size: 13px; color: #999; }
+.changes-list { display: flex; flex-direction: column; gap: 6px; }
+.change-item { display: flex; align-items: flex-start; gap: 8px; }
+.change-dot { color: #0066FF; font-size: 14px; line-height: 20px; flex-shrink: 0; }
+.change-text { font-size: 14px; color: #555; line-height: 20px; }

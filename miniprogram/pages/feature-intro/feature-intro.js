@@ -43,8 +43,8 @@ const FEATURES = [
   },
   {
     icon: '🧮', title: '充电费用计算', action: '去计算', path: '/subpkg/charging-calc/charging-cost/charging-cost',
-    desc: '充电前先算一笔账，输入电量单价快速估算费用。计算结果可保存为快捷预设，下次直接选用。',
-    tags: ['快速估算充电费用', '电价预设一键填充', '计算历史记录可查'],
+    desc: '充电前先算一笔账，输入电量单价快速估算费用。支持充电损耗计算，计算结果可保存为快捷预设。',
+    tags: ['快速估算充电费用', '电价预设一键填充', '充电损耗可选', '计算历史记录可查'],
   },
   {
     icon: '⛽', title: '电耗油耗计算', action: '去计算', path: '/subpkg/ride-log/consumption/consumption',
@@ -70,6 +70,76 @@ const FEATURES = [
     icon: '⭐', title: '我的收藏', action: '去查看', path: '/pages/favorites/favorites',
     desc: '常用场景码和音效一键收藏，云端同步永不丢失。管理新增内容也会自动出现在收藏页。',
     tags: ['场景码一键收藏', '音效快速收藏', '云端同步数据不丢', '收藏内容直接跳转'],
+  },
+  {
+    icon: '⚡', title: '充电桩收藏', action: '去使用', path: '/pages/charging-station/charging-station',
+    desc: '记录常用充电站品牌、速度、电价和地址，方便比价选择最优充电站。',
+    tags: ['充电站收藏', '品牌筛选', '地址复制', '比价'],
+  },
+  {
+    icon: '🚿', title: '洗车日记', action: '去使用', path: '/pages/car-wash/car-wash',
+    desc: '记录每次洗车方式和花费，自动同步到养车账本，洗车花费一目了然。',
+    tags: ['洗车记录', '自动同步', '养车账本', '费用统计'],
+  },
+  {
+    icon: '🏎️', title: '改装与配件', action: '去使用', path: '/pages/modification/modification',
+    desc: '记录配件购买和改装项目，花费自动写入养车账本，改装投入清清楚楚。',
+    tags: ['改装记录', '配件购买', '自动同步', '分类管理'],
+  },
+  {
+    icon: '📋', title: '提车指南', action: '去使用', path: '/pages/driving-guide/driving-guide',
+    desc: '28项检查清单，涵盖外观、内饰、功能、电池、文件、随车物品，提车照着走一遍不踩坑。',
+    tags: ['提车检查', '28项清单', '逐项勾选', '进度显示'],
+  },
+  {
+    icon: '🗓️', title: '用车日历', action: '去使用', path: '/pages/index/index', tab: true,
+    desc: '车贷还款、停车场到期、月度预算等提醒一目了然，重要日期不错过。',
+    tags: ['车贷还款提醒', '停车场到期提醒', '预算告警通知', '自定义开关控制'],
+  },
+  {
+    icon: '⚙️', title: '首页工具自定义', action: '去设置', path: '/pages/profile/profile',
+    desc: '在设置里自定义首页显示的常用工具，把最常用的功能排到前面。',
+    tags: ['工具排序自定义', '常用工具优先', '显示/隐藏控制', '首页同步更新'],
+  },
+  {
+    icon: '🛣️', title: '里程记录', action: '去记录', path: '/pages/mileage-log/mileage-log',
+    desc: '记录每次出行里程和能耗，形成用车习惯画像，掌握每公里成本。',
+    tags: ['出行里程记录', '能耗数据追踪', '百公里能耗计算', '出行类型分类'],
+  },
+  {
+    icon: '🔧', title: '保养提醒', action: '去设置', path: '/pages/maintenance-reminder/maintenance-reminder',
+    desc: '根据里程/时间自动提醒保养，再也不错过保养时间。',
+    tags: ['保养时间提醒', '保养里程提醒', '已完成标记', '紧急状态显示'],
+  },
+  {
+    icon: '📊', title: '月度报告', action: '去查看', path: '/pages/monthly-report/monthly-report',
+    desc: '每月自动生成用车报告，充电、里程、支出一目了然，支持分享给车友。',
+    tags: ['月度用车报告', '充电里程统计', '支出分类明细', '一键分享车友'],
+  },
+  {
+    icon: '📤', title: '数据导出', action: '去导出', path: '/pages/data-export/data-export',
+    desc: '导出充电、里程、养车等数据为CSV格式，方便报销或换车时迁移。',
+    tags: ['CSV格式导出', '多类型数据', '日期范围选择', 'Excel可打开'],
+  },
+  {
+    icon: '🌙', title: '深色模式', action: '去设置', path: '/pages/profile/profile',
+    desc: '深色模式让夜间用车更舒适，减少屏幕亮度对眼睛的刺激。',
+    tags: ['护眼模式', '夜间友好', '一键切换', '全局适配'],
+  },
+  {
+    icon: '⚡', title: '电价走势', action: '去查看', path: '/pages/price-trend/price-trend',
+    desc: '24小时电价走势图，帮你选择最佳充电时间，省电又省钱。',
+    tags: ['24小时电价', '峰谷时段', '省电技巧', '充电建议'],
+  },
+  {
+    icon: '⭐', title: '充电站评价', action: '去评价', path: '/pages/station-review/station-review',
+    desc: '给充电站打分+评价，分享充电体验，帮助其他车友选择。',
+    tags: ['充电站评分', '用户体验', '充电速度', '环境评价'],
+  },
+  {
+    icon: '💬', title: '车主社区', action: '去逛逛', path: '/pages/car-community/car-community',
+    desc: '轻量化社区，分享用车心得、经验交流、爱车晒单。',
+    tags: ['用车心得', '经验分享', '提问求助', '爱车晒单'],
   },
 ];
 

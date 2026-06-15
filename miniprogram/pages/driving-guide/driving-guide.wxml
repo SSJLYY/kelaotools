@@ -1,0 +1,41 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack"><text class="nav-icon">&larr;</text></view>
+      <view class="nav-title">提车指南</view>
+      <view class="nav-right" bindtap="onReset"><text class="reset-text">重置</text></view>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-section">
+    <view class="progress-header">
+      <text class="progress-title">检查进度</text>
+      <text class="progress-count">{{checkedCount}}/{{totalItems}}</text>
+    </view>
+    <view class="progress-bar">
+      <view class="progress-fill" style="width: {{checkedCount / totalItems * 100}}%;"></view>
+    </view>
+    <text class="progress-tip" wx:if="{{allChecked}}">所有检查项已通过，可以放心提车！</text>
+    <text class="progress-tip" wx:else>逐项检查，确保车辆状态良好</text>
+  </view>
+
+  <!-- 检查清单 -->
+  <view wx:for="{{categories}}" wx:key="key" wx:for-item="cat" wx:for-index="catIdx" class="category-section">
+    <view class="category-header">
+      <text class="category-icon">{{cat.icon}}</text>
+      <text class="category-name">{{cat.key}}</text>
+      <text class="category-count">{{cat.items.filter(function(i){return i.checked}).length}}/{{cat.items.length}}</text>
+    </view>
+    <view class="check-list">
+      <view wx:for="{{cat.items}}" wx:key="id" wx:for-item="item" wx:for-index="itemIdx" class="check-item {{item.checked ? 'checked' : ''}}" bindtap="onCheckToggle" data-cat-idx="{{catIdx}}" data-item-idx="{{itemIdx}}">
+        <view class="checkbox {{item.checked ? 'checkbox-checked' : ''}}">
+          <text wx:if="{{item.checked}}" class="check-icon">&#10003;</text>
+        </view>
+        <text class="check-text">{{item.text}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view style="height: 60rpx;"></view>
+</view>

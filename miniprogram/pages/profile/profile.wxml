@@ -75,6 +75,18 @@
     </view>
   </view>
 
+  <!-- 深色模式 -->
+  <view class="section-title">显示设置</view>
+  <view class="info-card">
+    <view class="info-item" bindtap="onToggleDarkMode">
+      <view class="info-left">
+        <text class="info-icon">🌙</text>
+        <text class="info-label">深色模式</text>
+      </view>
+      <switch checked="{{darkMode}}" color="#0066FF" />
+    </view>
+  </view>
+
   <!-- 工具排序 -->
   <view class="section-title">
     首页工具排序

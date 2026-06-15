@@ -425,6 +425,12 @@ Page({
           cars = cars.filter(c => c.id !== car.id);
           wx.setStorageSync('kt_my_cars', cars);
           wx.setStorageSync('kt_my_car', cars[0] || null);
+          // 同步到云端
+          const app = getApp();
+          if (app.saveSettingsToCloud) {
+            app.saveSettingsToCloud('kt_my_cars', cars);
+            app.saveSettingsToCloud('kt_my_car', cars[0] || null);
+          }
           wx.showToast({ title: '已删除', icon: 'success' });
           setTimeout(() => wx.switchTab({ url: '/pages/index/index' }), 1000);
         } catch (e) {

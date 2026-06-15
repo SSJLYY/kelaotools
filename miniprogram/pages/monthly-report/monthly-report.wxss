@@ -1,0 +1,253 @@
+.page {
+  min-height: 100vh;
+  background: #F5F5F7;
+}
+
+.nav-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #F5F5F7;
+}
+
+.nav-bar-inner {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.nav-left {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.nav-right {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-btn {
+  background: transparent;
+  color: #0066FF;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  line-height: 44px;
+  min-height: auto;
+  border: none;
+}
+
+.share-btn::after {
+  border: none;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* 报告标题 */
+.report-header {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.report-title {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.report-sub {
+  display: block;
+  font-size: 14px;
+  color: #999;
+}
+
+/* 区块卡片 */
+.section-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* 统计网格 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0066FF;
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* 支出概览 */
+.total-expense {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.expense-label {
+  font-size: 14px;
+  color: #666;
+  margin-right: 8px;
+}
+
+.expense-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #EF4444;
+}
+
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expense-item {
+  display: flex;
+  align-items: center;
+}
+
+.expense-icon {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.expense-name {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+.expense-amount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 洞察卡片 */
+.insight-card {
+  background: #FFFBEB;
+  border: 1px solid #FEF3C7;
+}
+
+.insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.insight-dot {
+  color: #F59E0B;
+  margin-right: 8px;
+  font-weight: 700;
+}
+
+.insight-text {
+  font-size: 14px;
+  color: #92400E;
+  line-height: 1.5;
+}
+
+/* 分享按钮 */
+.share-section {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.share-report-btn {
+  width: 100%;
+  height: 48px;
+  background: #0066FF;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.share-report-btn::after {
+  border: none;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-text {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.empty-sub {
+  font-size: 14px;
+  color: #999;
+}

@@ -42,8 +42,14 @@ Page({
     pricePresets: PRICE_PRESETS,
     quickTargets: [95, 100],
 
+    // 充电损耗
+    lossEnabled: false,
+    lossRate: 10,
+    lossPresets: [5, 8, 10, 15, 20],
+
     needKwhText: '46.9',
-    estimatedFeeText: '56.30',
+    actualKwhText: '51.6',
+    estimatedFeeText: '61.92',
     coupons: [],
     bestCouponText: '满31减30',
   },
@@ -129,17 +135,42 @@ Page({
     this.setData({ unitPrice: value, activePricePreset: matched ? matched.value : '' }, () => this.calculate());
   },
 
+  onToggleLoss() {
+    this.setData({ lossEnabled: !this.data.lossEnabled }, () => this.calculate());
+  },
+
+  onLossSlider(e) {
+    this.setData({ lossRate: Number(e.detail.value) }, () => this.calculate());
+  },
+
+  onLossInput(e) {
+    let val = Math.round(Number(e.detail.value) || 0);
+    val = Math.max(0, Math.min(50, val));
+    this.setData({ lossRate: val }, () => this.calculate());
+  },
+
+  onLossPreset(e) {
+    const rate = Number(e.currentTarget.dataset.rate);
+    this.setData({ lossRate: rate }, () => this.calculate());
+  },
+
   calculate() {
     const current = Number(this.data.currentCharge) || 0;
     const target = Number(this.data.targetCharge) || 0;
     const capacity = Number(this.data.batteryCapacity) || 0;
     const price = Number(this.data.unitPrice) || 0;
     const needKwh = Math.max(0, (target - current) / 100 * capacity);
-    const estimatedFee = needKwh * price;
+
+    let actualKwh = needKwh;
+    if (this.data.lossEnabled && this.data.lossRate > 0) {
+      actualKwh = needKwh / (1 - this.data.lossRate / 100);
+    }
+    const estimatedFee = actualKwh * price;
     const coupons = this.buildCoupons(estimatedFee);
     const best = coupons.find(item => item.available);
     this.setData({
       needKwhText: needKwh.toFixed(1),
+      actualKwhText: actualKwh.toFixed(1),
       estimatedFeeText: estimatedFee.toFixed(2),
       coupons,
       bestCouponText: best ? best.title : '暂无可用',

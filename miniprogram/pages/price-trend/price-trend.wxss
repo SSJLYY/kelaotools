@@ -1,0 +1,349 @@
+.page {
+  min-height: 100vh;
+  background: #F5F5F7;
+}
+
+.nav-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #F5F5F7;
+}
+
+.nav-bar-inner {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.nav-left {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* Tab栏 */
+.tab-bar {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 16px;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.tab-item.active {
+  background: #0066FF;
+  color: #fff;
+}
+
+/* 电价概览 */
+.price-overview {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.price-card.current {
+  background: linear-gradient(135deg, #0066FF, #5B3FFF);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.price-card.current .price-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+.price-card.current .price-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.price-card.current .price-unit {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+.price-cards {
+  display: flex;
+  gap: 12px;
+}
+
+.price-card.peak,
+.price-card.valley {
+  flex: 1;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.price-card.peak {
+  background: #FEF2F2;
+}
+
+.price-card.valley {
+  background: #D1FAE5;
+}
+
+.price-card.peak .price-label,
+.price-card.valley .price-label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.price-card.peak .price-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #EF4444;
+}
+
+.price-card.valley .price-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #10B981;
+}
+
+/* 时段说明 */
+.time-info {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.time-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.time-item:last-child {
+  border-bottom: none;
+}
+
+.time-icon {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.time-label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  min-width: 70px;
+}
+
+.time-value {
+  flex: 1;
+  font-size: 13px;
+  color: #666;
+  text-align: right;
+}
+
+/* 图表区域 */
+.chart-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.chart-scroll {
+  white-space: nowrap;
+}
+
+.chart-container {
+  display: inline-flex;
+  align-items: flex-end;
+  height: 160px;
+  padding-bottom: 40px;
+  gap: 4px;
+}
+
+.chart-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+}
+
+.chart-bar {
+  width: 20px;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+}
+
+.chart-bar.valley {
+  background: #10B981;
+}
+
+.chart-bar.normal {
+  background: #3B82F6;
+}
+
+.chart-bar.peak {
+  background: #EF4444;
+}
+
+.chart-price {
+  font-size: 9px;
+  color: #666;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.chart-hour {
+  font-size: 9px;
+  color: #999;
+  transform: rotate(-45deg);
+  white-space: nowrap;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legend-dot.valley {
+  background: #10B981;
+}
+
+.legend-dot.normal {
+  background: #3B82F6;
+}
+
+.legend-dot.peak {
+  background: #EF4444;
+}
+
+/* 充电建议 */
+.suggestion-card {
+  background: #FFFBEB;
+  border: 1px solid #FEF3C7;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.suggestion-icon {
+  font-size: 24px;
+}
+
+.suggestion-content {
+  flex: 1;
+}
+
+.suggestion-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #92400E;
+  margin-bottom: 4px;
+}
+
+.suggestion-text {
+  display: block;
+  font-size: 13px;
+  color: #A16207;
+  line-height: 1.5;
+}
+
+/* 省电技巧 */
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tip-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.tip-icon {
+  font-size: 24px;
+}
+
+.tip-content {
+  flex: 1;
+}
+
+.tip-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.tip-desc {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}

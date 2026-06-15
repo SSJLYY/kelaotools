@@ -27,10 +27,14 @@
     <view class="card-divider"></view>
 
     <view class="card-content">
-      <text wx:for="{{contentLines}}" wx:key="*this" class="content-line"
-        style="{{item.startsWith('【')?'font-size:30rpx;font-weight:700;margin-top:24rpx;margin-bottom:12rpx;':''}}"
-      >{{item}}
-      </text>
+      <view wx:for="{{contentLines}}" wx:key="index" class="content-line"
+        style="{{item.isPlainText && item.parts[0].text.startsWith('【')?'font-size:30rpx;font-weight:700;margin-top:24rpx;margin-bottom:12rpx;':''}}"
+      >
+        <block wx:if="{{item.isPlainText}}">{{item.parts[0].text}}</block>
+        <block wx:else>
+          <text wx:for="{{item.parts}}" wx:for-item="part" wx:key="index" style="{{part.bold?'font-weight:700;color:#0F172A;':''}}">{{part.text}}</text>
+        </block>
+      </view>
     </view>
   </view>
 

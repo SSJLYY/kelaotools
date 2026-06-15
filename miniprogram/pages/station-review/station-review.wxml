@@ -1,0 +1,170 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack">
+        <text class="nav-icon">←</text>
+      </view>
+      <view class="nav-title">充电站评价</view>
+      <view class="nav-right" wx:if="{{mode === 'list'}}" bindtap="showAdd">
+        <text class="nav-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表模式 -->
+  <view wx:if="{{mode === 'list'}}" class="content">
+    <!-- 筛选标签 -->
+    <scroll-view scroll-x class="filter-scroll">
+      <view class="filter-list">
+        <view
+          wx:for="{{filters}}"
+          wx:key="key"
+          class="filter-tag {{activeFilter === item.key ? 'active' : ''}}"
+          bindtap="onFilterTap"
+          data-filter="{{item.key}}"
+        >
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 评价列表 -->
+    <view wx:if="{{filteredReviews.length > 0}}" class="review-list">
+      <view wx:for="{{filteredReviews}}" wx:key="id" class="review-card">
+        <view class="review-header">
+          <view class="review-station">{{item.stationName}}</view>
+          <view class="review-rating">
+            <text class="rating-star">⭐</text>
+            <text class="rating-value">{{item.avgRating}}</text>
+          </view>
+        </view>
+        <view class="review-ratings">
+          <view class="rating-item">
+            <text class="rating-label">充电速度</text>
+            <view class="rating-stars">
+              <text wx:for="{{5}}" wx:for-item="star" wx:for-index="idx" wx:key="*this" class="star {{idx < item.speed ? 'filled' : ''}}">★</text>
+            </view>
+          </view>
+          <view class="rating-item">
+            <text class="rating-label">电价</text>
+            <view class="rating-stars">
+              <text wx:for="{{5}}" wx:for-item="star" wx:for-index="idx" wx:key="*this" class="star {{idx < item.price ? 'filled' : ''}}">★</text>
+            </view>
+          </view>
+          <view class="rating-item">
+            <text class="rating-label">环境</text>
+            <view class="rating-stars">
+              <text wx:for="{{5}}" wx:for-item="star" wx:for-index="idx" wx:key="*this" class="star {{idx < item.environment ? 'filled' : ''}}">★</text>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.comment}}" class="review-comment">{{item.comment}}</view>
+        <view class="review-footer">
+          <text class="review-user">{{item.userName}}</text>
+          <text class="review-date">{{item.dateText}}</text>
+          <text class="review-delete" bindtap="onDelete" data-id="{{item.id}}">删除</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-state">
+      <text class="empty-icon">⭐</text>
+      <text class="empty-text">还没有评价</text>
+      <view class="empty-btn" bindtap="showAdd">写第一评价</view>
+    </view>
+  </view>
+
+  <!-- 添加模式 -->
+  <view wx:if="{{mode === 'add'}}" class="content">
+    <view class="form-card">
+      <view class="form-title">写评价</view>
+
+      <view class="form-item">
+        <text class="form-label">充电站名称 *</text>
+        <input
+          class="form-input"
+          placeholder="如：XX充电站(人民广场店)"
+          value="{{form.stationName}}"
+          bindinput="onInput"
+          data-field="stationName"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">充电速度</text>
+        <view class="rating-selector">
+          <slider
+            class="rating-slider"
+            value="{{form.speed}}"
+            min="1"
+            max="5"
+            step="1"
+            activeColor="#F59E0B"
+            backgroundColor="#E2E8F0"
+            block-size="20"
+            bindchange="onRatingChange"
+            data-field="speed"
+          />
+          <text class="rating-text">{{form.speed}}星</text>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">电价</text>
+        <view class="rating-selector">
+          <slider
+            class="rating-slider"
+            value="{{form.price}}"
+            min="1"
+            max="5"
+            step="1"
+            activeColor="#F59E0B"
+            backgroundColor="#E2E8F0"
+            block-size="20"
+            bindchange="onRatingChange"
+            data-field="price"
+          />
+          <text class="rating-text">{{form.price}}星</text>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">环境</text>
+        <view class="rating-selector">
+          <slider
+            class="rating-slider"
+            value="{{form.environment}}"
+            min="1"
+            max="5"
+            step="1"
+            activeColor="#F59E0B"
+            backgroundColor="#E2E8F0"
+            block-size="20"
+            bindchange="onRatingChange"
+            data-field="environment"
+          />
+          <text class="rating-text">{{form.environment}}星</text>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">评价内容</text>
+        <textarea
+          class="form-textarea"
+          placeholder="分享你的充电体验..."
+          value="{{form.comment}}"
+          bindinput="onInput"
+          data-field="comment"
+          maxlength="200"
+        />
+      </view>
+
+      <view class="form-btns">
+        <view class="btn-cancel" bindtap="showList">取消</view>
+        <view class="btn-save" bindtap="saveReview">提交评价</view>
+      </view>
+    </view>
+  </view>
+</view>

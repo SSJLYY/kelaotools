@@ -1,0 +1,296 @@
+.page {
+  min-height: 100vh;
+  background: #F5F5F7;
+}
+
+.nav-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #F5F5F7;
+}
+
+.nav-bar-inner {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.nav-left, .nav-right {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* 统计卡片 */
+.stats-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+}
+
+.stats-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stats-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0066FF;
+}
+
+.stats-label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.stats-divider {
+  width: 1px;
+  height: 40px;
+  background: #f0f0f0;
+}
+
+/* 记录列表 */
+.record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.record-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.record-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.record-type {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0066FF;
+  background: #E6F0FF;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+
+.record-date {
+  flex: 1;
+  text-align: right;
+  font-size: 13px;
+  color: #999;
+}
+
+.record-delete {
+  font-size: 13px;
+  color: #EF4444;
+  margin-left: 12px;
+}
+
+.record-main {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 8px;
+}
+
+.record-mileage {
+  display: flex;
+  align-items: baseline;
+}
+
+.mileage-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.mileage-unit {
+  font-size: 14px;
+  color: #666;
+  margin-left: 4px;
+}
+
+.record-consumption {
+  display: flex;
+  align-items: baseline;
+}
+
+.consumption-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #10B981;
+}
+
+.consumption-unit {
+  font-size: 12px;
+  color: #999;
+  margin-left: 4px;
+}
+
+.record-route {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.route-text {
+  color: #666;
+}
+
+.record-note {
+  font-size: 12px;
+  color: #999;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-text {
+  font-size: 15px;
+  color: #999;
+  margin-bottom: 24px;
+}
+
+.empty-btn {
+  background: #0066FF;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+/* 表单 */
+.form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.form-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-item {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  height: 44px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-picker {
+  height: 44px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+}
+
+.picker-arrow {
+  font-size: 12px;
+  color: #999;
+}
+
+.form-textarea {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-cancel, .btn-save {
+  flex: 1;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn-cancel {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.btn-save {
+  background: #0066FF;
+  color: #fff;
+}

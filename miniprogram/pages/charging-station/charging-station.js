@@ -34,8 +34,12 @@ Page({
 
   loadStations() {
     try {
-      const list = wx.getStorageSync('kt_charging_stations') || [];
-      const normalized = list.map(item => ({
+      const list = wx.getStorageSync('kt_charging_stations');
+      if (!Array.isArray(list)) {
+        this.setData({ stations: [], filteredStations: [] });
+        return;
+      }
+      const normalized = list.filter(item => item && typeof item === 'object').map(item => ({
         id: item.id || `${Date.now()}_${Math.random()}`,
         brand: item.brand || '其他',
         speed: item.speed || '',
@@ -43,6 +47,7 @@ Page({
         address: item.address || '',
         name: item.name || '',
         note: item.note || '',
+        powerSummary: item.speed ? `${item.speed}kW` : '',
         createdAt: item.createdAt || Date.now(),
       })).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
@@ -122,6 +127,12 @@ Page({
       const list = wx.getStorageSync('kt_charging_stations') || [];
       list.unshift(station);
       wx.setStorageSync('kt_charging_stations', list);
+
+      const app = getApp();
+      if (app.saveSettingsToCloud) {
+        app.saveSettingsToCloud('kt_charging_stations', list);
+      }
+
       wx.showToast({ title: '收藏成功', icon: 'success' });
       this.setData({ mode: 'list' }, () => this.loadStations());
     } catch (e) {
@@ -141,6 +152,12 @@ Page({
         try {
           const list = (wx.getStorageSync('kt_charging_stations') || []).filter(item => item.id !== id);
           wx.setStorageSync('kt_charging_stations', list);
+
+          const app = getApp();
+          if (app.saveSettingsToCloud) {
+            app.saveSettingsToCloud('kt_charging_stations', list);
+          }
+
           this.loadStations();
           wx.showToast({ title: '已删除', icon: 'success' });
         } catch (err) {

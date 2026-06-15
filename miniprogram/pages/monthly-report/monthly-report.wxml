@@ -1,0 +1,124 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack">
+        <text class="nav-icon">←</text>
+      </view>
+      <view class="nav-title">月度报告</view>
+      <view class="nav-right">
+        <button class="share-btn" open-type="share">分享</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="content">
+    <!-- 报告标题 -->
+    <view class="report-header">
+      <text class="report-title">{{reportTitle}}</text>
+      <text class="report-sub">氪佬工具箱 · 用车月报</text>
+    </view>
+
+    <view wx:if="{{hasData}}">
+      <!-- 充电概览 -->
+      <view class="section-card">
+        <view class="section-title">⚡ 充电概览</view>
+        <view class="stats-grid">
+          <view class="stat-item">
+            <text class="stat-value">{{chargingCount}}</text>
+            <text class="stat-label">充电次数</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">¥{{chargingFee}}</text>
+            <text class="stat-label">充电费用</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{chargingKwh}}</text>
+            <text class="stat-label">充电量(度)</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">¥{{avgChargingFee}}</text>
+            <text class="stat-label">平均单次</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 里程概览 -->
+      <view class="section-card">
+        <view class="section-title">🛣️ 里程概览</view>
+        <view class="stats-grid">
+          <view class="stat-item">
+            <text class="stat-value">{{mileageTotal}}</text>
+            <text class="stat-label">总里程(km)</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{tripCount}}</text>
+            <text class="stat-label">出行次数</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{avgConsumption}}</text>
+            <text class="stat-label">平均能耗</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 支出概览 -->
+      <view class="section-card">
+        <view class="section-title">💰 支出概览</view>
+        <view class="total-expense">
+          <text class="expense-label">总支出</text>
+          <text class="expense-value">¥{{totalExpense}}</text>
+        </view>
+        <view wx:if="{{expenseBreakdown.length > 0}}" class="expense-list">
+          <view wx:for="{{expenseBreakdown}}" wx:key="name" class="expense-item">
+            <text class="expense-icon">{{item.icon}}</text>
+            <text class="expense-name">{{item.name}}</text>
+            <text class="expense-amount">¥{{item.amount > 100 ? (item.amount / 100).toFixed(2) : item.amount}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 养车统计 -->
+      <view class="section-card">
+        <view class="section-title">🔧 养车统计</view>
+        <view class="stats-grid">
+          <view class="stat-item">
+            <text class="stat-value">{{maintenanceCount}}</text>
+            <text class="stat-label">养车记录</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{carWashCount}}</text>
+            <text class="stat-label">洗车次数</text>
+          </view>
+          <view class="stat-item">
+            <text class="stat-value">{{modificationCount}}</text>
+            <text class="stat-label">改装记录</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 智能洞察 -->
+      <view wx:if="{{insights.length > 0}}" class="section-card insight-card">
+        <view class="section-title">💡 智能洞察</view>
+        <view class="insight-list">
+          <view wx:for="{{insights}}" wx:key="*this" class="insight-item">
+            <text class="insight-dot">•</text>
+            <text class="insight-text">{{item}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 分享按钮 -->
+      <view class="share-section">
+        <button class="share-report-btn" open-type="share">分享给车友</button>
+      </view>
+    </view>
+
+    <!-- 无数据状态 -->
+    <view wx:else class="empty-state">
+      <text class="empty-icon">📊</text>
+      <text class="empty-text">本月暂无用车数据</text>
+      <text class="empty-sub">开始记录充电、里程和养车费用吧</text>
+    </view>
+  </view>
+</view>

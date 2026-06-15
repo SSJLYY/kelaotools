@@ -40,6 +40,14 @@ Page({
 
     // 每日小贴士
     dailyTip: { icon: '💡', title: '', summary: '' },
+    dailyTipId: 1,
+
+    // 公告通知栏
+    notices: [
+      { id: 1, text: 'v2.4 新版本：数据导出、深色模式、电价走势上线！', type: 'new' },
+      { id: 2, text: '车主社区开放，分享用车心得、充电站评价', type: 'update' },
+      { id: 3, text: '里程记录、保养提醒、月度报告新功能上线', type: 'new' },
+    ],
 
     // 工具列表（根据排序配置动态生成）
     toolList: [],
@@ -270,23 +278,27 @@ Page({
     wx.navigateTo({ url: '/subpkg/charging-log/charging-report/charging-report' });
   },
 
-  // 每日小贴士（随机轮播）
+  // 每日小贴士（随机切换）
   initDailyTip() {
     const tips = [
-      { icon: '🛞', title: '胎压参考值', summary: '极氪001建议冷胎胎压前2.6/后2.9 bar' },
-      { icon: '❄️', title: '空调省电技巧', summary: '温度设24-26°C，配合座椅通风续航提升8%' },
-      { icon: '🔋', title: '电池充电建议', summary: '日常充电至80%，长途出行再充至100%' },
-      { icon: '🌨️', title: '冬季用车指南', summary: '提前预热电池10分钟，续航更稳定' },
-      { icon: '🔄', title: '动能回收技巧', summary: '城市用强回收模式，续航可提升15-20%' },
+      { id: 1, icon: '🛞', title: '胎压参考值', summary: '极氪001建议冷胎胎压前2.6/后2.9 bar' },
+      { id: 2, icon: '❄️', title: '空调省电技巧', summary: '温度设24-26°C，配合座椅通风续航提升8%' },
+      { id: 3, icon: '🔋', title: '电池充电建议', summary: '日常充电至80%，长途出行再充至100%' },
+      { id: 4, icon: '🌨️', title: '冬季用车指南', summary: '提前预热电池10分钟，续航更稳定' },
+      { id: 5, icon: '🔄', title: '动能回收技巧', summary: '城市用强回收模式，续航可提升15-20%' },
     ];
-    // 按当天日期取不同的tip
-    const idx = new Date().getDate() % tips.length;
-    this.setData({ dailyTip: tips[idx] });
+    const idx = Math.floor(Math.random() * tips.length);
+    this.setData({ dailyTip: tips[idx], dailyTipId: tips[idx].id });
   },
 
-  // 跳转小贴士列表
+  // 跳转小贴士详情（直接跳转对应详情页）
   onGoTips() {
-    wx.navigateTo({ url: '/pages/tips/tips' });
+    wx.navigateTo({ url: '/pages/tips-detail/tips-detail?id=' + (this.data.dailyTipId || 1) });
+  },
+
+  // 跳转提车指南
+  onGoDrivingGuide() {
+    wx.navigateTo({ url: '/pages/driving-guide/driving-guide' });
   },
 
   onGoAddDesktopGuide() {

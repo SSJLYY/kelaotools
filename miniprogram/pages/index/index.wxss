@@ -527,6 +527,16 @@
   font-weight: 300;
 }
 
+.tool-count {
+  text-align: center;
+  padding: 16rpx 0;
+}
+
+.tool-count-text {
+  font-size: var(--font-xs);
+  color: var(--text-light);
+}
+
 /* ===== 充电优惠券（横向滚动） ===== */
 .coupon-scroll {
   width: 100%;
@@ -689,4 +699,34 @@
   padding: 10rpx 0;
   height: auto;
   line-height: 1.4;
+}
+
+/* ===== 公告通知栏 ===== */
+.notice-bar {
+  margin: 0 24rpx 16rpx;
+  background: #FFFBE6;
+  border-radius: 8rpx;
+  padding: 0 16rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+}
+.notice-swiper { flex: 1; height: 64rpx; }
+.notice-item { display: flex; align-items: center; height: 64rpx; }
+.notice-tag {
+  font-size: 20rpx;
+  padding: 2rpx 8rpx;
+  border-radius: 4rpx;
+  margin-right: 12rpx;
+  color: #fff;
+}
+.notice-tag-new { background: #FF6B35; }
+.notice-tag-update { background: #0066FF; }
+.notice-text {
+  font-size: 24rpx;
+  color: #666;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

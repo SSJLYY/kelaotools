@@ -221,6 +221,13 @@ Page({
       maintenanceList.unshift(maintenanceRecord);
       wx.setStorageSync('kt_maintenance_logs', maintenanceList);
 
+      // 即时推送云端
+      const app = getApp();
+      if (app.saveSettingsToCloud) {
+        app.saveSettingsToCloud('kt_modification_logs', modList);
+        app.saveSettingsToCloud('kt_maintenance_logs', maintenanceList);
+      }
+
       wx.showToast({ title: '保存成功', icon: 'success' });
       this.setData({ mode: 'list' }, () => this.loadRecords());
     } catch (e) {
@@ -245,6 +252,13 @@ Page({
           // 删除养车账本中的同步记录
           const maintenanceList = (wx.getStorageSync('kt_maintenance_logs') || []).filter(item => item.id !== `mod_${id}`);
           wx.setStorageSync('kt_maintenance_logs', maintenanceList);
+
+          // 即时推送云端
+          const app = getApp();
+          if (app.saveSettingsToCloud) {
+            app.saveSettingsToCloud('kt_modification_logs', modList);
+            app.saveSettingsToCloud('kt_maintenance_logs', maintenanceList);
+          }
 
           this.loadRecords();
           wx.showToast({ title: '已删除', icon: 'success' });

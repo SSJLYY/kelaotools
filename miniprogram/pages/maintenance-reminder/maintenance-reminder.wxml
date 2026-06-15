@@ -1,0 +1,141 @@
+<view class="page" style="padding-top: {{navTotalHeight}}px;">
+  <!-- 自定义导航栏 -->
+  <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
+    <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
+      <view class="nav-left" bindtap="onBack">
+        <text class="nav-icon">←</text>
+      </view>
+      <view class="nav-title">保养提醒</view>
+      <view class="nav-right" wx:if="{{mode === 'list'}}" bindtap="showAdd">
+        <text class="nav-icon">+</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表模式 -->
+  <view wx:if="{{mode === 'list'}}" class="content">
+    <!-- 紧急提醒横幅 -->
+    <view wx:if="{{urgentCount > 0}}" class="urgent-banner">
+      <text class="urgent-icon">⚠️</text>
+      <text class="urgent-text">有 {{urgentCount}} 项保养即将到期或已超期</text>
+    </view>
+
+    <!-- 提醒列表 -->
+    <view wx:if="{{reminders.length > 0}}" class="reminder-list">
+      <view wx:for="{{reminders}}" wx:key="id" class="reminder-card {{item.status}}">
+        <view class="reminder-header">
+          <view class="reminder-type">{{item.type}}</view>
+          <view class="reminder-status {{item.status}}">{{item.statusText}}</view>
+        </view>
+        <view class="reminder-main">
+          <view class="reminder-dates">
+            <view class="date-item">
+              <text class="date-label">上次保养</text>
+              <text class="date-value">{{item.lastDate}}</text>
+            </view>
+            <view class="date-arrow">→</view>
+            <view class="date-item">
+              <text class="date-label">下次保养</text>
+              <text class="date-value">{{item.nextDate}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="reminder-interval">
+          <text class="interval-text">间隔：每 {{item.intervalDays}} 天 / 每 {{item.intervalMileage}} km</text>
+        </view>
+        <view wx:if="{{item.note}}" class="reminder-note">{{item.note}}</view>
+        <view class="reminder-actions">
+          <view class="action-btn done-btn" bindtap="onMarkDone" data-id="{{item.id}}">已完成</view>
+          <view class="action-btn delete-btn" bindtap="onDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:else class="empty-state">
+      <text class="empty-icon">🔧</text>
+      <text class="empty-text">还没有保养提醒</text>
+      <view class="empty-btn" bindtap="showAdd">添加保养提醒</view>
+    </view>
+  </view>
+
+  <!-- 添加模式 -->
+  <view wx:if="{{mode === 'add'}}" class="content">
+    <view class="form-card">
+      <view class="form-title">添加保养提醒</view>
+
+      <view class="form-item">
+        <text class="form-label">保养类型 *</text>
+        <picker mode="selector" range="{{reminderTypes}}" bindchange="onTypeChange">
+          <view class="form-picker">
+            <text>{{form.type || '请选择保养类型'}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">上次保养日期</text>
+        <picker mode="date" value="{{form.lastDate}}" bindchange="onLastDateChange">
+          <view class="form-picker">
+            <text>{{form.lastDate}}</text>
+            <text class="picker-arrow">▼</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">上次保养里程 (km)</text>
+        <input
+          class="form-input"
+          type="digit"
+          placeholder="如：15000，可选填"
+          value="{{form.lastMileage}}"
+          bindinput="onInput"
+          data-field="lastMileage"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">保养间隔天数</text>
+        <input
+          class="form-input"
+          type="number"
+          placeholder="如：180"
+          value="{{form.intervalDays}}"
+          bindinput="onInput"
+          data-field="intervalDays"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">保养间隔里程 (km)</text>
+        <input
+          class="form-input"
+          type="number"
+          placeholder="如：10000"
+          value="{{form.intervalMileage}}"
+          bindinput="onInput"
+          data-field="intervalMileage"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <textarea
+          class="form-textarea"
+          placeholder="可选，如：使用全合成机油"
+          value="{{form.note}}"
+          bindinput="onInput"
+          data-field="note"
+          maxlength="100"
+        />
+      </view>
+
+      <view class="form-btns">
+        <view class="btn-cancel" bindtap="showList">取消</view>
+        <view class="btn-save" bindtap="saveReminder">保存</view>
+      </view>
+    </view>
+  </view>
+</view>
