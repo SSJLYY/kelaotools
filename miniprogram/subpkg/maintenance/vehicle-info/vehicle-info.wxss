@@ -218,3 +218,24 @@
   background: rgba(255,255,255,0.1);
   color: rgba(255,255,255,0.5);
 }
+
+/* ===== 深色模式 ===== */
+.dark-mode .page {
+  background: #121212 !important;
+}
+
+.dark-mode .nav-bar {
+  background: transparent !important;
+}
+
+.dark-mode .card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .param-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .param-value {
+  color: #E5E5E5 !important;
+}

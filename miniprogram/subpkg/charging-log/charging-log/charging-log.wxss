@@ -50,3 +50,97 @@
   display:flex; align-items:center; justify-content:center;
 }
 .fab-icon { font-size:48rpx; font-weight:300; color:#FFF; }
+
+/* ===== 深色模式 ===== */
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.97) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .nav-back-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-title-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-right-btn {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-report-text {
+  color: #4D94FF !important;
+}
+
+.dark-mode .summary-bar {
+  background: #1E1E1E !important;
+  border-bottom-color: #333333 !important;
+}
+
+.dark-mode .summary-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .record-card:active {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .record-type {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .record-price {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .record-detail {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .empty-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .empty-desc {
+  color: #A0A0A0 !important;
+}
+
+/* ===== 深色模式补充 ===== */
+.dark-mode page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .summary-bar {
+  border-bottom-color: #333333 !important;
+}
+
+.dark-mode .record-icon-box {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .empty-box {
+  background: transparent !important;
+}
+
+.dark-mode .empty-btn {
+  background: linear-gradient(135deg, #0066FF, #5B3FFF) !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .fab-btn {
+  background: linear-gradient(135deg, #0066FF, #5B3FFF) !important;
+}

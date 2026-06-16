@@ -1,5 +1,5 @@
 Page({
-  data: { mode:'elec', distance:'', kwhUsed:'', fuelVol:'', fuelPrice:'', resultElec:'', resultFuel:'' },
+  data: { darkMode: false, mode:'elec', distance:'', kwhUsed:'', fuelVol:'', fuelPrice:'', resultElec:'', resultFuel:'' },
   onMode(e) { this.setData({ mode:e.currentTarget.dataset.mode, resultElec:'', resultFuel:'' }); },
   onInput(e) { this.setData({ [e.currentTarget.dataset.field]: e.detail.value }); },
   onCalc() {
@@ -15,5 +15,7 @@ Page({
       this.setData({ resultFuel: `${l100}L/100km · ¥${perKm}/km` });
     }
   },
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

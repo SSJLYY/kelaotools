@@ -1,5 +1,11 @@
 <!-- 氪佬工具箱 - 首页 -->
-<view class="page">
+<view class="page {{darkMode ? 'dark-mode' : ''}}">
+
+  <!-- ===== 骨架屏 ===== -->
+  <skeleton loading="{{loading}}" darkMode="{{darkMode}}" />
+
+  <!-- ===== 真实内容 ===== -->
+  <block wx:if="{{!loading}}">
 
   <!-- ===== 顶部导航栏 ===== -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
@@ -167,7 +173,7 @@
             <text class="tool-emoji">⚡</text>
           </view>
           <view class="tool-item-info">
-            <text class="tool-item-title">{{item.key}}</text>
+            <text class="tool-item-title">{{item.name}}</text>
           </view>
         </view>
         <text class="tool-arrow">›</text>
@@ -276,4 +282,5 @@
   <!-- ===== 底部占位 ===== -->
   <view class="safe-bottom" style="height: 120rpx;"></view>
 
+  </block>
 </view>

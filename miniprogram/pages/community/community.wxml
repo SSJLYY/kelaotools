@@ -1,5 +1,5 @@
 <!-- 自定义音效 -->
-<view class="page" style="background:#F5F5F7;min-height:100vh;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background:{{darkMode ? '#121212' : '#F5F5F7'}};min-height:100vh;">
 
   <!-- 搜索栏 -->
   <view class="search-bar">
@@ -34,13 +34,19 @@
         </view>
         <view class="sound-info">
           <text class="sound-title">{{item.title}}</text>
-          <text class="sound-source">{{item.source}}</text>
+          <view class="sound-meta">
+            <text class="sound-source">{{item.source}}</text>
+            <text class="sound-dot" wx:if="{{item.source && item.duration}}">·</text>
+            <text class="sound-duration">{{item.duration}}</text>
+          </view>
         </view>
         <view class="sound-actions">
-          <text class="sound-car-icon">{{item.carIcon}}</text>
-          <text class="sound-duration">{{item.duration}}</text>
-          <button class="sound-fav-btn {{item.isFaved ? 'sound-fav-active' : ''}}" catchtap="onFav" data-id="{{item.id}}">{{item.isFaved ? '已藏' : '收藏'}}</button>
-          <button class="sound-copy-btn" catchtap="onCopy" data-code="{{item.code}}">复制</button>
+          <view class="action-btn fav-btn {{item.isFaved ? 'fav-active' : ''}}" catchtap="onFav" data-id="{{item.id}}">
+            <text class="action-icon">{{item.isFaved ? '★' : '☆'}}</text>
+          </view>
+          <view class="action-btn copy-btn" catchtap="onCopy" data-code="{{item.code}}">
+            <text class="action-icon">📋</text>
+          </view>
         </view>
       </view>
     </view>

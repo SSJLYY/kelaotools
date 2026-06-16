@@ -8,10 +8,23 @@ Page({
     sounds: soundsData,
     filteredSounds: [],
     favSoundIds: [],
+    darkMode: false,
+  },
+
+  onLoad() {
+    this.loadDarkMode();
   },
 
   onShow() {
+    this.loadDarkMode();
     this.loadSoundFavs();
+  },
+
+  loadDarkMode() {
+    try {
+      const darkMode = wx.getStorageSync('kt_dark_mode') || false;
+      this.setData({ darkMode });
+    } catch (e) {}
   },
 
   loadSoundFavs() {

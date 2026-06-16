@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
   background: #F5F5F7;
@@ -294,3 +299,189 @@
   background: #0066FF;
   color: #fff;
 }
+
+/* 辅助驾驶标签 */
+.record-assist {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #FFF7ED;
+  border-radius: 6px;
+}
+
+.assist-label {
+  font-size: 12px;
+  color: #F59E0B;
+  font-weight: 600;
+}
+
+.assist-value {
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
+
+.assist-ratio {
+  font-size: 12px;
+  color: #F59E0B;
+  background: #FEF3C7;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* 辅助驾驶占比提示 */
+.form-hint {
+  font-size: 12px;
+  color: #F59E0B;
+  margin-top: 4px;
+  display: block;
+}
+
+/* 年度汇总卡片 */
+.year-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.year-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.year-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.year-picker {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.year-picker-text {
+  font-size: 14px;
+  color: #0066FF;
+  font-weight: 600;
+}
+
+.year-stats-row {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.year-stats-item {
+  flex: 1;
+  text-align: center;
+}
+
+.year-stats-value {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0066FF;
+}
+
+.year-assist-color {
+  color: #F59E0B;
+}
+
+.year-stats-label {
+  display: block;
+  font-size: 11px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.year-month-list {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+}
+
+.year-month-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  gap: 8px;
+}
+
+.year-month-name {
+  width: 32px;
+  font-size: 13px;
+  color: #666;
+}
+
+.year-month-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.year-month-bar {
+  height: 100%;
+  background: #0066FF;
+  border-radius: 4px;
+  min-width: 2px;
+}
+
+.year-month-value {
+  width: 60px;
+  text-align: right;
+  font-size: 12px;
+  color: #333;
+  font-weight: 600;
+}
+
+.year-month-assist {
+  width: 56px;
+  text-align: right;
+  font-size: 11px;
+  color: #F59E0B;
+}
+
+/* 深色模式补充 */
+.dark-mode .stats-card,
+.dark-mode .year-card,
+.dark-mode .record-card,
+.dark-mode .form-card { background: #1E1E1E !important; }
+.dark-mode .stats-value { color: #4D9EFF !important; }
+.dark-mode .stats-label { color: #888 !important; }
+.dark-mode .stats-divider { background: #333 !important; }
+.dark-mode .record-type { background: #1A2A3A !important; color: #4D9EFF !important; }
+.dark-mode .record-date { color: #888 !important; }
+.dark-mode .mileage-value { color: #E5E5E5 !important; }
+.dark-mode .mileage-unit { color: #888 !important; }
+.dark-mode .consumption-value { color: #34D399 !important; }
+.dark-mode .consumption-unit { color: #888 !important; }
+.dark-mode .route-text { color: #aaa !important; }
+.dark-mode .record-note { color: #888 !important; border-top-color: #333 !important; }
+.dark-mode .record-assist { background: #2A2010 !important; }
+.dark-mode .assist-value { color: #E5E5E5 !important; }
+.dark-mode .year-title { color: #E5E5E5 !important; }
+.dark-mode .year-picker { border-color: #444 !important; }
+.dark-mode .year-stats-value { color: #4D9EFF !important; }
+.dark-mode .year-assist-color { color: #FBBF24 !important; }
+.dark-mode .year-stats-label { color: #888 !important; }
+.dark-mode .year-month-list { border-top-color: #333 !important; }
+.dark-mode .year-month-name { color: #aaa !important; }
+.dark-mode .year-month-bar-wrap { background: #333 !important; }
+.dark-mode .year-month-value { color: #E5E5E5 !important; }
+.dark-mode .form-label { color: #E5E5E5 !important; }
+.dark-mode .form-input { background: #2A2A2A !important; border-color: #444 !important; color: #E5E5E5 !important; }
+.dark-mode .form-picker { background: #2A2A2A !important; border-color: #444 !important; color: #E5E5E5 !important; }
+.dark-mode .form-textarea { background: #2A2A2A !important; border-color: #444 !important; color: #E5E5E5 !important; }
+.dark-mode .form-hint { color: #FBBF24 !important; }
+.dark-mode .assist-label { color: #FBBF24 !important; }
+.dark-mode .assist-ratio { background: #3A2A00 !important; color: #FBBF24 !important; }

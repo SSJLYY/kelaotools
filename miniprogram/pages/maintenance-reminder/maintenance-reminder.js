@@ -15,7 +15,7 @@ function daysBetween(date1, date2) {
 }
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -38,12 +38,12 @@ Page({
     },
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
     this.resetForm();
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadReminders();
     this.loadCarName();
   },
@@ -237,6 +237,8 @@ Page({
     });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     if (this.data.mode === 'add') {
       this.showList();

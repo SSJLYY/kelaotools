@@ -3,7 +3,7 @@ const { getNavBarInfo } = require('../../utils/nav');
 const tipsData = require('../../data/tips.data');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20, navBarHeight: 44, navTotalHeight: 64,
     tip: {}, contentLines: [], relatedTips: [],
   },
@@ -45,5 +45,7 @@ Page({
     wx.redirectTo({ url: `/pages/tips-detail/tips-detail?id=${id}` });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

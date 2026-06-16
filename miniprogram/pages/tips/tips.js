@@ -3,7 +3,7 @@ const { getNavBarInfo } = require('../../utils/nav');
 const tipsData = require('../../data/tips.data');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20, navBarHeight: 44, navTotalHeight: 64,
     categories: ['全部','省电技巧','换季保养','胎压参考','电池养护','安全驾驶','隐藏功能','充电技巧','用车常识'],
     activeCategory: '',
@@ -11,7 +11,7 @@ Page({
     filteredTips: [],
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.initNavBar();
     this.updateFiltered();
   },
@@ -32,7 +32,7 @@ Page({
     this.setData({ filteredTips: list });
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.updateFiltered();
   },
 
@@ -41,5 +41,7 @@ Page({
     wx.navigateTo({ url: `/pages/tips-detail/tips-detail?id=${id}` });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

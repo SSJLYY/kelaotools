@@ -2,7 +2,7 @@
 const { getNavBarInfo } = require('../../utils/nav');
 
 Page({
-  data: {
+  data: { darkMode: false,
     // 导航栏
     statusBarHeight: 20,
     navBarHeight: 44,
@@ -139,7 +139,7 @@ Page({
     saving: false,
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.initNavBar();
     this.loadExistingCar();
   },
@@ -258,6 +258,8 @@ Page({
     }
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     wx.navigateBack();
   },

@@ -2,7 +2,7 @@
 const { getNavBarInfo } = require('../../../utils/nav');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -11,11 +11,11 @@ Page({
     paidCount: 0,
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.load();
   },
 
@@ -60,5 +60,7 @@ Page({
     });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

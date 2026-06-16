@@ -1,5 +1,5 @@
 <!-- 智慧场景码 -->
-<view class="page">
+<view class="page {{darkMode ? 'dark-mode' : ''}}">
 
   <!-- 顶部导航 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">

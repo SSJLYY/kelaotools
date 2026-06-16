@@ -1,0 +1,256 @@
+.skeleton {
+  width: 100%;
+  min-height: 100vh;
+  background: #F5F5F7;
+  padding-bottom: 40rpx;
+}
+
+.sk-animate {
+  background: linear-gradient(90deg, #EBEDF0 25%, #F5F5F7 37%, #EBEDF0 63%);
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.4s ease infinite;
+}
+
+@keyframes sk-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* ===== 导航栏 ===== */
+.sk-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 88rpx 24rpx 20rpx;
+}
+.sk-nav-logo {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 12rpx;
+}
+.sk-nav-title {
+  width: 200rpx;
+  height: 36rpx;
+  border-radius: 8rpx;
+}
+.sk-nav-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+}
+
+/* ===== 公告栏 ===== */
+.sk-notice {
+  margin: 16rpx 24rpx 0;
+  height: 64rpx;
+  border-radius: 8rpx;
+}
+
+/* ===== 欢迎区 ===== */
+.sk-welcome {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+}
+.sk-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.sk-welcome-text {
+  margin-left: 18rpx;
+  flex: 1;
+}
+.sk-line {
+  border-radius: 6rpx;
+}
+.sk-line-name {
+  width: 180rpx;
+  height: 32rpx;
+}
+.sk-line-sub {
+  width: 260rpx;
+  height: 24rpx;
+  margin-top: 10rpx;
+}
+
+/* ===== 气泡引导 ===== */
+.sk-bubble {
+  margin: 20rpx 24rpx 0;
+  height: 96rpx;
+  border-radius: 20rpx;
+}
+
+/* ===== 快捷入口 ===== */
+.sk-quick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 16rpx 24rpx 0;
+}
+.sk-quick-item {
+  flex: 0 0 calc(50% - 8rpx);
+  width: calc(50% - 8rpx);
+  height: 112rpx;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+/* ===== 提示条 ===== */
+.sk-tip-bar {
+  margin: 0 24rpx 16rpx;
+  height: 72rpx;
+  border-radius: 16rpx;
+}
+
+/* ===== 小贴士 ===== */
+.sk-tips-banner {
+  margin: 0 24rpx 16rpx;
+  height: 96rpx;
+  border-radius: 16rpx;
+}
+
+/* ===== 数据概览 ===== */
+.sk-data-overview {
+  display: flex;
+  align-items: center;
+  margin: 8rpx 24rpx 16rpx;
+  padding: 28rpx 0;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+.sk-data-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sk-data-value {
+  width: 120rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
+}
+.sk-data-label {
+  width: 80rpx;
+  height: 24rpx;
+  border-radius: 6rpx;
+  margin-top: 10rpx;
+}
+.sk-data-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: #F0F0F0;
+}
+
+/* ===== Section Header ===== */
+.sk-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 24rpx 16rpx;
+}
+.sk-line-title {
+  width: 140rpx;
+  height: 32rpx;
+}
+.sk-line-more {
+  width: 80rpx;
+  height: 24rpx;
+}
+
+/* ===== 工具列表 ===== */
+.sk-tool-list {
+  margin: 0 24rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+.sk-tool-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  border-bottom: 1rpx solid #F5F5F5;
+}
+.sk-tool-item:last-child {
+  border-bottom: none;
+}
+.sk-tool-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+}
+.sk-tool-text {
+  flex: 1;
+  height: 28rpx;
+  border-radius: 6rpx;
+  margin-left: 20rpx;
+}
+.sk-tool-arrow {
+  width: 32rpx;
+  height: 28rpx;
+  border-radius: 6rpx;
+}
+
+/* ===== 优惠券 ===== */
+.sk-coupon-list {
+  display: flex;
+  gap: 20rpx;
+  padding: 0 24rpx;
+  overflow: hidden;
+}
+.sk-coupon-card {
+  flex-shrink: 0;
+  width: 560rpx;
+  height: 240rpx;
+  border-radius: 16rpx;
+}
+
+/* ===== 兼职外快 ===== */
+.sk-sidejob-list {
+  display: flex;
+  gap: 16rpx;
+  padding: 0 24rpx;
+}
+.sk-sidejob-item {
+  flex: 1;
+  height: 220rpx;
+  border-radius: 16rpx;
+}
+
+/* ===== 深色模式 ===== */
+.skeleton-dark {
+  background: #121212;
+}
+
+.skeleton-dark .sk-animate {
+  background: linear-gradient(90deg, #2A2A2A 25%, #333333 37%, #2A2A2A 63%);
+  background-size: 200% 100%;
+  animation: sk-shimmer-dark 1.4s ease infinite;
+}
+
+@keyframes sk-shimmer-dark {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.skeleton-dark .sk-data-overview {
+  background: #1E1E1E;
+  box-shadow: none;
+}
+
+.skeleton-dark .sk-data-divider {
+  background: #333333;
+}
+
+.skeleton-dark .sk-tool-list {
+  background: #1E1E1E;
+  box-shadow: none;
+}
+
+.skeleton-dark .sk-tool-item {
+  border-bottom-color: #333333;
+}

@@ -1,5 +1,5 @@
 <!-- 车辆设置 - 车系和年款选择 -->
-<view class="page">
+<view class="page {{darkMode ? 'dark-mode' : ''}}">
 
   <!-- 顶部导航栏 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">

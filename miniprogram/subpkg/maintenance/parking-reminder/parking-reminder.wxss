@@ -1,4 +1,4 @@
-.page {
+page {
   min-height: 100vh;
   background: #F4F6F9;
   color: #111827;
@@ -83,3 +83,41 @@
 .preset-item input { height: 56rpx; border-radius: 8rpx; background: #FFF; border: 2rpx solid #E2E8F0; text-align: center; font-size: 24rpx; box-sizing: border-box; }
 .save-btn { margin: 28rpx 16rpx 0; height: 90rpx; border-radius: 14rpx; background: #2F66F6; color: #FFF; font-size: 30rpx; font-weight: 900; border: none; }
 .safe-bottom { height: 44rpx; padding-bottom: env(safe-area-inset-bottom); }
+
+/* ===== 深色模式 ===== */
+.dark-mode .page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .card-type {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .type-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .preset-box {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .preset-title {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .preset-item text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .preset-item input {
+  background: #1E1E1E !important;
+  border-color: #444444 !important;
+  color: #E5E5E5 !important;
+}

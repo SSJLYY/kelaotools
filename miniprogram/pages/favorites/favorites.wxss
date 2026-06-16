@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
   background: #F5F7FA;
@@ -364,3 +369,20 @@
   height: 44rpx;
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+/* ===== 深色模式补充 ===== */
+.dark-mode .nav-title-text { color: #E5E5E5 !important; }
+.dark-mode .nav-back-icon { color: #E5E5E5 !important; }
+.dark-mode .tab-bar { background: #1E1E1E !important; }
+.dark-mode .tab-chip { background: #2A2A2A !important; color: #A0A0A0 !important; }
+.dark-mode .tab-active { background: #0066FF !important; color: #FFFFFF !important; }
+.dark-mode .fav-card { background: #1E1E1E !important; }
+.dark-mode .fav-card:active { background: #2A2A2A !important; }
+.dark-mode .fav-title { color: #E5E5E5 !important; }
+.dark-mode .fav-desc { color: #A0A0A0 !important; }
+.dark-mode .fav-tag { background: #1a2a3a !important; color: #4D94FF !important; }
+.dark-mode .fav-action { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .remove-link { color: #EF4444 !important; }
+.dark-mode .empty-text { color: #A0A0A0 !important; }
+.dark-mode .empty-sub { color: #666666 !important; }
+.dark-mode .empty-btn { background: #0066FF !important; }

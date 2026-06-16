@@ -2,8 +2,8 @@
 const { getNavBarInfo } = require('../../utils/nav');
 
 Page({
-  data: { statusBarHeight: 20, navBarHeight: 44, navTotalHeight: 64 },
-  onLoad() { this.initNavBar(); },
+  data: { darkMode: false, statusBarHeight: 20, navBarHeight: 44, navTotalHeight: 64 },
+  onLoad() { this.loadDarkMode(); this.initNavBar(); },
   initNavBar() {
     this.setData(getNavBarInfo());
   },
@@ -20,5 +20,7 @@ Page({
     wx.navigateTo({ url: p });
   },
   onComing() { wx.showToast({ title: '即将上线', icon: 'none' }); },
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

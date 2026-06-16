@@ -1,5 +1,6 @@
 // 氪佬工具箱 - 应用入口
 const i18n = require('./i18n/index');
+const darkmode = require('./utils/darkmode');
 
 App({
   onLaunch() {
@@ -14,6 +15,9 @@ App({
 
     // 4. 修复：从云端恢复用户设置（自定义工具排序、提醒开关等）
     this.restoreSettingsFromCloud();
+
+    // 5. 初始化深色模式
+    this.initDarkMode();
   },
 
   globalData: {
@@ -22,6 +26,22 @@ App({
     cloudEnv: '',
     cloudReady: false,
     darkMode: false,
+  },
+
+  initDarkMode() {
+    const dark = darkmode.syncDarkMode();
+    this.globalData.darkMode = dark;
+    this._startDarkModeTimer();
+  },
+
+  _startDarkModeTimer() {
+    if (this._darkModeTimer) clearInterval(this._darkModeTimer);
+    this._darkModeTimer = setInterval(() => {
+      const setting = darkmode.getSetting();
+      if (setting.mode === 'auto') {
+        darkmode.syncDarkMode();
+      }
+    }, 60000);
   },
 
   checkUpdate() {

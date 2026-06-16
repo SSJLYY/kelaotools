@@ -1,5 +1,5 @@
 <!-- 个人中心 -->
-<view class="page" style="min-height:100vh;background:#F5F5F7;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;background:{{darkMode ? '#121212' : '#F5F5F7'}};">
 
   <!-- 用户信息卡片 -->
   <view class="user-hero" bindtap="onGoProfile">
@@ -25,6 +25,28 @@
     <view class="stat-item"><text class="stat-val">{{maintenanceCount}}</text><text class="stat-label">养车记录</text></view>
     <view class="stat-divider"></view>
     <view class="stat-item"><text class="stat-val">{{carpoolCount}}</text><text class="stat-label">出行记录</text></view>
+  </view>
+
+  <!-- 快捷设置 -->
+  <view class="menu-card">
+    <view class="menu-card-title">⚡ 快捷设置</view>
+    <view class="menu-item" bindtap="onOpenDarkModeSetting">
+      <view class="menu-left">
+        <text class="menu-icon">🌙</text>
+        <text>深色模式</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-val">{{darkModeSetting.mode === 'auto' ? '自动' : darkModeSetting.mode === 'dark' ? '深色' : '浅色'}}</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+    <view class="menu-item" bindtap="onSwitchLang">
+      <view class="menu-left">
+        <text class="menu-icon">🌐</text>
+        <text>切换语言</text>
+      </view>
+      <text class="menu-val">{{currentLang}}</text>
+    </view>
   </view>
 
   <!-- 记录工具 -->
@@ -73,4 +95,69 @@
     <text style="font-size:22rpx;color:#CCC;">{{appVersion}}</text>
   </view>
   <view class="safe-bottom"></view>
+
+  <!-- 深色模式设置弹窗 -->
+  <view class="dm-popup-mask" wx:if="{{showDarkModePopup}}" bindtap="onCloseDarkModePopup"></view>
+  <view class="dm-popup {{showDarkModePopup ? 'dm-popup-show' : ''}}" catchtap="">
+    <view class="dm-popup-header">
+      <text class="dm-popup-title">深色模式设置</text>
+      <text class="dm-popup-close" bindtap="onCloseDarkModePopup">✕</text>
+    </view>
+
+    <view class="dm-mode-list">
+      <view class="dm-mode-item {{darkModeSetting.mode === 'light' ? 'dm-mode-active' : ''}}" bindtap="onSetDarkMode" data-mode="light">
+        <view class="dm-mode-icon">☀️</view>
+        <view class="dm-mode-text">
+          <text class="dm-mode-name">浅色模式</text>
+          <text class="dm-mode-desc">始终使用浅色界面</text>
+        </view>
+        <view class="dm-mode-check" wx:if="{{darkModeSetting.mode === 'light'}}">✓</view>
+      </view>
+      <view class="dm-mode-item {{darkModeSetting.mode === 'dark' ? 'dm-mode-active' : ''}}" bindtap="onSetDarkMode" data-mode="dark">
+        <view class="dm-mode-icon">🌙</view>
+        <view class="dm-mode-text">
+          <text class="dm-mode-name">深色模式</text>
+          <text class="dm-mode-desc">始终使用深色界面</text>
+        </view>
+        <view class="dm-mode-check" wx:if="{{darkModeSetting.mode === 'dark'}}">✓</view>
+      </view>
+      <view class="dm-mode-item {{darkModeSetting.mode === 'auto' ? 'dm-mode-active' : ''}}" bindtap="onSetDarkMode" data-mode="auto">
+        <view class="dm-mode-icon">⏰</view>
+        <view class="dm-mode-text">
+          <text class="dm-mode-name">自动切换</text>
+          <text class="dm-mode-desc">按时段自动切换浅色/深色</text>
+        </view>
+        <view class="dm-mode-check" wx:if="{{darkModeSetting.mode === 'auto'}}">✓</view>
+      </view>
+    </view>
+
+    <view class="dm-time-section" wx:if="{{darkModeSetting.mode === 'auto'}}">
+      <view class="dm-time-row">
+        <text class="dm-time-label">🌙 切换深色时间</text>
+        <view class="dm-time-pickers">
+          <picker mode="selector" range="{{darkHourRange}}" value="{{darkModeSetting.darkHour}}" bindchange="onDarkHourChange">
+            <view class="dm-time-picker">{{darkHourRange[darkModeSetting.darkHour]}}</view>
+          </picker>
+          <text class="dm-time-colon">:</text>
+          <picker mode="selector" range="{{darkMinuteRange}}" value="{{darkModeSetting.darkMinute}}" bindchange="onDarkMinuteChange">
+            <view class="dm-time-picker">{{darkMinuteRange[darkModeSetting.darkMinute]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="dm-time-row">
+        <text class="dm-time-label">☀️ 切换浅色时间</text>
+        <view class="dm-time-pickers">
+          <picker mode="selector" range="{{lightHourRange}}" value="{{darkModeSetting.lightHour}}" bindchange="onLightHourChange">
+            <view class="dm-time-picker">{{lightHourRange[darkModeSetting.lightHour]}}</view>
+          </picker>
+          <text class="dm-time-colon">:</text>
+          <picker mode="selector" range="{{lightMinuteRange}}" value="{{darkModeSetting.lightMinute}}" bindchange="onLightMinuteChange">
+            <view class="dm-time-picker">{{lightMinuteRange[darkModeSetting.lightMinute]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <button class="dm-popup-confirm" bindtap="onConfirmDarkModeSetting">确定</button>
+  </view>
 </view>

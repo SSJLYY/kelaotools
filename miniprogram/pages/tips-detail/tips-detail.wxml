@@ -1,5 +1,5 @@
 <!-- 小贴士详情 -->
-<view class="page" style="background:#F5F5F7;min-height:100vh;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background:{{darkMode ? '#121212' : '#F5F5F7'}};min-height:100vh;">
 
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
     <view class="nav-content" style="height: {{navBarHeight}}px;">

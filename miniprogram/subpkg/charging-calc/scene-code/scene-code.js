@@ -3,7 +3,7 @@ const { getNavBarInfo } = require('../../../utils/nav');
 const scenesData = require('../../../data/scenes.data');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -19,11 +19,23 @@ Page({
   },
 
   onLoad(options) {
+    this.loadDarkMode();
     this.initNavBar();
     const id = parseInt(options.id) || 1;
     this.loadScene(id);
     this.checkFav(id);
     this.checkFeedback(id);
+  },
+
+  loadDarkMode() {
+    try {
+      const darkMode = wx.getStorageSync('kt_dark_mode') || false;
+      this.setData({ darkMode });
+    } catch (e) {}
+  },
+
+  onShow() {
+    this.loadDarkMode();
   },
 
   initNavBar() {
@@ -92,6 +104,8 @@ Page({
     });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 
   onShareAppMessage() {

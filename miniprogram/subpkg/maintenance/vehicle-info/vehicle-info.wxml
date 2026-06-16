@@ -1,6 +1,6 @@
 <!-- 车辆信息页 -->
 <page-meta page-style="background:#1A1A2E;" />
-<view class="page" style="background: #1A1A2E;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background: #1A1A2E;">
 
   <!-- 顶部车型展示区 -->
   <view class="hero-section">

@@ -1,3 +1,11 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page,
+.dark-mode page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-bar-inner { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
   background: #F5F5F7;
@@ -283,4 +291,155 @@
 .btn-save {
   background: #0066FF;
   color: #fff;
+}
+
+/* ===== 深色模式 ===== */
+.dark-mode .page {
+  background: #121212 !important;
+}
+
+.dark-mode .nav-bar {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .nav-bar-inner {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .nav-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-back {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .brand-scroll {
+  background: transparent !important;
+}
+
+.dark-mode .brand-tag {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .brand-tag.active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .station-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .station-brand {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .station-power {
+  background: #2a2a1a !important;
+  color: #F59E0B !important;
+}
+
+.dark-mode .station-delete {
+  color: #EF4444 !important;
+}
+
+.dark-mode .station-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .info-item {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .info-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .info-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .station-address {
+  border-top-color: #333333 !important;
+}
+
+.dark-mode .address-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .address-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .copy-btn {
+  color: #4D94FF !important;
+  border-color: #4D94FF !important;
+}
+
+.dark-mode .station-note {
+  color: #A0A0A0 !important;
+  border-top-color: #333333 !important;
+}
+
+.dark-mode .empty-state {
+  background: transparent !important;
+}
+
+.dark-mode .empty-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .empty-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .empty-btn {
+  background: #0066FF !important;
+}
+
+.dark-mode .form-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .form-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-label {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-input {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-picker {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-textarea {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .picker-arrow {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .btn-cancel {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .btn-save {
+  background: #0066FF !important;
 }

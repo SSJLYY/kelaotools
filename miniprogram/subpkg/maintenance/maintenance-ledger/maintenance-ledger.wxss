@@ -1,4 +1,4 @@
-.page {
+page {
   min-height: 100vh;
   background: #F5F7FA;
   color: #111827;
@@ -379,4 +379,216 @@
 .safe-bottom {
   height: 44rpx;
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ===== 深色模式 ===== */
+.dark-mode .page,
+.dark-mode page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.96) !important;
+}
+
+.dark-mode .nav-back {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-spacer {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .category-tag {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .tag-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .summary-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .summary-amount {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .summary-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .record-card:active {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .record-type {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .record-fee {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .record-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-location {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-note {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .empty-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .empty-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .fab-icon {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .section-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .section-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .stats-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .add-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .record-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .record-icon {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .record-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .record-note {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-amount {
+  color: #4D94FF !important;
+}
+
+.dark-mode .delete-link {
+  color: #EF4444 !important;
+}
+
+.dark-mode .record-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .empty-state {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .empty-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .empty-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .empty-add {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .form-title-row {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .close-btn {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .form-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .field-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .picker-field,
+.dark-mode .text-input,
+.dark-mode .amount-input {
+  background: #2A2A2A !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .field-placeholder {
+  color: #666666 !important;
+}
+
+.dark-mode .field-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .field-arrow {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .car-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .amount-input {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .save-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
 }

@@ -55,7 +55,7 @@ const SOUNDS = [
 ];
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -72,11 +72,11 @@ Page({
     emptySub: '收藏的场景码和音效会按照最新时间排在最上面',
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadFavorites();
   },
 
@@ -158,6 +158,8 @@ Page({
     this.setData({ activeTab: key }, () => this.refreshList());
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/mine/mine' }) });
   },

@@ -43,21 +43,797 @@ page {
   box-sizing: border-box;
 }
 
-/* 深色模式 */
-page.dark-mode {
-  --primary: #4D94FF;
-  --primary-light: #1a2a3a;
-  --text-primary: #E5E5E5;
-  --text-secondary: #A0A0A0;
-  --text-light: #707070;
-  --text-placeholder: #505050;
-  --bg-page: #121212;
-  --bg-white: #1E1E1E;
-  --border-color: #333333;
-  --border-light: #2A2A2A;
-  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 8rpx 32rpx rgba(0, 0, 0, 0.4);
+/* 深色模式 - 直接覆盖颜色 */
+.dark-mode {
+  color: #E5E5E5 !important;
+  background: #121212 !important;
+}
+
+.dark-mode .page,
+.dark-mode .content,
+.dark-mode [style*="min-height:100vh"] {
+  background: #121212 !important;
+}
+
+.dark-mode view,
+.dark-mode text,
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode button,
+.dark-mode label,
+.dark-mode picker {
+  color: #E5E5E5;
+}
+
+.dark-mode .nav-bar,
+.dark-mode .nav-content,
+.dark-mode .nav-bar-inner {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .nav-title,
+.dark-mode .nav-title-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-back,
+.dark-mode .nav-back-icon,
+.dark-mode .nav-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .welcome-section {
+  background: transparent !important;
+}
+
+.dark-mode .notice-bar {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .notice-item {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .notice-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .desktop-guide-bubble {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .bubble-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .bubble-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .bubble-icon {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .banner-card {
+  background: linear-gradient(135deg, #1a1a2a 0%, #1a2a3a 100%) !important;
+}
+
+.dark-mode .banner-title {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .banner-sub {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.dark-mode .quick-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .quick-icon {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .tool-list {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .tool-item {
+  border-color: #333333 !important;
+}
+
+.dark-mode .tool-item:active {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .tool-icon-box {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .tool-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .coupon-scroll {
+  background: transparent !important;
+}
+
+.dark-mode .coupon-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .coupon-newbie {
+  background: #2a1a1a !important;
+  border-color: #4a2a2a !important;
+}
+
+.dark-mode .coupon-bind {
+  background: #1a2a3a !important;
+  border-color: #2a3a4a !important;
+}
+
+.dark-mode .coupon-community {
+  background: #1a2a2a !important;
+  border-color: #2a4a4a !important;
+}
+
+.dark-mode .coupon-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .coupon-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-source {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-notice {
+  color: #F59E0B !important;
+  background: #2a2a1a !important;
+}
+
+.dark-mode .data-overview {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .data-item {
+  background: transparent !important;
+}
+
+.dark-mode .data-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .data-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .data-divider {
+  background: #333333 !important;
+}
+
+.dark-mode .sidejob-list {
+  background: transparent !important;
+}
+
+.dark-mode .sidejob-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .sidejob-icon-box {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .sidejob-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .sidejob-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .sidejob-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .search-bar {
+  background: transparent !important;
+}
+
+.dark-mode .search-box {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .search-placeholder {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .search-icon {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .category-list {
+  background: transparent !important;
+}
+
+.dark-mode .sound-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .sound-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .sound-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .play-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .scene-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .scene-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .scene-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .scene-code {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .copy-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .charging-log-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .log-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .log-fee {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .log-source {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .maintenance-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .maint-type {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .maint-fee {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .maint-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .carpool-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .carpool-platform {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .carpool-revenue {
+  color: #10B981 !important;
+}
+
+.dark-mode .carpool-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .parking-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .parking-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .parking-fee {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .parking-date {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .tips-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .tips-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .tips-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .favorite-item {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .fav-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .fav-type {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .menu-card,
+.dark-mode .info-card,
+.dark-mode .stats-card,
+.dark-mode .station-card,
+.dark-mode .review-card,
+.dark-mode .post-card,
+.dark-mode .tip-card,
+.dark-mode .section-card,
+.dark-mode .reminder-card,
+.dark-mode .record-card,
+.dark-mode .expense-card,
+.dark-mode .calc-card,
+.dark-mode .result-card,
+.dark-mode .coupon-card,
+.dark-mode .form-card,
+.dark-mode .detail-card,
+.dark-mode .comment-section,
+.dark-mode .stat-row,
+.dark-mode .tool-sort-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .stat-val {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .stat-divider {
+  background: #333333 !important;
+}
+
+.dark-mode .hero-name {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .hero-sub {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-mode .hero-arrow {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .hero-tag {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .menu-card-title,
+.dark-mode .section-title,
+.dark-mode .stat-label,
+.dark-mode .info-label,
+.dark-mode .form-label,
+.dark-mode .empty-text,
+.dark-mode .comment-title,
+.dark-mode .detail-time,
+.dark-mode .review-date,
+.dark-mode .post-time,
+.dark-mode .tip-desc,
+.dark-mode .interval-text,
+.dark-mode .loss-tip,
+.dark-mode .suggestion-text,
+.dark-mode .empty-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .menu-item,
+.dark-mode .info-item,
+.dark-mode .stat-item,
+.dark-mode .type-item,
+.dark-mode .check-item,
+.dark-mode .expense-item,
+.dark-mode .insight-item,
+.dark-mode .rating-item,
+.dark-mode .date-item,
+.dark-mode .quick-item {
+  border-color: #333333 !important;
+}
+
+.dark-mode .brand-tag,
+.dark-mode .filter-tag,
+.dark-mode .category-tag,
+.dark-mode .tab-item,
+.dark-mode .tab-chip,
+.dark-mode .quick-target,
+.dark-mode .price-preset,
+.dark-mode .loss-preset-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .brand-tag.active,
+.dark-mode .filter-tag.active,
+.dark-mode .category-tag.active,
+.dark-mode .tab-item.active,
+.dark-mode .tab-chip.tab-active,
+.dark-mode .preset-active,
+.dark-mode .loss-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .station-brand {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .station-power {
+  background: #2a2a1a !important;
+  color: #F59E0B !important;
+}
+
+.dark-mode .urgent-banner {
+  background: #2a1a1a !important;
+  border-color: #4a2a2a !important;
+}
+
+.dark-mode .urgent-text {
+  color: #EF4444 !important;
+}
+
+.dark-mode .suggestion-card {
+  background: #2a2a1a !important;
+  border-color: #4a4a2a !important;
+}
+
+.dark-mode .suggestion-title {
+  color: #F59E0B !important;
+}
+
+.dark-mode .suggestion-text {
+  color: #FBBF24 !important;
+}
+
+.dark-mode .insight-card {
+  background: #2a2a1a !important;
+  border-color: #4a4a2a !important;
+}
+
+.dark-mode .insight-text {
+  color: #F59E0B !important;
+}
+
+.dark-mode .share-report-btn {
+  background: #0066FF !important;
+}
+
+.dark-mode .export-btn {
+  background: #0066FF !important;
+}
+
+.dark-mode .empty-btn {
+  background: #0066FF !important;
+}
+
+.dark-mode .btn-save {
+  background: #0066FF !important;
+}
+
+.dark-mode .btn-cancel {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .done-btn {
+  background: #10B981 !important;
+}
+
+.dark-mode .delete-btn {
+  background: #2a1a1a !important;
+  color: #EF4444 !important;
+}
+
+.dark-mode .form-input,
+.dark-mode .form-picker,
+.dark-mode .form-textarea,
+.dark-mode .charge-input,
+.dark-mode .price-input,
+.dark-mode .budget-input,
+.dark-mode .loss-input {
+  background: #2A2A2A !important;
+  border-color: #444444 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .chart-bar.valley {
+  background: #10B981 !important;
+}
+
+.dark-mode .chart-bar.normal {
+  background: #3B82F6 !important;
+}
+
+.dark-mode .chart-bar.peak {
+  background: #EF4444 !important;
+}
+
+.dark-mode .chart-price,
+.dark-mode .chart-hour {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .legend-dot.valley {
+  background: #10B981 !important;
+}
+
+.dark-mode .legend-dot.normal {
+  background: #3B82F6 !important;
+}
+
+.dark-mode .legend-dot.peak {
+  background: #EF4444 !important;
+}
+
+.dark-mode .legend-item text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .legend-dot {
+  background: #A0A0A0 !important;
+}
+
+.dark-mode .star {
+  color: #444444 !important;
+}
+
+.dark-mode .star.filled {
+  color: #F59E0B !important;
+}
+
+.dark-mode .category-count {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .check-icon {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .toggle-icon {
+  border-color: #444444 !important;
+}
+
+.dark-mode .toggle-icon.active {
+  background: #0066FF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .sort-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-chip {
+  background: #2a1a1a !important;
+}
+
+.dark-mode .coupon-name {
+  color: #EF4444 !important;
+}
+
+.dark-mode .coupon-pay {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-tip {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .tip-bar {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .tip-bar-active {
+  background: #1a2a3a !important;
+}
+
+.dark-mode .welcome-section {
+  background: transparent !important;
+}
+
+.dark-mode .desktop-guide-bubble {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .bubble-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .bubble-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .banner-card {
+  background: linear-gradient(135deg, #1a1a2a 0%, #1a2a3a 100%) !important;
+}
+
+.dark-mode .banner-title {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .banner-sub {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.dark-mode .mycar-card {
+  background: linear-gradient(135deg, #1a1a2a 0%, #1a2a3a 100%) !important;
+}
+
+.dark-mode .mycar-model {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .mycar-plate {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.dark-mode .mycar-manage-text {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark-mode .mycar-status-text {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.dark-mode .data-overview {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .data-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .data-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .data-divider {
+  background: #333333 !important;
+}
+
+.dark-mode .tool-item {
+  border-color: #333333 !important;
+}
+
+.dark-mode .tool-item:active {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .tool-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .tool-count-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .section-more {
+  color: #4D94FF !important;
+}
+
+.dark-mode .notice-item {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .notice-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .hero-name {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .hero-sub {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-mode .hero-arrow {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .stat-val {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .stat-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .stat-divider {
+  background: #333333 !important;
+}
+
+.dark-mode .menu-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .menu-val {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .progress-bar {
+  background: #333333 !important;
+}
+
+.dark-mode .progress-fill {
+  background: #0066FF !important;
+}
+
+.dark-mode .progress-count {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .progress-tip {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .category-header {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .checkbox {
+  border-color: #444444 !important;
+}
+
+.dark-mode .checkbox-checked {
+  background: #0066FF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .check-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .safe-bottom {
+  background: transparent !important;
 }
 
 /* ========================================
@@ -154,3 +930,375 @@ page.dark-mode {
   border-bottom: 1rpx solid var(--border-light);
 }
 .list-item:last-child { border-bottom: none; }
+
+/* ===== 通用深色模式覆盖 ===== */
+.dark-mode .card,
+.dark-mode .form-card,
+.dark-mode .info-card,
+.dark-mode .menu-card,
+.dark-mode .section-card,
+.dark-mode .stats-card,
+.dark-mode .detail-card,
+.dark-mode .comment-section,
+.dark-mode .result-card,
+.dark-mode .coupon-card,
+.dark-mode .calc-card,
+.dark-mode .station-card,
+.dark-mode .review-card,
+.dark-mode .post-card,
+.dark-mode .tip-card,
+.dark-mode .reminder-card,
+.dark-mode .record-card,
+.dark-mode .expense-card,
+.dark-mode .sound-card,
+.dark-mode .scene-card,
+.dark-mode .tool-sort-card,
+.dark-mode .category-section,
+.dark-mode .check-item,
+.dark-mode .charging-log-item,
+.dark-mode .maintenance-item,
+.dark-mode .carpool-item,
+.dark-mode .parking-item,
+.dark-mode .tips-item,
+.dark-mode .favorite-item,
+.dark-mode .stat-row,
+.dark-mode .data-overview,
+.dark-mode .tool-list,
+.dark-mode .quick-item,
+.dark-mode .sidejob-item,
+.dark-mode .search-box,
+.dark-mode .form-section,
+.dark-mode .howto-section,
+.dark-mode .tip-box,
+.dark-mode .presets-box,
+.dark-mode .summary-card,
+.dark-mode .mycar-card,
+.dark-mode .banner-card,
+.dark-mode .desktop-guide-bubble,
+.dark-mode .notice-item,
+.dark-mode .category-header {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .card,
+.dark-mode .form-card,
+.dark-mode .info-card,
+.dark-mode .menu-card,
+.dark-mode .section-card,
+.dark-mode .stats-card,
+.dark-mode .detail-card,
+.dark-mode .station-card,
+.dark-mode .review-card,
+.dark-mode .post-card,
+.dark-mode .tip-card,
+.dark-mode .reminder-card,
+.dark-mode .record-card,
+.dark-mode .expense-card,
+.dark-mode .sound-card,
+.dark-mode .scene-card,
+.dark-mode .form-section,
+.dark-mode .howto-section,
+.dark-mode .summary-card {
+  border-color: #333333 !important;
+}
+
+.dark-mode .menu-item,
+.dark-mode .info-item,
+.dark-mode .stat-item,
+.dark-mode .form-item,
+.dark-mode .record-card,
+.dark-mode .reminder-card,
+.dark-mode .post-card,
+.dark-mode .review-card,
+.dark-mode .scene-card,
+.dark-mode .sound-card,
+.dark-mode .category-header,
+.dark-mode .check-item,
+.dark-mode .tool-sort-item {
+  border-bottom-color: #333333 !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode .form-input,
+.dark-mode .form-picker,
+.dark-mode .form-textarea,
+.dark-mode .input-wrapper,
+.dark-mode .charge-input,
+.dark-mode .price-input,
+.dark-mode .budget-input,
+.dark-mode .loss-input,
+.dark-mode .text-input,
+.dark-mode .amount-input,
+.dark-mode .route-input,
+.dark-mode .picker-field,
+.dark-mode .search-input-box,
+.dark-mode .unit-input {
+  background: #2A2A2A !important;
+  border-color: #444444 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .field-label,
+.dark-mode .form-label,
+.dark-mode .menu-card-title,
+.dark-mode .section-title,
+.dark-mode .stat-label,
+.dark-mode .info-label,
+.dark-mode .empty-text,
+.dark-mode .empty-sub,
+.dark-mode .empty-desc,
+.dark-mode .comment-title,
+.dark-mode .detail-time,
+.dark-mode .review-date,
+.dark-mode .post-time,
+.dark-mode .tip-desc,
+.dark-mode .interval-text,
+.dark-mode .loss-tip,
+.dark-mode .suggestion-text,
+.dark-mode .record-date,
+.dark-mode .record-detail,
+.dark-mode .record-location,
+.dark-mode .record-note,
+.dark-mode .summary-text,
+.dark-mode .summary-label,
+.dark-mode .menu-val,
+.dark-mode .coupon-tip,
+.dark-mode .coupon-desc,
+.dark-mode .coupon-source,
+.dark-mode .preset-title,
+.dark-mode .tip-box-desc,
+.dark-mode .howto-step,
+.dark-mode .scene-card-desc,
+.sound-source,
+.sound-duration,
+.func-name,
+.param-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .tag,
+.dark-mode .category-tag,
+.dark-mode .filter-tag,
+.dark-mode .cat-tag,
+.dark-mode .brand-tag,
+.dark-mode .tab-item,
+.dark-mode .tab-chip,
+.dark-mode .quick-target,
+.dark-mode .price-preset,
+.dark-mode .loss-preset-btn,
+.dark-mode .card-type,
+.dark-mode .type-option,
+.dark-mode .sound-fav-btn,
+.dark-mode .preset-item text,
+.dark-mode .preset-item input {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .tag-active,
+.dark-mode .category-tag.active,
+.dark-mode .filter-tag.active,
+.dark-mode .cat-active,
+.dark-mode .brand-tag.active,
+.dark-mode .tab-item.active,
+.dark-mode .tab-chip.tab-active,
+.dark-mode .preset-active,
+.dark-mode .loss-active,
+.dark-mode .type-active,
+.dark-mode .tag-active,
+.dark-mode .card-type.type-active,
+.dark-mode .type-option.type-active,
+.dark-mode .quick-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .sound-fav-active {
+  background: #2a2a1a !important;
+  color: #F59E0B !important;
+}
+
+.dark-mode .copy-btn,
+.dark-mode .scene-copy-btn,
+.dark-mode .sound-copy-btn,
+.dark-mode .action-share {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .switch-car,
+.dark-mode .section-more,
+.dark-mode .nav-report-text,
+.dark-mode .feedback-link {
+  color: #4D94FF !important;
+}
+
+.dark-mode .tip-bar,
+.dark-mode .tips-banner,
+.dark-mode .scene-tip,
+.dark-mode .share-banner,
+.dark-mode .suggestion-card,
+.dark-mode .insight-card,
+.dark-mode .tip-box,
+.dark-mode .presets-box {
+  background: #2a2a1a !important;
+  border-color: #4a4a2a !important;
+}
+
+.dark-mode .tip-content,
+.dark-mode .tips-banner-label,
+.dark-mode .tips-banner-title,
+.dark-mode .scene-tip-text,
+.dark-mode .share-text,
+.dark-mode .suggestion-title,
+.dark-mode .suggestion-text,
+.dark-mode .insight-text,
+.dark-mode .tip-box-title,
+.dark-mode .tip-box-desc {
+  color: #F59E0B !important;
+}
+
+.dark-mode .coupon-newbie,
+.dark-mode .coupon-bind,
+.dark-mode .coupon-community {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .coupon-title,
+.dark-mode .coupon-amount,
+.dark-mode .coupon-symbol {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .coupon-name {
+  color: #EF4444 !important;
+}
+
+.dark-mode .coupon-notice {
+  color: #F59E0B !important;
+  background: #2a2a1a !important;
+}
+
+.dark-mode .coupon-btn,
+.dark-mode .coupon-btn-orange,
+.dark-mode .coupon-btn-blue,
+.dark-mode .coupon-btn-green,
+.dark-mode .sidejob-btn {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .checkbox {
+  border-color: #444444 !important;
+}
+
+.dark-mode .checkbox-checked {
+  background: #0066FF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .progress-bar {
+  background: #333333 !important;
+}
+
+.dark-mode .progress-fill {
+  background: #0066FF !important;
+}
+
+.dark-mode .scene-code-badge,
+.dark-mode .scene-tag,
+.dark-mode .sound-play-btn,
+.dark-mode .record-icon-box,
+.dark-mode .tool-icon-box,
+.dark-mode .quick-icon,
+.dark-mode .sidejob-icon-box,
+.dark-mode .bubble-icon {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .scene-code-num,
+.dark-mode .scene-tag,
+.dark-mode .play-icon {
+  color: #4D94FF !important;
+}
+
+.dark-mode .star {
+  color: #444444 !important;
+}
+
+.dark-mode .star.filled {
+  color: #F59E0B !important;
+}
+
+.dark-mode .category-count {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .check-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .toggle-icon {
+  border-color: #444444 !important;
+}
+
+.dark-mode .toggle-icon.active {
+  background: #0066FF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .sort-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-chip {
+  background: #2a1a1a !important;
+}
+
+.dark-mode .coupon-pay {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .welcome-name,
+.dark-mode .hero-name {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .welcome-sub,
+.dark-mode .hero-sub {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-mode .welcome-avatar {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.dark-mode .data-value,
+.dark-mode .record-type,
+.dark-mode .record-price,
+.dark-mode .stat-val,
+.dark-mode .param-value,
+.dark-mode .field-value,
+.dark-mode .car-name,
+.dark-mode .amount-input,
+.dark-mode .scene-card-title,
+.dark-mode .sound-title,
+.dark-mode .tips-banner-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .data-divider,
+.dark-mode .stat-divider,
+.dark-mode .card-line,
+.dark-mode .thin-line {
+  background: #333333 !important;
+}
+
+.dark-mode .safe-bottom {
+  background: transparent !important;
+}

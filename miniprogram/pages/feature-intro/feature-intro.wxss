@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
   background: #F5F7FA;
@@ -177,3 +182,14 @@
   height: 36rpx;
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+/* ===== 深色模式补充 ===== */
+.dark-mode .nav-title-text { color: #E5E5E5 !important; }
+.dark-mode .nav-back-icon { color: #E5E5E5 !important; }
+.dark-mode .feature-card { background: #1E1E1E !important; }
+.dark-mode .feature-card:active { background: #2A2A2A !important; }
+.dark-mode .feature-title { color: #E5E5E5 !important; }
+.dark-mode .feature-desc { color: #A0A0A0 !important; }
+.dark-mode .feature-tag { background: #2A2A2A !important; color: #A0A0A0 !important; }
+.dark-mode .footer-text { color: #A0A0A0 !important; }
+.dark-mode .footer-line { background: #333333 !important; }

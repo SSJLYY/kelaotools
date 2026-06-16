@@ -23,11 +23,15 @@ Page({
 
     // 滚动位置
     scrollTop: 0,
+
+    // 深色模式
+    darkMode: false,
   },
 
   _scrollTop: 0,
 
   onLoad() {
+    this.loadDarkMode();
     this.setData({
       ...getNavBarInfo(),
       filteredList: this.data.sceneList,
@@ -41,10 +45,18 @@ Page({
   },
 
   onShow() {
+    this.loadDarkMode();
     // 恢复滚动位置需要在渲染后
     setTimeout(() => {
       this.setData({ scrollTop: this._scrollTop || 0 });
     }, 100);
+  },
+
+  loadDarkMode() {
+    try {
+      const darkMode = wx.getStorageSync('kt_dark_mode') || false;
+      this.setData({ darkMode });
+    } catch (e) {}
   },
 
   initNavBar() {

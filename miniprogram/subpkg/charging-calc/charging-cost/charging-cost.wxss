@@ -1,4 +1,4 @@
-.page {
+page {
   min-height: 100vh;
   background: #F5F7FA;
   color: #0F172A;
@@ -441,4 +441,173 @@
   color: #94A3B8;
   font-size: 22rpx;
   font-weight: 700;
+}
+
+/* ===== 深色模式 ===== */
+.dark-mode .page,
+.dark-mode page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.98) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.dark-mode .nav-back {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-spacer {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .calc-card,
+.dark-mode .result-card,
+.dark-mode .coupon-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .car-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .car-meta {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .meta-strong {
+  color: #4D94FF !important;
+}
+
+.dark-mode .field-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .charge-percent {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .charge-input {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .quick-target {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .price-preset {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .preset-active {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .price-input {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .price-unit {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .result-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .result-value.dark {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .result-unit {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .coupon-chip {
+  background: #2a1a1a !important;
+}
+
+.dark-mode .coupon-name {
+  color: #EF4444 !important;
+}
+
+.dark-mode .coupon-pay {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-tip {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .loss-section {
+  border-top-color: #333333 !important;
+}
+
+.dark-mode .loss-preset-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .loss-active {
+  background: #2a2a1a !important;
+  color: #F59E0B !important;
+}
+
+.dark-mode .loss-input {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .loss-unit {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .loss-tip {
+  color: #A0A0A0 !important;
+}
+
+/* ===== 深色模式补充 ===== */
+.dark-mode page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .card-line {
+  background: #333333 !important;
+}
+
+.dark-mode .price-line {
+  background: #333333 !important;
+}
+
+.dark-mode .toggle-switch {
+  background: #444444 !important;
+}
+
+.dark-mode .toggle-on {
+  background: #F59E0B !important;
+}
+
+.dark-mode .loss-detail {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .coupon-disabled {
+  opacity: 0.5;
 }

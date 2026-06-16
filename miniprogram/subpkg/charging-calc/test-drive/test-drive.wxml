@@ -1,4 +1,4 @@
-<view style="text-align:center;padding:200rpx 48rpx;">
+<view class="{{darkMode ? 'dark-mode' : ''}}" style="text-align:center;padding:200rpx 48rpx;">
   <text style="font-size:100rpx;display:block;">🧪</text>
   <text style="font-size:32rpx;font-weight:700;display:block;margin-top:24rpx;">极氪试驾邀请</text>
   <text style="font-size:24rpx;color:#999;display:block;margin-top:12rpx;">预约试驾功能即将上线</text>

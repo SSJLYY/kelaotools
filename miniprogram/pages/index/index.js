@@ -2,6 +2,7 @@
 const i18n = require('../../i18n/index');
 const { getNavBarInfo } = require('../../utils/nav');
 const toolsConfig = require('../../config/tools.config');
+const darkmode = require('../../utils/darkmode');
 
 Page({
   data: {
@@ -55,14 +56,21 @@ Page({
     // 首页提醒
     reminders: { loan: true, parking: true, budget: true },
 
+    // 深色模式
+    darkMode: false,
+
     // 优化：标记首页是否已加载过
     _dataLoaded: false,
+
+    // 骨架屏加载状态
+    loading: true,
   },
 
   onLoad() {
     this.initSystemInfo();
     this.initDailyTip();
     this.loadToolList();
+    this.loadDarkMode();
   },
 
   onShow() {
@@ -70,6 +78,7 @@ Page({
     this.checkCarBinding();
     this.loadReminders();
     this.loadToolList();
+    this.loadDarkMode();
 
     // 优化：首次加载后不再重复拉取全部数据，仅在数据变化时刷新
     if (!this.data._dataLoaded) {
@@ -78,6 +87,13 @@ Page({
     } else {
       // 后续切换仅做轻量刷新
       this.loadDataOverviewLite();
+    }
+
+    // 首次加载完成后隐藏骨架屏
+    if (this.data.loading) {
+      setTimeout(() => {
+        this.setData({ loading: false });
+      }, 600);
     }
   },
 
@@ -94,6 +110,14 @@ Page({
   // 渲染多语言
   renderI18n() {
     // 多语言更新 app.js langVersion 触发 onShow 刷新
+  },
+
+  // ---- 深色模式 ----
+  loadDarkMode() {
+    try {
+      const dark = darkmode.syncDarkMode();
+      this.setData({ darkMode: dark });
+    } catch (e) {}
   },
 
   // ---- 工具列表（支持排序） ----

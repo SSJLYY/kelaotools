@@ -9,7 +9,7 @@ function formatDate(date) {
 }
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -122,11 +122,11 @@ Page({
 
     // 构建支出明细
     const expenseBreakdown = [];
-    if (chargingFeeTotal > 0) expenseBreakdown.push({ name: '充电', amount: chargingFeeTotal, icon: '⚡' });
-    if (maintenanceFee > 0) expenseBreakdown.push({ name: '养车', amount: maintenanceFee, icon: '🔧' });
-    if (carWashFee > 0) expenseBreakdown.push({ name: '洗车', amount: carWashFee, icon: '🚿' });
-    if (modificationFee > 0) expenseBreakdown.push({ name: '改装', amount: modificationFee, icon: '🏎️' });
-    if (rideCost > 0) expenseBreakdown.push({ name: '顺风车成本', amount: rideCost, icon: '🚗' });
+    if (chargingFeeTotal > 0) expenseBreakdown.push({ name: '充电', amount: chargingFeeTotal, amountText: (chargingFeeTotal / 100).toFixed(2), icon: '⚡' });
+    if (maintenanceFee > 0) expenseBreakdown.push({ name: '养车', amount: maintenanceFee, amountText: (maintenanceFee / 100).toFixed(2), icon: '🔧' });
+    if (carWashFee > 0) expenseBreakdown.push({ name: '洗车', amount: carWashFee, amountText: (carWashFee / 100).toFixed(2), icon: '🚿' });
+    if (modificationFee > 0) expenseBreakdown.push({ name: '改装', amount: modificationFee, amountText: (modificationFee / 100).toFixed(2), icon: '🏎️' });
+    if (rideCost > 0) expenseBreakdown.push({ name: '顺风车成本', amount: rideCost, amountText: (rideCost / 100).toFixed(2), icon: '🚗' });
 
     // 生成洞察
     const insights = [];
@@ -181,6 +181,8 @@ Page({
     };
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/index/index' }) });
   },

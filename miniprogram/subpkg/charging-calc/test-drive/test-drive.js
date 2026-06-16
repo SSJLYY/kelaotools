@@ -1,1 +1,1 @@
-Page({ data:{}, onShareAppMessage(){ return { title:'极致驾控 · 极氪试驾邀请', path:'/subpkg/charging-calc/test-drive/test-drive' }; }});
+Page({ data:{ darkMode: false }, onLoad() { this.loadDarkMode(); }, loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} }, onShareAppMessage(){ return { title:'极致驾控 · 极氪试驾邀请', path:'/subpkg/charging-calc/test-drive/test-drive' }; }});

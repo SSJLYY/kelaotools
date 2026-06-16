@@ -2,7 +2,7 @@
 const { getNavBarInfo } = require('../../../utils/nav');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20, navBarHeight: 44, navTotalHeight: 64,
     carList: [], selectedCarIdx: 0, selectedCar: '',
     dateValue: '', chargeType: 'fast',
@@ -10,7 +10,7 @@ Page({
     saving: false,
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.initNavBar();
     const d = new Date();
     this.setData({ dateValue: `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` });
@@ -72,5 +72,7 @@ Page({
     }
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

@@ -15,7 +15,7 @@ const EXPENSE_COLORS = {
 };
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -46,14 +46,16 @@ Page({
     trendMonths: [],
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.refreshStats();
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/mine/mine' }) });
   },

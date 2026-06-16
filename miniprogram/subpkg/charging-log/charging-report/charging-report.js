@@ -2,13 +2,13 @@
 const { getNavBarInfo } = require('../../../utils/nav');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20, navBarHeight: 44, navTotalHeight: 64,
     year: '', month: '', report: { totalFee: '0.00', count: 0, totalKwh: 0, avgFee: '0.00', favStation: '--' },
     typeBreakdown: [],
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.initNavBar();
     const d = new Date();
     this.setData({ year: d.getFullYear(), month: d.getMonth() + 1 });
@@ -58,6 +58,8 @@ Page({
     } catch (e) {}
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 
   onShareAppMessage() {

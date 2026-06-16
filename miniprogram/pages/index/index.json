@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "skeleton": "/components/skeleton/skeleton"
+  },
   "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "backgroundColor": "#F5F5F7"

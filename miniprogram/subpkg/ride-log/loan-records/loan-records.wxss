@@ -1,1 +1,24 @@
 /* 页面样式占位 */
+
+/* ===== 深色模式 ===== */
+.dark-mode page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
+.dark-mode .nav-title-text { color: #E5E5E5 !important; }
+.dark-mode .nav-back-icon { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
+.dark-mode .card { background: #1E1E1E !important; }
+.dark-mode .form-card { background: #1E1E1E !important; }
+.dark-mode .info-card { background: #1E1E1E !important; }
+.dark-mode .menu-card { background: #1E1E1E !important; }
+.dark-mode .section-card { background: #1E1E1E !important; }
+.dark-mode input { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode textarea { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .form-input { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .form-picker { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .form-textarea { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .empty-text { color: #A0A0A0 !important; }
+.dark-mode .empty-sub { color: #A0A0A0 !important; }
+.dark-mode .empty-desc { color: #A0A0A0 !important; }
+.dark-mode .safe-bottom { background: transparent !important; }

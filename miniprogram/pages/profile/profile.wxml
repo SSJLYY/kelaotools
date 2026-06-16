@@ -1,5 +1,5 @@
 <!-- 个人信息 & 设置 -->
-<view class="page" style="background:#F5F5F7;min-height:100vh;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background:{{darkMode ? '#121212' : '#F5F5F7'}};min-height:100vh;">
 
   <!-- 导航 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
@@ -101,7 +101,7 @@
         <view wx:if="{{editingSort}}" class="tool-toggle" bindtap="onToggleTool" data-id="{{item.id}}">
           <text class="toggle-icon {{item.enabled ? 'active' : ''}}">{{item.enabled ? '✓' : ''}}</text>
         </view>
-        <text class="tool-name {{!item.enabled ? 'disabled' : ''}}">{{item.key}}</text>
+        <text class="tool-name {{!item.enabled ? 'disabled' : ''}}">{{item.name}}</text>
       </view>
       <view wx:if="{{editingSort}}" class="tool-sort-btns">
         <text class="sort-btn" bindtap="onMoveUp" data-id="{{item.id}}">▲</text>

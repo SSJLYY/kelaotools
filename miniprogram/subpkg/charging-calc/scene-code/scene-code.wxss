@@ -161,3 +161,169 @@
 .feedback-section { text-align: center; padding: 24rpx 0; }
 .feedback-link { font-size: 26rpx; color: #0066FF; text-decoration: underline; }
 .feedback-done { font-size: 26rpx; color: #999; }
+
+/* ===== 深色模式 ===== */
+.dark-mode .page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.98) !important;
+}
+
+.dark-mode .nav-title,
+.dark-mode .nav-title-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-back {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .detail-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .scene-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .scene-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .code-box {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .code-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .tag {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .action-share {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .howto-section {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .howto-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .howto-step {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .tip-box {
+  background: #2a2a1a !important;
+  border-color: #4a4a2a !important;
+}
+
+.dark-mode .tip-box-title {
+  color: #F59E0B !important;
+}
+
+.dark-mode .tip-box-desc {
+  color: #FBBF24 !important;
+}
+
+.dark-mode .detail-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .detail-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .detail-tag {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .favorite-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .favorite-active {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+  border-color: #2a4a6a !important;
+}
+
+.dark-mode .code-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .code-box {
+  background: linear-gradient(135deg, #1a2a3a, #2a3a4a) !important;
+  border-color: #2a4a6a !important;
+}
+
+.dark-mode .code-value {
+  color: #4D94FF !important;
+}
+
+.dark-mode .action-btn {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .action-primary {
+  background: linear-gradient(135deg, #0066FF, #5B3FFF) !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .action-btn-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .action-btn-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .step-circle {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .step-num {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .step-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .step-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .step-connector {
+  background: #333333 !important;
+}
+
+.dark-mode .howto-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .howto-step {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .feedback-link {
+  color: #4D94FF !important;
+}
+
+.dark-mode .feedback-done {
+  color: #A0A0A0 !important;
+}

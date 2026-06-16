@@ -159,3 +159,88 @@
 .empty-emoji { font-size: 80rpx; }
 .empty-text { font-size: var(--font-md); color: var(--text-light); margin-top: 20rpx; }
 .empty-sub { font-size: var(--font-xs); color: #CCC; margin-top: 8rpx; }
+
+/* ===== 深色模式 ===== */
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.97) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .nav-title-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .search-input-box {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .search-icon {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .search-placeholder {
+  color: #666666 !important;
+}
+
+.dark-mode .category-tag {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .tag-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .scene-tip {
+  background: #2a2a1a !important;
+  border-color: #4a4a2a !important;
+}
+
+.dark-mode .scene-tip-text {
+  color: #F59E0B !important;
+}
+
+.dark-mode .scene-card {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .scene-card:active {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .scene-card-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .scene-card-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .scene-tag {
+  color: #4D94FF !important;
+  background: #1a2a3a !important;
+}
+
+.dark-mode .scene-code-badge {
+  background: linear-gradient(135deg, #1a2a3a, #2a3a4a) !important;
+}
+
+.dark-mode .scene-code-num {
+  color: #4D94FF !important;
+}
+
+.dark-mode .scene-copy-btn {
+  color: #4D94FF !important;
+  background: #1a2a3a !important;
+}
+
+.dark-mode .empty-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .empty-sub {
+  color: #666666 !important;
+}

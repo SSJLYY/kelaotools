@@ -2,7 +2,7 @@
 const { getNavBarInfo } = require('../../../utils/nav');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -15,11 +15,11 @@ Page({
   _pendingRefresh: false,
   _lastLoadTime: 0,
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.initNavBar();
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadRecords();
   },
 
@@ -101,5 +101,7 @@ Page({
     wx.navigateTo({ url: '/subpkg/charging-log/charging-report/charging-report' });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

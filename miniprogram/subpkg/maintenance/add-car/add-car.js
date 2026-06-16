@@ -12,7 +12,7 @@ const DEFAULT_MODELS = [
 ];
 
 Page({
-  data: {
+  data: { darkMode: false,
     // 导航栏
     statusBarHeight: 20,
     navBarHeight: 44,
@@ -44,7 +44,7 @@ Page({
     ],
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.initNavBar();
     const d = new Date();
     this.setData({ dateMax: `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` });
@@ -53,7 +53,7 @@ Page({
     this.loadModelsFromCloud();
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     // 优化：每次显示时尝试刷新车型列表
     this.loadModelsFromCloud();
   },
@@ -252,6 +252,8 @@ Page({
     }
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     if (this.data.step === 2) {
       this.setData({ step: 1 });

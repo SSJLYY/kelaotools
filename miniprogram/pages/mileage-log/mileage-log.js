@@ -8,8 +8,17 @@ function formatDate(date) {
   return `${y}-${m}-${d}`;
 }
 
+function getYearRange() {
+  const now = new Date();
+  const years = [];
+  for (let y = now.getFullYear(); y >= now.getFullYear() - 5; y--) {
+    years.push(String(y));
+  }
+  return years;
+}
+
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -20,14 +29,25 @@ Page({
     monthMileage: '0',
     avgConsumption: '0',
     totalTrips: 0,
+    assistRatio: '0',
+
+    // 年度汇总
+    yearRange: [],
+    yearIndex: 0,
+    yearTotalMileage: '0',
+    yearAssistMileage: '0',
+    yearAssistRatio: '0',
+    yearMonthData: [],
 
     tripTypes: ['通勤', '出行', '长途', '其他'],
     typeIndex: -1,
 
+    formAssistRatio: '0',
     form: {
       type: '',
       date: '',
       mileage: '',
+      assistMileage: '',
       consumption: '',
       startLocation: '',
       endLocation: '',
@@ -36,12 +56,13 @@ Page({
     },
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
+    this.setData({ yearRange: getYearRange() });
     this.resetForm();
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadRecords();
     this.loadCarName();
   },
@@ -59,10 +80,12 @@ Page({
   resetForm() {
     this.setData({
       typeIndex: -1,
+      formAssistRatio: '0',
       form: {
         type: '',
         date: formatDate(new Date()),
         mileage: '',
+        assistMileage: '',
         consumption: '',
         startLocation: '',
         endLocation: '',
@@ -80,8 +103,10 @@ Page({
         type: item.type || '通勤',
         date: item.date || formatDate(new Date(item.createdAt || Date.now())),
         mileage: Number(item.mileage || 0),
+        assistMileage: Number(item.assistMileage || 0),
         consumption: Number(item.consumption || 0),
         consumptionPer100: item.mileage > 0 ? ((item.consumption / item.mileage) * 100).toFixed(1) : '0',
+        assistRatioDisplay: item.mileage > 0 ? ((Number(item.assistMileage || 0) / item.mileage) * 100).toFixed(0) : '0',
         startLocation: item.startLocation || '',
         endLocation: item.endLocation || '',
         note: item.note || '',
@@ -90,13 +115,14 @@ Page({
       })).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
       const totalMileage = normalized.reduce((sum, item) => sum + item.mileage, 0);
+      const totalAssistMileage = normalized.reduce((sum, item) => sum + item.assistMileage, 0);
       const totalConsumption = normalized.reduce((sum, item) => sum + item.consumption, 0);
       const now = new Date();
       const monthPrefix = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
       const monthRecords = normalized.filter(item => item.date.startsWith(monthPrefix));
       const monthMileage = monthRecords.reduce((sum, item) => sum + item.mileage, 0);
-      const monthConsumption = monthRecords.reduce((sum, item) => sum + item.consumption, 0);
       const avgConsumption = totalMileage > 0 ? ((totalConsumption / totalMileage) * 100).toFixed(1) : '0';
+      const assistRatio = totalMileage > 0 ? ((totalAssistMileage / totalMileage) * 100).toFixed(1) : '0';
 
       this.setData({
         records: normalized,
@@ -104,10 +130,54 @@ Page({
         monthMileage: monthMileage.toFixed(0),
         avgConsumption,
         totalTrips: normalized.length,
+        assistRatio,
       });
+
+      this.loadYearSummary();
     } catch (e) {
-      this.setData({ records: [], totalMileage: '0', monthMileage: '0', avgConsumption: '0', totalTrips: 0 });
+      this.setData({ records: [], totalMileage: '0', monthMileage: '0', avgConsumption: '0', totalTrips: 0, assistRatio: '0' });
     }
+  },
+
+  loadYearSummary() {
+    const yearRange = this.data.yearRange;
+    const yearIndex = this.data.yearIndex;
+    const selectedYear = yearRange[yearIndex];
+    if (!selectedYear) return;
+
+    const yearRecords = this.data.records.filter(item => item.date && item.date.startsWith(selectedYear));
+    const yearTotalMileage = yearRecords.reduce((sum, item) => sum + item.mileage, 0);
+    const yearAssistMileage = yearRecords.reduce((sum, item) => sum + item.assistMileage, 0);
+    const yearAssistRatio = yearTotalMileage > 0 ? ((yearAssistMileage / yearTotalMileage) * 100).toFixed(1) : '0';
+
+    const monthNames = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+    const yearMonthData = [];
+    for (let m = 1; m <= 12; m++) {
+      const monthStr = String(m).padStart(2, '0');
+      const prefix = `${selectedYear}-${monthStr}`;
+      const monthItems = yearRecords.filter(item => item.date && item.date.startsWith(prefix));
+      const mileage = monthItems.reduce((sum, item) => sum + item.mileage, 0);
+      const assist = monthItems.reduce((sum, item) => sum + item.assistMileage, 0);
+      const ratio = mileage > 0 ? ((assist / mileage) * 100).toFixed(0) : '0';
+      yearMonthData.push({
+        name: monthNames[m - 1],
+        mileage: mileage.toFixed(0),
+        assistMileage: assist.toFixed(0),
+        assistRatio: ratio,
+        count: monthItems.length,
+      });
+    }
+
+    this.setData({
+      yearTotalMileage: yearTotalMileage.toFixed(0),
+      yearAssistMileage: yearAssistMileage.toFixed(0),
+      yearAssistRatio,
+      yearMonthData,
+    });
+  },
+
+  onYearChange(e) {
+    this.setData({ yearIndex: Number(e.detail.value) }, () => this.loadYearSummary());
   },
 
   showAdd() {
@@ -138,6 +208,16 @@ Page({
   onInput(e) {
     const field = e.currentTarget.dataset.field;
     this.setData({ [`form.${field}`]: e.detail.value });
+    if (field === 'mileage' || field === 'assistMileage') {
+      this.updateFormAssistRatio();
+    }
+  },
+
+  updateFormAssistRatio() {
+    const mileage = Number(this.data.form.mileage) || 0;
+    const assist = Number(this.data.form.assistMileage) || 0;
+    const ratio = mileage > 0 && assist > 0 ? ((assist / mileage) * 100).toFixed(0) : '0';
+    this.setData({ formAssistRatio: ratio });
   },
 
   saveRecord() {
@@ -153,6 +233,12 @@ Page({
       return;
     }
 
+    const assistMileage = Number(form.assistMileage) || 0;
+    if (assistMileage > mileage) {
+      wx.showToast({ title: '辅助驾驶里程不能大于总里程', icon: 'none' });
+      return;
+    }
+
     const consumption = Number(form.consumption) || 0;
 
     const record = {
@@ -160,6 +246,7 @@ Page({
       type: form.type,
       date: form.date,
       mileage: Math.round(mileage * 10) / 10,
+      assistMileage: Math.round(assistMileage * 10) / 10,
       consumption: Math.round(consumption * 10) / 10,
       startLocation: form.startLocation.trim(),
       endLocation: form.endLocation.trim(),
@@ -173,7 +260,6 @@ Page({
       list.unshift(record);
       wx.setStorageSync('kt_mileage_logs', list);
 
-      // 即时推送云端
       const app = getApp();
       if (app.saveSettingsToCloud) {
         app.saveSettingsToCloud('kt_mileage_logs', list);
@@ -213,6 +299,7 @@ Page({
     });
   },
 
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     if (this.data.mode === 'add') {
       this.showList();

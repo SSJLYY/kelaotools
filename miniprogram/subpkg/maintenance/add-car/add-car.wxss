@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 /* 添加车辆 - 样式 */
 
 /* 导航栏 */

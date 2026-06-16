@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 /* 用车小贴士 */
 .nav-bar { position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:1rpx solid rgba(0,0,0,0.05); }
 .nav-content { display:flex;align-items:center;padding:0 24rpx; }

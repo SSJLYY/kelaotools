@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 .page { min-height: 100vh; background: #F5F5F7; }
 .nav-bar { position: fixed; left: 0; right: 0; z-index: 100; background: #F5F5F7; }
 .nav-bar-inner { display: flex; align-items: center; padding: 0 16px; }
@@ -17,3 +22,15 @@
 .change-item { display: flex; align-items: flex-start; gap: 8px; }
 .change-dot { color: #0066FF; font-size: 14px; line-height: 20px; flex-shrink: 0; }
 .change-text { font-size: 14px; color: #555; line-height: 20px; }
+
+/* ===== 深色模式补充 ===== */
+.dark-mode .nav-title-text { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
+.dark-mode .version-dot { background: #444444 !important; border-color: #1E1E1E !important; }
+.dark-mode .dot-active { background: #0066FF !important; }
+.dark-mode .version-line { background: #333333 !important; }
+.dark-mode .version-content { background: #1E1E1E !important; }
+.dark-mode .version-number { color: #E5E5E5 !important; }
+.dark-mode .version-date { color: #A0A0A0 !important; }
+.dark-mode .change-dot { color: #4D94FF !important; }
+.dark-mode .change-text { color: #A0A0A0 !important; }

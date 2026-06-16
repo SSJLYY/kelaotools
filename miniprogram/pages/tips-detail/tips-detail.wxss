@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 /* 小贴士详情 */
 .nav-bar { position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);border-bottom:1rpx solid rgba(0,0,0,0.05); }
 .nav-content { display:flex;align-items:center;padding:0 24rpx; }
@@ -24,3 +29,18 @@
 .related-emoji { font-size:32rpx;margin-right:14rpx; }
 .related-text { flex:1;font-size:var(--font-md);color:var(--text-primary); }
 .related-arrow { font-size:32rpx;color:#CCC; }
+
+/* ===== 深色模式补充 ===== */
+.dark-mode .nav-title-text { color: #E5E5E5 !important; }
+.dark-mode .nav-back-icon { color: #E5E5E5 !important; }
+.dark-mode .content-card { background: #1E1E1E !important; }
+.dark-mode .card-title { color: #E5E5E5 !important; }
+.dark-mode .card-summary { color: #A0A0A0 !important; }
+.dark-mode .card-tag { background: #1a2a3a !important; color: #4D94FF !important; }
+.dark-mode .card-divider { background: #333333 !important; }
+.dark-mode .content-line { color: #E5E5E5 !important; }
+.dark-mode .related-section { background: #1E1E1E !important; }
+.dark-mode .related-title { color: #E5E5E5 !important; }
+.dark-mode .related-item { border-bottom-color: #333333 !important; }
+.dark-mode .related-text { color: #E5E5E5 !important; }
+.dark-mode .related-arrow { color: #666666 !important; }

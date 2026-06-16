@@ -1,4 +1,4 @@
-<view class="page">
+<view class="page {{darkMode ? 'dark-mode' : ''}}">
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
     <view class="nav-content" style="height: {{navBarHeight}}px;">
       <view class="nav-back" bindtap="onBack">‹</view>
@@ -19,18 +19,18 @@
       <text class="field-label">当前电量</text>
       <view class="charge-row">
         <text class="charge-percent">{{currentCharge}}%</text>
-        <input class="charge-input" type="number" value="{{currentCharge}}" bindinput="onCurrentInput" />
+        <input class="charge-input" type="number" value="{{currentInput}}" bindinput="onCurrentInput" bindconfirm="onCurrentConfirm" />
       </view>
-      <slider class="charge-slider" value="{{currentCharge}}" min="0" max="99" step="1" activeColor="#2F66F6" backgroundColor="#E2E8F0" block-size="24" bindchange="onCurrentSlider" />
+      <slider class="charge-slider" value="{{currentCharge}}" min="0" max="99" step="1" activeColor="#2F66F6" backgroundColor="#E2E8F0" block-size="24" bindchanging="onCurrentSlider" bindchange="onCurrentSlider" />
     </view>
 
     <view class="charge-section target-section">
       <text class="field-label">目标电量</text>
       <view class="charge-row">
         <text class="charge-percent">{{targetCharge}}%</text>
-        <input class="charge-input" type="number" value="{{targetCharge}}" bindinput="onTargetInput" />
+        <input class="charge-input" type="number" value="{{targetInput}}" bindinput="onTargetInput" bindconfirm="onTargetConfirm" />
       </view>
-      <slider class="charge-slider" value="{{targetCharge}}" min="1" max="100" step="1" activeColor="#2F66F6" backgroundColor="#E2E8F0" block-size="24" bindchange="onTargetSlider" />
+      <slider class="charge-slider" value="{{targetCharge}}" min="1" max="100" step="1" activeColor="#2F66F6" backgroundColor="#E2E8F0" block-size="24" bindchanging="onTargetSlider" bindchange="onTargetSlider" />
     </view>
 
     <view class="quick-row">
@@ -63,7 +63,7 @@
           <button class="loss-preset-btn {{lossRate === item ? 'loss-active' : ''}}" wx:for="{{lossPresets}}" wx:key="*this" bindtap="onLossPreset" data-rate="{{item}}">{{item}}%</button>
         </view>
         <view class="loss-slider-row">
-          <slider class="loss-slider" value="{{lossRate}}" min="0" max="50" step="1" activeColor="#F59E0B" backgroundColor="#E2E8F0" block-size="20" bindchange="onLossSlider" />
+          <slider class="loss-slider" value="{{lossRate}}" min="0" max="50" step="1" activeColor="#F59E0B" backgroundColor="#E2E8F0" block-size="20" bindchanging="onLossSlider" bindchange="onLossSlider" />
           <input class="loss-input" type="number" value="{{lossRate}}" bindinput="onLossInput" />
           <text class="loss-unit">%</text>
         </view>

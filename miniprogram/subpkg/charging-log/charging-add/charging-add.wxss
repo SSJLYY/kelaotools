@@ -29,3 +29,137 @@
 
 .bottom-btn-area { padding:24rpx 28rpx calc(24rpx + env(safe-area-inset-bottom)); }
 .save-btn { width:100%; height:92rpx; background:linear-gradient(135deg,#0066FF,#5B3FFF); border-radius:46rpx; border:none; font-size:var(--font-md); font-weight:700; color:#FFF; display:flex; align-items:center; justify-content:center; }
+
+/* ===== 深色模式 ===== */
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.97) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .nav-back-icon {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-title-text {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-right-placeholder {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-section {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .form-item {
+  border-bottom-color: #333333 !important;
+}
+
+.dark-mode .form-label {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-label-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .input-wrapper {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .input-value,
+.dark-mode .form-input {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .input-suffix {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .input-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .form-textarea {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .type-option {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .type-name {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .type-active {
+  background: #1a2a3a !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .type-active .type-name {
+  color: #4D94FF !important;
+}
+
+/* ===== 深色模式补充 ===== */
+.dark-mode page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-item {
+  border-bottom-color: #333333 !important;
+}
+
+.dark-mode .input-wrapper {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .input-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-input {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .placeholder {
+  color: #666666 !important;
+}
+
+.dark-mode .input-suffix {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .input-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .form-textarea {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .type-option {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .type-name {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .type-active {
+  background: #1a2a3a !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .type-active .type-name {
+  color: #4D94FF !important;
+}
+
+.dark-mode .save-btn {
+  background: linear-gradient(135deg, #0066FF, #5B3FFF) !important;
+  color: #FFFFFF !important;
+}

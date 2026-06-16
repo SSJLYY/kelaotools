@@ -1,4 +1,4 @@
-<view class="page" style="padding-top: {{navTotalHeight}}px;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="padding-top: {{navTotalHeight}}px;">
   <!-- 自定义导航栏 -->
   <view class="nav-bar" style="top: 0; height: {{navTotalHeight}}px;">
     <view class="nav-bar-inner" style="padding-top: {{statusBarHeight}}px; height: {{navBarHeight}}px;">
@@ -73,7 +73,7 @@
           <view wx:for="{{expenseBreakdown}}" wx:key="name" class="expense-item">
             <text class="expense-icon">{{item.icon}}</text>
             <text class="expense-name">{{item.name}}</text>
-            <text class="expense-amount">¥{{item.amount > 100 ? (item.amount / 100).toFixed(2) : item.amount}}</text>
+            <text class="expense-amount">¥{{item.amountText}}</text>
           </view>
         </view>
       </view>

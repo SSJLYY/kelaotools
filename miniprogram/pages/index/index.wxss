@@ -730,3 +730,205 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* ===== 深色模式 ===== */
+.dark-mode .nav-bar {
+  background: rgba(26, 26, 26, 0.95) !important;
+}
+
+.dark-mode .notice-bar {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .notice-item {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .notice-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .welcome-section {
+  background: transparent !important;
+}
+
+.dark-mode .welcome-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .welcome-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .desktop-guide-bubble {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+  box-shadow: none !important;
+}
+
+.dark-mode .bubble-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .bubble-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .bubble-icon {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .quick-item {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .quick-icon {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .quick-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .tip-bar {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .tip-bar-active {
+  background: #1a2a2a !important;
+}
+
+.dark-mode .tip-content {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .tip-bar-active .tip-content {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .tips-banner {
+  background: #2a2a1a !important;
+  border-color: #4a4a2a !important;
+}
+
+.dark-mode .tips-banner-label {
+  color: #F59E0B !important;
+}
+
+.dark-mode .tips-banner-title {
+  color: #F59E0B !important;
+}
+
+.dark-mode .tips-banner-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .data-overview {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .data-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .data-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .data-divider {
+  background: #333333 !important;
+}
+
+.dark-mode .tool-list {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .tool-item {
+  border-color: #333333 !important;
+}
+
+.dark-mode .tool-item:active {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .tool-icon-box {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .tool-item-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .tool-item-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .tool-arrow {
+  color: #666666 !important;
+}
+
+.dark-mode .tool-count-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .section-more {
+  color: #4D94FF !important;
+}
+
+.dark-mode .coupon-newbie,
+.dark-mode .coupon-bind,
+.dark-mode .coupon-community {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .coupon-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .coupon-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-source {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .coupon-notice {
+  color: #F59E0B !important;
+  background: #2a2a1a !important;
+}
+
+.dark-mode .coupon-btn,
+.dark-mode .coupon-btn-orange,
+.dark-mode .coupon-btn-blue,
+.dark-mode .coupon-btn-green {
+  background: #2A2A2A !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .coupon-amount,
+.dark-mode .coupon-symbol {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .sidejob-item {
+  background: #1E1E1E !important;
+}
+
+.dark-mode .sidejob-icon-box {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .sidejob-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .sidejob-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .sidejob-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}

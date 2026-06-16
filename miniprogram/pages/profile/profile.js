@@ -1,6 +1,7 @@
 // 个人信息 & 设置
 const { getNavBarInfo } = require('../../utils/nav');
 const toolsConfig = require('../../config/tools.config');
+const darkmode = require('../../utils/darkmode');
 
 Page({
   data: {
@@ -98,34 +99,29 @@ Page({
   // ---- 深色模式 ----
   loadDarkMode() {
     try {
-      const darkMode = wx.getStorageSync('kt_dark_mode') || false;
-      this.setData({ darkMode });
-      this.applyDarkMode(darkMode);
+      const dark = darkmode.syncDarkMode();
+      this.setData({ darkMode: dark });
     } catch (e) {}
   },
 
   onToggleDarkMode() {
-    const darkMode = !this.data.darkMode;
-    this.setData({ darkMode }, () => {
-      this.applyDarkMode(darkMode);
-      wx.setStorageSync('kt_dark_mode', darkMode);
-      wx.showToast({
-        title: darkMode ? '已开启深色模式' : '已关闭深色模式',
-        icon: 'success',
-      });
+    const setting = darkmode.getSetting();
+    const newMode = setting.mode === 'dark' ? 'light' : 'dark';
+    const newSetting = { ...setting, mode: newMode };
+    darkmode.saveSetting(newSetting);
+    const dark = darkmode.resolveDarkMode();
+    darkmode.setDarkMode(dark);
+    darkmode.applyDarkMode(dark);
+    this.setData({ darkMode: dark });
+    wx.showToast({
+      title: dark ? '已开启深色模式' : '已关闭深色模式',
+      icon: 'success',
     });
   },
 
   applyDarkMode(darkMode) {
-    const app = getApp();
-    if (app.globalData) {
-      app.globalData.darkMode = darkMode;
-    }
-    // 更新导航栏颜色
-    wx.setNavigationBarColor({
-      frontColor: darkMode ? '#ffffff' : '#000000',
-      backgroundColor: darkMode ? '#1a1a1a' : '#F5F5F7',
-    });
+    darkmode.setDarkMode(darkMode);
+    darkmode.applyDarkMode(darkMode);
   },
 
   // ---- 工具排序 ----
@@ -134,7 +130,7 @@ Page({
       const saved = wx.getStorageSync('kt_tool_sort');
       const allTools = toolsConfig.toolList.map(t => ({
         id: t.id,
-        key: t.key,
+        name: t.name,
         icon: t.icon,
         path: t.path,
         enabled: true,

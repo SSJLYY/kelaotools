@@ -1,0 +1,88 @@
+<view class="skeleton {{darkMode ? 'skeleton-dark' : ''}}" wx:if="{{loading}}">
+  <!-- 顶部导航栏占位 -->
+  <view class="sk-nav">
+    <view class="sk-nav-logo sk-animate"></view>
+    <view class="sk-nav-title sk-animate"></view>
+    <view class="sk-nav-icon sk-animate"></view>
+  </view>
+
+  <!-- 公告栏占位 -->
+  <view class="sk-notice sk-animate"></view>
+
+  <!-- 欢迎区 -->
+  <view class="sk-welcome">
+    <view class="sk-avatar sk-animate"></view>
+    <view class="sk-welcome-text">
+      <view class="sk-line sk-line-name sk-animate"></view>
+      <view class="sk-line sk-line-sub sk-animate"></view>
+    </view>
+  </view>
+
+  <!-- 气泡引导占位 -->
+  <view class="sk-bubble sk-animate"></view>
+
+  <!-- 快捷入口 2x2 -->
+  <view class="sk-quick-grid">
+    <view class="sk-quick-item sk-animate"></view>
+    <view class="sk-quick-item sk-animate"></view>
+    <view class="sk-quick-item sk-animate"></view>
+    <view class="sk-quick-item sk-animate"></view>
+  </view>
+
+  <!-- 提示条 -->
+  <view class="sk-tip-bar sk-animate"></view>
+
+  <!-- 用车小贴士 -->
+  <view class="sk-tips-banner sk-animate"></view>
+
+  <!-- 数据概览 -->
+  <view class="sk-data-overview">
+    <view class="sk-data-item">
+      <view class="sk-data-value sk-animate"></view>
+      <view class="sk-data-label sk-animate"></view>
+    </view>
+    <view class="sk-data-divider"></view>
+    <view class="sk-data-item">
+      <view class="sk-data-value sk-animate"></view>
+      <view class="sk-data-label sk-animate"></view>
+    </view>
+    <view class="sk-data-divider"></view>
+    <view class="sk-data-item">
+      <view class="sk-data-value sk-animate"></view>
+      <view class="sk-data-label sk-animate"></view>
+    </view>
+  </view>
+
+  <!-- 常用工具列表 -->
+  <view class="sk-section-header">
+    <view class="sk-line sk-line-title sk-animate"></view>
+    <view class="sk-line sk-line-more sk-animate"></view>
+  </view>
+  <view class="sk-tool-list">
+    <view class="sk-tool-item" wx:for="{{[1,2,3,4,5]}}" wx:key="*this">
+      <view class="sk-tool-icon sk-animate"></view>
+      <view class="sk-tool-text sk-animate"></view>
+      <view class="sk-tool-arrow sk-animate"></view>
+    </view>
+  </view>
+
+  <!-- 充电优惠券 -->
+  <view class="sk-section-header">
+    <view class="sk-line sk-line-title sk-animate"></view>
+    <view class="sk-line sk-line-more sk-animate"></view>
+  </view>
+  <view class="sk-coupon-list">
+    <view class="sk-coupon-card sk-animate"></view>
+    <view class="sk-coupon-card sk-animate"></view>
+  </view>
+
+  <!-- 兼职外快 -->
+  <view class="sk-section-header">
+    <view class="sk-line sk-line-title sk-animate"></view>
+  </view>
+  <view class="sk-sidejob-list">
+    <view class="sk-sidejob-item sk-animate"></view>
+    <view class="sk-sidejob-item sk-animate"></view>
+    <view class="sk-sidejob-item sk-animate"></view>
+  </view>
+</view>

@@ -1,1 +1,1 @@
-Page({ data:{}, onBack(){ wx.navigateBack(); } });
+Page({ data:{ darkMode: false }, onLoad() { this.loadDarkMode(); }, loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} }, onBack(){ wx.navigateBack(); } });

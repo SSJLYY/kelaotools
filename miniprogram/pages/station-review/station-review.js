@@ -9,7 +9,7 @@ function formatDate(date) {
 }
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -47,7 +47,7 @@ Page({
     }
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadReviews();
   },
 
@@ -186,6 +186,8 @@ Page({
     });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     if (this.data.mode === 'add') {
       this.showList();

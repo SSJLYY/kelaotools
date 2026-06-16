@@ -26,7 +26,7 @@ const COUPONS = [
 ];
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -37,6 +37,8 @@ Page({
 
     currentCharge: 30,
     targetCharge: 90,
+    currentInput: '30',
+    targetInput: '90',
     unitPrice: '1.20',
     activePricePreset: '1.20',
     pricePresets: PRICE_PRESETS,
@@ -54,12 +56,12 @@ Page({
     bestCouponText: '满31减30',
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
     this.loadCarInfo();
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadCarInfo();
   },
 
@@ -83,44 +85,77 @@ Page({
     }
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() {
     wx.navigateBack({ fail: () => wx.switchTab({ url: '/pages/tools/tools' }) });
   },
 
   onCurrentSlider(e) {
-    this.updateCharge('currentCharge', Number(e.detail.value));
+    const val = Number(e.detail.value);
+    this.setData({ currentCharge: val, currentInput: String(val) }, () => {
+      this.syncChargeConstraint('currentCharge');
+    });
   },
 
   onTargetSlider(e) {
-    this.updateCharge('targetCharge', Number(e.detail.value));
+    const val = Number(e.detail.value);
+    this.setData({ targetCharge: val, targetInput: String(val) }, () => {
+      this.syncChargeConstraint('targetCharge');
+    });
   },
 
   onCurrentInput(e) {
-    this.updateCharge('currentCharge', e.detail.value);
+    this.setData({ currentInput: e.detail.value });
   },
 
   onTargetInput(e) {
-    this.updateCharge('targetCharge', e.detail.value);
+    this.setData({ targetInput: e.detail.value });
   },
 
-  updateCharge(field, value) {
-    let next = Math.round(Number(value) || 0);
+  onCurrentConfirm(e) {
+    this.applyChargeInput('currentCharge', e.detail.value);
+  },
+
+  onTargetConfirm(e) {
+    this.applyChargeInput('targetCharge', e.detail.value);
+  },
+
+  applyChargeInput(field, raw) {
+    const num = Number(raw);
+    if (isNaN(num) || raw === '') {
+      this.setData({ [field + 'Input']: String(this.data[field]) });
+      return;
+    }
+    let next = Math.round(num);
     const min = field === 'targetCharge' ? 1 : 0;
     const max = field === 'currentCharge' ? 99 : 100;
     next = Math.max(min, Math.min(max, next));
-    const patch = { [field]: next };
-    const current = field === 'currentCharge' ? next : this.data.currentCharge;
-    const target = field === 'targetCharge' ? next : this.data.targetCharge;
+    const patch = { [field]: next, [field + 'Input']: String(next) };
+    this.setData(patch, () => this.syncChargeConstraint(field));
+  },
+
+  syncChargeConstraint(changedField) {
+    const current = this.data.currentCharge;
+    const target = this.data.targetCharge;
     if (current >= target) {
-      if (field === 'currentCharge') patch.targetCharge = Math.min(100, current + 1);
-      if (field === 'targetCharge') patch.currentCharge = Math.max(0, target - 1);
+      if (changedField === 'currentCharge') {
+        const newTarget = Math.min(100, current + 1);
+        this.setData({ targetCharge: newTarget, targetInput: String(newTarget) }, () => this.calculate());
+      } else {
+        const newCurrent = Math.max(0, target - 1);
+        this.setData({ currentCharge: newCurrent, currentInput: String(newCurrent) }, () => this.calculate());
+      }
+    } else {
+      this.calculate();
     }
-    this.setData(patch, () => this.calculate());
   },
 
   onQuickTarget(e) {
     const target = Number(e.currentTarget.dataset.target);
-    this.updateCharge('targetCharge', target);
+    this.setData({ targetCharge: target, targetInput: String(target) }, () => {
+      this.syncChargeConstraint('targetCharge');
+    });
   },
 
   onPricePreset(e) {

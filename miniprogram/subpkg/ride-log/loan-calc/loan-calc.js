@@ -2,7 +2,7 @@
 const { getNavBarInfo } = require('../../../utils/nav');
 
 Page({
-  data: {
+  data: { darkMode: false,
     statusBarHeight: 20,
     navBarHeight: 44,
     navTotalHeight: 64,
@@ -18,7 +18,7 @@ Page({
     today: '',
   },
 
-  onLoad() {
+  onLoad() { this.loadDarkMode();
     this.setData(getNavBarInfo());
     const today = new Date().toISOString().slice(0, 10);
     this.setData({ today, purchaseDate: today });
@@ -26,7 +26,7 @@ Page({
     this.loadProgress();
   },
 
-  onShow() {
+  onShow() { this.loadDarkMode();
     this.loadProgress();
   },
 
@@ -97,5 +97,7 @@ Page({
     wx.navigateTo({ url: '/subpkg/ride-log/loan-records/loan-records' });
   },
 
+  
+  loadDarkMode() { try { const darkMode = wx.getStorageSync('kt_dark_mode') || false; this.setData({ darkMode }); } catch (e) {} },
   onBack() { wx.navigateBack(); },
 });

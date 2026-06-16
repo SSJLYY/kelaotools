@@ -1,3 +1,8 @@
+/* ===== 深色模式 ===== */
+.dark-mode .page { background: #121212 !important; }
+.dark-mode .nav-bar { background: #1a1a1a !important; }
+.dark-mode .nav-title { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
   background: #F5F5F7;
@@ -251,3 +256,28 @@
   font-size: 14px;
   color: #999;
 }
+
+/* ===== 深色模式补充 ===== */
+.dark-mode .nav-title-text { color: #E5E5E5 !important; }
+.dark-mode .nav-back { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
+.dark-mode .share-btn { color: #4D94FF !important; }
+.dark-mode .report-header { background: transparent !important; }
+.dark-mode .report-title { color: #E5E5E5 !important; }
+.dark-mode .report-sub { color: #A0A0A0 !important; }
+.dark-mode .section-card { background: #1E1E1E !important; }
+.dark-mode .section-title { color: #E5E5E5 !important; }
+.dark-mode .stat-value { color: #E5E5E5 !important; }
+.dark-mode .stat-label { color: #A0A0A0 !important; }
+.dark-mode .expense-label { color: #A0A0A0 !important; }
+.dark-mode .expense-value { color: #EF4444 !important; }
+.dark-mode .expense-item { color: #E5E5E5 !important; }
+.dark-mode .expense-icon { color: #E5E5E5 !important; }
+.dark-mode .expense-name { color: #E5E5E5 !important; }
+.dark-mode .expense-amount { color: #E5E5E5 !important; }
+.dark-mode .insight-card { background: #2a2a1a !important; }
+.dark-mode .insight-item { color: #F59E0B !important; }
+.dark-mode .insight-text { color: #F59E0B !important; }
+.dark-mode .share-report-btn { background: #0066FF !important; }
+.dark-mode .empty-text { color: #A0A0A0 !important; }
+.dark-mode .empty-sub { color: #666666 !important; }

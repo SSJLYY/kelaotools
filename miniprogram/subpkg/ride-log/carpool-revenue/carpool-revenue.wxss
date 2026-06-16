@@ -1,4 +1,4 @@
-.page {
+page {
   min-height: 100vh;
   background: #F5F7FA;
   color: #111827;
@@ -121,3 +121,243 @@
 .tag-active { background: #2563EB; color: #FFF; }
 .save-btn { margin: 28rpx 14rpx 0; height: 90rpx; border-radius: 14rpx; background: #2F66F6; color: #FFF; font-size: 30rpx; font-weight: 900; border: none; }
 .safe-bottom { height: 44rpx; padding-bottom: env(safe-area-inset-bottom); }
+
+/* ===== 深色模式 ===== */
+.dark-mode .page,
+.dark-mode page {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-bar {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .nav-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-back {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-spacer {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .field-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .picker-field,
+.dark-mode .text-input,
+.dark-mode .amount-input,
+.dark-mode .route-input {
+  background: #2A2A2A !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .field-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .field-arrow {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .car-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .amount-input {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .quick-name {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .quick-active .quick-name {
+  color: #4D94FF !important;
+}
+
+.dark-mode .tag {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+
+.dark-mode .tag-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .promo-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .promo-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .promo-desc {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .promo-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .platform-chip {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .chip-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .section-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .section-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .stats-btn {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .add-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+
+.dark-mode .record-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .record-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .route-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-note,
+.dark-mode .record-meta {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .record-amount {
+  color: #10B981 !important;
+}
+
+.dark-mode .delete-link {
+  color: #EF4444 !important;
+}
+
+.dark-mode .cost-text {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .empty-state {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .empty-car {
+  background: #2a3a4a !important;
+}
+
+.dark-mode .empty-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .empty-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .form-title-row {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .form-sub {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .close-btn {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .quick-platform {
+  background: #2A2A2A !important;
+}
+
+.dark-mode .quick-active {
+  background: #1a2a3a !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .quick-name {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .quick-active .quick-name {
+  color: #4D94FF !important;
+}
+
+.dark-mode .form-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .field-label {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .picker-field,
+.dark-mode .text-input,
+.dark-mode .amount-input,
+.dark-mode .route-input {
+  background: #2A2A2A !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .field-value {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .field-arrow {
+  color: #A0A0A0 !important;
+}
+
+.dark-mode .car-name {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .amount-input {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .save-btn {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
