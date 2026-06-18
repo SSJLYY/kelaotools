@@ -1,5 +1,5 @@
 <!-- 添加车辆 -->
-<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;background:{{darkMode ? '#121212' : '#F5F5F7'}};">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;">
 
   <!-- 顶部导航栏 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">

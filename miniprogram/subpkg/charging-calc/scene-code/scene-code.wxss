@@ -160,10 +160,10 @@
 /* 失效反馈 */
 .feedback-section { text-align: center; padding: 24rpx 0; }
 .feedback-link { font-size: 26rpx; color: #0066FF; text-decoration: underline; }
-.feedback-done { font-size: 26rpx; color: #999; }
+.feedback-done { font-size: 26rpx; color: var(--text-muted); }
 
 /* ===== 深色模式 ===== */
-.dark-mode .page {
+.page.dark-mode {
   background: #121212 !important;
   color: #E5E5E5 !important;
 }

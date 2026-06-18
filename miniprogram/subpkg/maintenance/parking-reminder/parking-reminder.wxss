@@ -11,7 +11,7 @@ page {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 247, 250, 0.96);
+  background: var(--bg);
   backdrop-filter: blur(20rpx);
 }
 
@@ -27,14 +27,14 @@ page {
 .nav-title { flex: 1; text-align: center; font-size: 32rpx; font-weight: 700; }
 
 .stats-row { display: flex; gap: 16rpx; padding: 24rpx 24rpx 16rpx; }
-.stat-card { flex: 1; background: #FFF; border-radius: 18rpx; padding: 24rpx; text-align: center; box-shadow: 0 4rpx 16rpx rgba(15, 23, 42, 0.04); }
+.stat-card { flex: 1; background: var(--bg-card); border-radius: 18rpx; padding: 24rpx; text-align: center; box-shadow: 0 4rpx 16rpx rgba(15, 23, 42, 0.04); }
 .stat-num { display: block; font-size: 44rpx; font-weight: 900; }
 .stat-label { display: block; font-size: 22rpx; color: #64748B; margin-top: 6rpx; }
 .stat-card.danger .stat-num { color: #EF4444; }
 .stat-card.success .stat-num { color: #10B981; }
 
 .list-wrap { padding: 0 24rpx 120rpx; }
-.parking-card { background: #FFF; border-radius: 18rpx; padding: 26rpx; margin-bottom: 18rpx; box-shadow: 0 4rpx 16rpx rgba(15, 23, 42, 0.04); }
+.parking-card { background: var(--bg-card); border-radius: 18rpx; padding: 26rpx; margin-bottom: 18rpx; box-shadow: 0 4rpx 16rpx rgba(15, 23, 42, 0.04); }
 .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 18rpx; }
 .parking-name { display: block; font-size: 30rpx; font-weight: 900; color: #111827; }
 .parking-sub { display: block; margin-top: 8rpx; font-size: 23rpx; color: #64748B; }
@@ -45,10 +45,10 @@ page {
 .info-grid { display: flex; flex-wrap: wrap; gap: 16rpx 26rpx; margin-top: 20rpx; color: #64748B; font-size: 24rpx; }
 .card-actions { display: flex; gap: 16rpx; margin-top: 22rpx; }
 .edit-btn, .delete-btn { flex: 1; height: 66rpx; border-radius: 33rpx; border: none; font-size: 24rpx; font-weight: 700; }
-.edit-btn { background: #E8F2FF; color: #0066FF; }
+.edit-btn { background: #E8F2FF; color: var(--primary); }
 .delete-btn { background: #FEE2E2; color: #EF4444; }
 
-.empty-state { margin: 80rpx 28rpx 0; padding: 80rpx 30rpx; text-align: center; background: #FFF; border-radius: 24rpx; }
+.empty-state { margin: 80rpx 28rpx 0; padding: 80rpx 30rpx; text-align: center; background: var(--bg-card); border-radius: 24rpx; }
 .empty-icon { display: block; font-size: 96rpx; }
 .empty-title { display: block; font-size: 30rpx; font-weight: 900; margin-top: 20rpx; }
 .empty-sub { display: block; font-size: 24rpx; color: #64748B; margin-top: 10rpx; }
@@ -57,7 +57,7 @@ page {
 .form-card {
   margin: 20rpx 16rpx 0;
   padding: 26rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 18rpx;
 }
 
@@ -80,12 +80,12 @@ page {
 .preset-title { display: block; font-size: 24rpx; color: #94A3B8; font-weight: 800; margin-bottom: 14rpx; }
 .preset-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10rpx; }
 .preset-item text { display: block; color: #64748B; font-size: 22rpx; margin-bottom: 6rpx; }
-.preset-item input { height: 56rpx; border-radius: 8rpx; background: #FFF; border: 2rpx solid #E2E8F0; text-align: center; font-size: 24rpx; box-sizing: border-box; }
+.preset-item input { height: 56rpx; border-radius: 8rpx; background: var(--bg-card); border: 2rpx solid #E2E8F0; text-align: center; font-size: 24rpx; box-sizing: border-box; }
 .save-btn { margin: 28rpx 16rpx 0; height: 90rpx; border-radius: 14rpx; background: #2F66F6; color: #FFF; font-size: 30rpx; font-weight: 900; border: none; }
 .safe-bottom { height: 44rpx; padding-bottom: env(safe-area-inset-bottom); }
 
 /* ===== 深色模式 ===== */
-.dark-mode .page {
+.page.dark-mode {
   background: #121212 !important;
   color: #E5E5E5 !important;
 }

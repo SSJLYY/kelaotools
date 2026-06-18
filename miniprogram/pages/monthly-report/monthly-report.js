@@ -49,6 +49,7 @@ Page({
   },
 
   onLoad(options) {
+    this.loadDarkMode();
     this.setData(getNavBarInfo());
     const year = options.year || new Date().getFullYear();
     const month = options.month || new Date().getMonth() + 1;

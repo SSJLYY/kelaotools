@@ -1,5 +1,5 @@
 <!-- 个人中心 -->
-<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;background:{{darkMode ? '#121212' : '#F5F5F7'}};">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;">
 
   <!-- 用户信息卡片 -->
   <view class="user-hero" bindtap="onGoProfile">
@@ -91,8 +91,8 @@
     <view class="menu-item" bindtap="onAbout"><text>ℹ️ 关于我们</text><text class="menu-arrow">›</text></view>
   </view>
 
-  <view style="text-align:center;padding:40rpx 0;">
-    <text style="font-size:22rpx;color:#CCC;">{{appVersion}}</text>
+  <view class="version-text">
+    <text>{{appVersion}}</text>
   </view>
   <view class="safe-bottom"></view>
 

@@ -1,11 +1,11 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
+.page.dark-mode { background: #121212 !important; }
 .dark-mode .nav-bar { background: #1a1a1a !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
-  background: #F5F7FA;
+  background: var(--bg);
   color: #111827;
 }
 
@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 247, 250, 0.96);
+  background: var(--bg);
   backdrop-filter: blur(20rpx);
 }
 
@@ -70,7 +70,7 @@
 .feature-card {
   margin-bottom: 18rpx;
   padding: 28rpx 24rpx 22rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 2rpx solid #DFE7F0;
   border-radius: 20rpx;
   box-sizing: border-box;
@@ -186,10 +186,15 @@
 /* ===== 深色模式补充 ===== */
 .dark-mode .nav-title-text { color: #E5E5E5 !important; }
 .dark-mode .nav-back-icon { color: #E5E5E5 !important; }
-.dark-mode .feature-card { background: #1E1E1E !important; }
+.page.dark-mode-title { color: #E5E5E5 !important; }
+.page.dark-mode-sub { color: #A0A0A0 !important; }
+.dark-mode .feature-card { background: #1E1E1E !important; border-color: #333333 !important; }
 .dark-mode .feature-card:active { background: #2A2A2A !important; }
+.dark-mode .feature-icon { background: #2A2A2A !important; }
 .dark-mode .feature-title { color: #E5E5E5 !important; }
+.dark-mode .feature-arrow { color: #666666 !important; }
 .dark-mode .feature-desc { color: #A0A0A0 !important; }
-.dark-mode .feature-tag { background: #2A2A2A !important; color: #A0A0A0 !important; }
-.dark-mode .footer-text { color: #A0A0A0 !important; }
+.dark-mode .feature-tag { background: #2A2A2A !important; border-color: #444444 !important; color: #A0A0A0 !important; }
+.dark-mode .action-btn { background: #1a2a3a !important; border-color: #2a3a4a !important; color: #4D94FF !important; }
+.dark-mode .footer-tip { color: #A0A0A0 !important; }
 .dark-mode .footer-line { background: #333333 !important; }

@@ -11,7 +11,7 @@ page {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 247, 250, 0.96);
+  background: var(--bg);
   backdrop-filter: blur(20rpx);
 }
 
@@ -29,7 +29,7 @@ page {
 .promo-card {
   margin: 20rpx 0 0;
   padding: 22rpx 28rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 0 0 20rpx 20rpx;
   border: 2rpx solid #E2E8F0;
   display: flex;
@@ -60,7 +60,7 @@ page {
 
 .platform-scroll { white-space: nowrap; padding: 12rpx 0 10rpx; }
 .platform-list { display: inline-flex; padding: 0 14rpx; gap: 16rpx; }
-.platform-chip { display: inline-flex; align-items: center; justify-content: center; padding: 14rpx 30rpx; border-radius: 36rpx; background: #FFF; color: #64748B; border: 2rpx solid #E2E8F0; font-size: 26rpx; font-weight: 800; }
+.platform-chip { display: inline-flex; align-items: center; justify-content: center; padding: 14rpx 30rpx; border-radius: 36rpx; background: var(--bg-card); color: #64748B; border: 2rpx solid #E2E8F0; font-size: 26rpx; font-weight: 800; }
 .chip-active { background: #2F66F6; color: #FFF; border-color: #2F66F6; }
 
 .section-header { display: flex; align-items: center; justify-content: space-between; padding: 22rpx 14rpx 18rpx; }
@@ -72,7 +72,7 @@ page {
 .add-btn { background: #2F66F6; color: #FFF; }
 
 .record-list { padding: 0 14rpx 120rpx; }
-.record-card { display: flex; align-items: center; padding: 22rpx 24rpx; margin-bottom: 18rpx; background: #FFF; border: 2rpx solid #DFE7F0; border-radius: 24rpx; box-sizing: border-box; }
+.record-card { display: flex; align-items: center; padding: 22rpx 24rpx; margin-bottom: 18rpx; background: var(--bg-card); border: 2rpx solid #DFE7F0; border-radius: 24rpx; box-sizing: border-box; }
 .record-icon { width: 70rpx; height: 70rpx; border-radius: 16rpx; color: #FFF; display: flex; align-items: center; justify-content: center; font-size: 34rpx; flex-shrink: 0; }
 .record-main { flex: 1; min-width: 0; margin-left: 20rpx; }
 .record-title-row { display: flex; align-items: center; gap: 12rpx; }
@@ -84,7 +84,7 @@ page {
 .delete-link { display: block; font-size: 22rpx; color: #EF4444; margin-top: 4rpx; }
 .cost-text { display: block; font-size: 21rpx; color: #94A3B8; margin-top: 4rpx; }
 
-.empty-state { margin: 0 14rpx; min-height: 350rpx; background: #FFF; border: 2rpx solid #DFE7F0; border-radius: 24rpx; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.empty-state { margin: 0 14rpx; min-height: 350rpx; background: var(--bg-card); border: 2rpx solid #DFE7F0; border-radius: 24rpx; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .empty-car { width: 150rpx; height: 150rpx; border-radius: 20rpx; background: #F0F6FF; display: flex; align-items: center; justify-content: center; font-size: 100rpx; }
 .empty-title { display: block; font-size: 32rpx; font-weight: 900; color: #111827; margin-top: 26rpx; }
 .empty-sub { display: block; font-size: 24rpx; color: #64748B; margin-top: 18rpx; }
@@ -95,13 +95,13 @@ page {
 .form-sub { display: block; font-size: 24rpx; color: #64748B; margin-top: 6rpx; }
 .close-btn { font-size: 42rpx; color: #64748B; padding: 4rpx 10rpx; }
 .quick-platforms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14rpx; padding: 0 32rpx 30rpx; }
-.quick-platform { height: 110rpx; border-radius: 14rpx; background: #FFF; border: 2rpx solid transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.quick-platform { height: 110rpx; border-radius: 14rpx; background: var(--bg-card); border: 2rpx solid transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .quick-active { border-color: #2F66F6; background: #EFF6FF; }
 .quick-icon { font-size: 34rpx; line-height: 1; }
 .quick-name { font-size: 23rpx; color: #475569; margin-top: 10rpx; }
 .quick-active .quick-name { color: #2F66F6; font-weight: 800; }
 
-.form-card { margin: 0 32rpx; padding: 28rpx 28rpx 16rpx; background: #FFF; border: 2rpx solid #E2E8F0; border-radius: 24rpx; }
+.form-card { margin: 0 32rpx; padding: 28rpx 28rpx 16rpx; background: var(--bg-card); border: 2rpx solid #E2E8F0; border-radius: 24rpx; }
 .field-group { margin-bottom: 28rpx; }
 .last-field { margin-bottom: 0; }
 .field-label { display: block; font-size: 26rpx; font-weight: 800; color: #64748B; margin-bottom: 14rpx; }
@@ -123,8 +123,8 @@ page {
 .safe-bottom { height: 44rpx; padding-bottom: env(safe-area-inset-bottom); }
 
 /* ===== 深色模式 ===== */
-.dark-mode .page,
-.dark-mode page {
+.page.dark-mode,
+.page.dark-mode {
   background: #121212 !important;
   color: #E5E5E5 !important;
 }

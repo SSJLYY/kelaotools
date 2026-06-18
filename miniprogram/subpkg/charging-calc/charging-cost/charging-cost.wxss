@@ -1,63 +1,73 @@
+/* ========================================
+   充电费用计算 — 简约风格
+   与全局设计系统统一
+   ======================================== */
+
 page {
   min-height: 100vh;
-  background: #F5F7FA;
-  color: #0F172A;
+  background: var(--bg);
+  color: var(--text-primary);
 }
 
+/* 导航栏 */
 .nav-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 247, 250, 0.98);
-  border-bottom: 1rpx solid rgba(15, 23, 42, 0.06);
+  background: rgba(247, 248, 250, 0.97);
+  border-bottom: 1rpx solid var(--border-light);
+}
+.dark-mode .nav-bar {
+  background: rgba(15, 15, 15, 0.97);
 }
 
 .nav-content {
   display: flex;
   align-items: center;
-  padding: 0 24rpx;
+  padding: 0 var(--space-lg);
 }
 
 .nav-back,
 .nav-spacer {
   width: 90rpx;
 }
-
 .nav-back {
-  font-size: 58rpx;
+  font-size: 50rpx;
   line-height: 1;
   font-weight: 300;
-  color: #111827;
+  color: var(--text-primary);
 }
-
 .nav-title {
   flex: 1;
   text-align: center;
-  font-size: 32rpx;
+  font-size: var(--font-lg);
   font-weight: 700;
+  color: var(--text-primary);
 }
 
+/* 卡片容器 */
 .calc-card,
 .result-card,
 .coupon-card {
-  margin: 24rpx 28rpx 0;
-  background: #FFF;
-  border: 1rpx solid #DFE7F0;
-  border-radius: 22rpx;
+  margin: var(--space-lg) 28rpx 0;
+  background: var(--bg-card);
+  border: 1rpx solid var(--border);
+  border-radius: var(--radius-xl);
   box-sizing: border-box;
 }
 
 .calc-card {
-  padding: 32rpx 28rpx 34rpx;
+  padding: 28rpx;
 }
 
+/* 车辆信息 */
 .car-title {
   display: block;
-  color: #0F172A;
-  font-size: 31rpx;
-  font-weight: 900;
+  color: var(--text-primary);
+  font-size: 30rpx;
+  font-weight: 800;
   line-height: 1.4;
 }
 
@@ -66,92 +76,95 @@ page {
   align-items: center;
   flex-wrap: wrap;
   gap: 6rpx;
-  margin-top: 14rpx;
-  color: #64748B;
-  font-size: 24rpx;
-  font-weight: 700;
+  margin-top: 12rpx;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: 600;
 }
 
 .meta-strong {
-  color: #2563EB;
-  font-size: 27rpx;
-  font-weight: 900;
-}
-
-.card-line {
-  height: 1rpx;
-  background: #E2E8F0;
-  margin: 30rpx 0;
-}
-
-.field-label {
-  display: block;
-  color: #64748B;
-  font-size: 25rpx;
+  color: var(--primary);
+  font-size: 26rpx;
   font-weight: 800;
 }
 
+/* 分割线 */
+.card-line {
+  height: 1rpx;
+  background: var(--border);
+  margin: 24rpx 0;
+}
+
+/* 字段 */
+.field-label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: 700;
+}
+
+/* 电量输入区 */
 .charge-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 18rpx;
+  margin-top: 14rpx;
 }
 
 .charge-percent {
-  color: #0F172A;
-  font-size: 48rpx;
+  color: var(--text-primary);
+  font-size: 44rpx;
   font-weight: 900;
   line-height: 1;
 }
 
 .charge-input {
-  width: 96rpx;
-  height: 58rpx;
-  border-radius: 12rpx;
-  background: #F1F5F9;
-  color: #0F172A;
-  font-size: 28rpx;
-  font-weight: 900;
+  width: 90rpx;
+  height: 56rpx;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: var(--font-md);
+  font-weight: 800;
   text-align: center;
 }
 
 .charge-slider {
-  margin: 22rpx 22rpx 0;
+  margin: 18rpx 18rpx 0;
 }
 
 .target-section {
-  margin-top: 32rpx;
+  margin-top: 28rpx;
 }
 
+/* 快捷目标按钮 */
 .quick-row {
   display: flex;
-  gap: 14rpx;
-  margin-top: 28rpx;
+  gap: 12rpx;
+  margin-top: 24rpx;
 }
 
 .quick-target {
   flex: 1;
-  height: 72rpx;
+  height: 64rpx;
   margin: 0;
   border: none;
-  border-radius: 14rpx;
-  background: #F1F5F9;
-  color: #64748B;
-  font-size: 26rpx;
-  font-weight: 900;
-  line-height: 72rpx;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  line-height: 64rpx;
 }
-
-.quick-target::after,
-.price-preset::after {
+.quick-target::after {
   border: none;
 }
 
 .price-line {
-  margin: 30rpx 0 26rpx;
+  margin: 24rpx 0 22rpx;
 }
 
+/* 价格区 */
 .price-head {
   display: flex;
   align-items: center;
@@ -160,183 +173,61 @@ page {
 
 .preset-row {
   display: flex;
-  gap: 12rpx;
+  gap: 10rpx;
 }
 
 .price-preset {
-  min-width: 66rpx;
-  height: 54rpx;
+  min-width: 60rpx;
+  height: 48rpx;
   margin: 0;
-  padding: 0 14rpx;
+  padding: 0 12rpx;
   border: none;
-  border-radius: 12rpx;
-  background: #F1F5F9;
-  color: #64748B;
-  font-size: 24rpx;
-  font-weight: 900;
-  line-height: 54rpx;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
+  font-weight: 700;
+  line-height: 48rpx;
+}
+.price-preset::after {
+  border: none;
 }
 
 .preset-active {
-  background: #DBEAFE;
-  color: #2563EB;
+  background: var(--primary-light);
+  color: var(--primary);
 }
 
 .price-input-wrap {
   display: flex;
   align-items: center;
-  margin-top: 16rpx;
+  margin-top: 14rpx;
 }
 
 .price-input {
   flex: 1;
-  height: 78rpx;
-  padding: 0 28rpx;
-  border-radius: 12rpx;
-  background: #F1F5F9;
-  color: #0F172A;
-  font-size: 32rpx;
-  font-weight: 900;
+  height: 72rpx;
+  padding: 0 24rpx;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 30rpx;
+  font-weight: 800;
   box-sizing: border-box;
 }
 
 .price-unit {
-  margin-left: 14rpx;
-  color: #94A3B8;
-  font-size: 25rpx;
-  font-weight: 800;
-}
-
-.result-card {
-  height: 158rpx;
-  display: flex;
-  align-items: center;
-  padding: 0 36rpx;
-}
-
-.result-item {
-  flex: 1;
-  text-align: center;
-}
-
-.result-label {
-  display: block;
-  color: #94A3B8;
-  font-size: 25rpx;
-  font-weight: 800;
-}
-
-.result-value-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  margin-top: 18rpx;
-}
-
-.result-value {
-  display: block;
-  margin-top: 18rpx;
-  font-size: 38rpx;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.result-value-row .result-value {
-  margin-top: 0;
-}
-
-.result-unit {
-  margin-left: 4rpx;
-  color: #64748B;
-  font-size: 22rpx;
-  font-weight: 800;
-}
-
-.dark {
-  color: #0F172A;
-}
-
-.blue {
-  color: #2563EB;
-}
-
-.result-divider {
-  width: 2rpx;
-  height: 80rpx;
-  background: #E2E8F0;
-  margin: 0 30rpx;
-}
-
-.coupon-card {
-  padding: 30rpx 28rpx 28rpx;
-}
-
-.coupon-title-row {
-  display: flex;
-  align-items: center;
-}
-
-.coupon-icon {
-  font-size: 25rpx;
-  margin-right: 10rpx;
-}
-
-.coupon-title {
-  color: #0F172A;
-  font-size: 28rpx;
-  font-weight: 900;
-}
-
-.coupon-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14rpx;
-  margin-top: 26rpx;
-}
-
-.coupon-chip {
-  padding: 12rpx 18rpx;
-  border-radius: 10rpx;
-  background: #FFF1F2;
-  display: flex;
-  align-items: baseline;
-}
-
-.coupon-disabled {
-  opacity: 0.45;
-}
-
-.coupon-name {
-  color: #EF233C;
-  font-size: 25rpx;
-  font-weight: 900;
-}
-
-.coupon-pay {
-  margin-left: 8rpx;
-  color: #64748B;
-  font-size: 22rpx;
+  margin-left: 12rpx;
+  color: var(--text-muted);
+  font-size: var(--font-sm);
   font-weight: 700;
-}
-
-.coupon-tip {
-  display: block;
-  margin-top: 22rpx;
-  color: #94A3B8;
-  font-size: 24rpx;
-  font-weight: 700;
-}
-
-.safe-bottom {
-  height: 42rpx;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* 充电损耗 */
 .loss-section {
-  margin-top: 28rpx;
-  padding-top: 24rpx;
-  border-top: 1rpx solid #E2E8F0;
+  margin-top: 24rpx;
+  padding-top: 20rpx;
+  border-top: 1rpx solid var(--border);
 }
 
 .loss-toggle {
@@ -346,57 +237,59 @@ page {
 }
 
 .toggle-switch {
-  width: 88rpx;
-  height: 48rpx;
-  border-radius: 24rpx;
+  width: 84rpx;
+  height: 46rpx;
+  border-radius: 23rpx;
   background: #CBD5E1;
   position: relative;
   transition: background 0.2s;
 }
+.dark-mode .toggle-switch {
+  background: #444;
+}
 
 .toggle-on {
-  background: #F59E0B;
+  background: var(--warning);
 }
 
 .toggle-thumb {
-  width: 40rpx;
-  height: 40rpx;
+  width: 38rpx;
+  height: 38rpx;
   border-radius: 50%;
-  background: #FFF;
+  background: #FFFFFF;
   position: absolute;
   top: 4rpx;
   left: 4rpx;
   transition: left 0.2s;
-  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.15);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.15);
 }
 
 .toggle-on .toggle-thumb {
-  left: 44rpx;
+  left: 42rpx;
 }
 
 .loss-detail {
-  margin-top: 20rpx;
+  margin-top: 18rpx;
 }
 
 .loss-presets {
   display: flex;
-  gap: 12rpx;
+  gap: 10rpx;
 }
 
 .loss-preset-btn {
   flex: 1;
-  height: 54rpx;
+  height: 48rpx;
   margin: 0;
   padding: 0;
   border: none;
-  border-radius: 12rpx;
-  background: #F1F5F9;
-  color: #64748B;
-  font-size: 24rpx;
-  font-weight: 900;
-  line-height: 54rpx;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
+  font-weight: 700;
+  line-height: 48rpx;
 }
-
 .loss-preset-btn::after {
   border: none;
 }
@@ -405,11 +298,15 @@ page {
   background: #FEF3C7;
   color: #D97706;
 }
+.dark-mode .loss-active {
+  background: #2A2A1A;
+  color: var(--warning);
+}
 
 .loss-slider-row {
   display: flex;
   align-items: center;
-  margin-top: 16rpx;
+  margin-top: 14rpx;
 }
 
 .loss-slider {
@@ -418,196 +315,149 @@ page {
 }
 
 .loss-input {
-  width: 80rpx;
-  height: 52rpx;
-  border-radius: 10rpx;
-  background: #F1F5F9;
-  color: #0F172A;
-  font-size: 28rpx;
-  font-weight: 900;
+  width: 76rpx;
+  height: 48rpx;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: var(--font-md);
+  font-weight: 800;
   text-align: center;
 }
 
 .loss-unit {
-  margin-left: 8rpx;
-  color: #94A3B8;
-  font-size: 24rpx;
-  font-weight: 800;
+  margin-left: 6rpx;
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: 700;
 }
 
 .loss-tip {
   display: block;
-  margin-top: 14rpx;
-  color: #94A3B8;
-  font-size: 22rpx;
+  margin-top: 12rpx;
+  color: var(--text-muted);
+  font-size: 20rpx;
+  font-weight: 600;
+}
+
+/* 结果卡片 */
+.result-card {
+  height: 148rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 32rpx;
+}
+
+.result-item {
+  flex: 1;
+  text-align: center;
+}
+
+.result-label {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--font-sm);
   font-weight: 700;
 }
 
-/* ===== 深色模式 ===== */
-.dark-mode .page,
-.dark-mode page {
-  background: #121212 !important;
-  color: #E5E5E5 !important;
+.result-value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: 14rpx;
 }
 
-.dark-mode .nav-bar {
-  background: rgba(26, 26, 26, 0.98) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+.result-value {
+  font-size: 36rpx;
+  font-weight: 900;
+  line-height: 1;
+}
+.result-value.dark {
+  color: var(--text-primary);
+}
+.result-value.blue {
+  color: var(--primary);
 }
 
-.dark-mode .nav-back {
-  color: #E5E5E5 !important;
+.result-unit {
+  margin-left: 4rpx;
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
+  font-weight: 700;
 }
 
-.dark-mode .nav-title {
-  color: #E5E5E5 !important;
+.result-divider {
+  width: 2rpx;
+  height: 72rpx;
+  background: var(--border);
+  margin: 0 28rpx;
 }
 
-.dark-mode .nav-spacer {
-  color: #E5E5E5 !important;
+/* 优惠券卡片 */
+.coupon-card {
+  padding: 24rpx 28rpx;
 }
 
-.dark-mode .calc-card,
-.dark-mode .result-card,
-.dark-mode .coupon-card {
-  background: #1E1E1E !important;
-  border-color: #333333 !important;
+.coupon-title-row {
+  display: flex;
+  align-items: center;
 }
 
-.dark-mode .car-title {
-  color: #E5E5E5 !important;
+.coupon-icon {
+  font-size: 24rpx;
+  margin-right: 8rpx;
 }
 
-.dark-mode .car-meta {
-  color: #A0A0A0 !important;
+.coupon-title {
+  color: var(--text-primary);
+  font-size: var(--font-md);
+  font-weight: 800;
 }
 
-.dark-mode .meta-strong {
-  color: #4D94FF !important;
+.coupon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+  margin-top: 22rpx;
 }
 
-.dark-mode .field-label {
-  color: #A0A0A0 !important;
+.coupon-chip {
+  padding: 10rpx 16rpx;
+  border-radius: var(--radius-sm);
+  background: #FFF1F2;
+  display: flex;
+  align-items: baseline;
 }
-
-.dark-mode .charge-percent {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .charge-input {
-  background: #2A2A2A !important;
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .quick-target {
-  background: #2A2A2A !important;
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .price-preset {
-  background: #2A2A2A !important;
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .preset-active {
-  background: #1a2a3a !important;
-  color: #4D94FF !important;
-}
-
-.dark-mode .price-input {
-  background: #2A2A2A !important;
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .price-unit {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .result-label {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .result-value.dark {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .result-unit {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .coupon-title {
-  color: #E5E5E5 !important;
-}
-
 .dark-mode .coupon-chip {
-  background: #2a1a1a !important;
+  background: #2A1A1A;
 }
 
-.dark-mode .coupon-name {
-  color: #EF4444 !important;
+.coupon-disabled {
+  opacity: 0.45;
 }
 
-.dark-mode .coupon-pay {
-  color: #A0A0A0 !important;
+.coupon-name {
+  color: var(--danger);
+  font-size: var(--font-sm);
+  font-weight: 800;
 }
 
-.dark-mode .coupon-tip {
-  color: #A0A0A0 !important;
+.coupon-pay {
+  margin-left: 6rpx;
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
+  font-weight: 600;
 }
 
-.dark-mode .loss-section {
-  border-top-color: #333333 !important;
+.coupon-tip {
+  display: block;
+  margin-top: 18rpx;
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+  font-weight: 600;
 }
 
-.dark-mode .loss-preset-btn {
-  background: #2A2A2A !important;
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .loss-active {
-  background: #2a2a1a !important;
-  color: #F59E0B !important;
-}
-
-.dark-mode .loss-input {
-  background: #2A2A2A !important;
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .loss-unit {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .loss-tip {
-  color: #A0A0A0 !important;
-}
-
-/* ===== 深色模式补充 ===== */
-.dark-mode page {
-  background: #121212 !important;
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .card-line {
-  background: #333333 !important;
-}
-
-.dark-mode .price-line {
-  background: #333333 !important;
-}
-
-.dark-mode .toggle-switch {
-  background: #444444 !important;
-}
-
-.dark-mode .toggle-on {
-  background: #F59E0B !important;
-}
-
-.dark-mode .loss-detail {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .coupon-disabled {
-  opacity: 0.5;
+.safe-bottom {
+  height: 40rpx;
+  padding-bottom: env(safe-area-inset-bottom);
 }

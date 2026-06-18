@@ -1,11 +1,11 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
-  background: #F5F7FA;
+  background: var(--bg);
   color: #111827;
 }
 
@@ -15,7 +15,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 247, 250, 0.96);
+  background: var(--bg);
   backdrop-filter: blur(20rpx);
 }
 
@@ -127,7 +127,7 @@
   height: 66rpx;
   padding: 0 28rpx;
   border-radius: 34rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 2rpx solid #DFE7F0;
   color: #64748B;
   display: flex;
@@ -167,7 +167,7 @@
 .empty-card {
   margin: 0 14rpx;
   min-height: 340rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 2rpx solid #DFE7F0;
   border-radius: 20rpx;
   display: flex;
@@ -234,7 +234,7 @@
   align-items: flex-start;
   margin-bottom: 18rpx;
   padding: 24rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 2rpx solid #DFE7F0;
   border-radius: 20rpx;
   box-sizing: border-box;
@@ -374,15 +374,24 @@
 .dark-mode .nav-title-text { color: #E5E5E5 !important; }
 .dark-mode .nav-back-icon { color: #E5E5E5 !important; }
 .dark-mode .tab-bar { background: #1E1E1E !important; }
-.dark-mode .tab-chip { background: #2A2A2A !important; color: #A0A0A0 !important; }
-.dark-mode .tab-active { background: #0066FF !important; color: #FFFFFF !important; }
-.dark-mode .fav-card { background: #1E1E1E !important; }
-.dark-mode .fav-card:active { background: #2A2A2A !important; }
-.dark-mode .fav-title { color: #E5E5E5 !important; }
-.dark-mode .fav-desc { color: #A0A0A0 !important; }
-.dark-mode .fav-tag { background: #1a2a3a !important; color: #4D94FF !important; }
-.dark-mode .fav-action { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .tab-chip { background: #2A2A2A !important; border-color: #444444 !important; color: #A0A0A0 !important; }
+.dark-mode .tab-count { background: #333333 !important; color: #A0A0A0 !important; }
+.dark-mode .tab-active { background: #0066FF !important; border-color: #0066FF !important; color: #FFFFFF !important; }
+.dark-mode .tab-active .tab-count { background: rgba(255, 255, 255, 0.22) !important; color: #FFF !important; }
+.dark-mode .summary-card { background: linear-gradient(135deg, #1D4ED8, #3B82F6) !important; }
+.dark-mode .summary-pill { background: rgba(255, 255, 255, 0.14) !important; }
+.dark-mode .favorite-card { background: #1E1E1E !important; border-color: #333333 !important; }
+.dark-mode .favorite-card:active { background: #2A2A2A !important; }
+.dark-mode .favorite-title { color: #E5E5E5 !important; }
+.dark-mode .favorite-desc { color: #A0A0A0 !important; }
+.dark-mode .favorite-type { background: #1a2a3a !important; color: #4D94FF !important; }
+.dark-mode .favorite-icon { background: #2A2A2A !important; }
+.dark-mode .favorite-code { color: #E5E5E5 !important; }
+.dark-mode .favorite-tag { background: #2A2A2A !important; border-color: #444444 !important; color: #A0A0A0 !important; }
+.dark-mode .copy-btn { background: #0066FF !important; color: #FFFFFF !important; }
 .dark-mode .remove-link { color: #EF4444 !important; }
-.dark-mode .empty-text { color: #A0A0A0 !important; }
-.dark-mode .empty-sub { color: #666666 !important; }
-.dark-mode .empty-btn { background: #0066FF !important; }
+.dark-mode .empty-card { background: #1E1E1E !important; border-color: #333333 !important; }
+.dark-mode .empty-icon { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .empty-title { color: #E5E5E5 !important; }
+.dark-mode .empty-sub { color: #A0A0A0 !important; }
+.dark-mode .empty-action { background: #0066FF !important; }

@@ -1,5 +1,5 @@
 <!-- 个人信息 & 设置 -->
-<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background:{{darkMode ? '#121212' : '#F5F5F7'}};min-height:100vh;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;">
 
   <!-- 导航 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">

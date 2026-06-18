@@ -1,7 +1,7 @@
 <!-- 充电详情 -->
 <view class="{{darkMode ? 'dark-mode' : ''}}" style="text-align:center;padding:200rpx 48rpx;min-height:100vh;background:{{darkMode ? '#121212' : '#F5F5F7'}};">
   <text style="font-size:60rpx;display:block;">⚡</text>
-  <text style="font-size:32rpx;font-weight:700;display:block;margin-top:20rpx;">充电详情</text>
-  <text style="font-size:24rpx;color:#999;display:block;margin-top:12rpx;">详情页开发中</text>
-  <button style="margin-top:40rpx;width:240rpx;height:80rpx;border-radius:40rpx;border:2rpx solid var(--primary);color:var(--primary);font-size:26rpx;background:#FFF;" bindtap="onBack">返回</button>
+  <text style="font-size:32rpx;font-weight:700;display:block;margin-top:20rpx;color:{{darkMode ? '#E8E8EC' : '#333'}};">充电详情</text>
+  <text style="font-size:24rpx;color:{{darkMode ? '#9CA3AF' : '#999'}};display:block;margin-top:12rpx;">详情页开发中</text>
+  <button style="margin-top:40rpx;width:240rpx;height:80rpx;border-radius:40rpx;border:2rpx solid var(--primary);color:var(--primary);font-size:26rpx;background:{{darkMode ? '#1A1A1A' : '#FFF'}};" bindtap="onBack">返回</button>
 </view>

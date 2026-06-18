@@ -1,11 +1,27 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
+.dark-mode .tip-card { background: #1a2a3a !important; }
+.dark-mode .tip-text { color: #4D94FF !important; }
+.dark-mode .section-card { background: #1E1E1E !important; }
+.dark-mode .section-title { color: #E5E5E5 !important; }
+.dark-mode .select-all { color: #4D94FF !important; }
+.dark-mode .type-item { background: #2A2A2A !important; }
+.dark-mode .type-item.checked { background: #1a2a3a !important; border-color: #0066FF !important; }
+.dark-mode .type-checkbox { border-color: #444444 !important; }
+.dark-mode .type-checkbox.checked { background: #0066FF !important; border-color: #0066FF !important; }
+.dark-mode .type-name { color: #E5E5E5 !important; }
+.dark-mode .type-count { color: #A0A0A0 !important; }
+.dark-mode .radio-item { background: #2A2A2A !important; }
+.dark-mode .radio-item.active { background: #1a2a3a !important; border-color: #0066FF !important; }
+.dark-mode .radio-label { color: #E5E5E5 !important; }
+.dark-mode .export-btn[disabled] { background: #333333 !important; }
 .page {
   min-height: 100vh;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar {
@@ -13,7 +29,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar-inner {
@@ -32,7 +48,7 @@
 
 .nav-icon {
   font-size: 20px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .nav-title {
@@ -40,7 +56,7 @@
   text-align: center;
   font-size: 17px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .content {
@@ -64,12 +80,12 @@
 
 .tip-text {
   font-size: 13px;
-  color: #0066FF;
+  color: var(--primary);
 }
 
 /* 区块卡片 */
 .section-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
@@ -85,12 +101,12 @@
 .section-title {
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .select-all {
   font-size: 14px;
-  color: #0066FF;
+  color: var(--primary);
 }
 
 /* 类型列表 */
@@ -111,7 +127,7 @@
 
 .type-item.checked {
   background: #EBF5FF;
-  border-color: #0066FF;
+  border-color: var(--primary);
 }
 
 .type-checkbox {
@@ -126,8 +142,8 @@
 }
 
 .type-checkbox.checked {
-  background: #0066FF;
-  border-color: #0066FF;
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .check-icon {
@@ -144,12 +160,12 @@
 .type-name {
   flex: 1;
   font-size: 15px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .type-count {
   font-size: 13px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 /* 单选按钮 */
@@ -174,12 +190,12 @@
 
 .radio-item.active {
   background: #EBF5FF;
-  border-color: #0066FF;
+  border-color: var(--primary);
 }
 
 .radio-label {
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
   margin-left: 4px;
 }
 
@@ -192,7 +208,7 @@
 .export-btn {
   width: 100%;
   height: 48px;
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
   font-size: 16px;
   font-weight: 600;

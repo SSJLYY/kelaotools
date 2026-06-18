@@ -1,4 +1,4 @@
-<!-- 氪佬工具箱 - 首页 -->
+<!-- 氪佬工具箱 - 首页 v2 -->
 <view class="page {{darkMode ? 'dark-mode' : ''}}">
 
   <!-- ===== 骨架屏 ===== -->
@@ -7,7 +7,7 @@
   <!-- ===== 真实内容 ===== -->
   <block wx:if="{{!loading}}">
 
-  <!-- ===== 顶部导航栏 ===== -->
+  <!-- ===== 导航栏 ===== -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
     <view class="nav-content" style="height: {{navBarHeight}}px;">
       <view class="nav-brand">
@@ -15,7 +15,7 @@
       </view>
       <view class="nav-title">氪佬工具箱</view>
       <view class="nav-right">
-        <text class="nav-lang" bindtap="onSwitchLang">🌐</text>
+        <text style="font-size:34rpx;padding:8rpx 12rpx;" bindtap="onSwitchLang">🌐</text>
       </view>
     </view>
   </view>
@@ -40,39 +40,31 @@
       <view class="welcome-text">
         <text class="welcome-name">{{welcomeName}}</text>
         <text class="welcome-sub">{{welcomeSub}}</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- ===== 添加入口气泡引导 ===== -->
-  <view class="desktop-guide-bubble" bindtap="onGoAddDesktopGuide">
-    <view class="bubble-icon">👇</view>
-    <view class="bubble-text">
-      <text class="bubble-title">微信首页下拉，可快速进入氪佬工具箱</text>
-      <text class="bubble-sub">也可以添加到桌面 / 我的小程序</text>
-    </view>
-    <text class="bubble-arrow">›</text>
-  </view>
-
-  <!-- ===== 添加车辆 Banner（未绑车时显示） ===== -->
-  <view class="section" wx:if="{{!hasCar}}">
-    <view class="banner-card" bindtap="onAddCar">
-      <view class="banner-left">
-        <text class="banner-title">添加你的极氪</text>
-        <text class="banner-sub">自动匹配场景码和音效</text>
-        <view class="banner-btn" bindtap="onAddCar" hover-class="banner-btn-hover" hover-stay-time="100">
-          <text class="banner-btn-text">立即添加</text>
-          <text class="banner-btn-arrow">›</text>
+        <view class="welcome-car-badge" wx:if="{{hasCar}}" bindtap="onGotoCarSetting">
+          <text class="car-badge-icon">🚗</text>
+          <text class="car-badge-text">{{myCar.model || '极氪'}} {{myCar.year || ''}}款</text>
         </view>
       </view>
-      <view class="banner-right">
-        <text class="banner-car-icon">🚗</text>
-      </view>
     </view>
   </view>
 
-  <!-- ===== 我的车辆卡片（已绑车时显示） ===== -->
-  <view class="section" wx:if="{{hasCar}}">
+  <!-- ===== 添加车辆 Banner（未绑车时） ===== -->
+  <view class="car-section" wx:if="{{!hasCar}}">
+    <view class="add-car-banner" bindtap="onAddCar">
+      <view class="add-car-left">
+        <text class="add-car-title">添加你的极氪</text>
+        <text class="add-car-sub">自动匹配场景码和音效</text>
+        <view class="add-car-btn" hover-class="none">
+          <text>立即添加</text>
+          <text class="add-car-arrow">›</text>
+        </view>
+      </view>
+      <view class="add-car-right">🚗</view>
+    </view>
+  </view>
+
+  <!-- ===== 我的车辆卡片（已绑车时） ===== -->
+  <view class="car-section" wx:if="{{hasCar}}">
     <view class="mycar-card" bindtap="onGotoCarSetting">
       <view class="mycar-top">
         <view class="mycar-model-info">
@@ -83,7 +75,7 @@
           </view>
         </view>
         <view class="mycar-manage">
-          <text class="mycar-manage-text">管理车辆</text>
+          <text>管理车辆</text>
           <text class="mycar-manage-arrow">›</text>
         </view>
       </view>
@@ -93,24 +85,24 @@
     </view>
   </view>
 
-  <!-- ===== 快捷入口（2x2 网格） ===== -->
+  <!-- ===== 快捷入口 2×2 ===== -->
   <view class="section">
     <view class="quick-grid">
       <view class="quick-item" bindtap="onGoSceneCode" data-type="scene" data-path="/pages/tools/tools">
-        <view class="quick-icon" style="background: #FEF3C7;">⚙️</view>
+        <view class="quick-icon-box" style="background:#FEF3C7;">⚙️</view>
         <text class="quick-name">智慧场景码</text>
         <view class="quick-badge" wx:if="{{!hasCar}}">热门</view>
       </view>
       <view class="quick-item" bindtap="onGoVehicleInfo" data-type="vehicle" data-path="/subpkg/maintenance/vehicle-info/vehicle-info">
-        <view class="quick-icon" style="background: #DBEAFE;">🚗</view>
+        <view class="quick-icon-box" style="background:#DBEAFE;">🚗</view>
         <text class="quick-name">车辆信息</text>
       </view>
       <view class="quick-item" bindtap="onGoDrivingGuide">
-        <view class="quick-icon" style="background: #D1FAE5;">📋</view>
+        <view class="quick-icon-box" style="background:#D1FAE5;">📋</view>
         <text class="quick-name">提车指南</text>
       </view>
       <view class="quick-item" bindtap="onGoTestDrive" data-type="testdrive" data-path="/subpkg/charging-calc/test-drive/test-drive">
-        <view class="quick-icon" style="background: #D1FAE5;">🧪</view>
+        <view class="quick-icon-box" style="background:#E8F4FD;">🧪</view>
         <text class="quick-name">极氪试驾</text>
       </view>
     </view>
@@ -118,14 +110,14 @@
 
   <!-- ===== 数据提示条 ===== -->
   <view class="section">
-    <view class="tip-bar {{hasChargingRecords ? 'tip-bar-active' : ''}}" bindtap="onTipTap">
-      <text class="tip-icon-text">💡</text>
-      <text class="tip-content">{{tipBarText}}</text>
-      <text class="tip-arrow" wx:if="{{hasChargingRecords}}">›</text>
+    <view class="tip-bar" bindtap="onTipTap">
+      <text class="tip-bar-icon">💡</text>
+      <text class="tip-bar-text">{{tipBarText}}</text>
+      <text class="tip-bar-arrow" wx:if="{{hasChargingRecords}}">›</text>
     </view>
   </view>
 
-  <!-- ===== 用车小贴士（循环展示） ===== -->
+  <!-- ===== 用车小贴士 ===== -->
   <view class="section">
     <view class="tips-banner" bindtap="onGoTips">
       <view class="tips-banner-left">
@@ -136,13 +128,12 @@
         </view>
       </view>
       <view class="tips-banner-right">
-        <text class="tips-banner-desc">{{dailyTip.summary}}</text>
         <text class="tips-banner-arrow">›</text>
       </view>
     </view>
   </view>
 
-  <!-- ===== 数据概览卡片 ===== -->
+  <!-- ===== 数据概览 ===== -->
   <view class="data-overview">
     <view class="data-item" bindtap="onDataTap" data-type="charging">
       <text class="data-value">{{overviewCharging}}</text>
@@ -164,13 +155,13 @@
   <view class="section">
     <view class="section-header">
       <text class="section-title">常用工具</text>
-      <text class="section-more" bindtap="onMoreTools">更多 ›</text>
+      <text class="section-more" bindtap="onMoreTools">全部 ›</text>
     </view>
     <view class="tool-list">
       <view class="tool-item" wx:for="{{toolList}}" wx:key="id" wx:if="{{index < 5}}" bindtap="onToolTap" data-path="{{item.path}}">
         <view class="tool-item-left">
-          <view class="tool-icon-box" style="background: #EDE9FE;">
-            <text class="tool-emoji">⚡</text>
+          <view class="tool-icon-box" style="background:{{item.iconBg || '#EDE9FE'}};">
+            <text style="font-size:34rpx;">{{item.iconEmoji || '⚡'}}</text>
           </view>
           <view class="tool-item-info">
             <text class="tool-item-title">{{item.name}}</text>
@@ -180,32 +171,30 @@
       </view>
     </view>
     <view class="tool-count">
-      <text class="tool-count-text">共 {{toolList.length}} 个工具，点击查看更多</text>
+      <text class="tool-count-text">共 {{toolList.length}} 个工具</text>
     </view>
   </view>
 
   <!-- ===== 充电优惠券 ===== -->
   <view class="section">
     <view class="section-header">
-      <text class="section-title">⚡ 充电优惠券</text>
+      <text class="section-title">充电优惠券</text>
       <text class="section-more" bindtap="onMoreCoupon">更多 ›</text>
     </view>
-    
     <scroll-view class="coupon-scroll" scroll-x enhanced show-scrollbar="{{false}}">
       <view class="coupon-list">
-        <view class="coupon-card coupon-newbie" bindtap="onCouponTap" data-id="1">
+        <view class="coupon-card" bindtap="onCouponTap" data-id="1">
           <view class="coupon-top">
             <view class="coupon-amount-box">
               <text class="coupon-symbol">¥</text>
               <text class="coupon-amount">8</text>
             </view>
-            <button class="coupon-btn coupon-btn-orange">查看</button>
+            <button class="coupon-btn">查看</button>
           </view>
-          <text class="coupon-title" style="color: #FF6B35;">新氪友8元储值卡限时领取</text>
+          <text class="coupon-title">新氪友8元储值卡</text>
           <text class="coupon-desc">充电费用可直接抵扣，新氪友专享</text>
           <view class="coupon-source">
-            <text class="source-name">极氪充电</text>
-            <text class="source-valid">· 长期有效</text>
+            <text>极氪充电 · 长期有效</text>
           </view>
         </view>
 
@@ -217,30 +206,28 @@
             </view>
             <button class="coupon-btn coupon-btn-blue">领取</button>
           </view>
-          <text class="coupon-title" style="color: var(--primary);">绑定车辆领取21-20充电券</text>
-          <text class="coupon-desc">绑定车辆即可领取满21减20充电券，复制链接到微信中打开</text>
+          <text class="coupon-title">绑定车辆领21-20充电券</text>
+          <text class="coupon-desc">绑定车辆即可领取满21减20充电券</text>
           <view class="coupon-source">
-            <text class="source-name">平安好车主</text>
-            <text class="source-valid">· 长期有效</text>
+            <text>平安好车主 · 长期有效</text>
           </view>
-          <view class="coupon-notice">⚠️ 需先在平安好车主绑定车辆</view>
+          <view class="coupon-notice">需先在平安好车主绑定车辆</view>
         </view>
 
         <view class="coupon-card coupon-community" bindtap="onCouponTap" data-id="3">
           <view class="coupon-top">
             <view class="coupon-amount-box">
-              <text class="coupon-symbol" style="color: #10B981; font-size: 24rpx;">抽奖</text>
-              <text class="coupon-amount" style="color: #10B981;">🎁</text>
+              <text class="coupon-symbol" style="color:#10B981;font-size:24rpx;">抽奖</text>
+              <text class="coupon-amount" style="color:#10B981;">🎁</text>
             </view>
             <button class="coupon-btn coupon-btn-green">抽奖</button>
           </view>
-          <text class="coupon-title" style="color: #10B981;">平安好车主社群福利</text>
-          <text class="coupon-desc">扫码加入社群后，每天15点后抽一次无门槛充电券</text>
+          <text class="coupon-title">平安好车主社群福利</text>
+          <text class="coupon-desc">扫码加入社群，每天抽无门槛充电券</text>
           <view class="coupon-source">
-            <text class="source-name">平安好车主</text>
-            <text class="source-valid">· 长期有效</text>
+            <text>平安好车主 · 长期有效</text>
           </view>
-          <view class="coupon-notice">⚠️ 先扫码进群，再复制抽奖地址参与</view>
+          <view class="coupon-notice">先扫码进群，再参与抽奖</view>
         </view>
       </view>
     </scroll-view>
@@ -249,29 +236,23 @@
   <!-- ===== 兼职外快推荐 ===== -->
   <view class="section">
     <view class="section-header">
-      <text class="section-title">🚘 兼职外快推荐</text>
+      <text class="section-title">兼职外快推荐</text>
     </view>
     <view class="sidejob-list">
       <view class="sidejob-item" bindtap="onSideJobTap" data-id="amap">
-        <view class="sidejob-icon-box" style="background: #FFF7ED;">
-          <text class="sidejob-emoji">🚗</text>
-        </view>
+        <view class="sidejob-icon-box" style="background:#FFF7ED;">🚗</view>
         <text class="sidejob-name">高德顺风车</text>
         <text class="sidejob-desc">月入3000+</text>
         <button class="sidejob-btn">立即注册</button>
       </view>
       <view class="sidejob-item" bindtap="onSideJobTap" data-id="didi">
-        <view class="sidejob-icon-box" style="background: #FFF1F0;">
-          <text class="sidejob-emoji">🚙</text>
-        </view>
+        <view class="sidejob-icon-box" style="background:#FFF1F0;">🚙</view>
         <text class="sidejob-name">滴滴顺风车</text>
         <text class="sidejob-desc">新人奖励多</text>
         <button class="sidejob-btn">立即注册</button>
       </view>
       <view class="sidejob-item" bindtap="onSideJobTap" data-id="hello">
-        <view class="sidejob-icon-box" style="background: #E8F4FD;">
-          <text class="sidejob-emoji">🚐</text>
-        </view>
+        <view class="sidejob-icon-box" style="background:#E8F4FD;">🚐</view>
         <text class="sidejob-name">哈啰顺风车</text>
         <text class="sidejob-desc">单量稳定</text>
         <button class="sidejob-btn">立即注册</button>
@@ -279,7 +260,6 @@
     </view>
   </view>
 
-  <!-- ===== 底部占位 ===== -->
   <view class="safe-bottom" style="height: 120rpx;"></view>
 
   </block>

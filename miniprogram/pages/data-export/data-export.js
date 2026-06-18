@@ -126,7 +126,7 @@ Page({
           return [
             this.formatDate(item.createdAt),
             (item.fee / 100).toFixed(2),
-            (item.kwh / 1000).toFixed(2),
+            (item.kwh || 0).toFixed(2),
             item.unitPrice ? (item.unitPrice / 100).toFixed(2) : '',
             item.source || '',
             item.note || '',

@@ -220,7 +220,7 @@
 }
 
 /* ===== 深色模式 ===== */
-.dark-mode .page {
+.page.dark-mode {
   background: #121212 !important;
 }
 

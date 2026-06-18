@@ -155,7 +155,7 @@ Page({
         { label: '充电', value: `${charging.length}次` },
         { label: '费用', value: this.formatMoney(chargingFee) },
         { label: '里程', value: `${totalMileage.toFixed(0)}km` },
-        { label: '能耗', value: `${avgConsumption}kWh` },
+        { label: '能耗', value: `${avgConsumption}kWh/100km` },
       ],
       trendMonths: this.buildTrend(raw, now),
     });

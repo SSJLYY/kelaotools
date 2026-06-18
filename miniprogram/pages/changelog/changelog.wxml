@@ -17,10 +17,21 @@
           <text class="version-date">{{item.date}}</text>
         </view>
         <view class="changes-list">
-          <view wx:for="{{item.changes}}" wx:key="*this" wx:for-item="change" class="change-item">
-            <text class="change-dot">•</text>
-            <text class="change-text">{{change}}</text>
-          </view>
+          <block wx:if="{{item.categories}}">
+            <view wx:for="{{item.categories}}" wx:key="name" wx:for-item="cat" class="change-category">
+              <text class="category-title">{{cat.name}}</text>
+              <view wx:for="{{cat.items}}" wx:key="*this" wx:for-item="ci" class="change-item">
+                <text class="change-dot">•</text>
+                <text class="change-text">{{ci}}</text>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view wx:for="{{item.changes}}" wx:key="*this" wx:for-item="change" class="change-item">
+              <text class="change-dot">•</text>
+              <text class="change-text">{{change}}</text>
+            </view>
+          </block>
         </view>
       </view>
     </view>

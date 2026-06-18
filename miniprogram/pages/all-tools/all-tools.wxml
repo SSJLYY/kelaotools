@@ -1,5 +1,5 @@
 <!-- 全部工具 -->
-<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background:{{darkMode ? '#121212' : '#F5F5F7'}};min-height:100vh;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}">
 
   <!-- 导航 -->
   <view class="nav-bar" style="padding-top: {{statusBarHeight}}px;">
@@ -11,95 +11,13 @@
   </view>
   <view style="height: {{navTotalHeight}}px;"></view>
 
-  <!-- 充电工具 -->
-  <view class="tool-group">
-    <text class="group-title">⚡ 充电工具</text>
+  <view class="tool-group" wx:for="{{toolCategories}}" wx:key="name">
+    <text class="group-title">{{item.name}}</text>
     <view class="tool-grid">
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/charging-calc/charging-cost/charging-cost">
-        <view class="tool-cell-icon" style="background:#EDE9FE;">⚡</view>
-        <text class="tool-cell-name">充电费用计算</text>
-        <text class="tool-cell-desc">精准计算充电成本</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/charging-log/charging-log/charging-log">
-        <view class="tool-cell-icon" style="background:#DBEAFE;">📋</view>
-        <text class="tool-cell-name">充电记录</text>
-        <text class="tool-cell-desc">记录每次充电数据</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/charging-log/charging-report/charging-report">
-        <view class="tool-cell-icon" style="background:#D1FAE5;">📊</view>
-        <text class="tool-cell-name">充电月报</text>
-        <text class="tool-cell-desc">月度充电数据分析</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 记账工具 -->
-  <view class="tool-group">
-    <text class="group-title">📝 记账工具</text>
-    <view class="tool-grid">
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/maintenance/maintenance-ledger/maintenance-ledger">
-        <view class="tool-cell-icon" style="background:#FEF3C7;">🔧</view>
-        <text class="tool-cell-name">养车账本</text>
-        <text class="tool-cell-desc">保养/维修/保险记账</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/ride-log/carpool-revenue/carpool-revenue">
-        <view class="tool-cell-icon" style="background:#DBEAFE;">🚘</view>
-        <text class="tool-cell-name">顺风车收入</text>
-        <text class="tool-cell-desc">出行收益一目了然</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/ride-log/loan-records/loan-records">
-        <view class="tool-cell-icon" style="background:#FFF7ED;">💳</view>
-        <text class="tool-cell-name">车贷还款记录</text>
-        <text class="tool-cell-desc">记录每期还款</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/ride-log/loan-calc/loan-calc">
-        <view class="tool-cell-icon" style="background:#FEF3C7;">🧮</view>
-        <text class="tool-cell-name">车贷计算器</text>
-        <text class="tool-cell-desc">等额本息计算</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 车辆工具 -->
-  <view class="tool-group">
-    <text class="group-title">🚗 车辆工具</text>
-    <view class="tool-grid">
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/maintenance/vehicle-info/vehicle-info">
-        <view class="tool-cell-icon" style="background:#DBEAFE;">🚗</view>
-        <text class="tool-cell-name">车辆信息</text>
-        <text class="tool-cell-desc">查看车型参数配置</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/pages/tips/tips">
-        <view class="tool-cell-icon" style="background:#FEF3C7;">💡</view>
-        <text class="tool-cell-name">用车小贴士</text>
-        <text class="tool-cell-desc">极氪专属用车技巧</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/maintenance/parking-reminder/parking-reminder">
-        <view class="tool-cell-icon" style="background:#D1FAE5;">🅿️</view>
-        <text class="tool-cell-name">停车场到期提醒</text>
-        <text class="tool-cell-desc">到期前自动提醒</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/subpkg/ride-log/consumption/consumption">
-        <view class="tool-cell-icon" style="background:#EDE9FE;">⚗️</view>
-        <text class="tool-cell-name">电耗油耗计算</text>
-        <text class="tool-cell-desc">百公里电耗/油耗</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 场景工具 -->
-  <view class="tool-group">
-    <text class="group-title">🎮 场景工具</text>
-    <view class="tool-grid">
-      <view class="tool-cell" bindtap="onNav" data-path="/pages/tools/tools">
-        <view class="tool-cell-icon" style="background:#FEF3C7;">⚙️</view>
-        <text class="tool-cell-name">智慧场景码</text>
-        <text class="tool-cell-desc">一键控车场景</text>
-      </view>
-      <view class="tool-cell" bindtap="onNav" data-path="/pages/community/community">
-        <view class="tool-cell-icon" style="background:#EDE9FE;">🎵</view>
-        <text class="tool-cell-name">音效库</text>
-        <text class="tool-cell-desc">极氪专属音效</text>
+      <view class="tool-cell" wx:for="{{item.items}}" wx:key="id" wx:for-item="tool" bindtap="onNav" data-path="{{tool.path}}">
+        <view class="tool-cell-icon" style="background:{{tool.iconBg || '#EDE9FE'}};">{{tool.iconEmoji || '⚡'}}</view>
+        <text class="tool-cell-name">{{tool.name}}</text>
+        <text class="tool-cell-desc" wx:if="{{tool.desc}}">{{tool.desc}}</text>
       </view>
     </view>
   </view>

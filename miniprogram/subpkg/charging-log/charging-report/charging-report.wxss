@@ -1,8 +1,80 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
-.dark-mode .nav-title { color: #E5E5E5 !important; }
-.dark-mode .nav-back { color: #E5E5E5 !important; }
+.page.dark-mode,
+.page.dark-mode {
+  background: #121212 !important;
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-bar {
+  background: #1a1a1a !important;
+}
+
+.dark-mode .nav-title {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .nav-back {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .report-card {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+
+.dark-mode .report-currency {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .report-fee {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .report-subtitle {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.dark-mode .report-stats {
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark-mode .report-stat-value {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .report-stat-label {
+  color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.dark-mode .report-row-label {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .report-row-value {
+  color: #FFFFFF !important;
+}
+
+.dark-mode .type-breakdown {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark-mode .empty-report {
+  background: transparent !important;
+}
+
+.dark-mode .empty-emoji {
+  color: #E5E5E5 !important;
+}
+
+.dark-mode .empty-text {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.dark-mode .share-btn {
+  background: linear-gradient(135deg, #0066FF, #5B3FFF) !important;
+  color: #FFFFFF !important;
+}
 /* 充电月报 */
 .nav-bar { position:fixed; top:0; left:0; right:0; z-index:100; }
 .nav-content { display:flex; align-items:center; padding:0 24rpx; }

@@ -1,367 +1,17 @@
 /* ========================================
-   氪佬工具箱 - 首页样式
+   首页 — 简约风格
+   所有颜色通过 CSS 变量自动适配深色模式
    ======================================== */
 
-.page {
+/* ===== 骨架屏占位 ===== */
+.nav-placeholder {
   width: 100%;
-  box-sizing: border-box;
-  min-height: 100vh;
-  background: var(--bg-page);
 }
 
-/* ===== 我的车辆卡片（已绑车） ===== */
-.mycar-card {
-  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
-  border-radius: var(--radius-lg);
-  padding: 28rpx;
-  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.15);
-}
-.mycar-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20rpx;
-}
-.mycar-model-info {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  overflow: hidden;
-}
-.mycar-emoji { font-size: 48rpx; flex-shrink: 0; }
-.mycar-text { margin-left: 16rpx; overflow: hidden; }
-.mycar-model {
-  font-size: 32rpx;
-  font-weight: 800;
-  color: #FFFFFF;
-  display: block;
-}
-.mycar-plate {
-  font-size: 22rpx;
-  color: rgba(255, 255, 255, 0.55);
-  display: block;
-  margin-top: 4rpx;
-}
-.mycar-manage {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.mycar-manage-text {
-  font-size: var(--font-xs);
-  color: rgba(255, 255, 255, 0.6);
-}
-.mycar-manage-arrow {
-  font-size: 28rpx;
-  color: rgba(255, 255, 255, 0.4);
-  margin-left: 2rpx;
-}
-.mycar-status {
-  padding-top: 18rpx;
-  border-top: 1rpx solid rgba(255, 255, 255, 0.1);
-}
-.mycar-status-text {
-  font-size: var(--font-xs);
-  color: rgba(255, 255, 255, 0.55);
-}
-
-/* ===== 添加车辆 Banner ===== */
-.banner-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
-  border-radius: var(--radius-lg);
-  padding: 32rpx 28rpx;
-  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.15);
-}
-.banner-card-has-car {
-  background: linear-gradient(135deg, #0066FF, #5B3FFF);
-  padding: 24rpx 28rpx;
-}
-
-.banner-left { flex: 1; overflow: hidden; }
-.banner-title {
-  font-size: 38rpx;
-  font-weight: 800;
-  color: #FFFFFF;
-  display: block;
-  letter-spacing: 1rpx;
-}
-.banner-sub {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.65);
-  display: block;
-  margin-top: 10rpx;
-}
-.banner-btn {
-  display: inline-flex;
-  align-items: center;
-  background: linear-gradient(135deg, #0066FF, #5B3FFF);
-  border-radius: 40rpx;
-  padding: 14rpx 32rpx;
-  margin-top: 24rpx;
-}
-.banner-btn-hover {
-  opacity: 0.8;
-}
-.banner-btn-text {
-  font-size: var(--font-sm);
-  font-weight: 600;
-  color: #FFFFFF;
-}
-.banner-btn-arrow {
-  font-size: 36rpx;
-  color: #FFFFFF;
-  font-weight: 300;
-  margin-left: 6rpx;
-}
-.banner-right { margin-left: 24rpx; flex-shrink: 0; }
-.banner-car-icon { font-size: 120rpx; opacity: 0.85; }
-
-/* ===== 欢迎区车辆标签 ===== */
-.welcome-car-badge {
-  display: flex;
-  align-items: center;
-  margin-top: 14rpx;
-  padding: 10rpx 20rpx;
-  background: var(--primary-light);
-  border-radius: 40rpx;
-  align-self: flex-start;
-}
-.car-badge-icon { font-size: 28rpx; margin-right: 8rpx; }
-.car-badge-text {
-  font-size: var(--font-xs);
-  color: var(--primary);
-  font-weight: 600;
-}
-
-/* ===== 添加入口气泡引导 ===== */
-.desktop-guide-bubble {
-  margin: 20rpx 24rpx 0;
-  padding: 20rpx 22rpx;
-  border-radius: 20rpx;
-  background: linear-gradient(135deg, #EFF6FF, #F8FAFC);
-  border: 2rpx solid #DBEAFE;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 4rpx 18rpx rgba(0, 102, 255, 0.08);
-}
-.desktop-guide-bubble:active { opacity: 0.82; }
-.bubble-icon {
-  width: 60rpx;
-  height: 60rpx;
-  border-radius: 18rpx;
-  background: #DBEAFE;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32rpx;
-  flex-shrink: 0;
-}
-.bubble-text {
-  flex: 1;
-  margin-left: 18rpx;
-  overflow: hidden;
-}
-.bubble-title {
-  display: block;
-  font-size: 26rpx;
-  font-weight: 800;
-  color: #1E3A8A;
-  line-height: 1.35;
-}
-.bubble-sub {
-  display: block;
-  font-size: 22rpx;
-  color: #64748B;
-  margin-top: 4rpx;
-}
-.bubble-arrow {
-  font-size: 34rpx;
-  color: #94A3B8;
-  margin-left: 12rpx;
-}
-
-/* ===== 首页月度报告卡片 ===== */
-.report-card-home {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24rpx 28rpx;
-  background: linear-gradient(135deg, #0066FF, #1E40AF);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 4rpx 20rpx rgba(0, 102, 255, 0.3);
-}
-.report-card-left { flex: 1; }
-.report-card-period {
-  font-size: var(--font-xs);
-  color: rgba(255, 255, 255, 0.6);
-  display: block;
-}
-.report-card-title {
-  font-size: var(--font-lg);
-  font-weight: 700;
-  color: #FFF;
-  display: block;
-  margin-top: 4rpx;
-}
-.report-card-right { text-align: right; }
-.report-card-amount {
-  font-size: 44rpx;
-  font-weight: 900;
-  color: #FFF;
-  display: block;
-}
-.report-card-action {
-  font-size: var(--font-xs);
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 4rpx;
-  display: block;
-}
-
-/* ===== 快捷入口 2x2 ===== */
-.quick-grid {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.quick-item {
-  flex: 0 0 calc(50% - 8rpx);
-  width: calc(50% - 8rpx);
-  margin-bottom: 16rpx;
-  background: var(--bg-white);
-  border-radius: var(--radius-lg);
-  padding: 28rpx 24rpx;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  position: relative;
-  box-sizing: border-box;
-}
-.quick-item:active { background: #FAFAFA; }
-.quick-icon {
-  width: 72rpx; height: 72rpx;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36rpx;
-  flex-shrink: 0;
-}
-.quick-name {
-  font-size: var(--font-md);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-left: 18rpx;
-  flex: 1;
-}
-.quick-badge {
-  position: absolute;
-  top: 8rpx; right: 8rpx;
-  padding: 2rpx 12rpx;
-  background: #EF4444;
-  color: #FFF;
-  font-size: 18rpx;
-  border-radius: 16rpx;
-  font-weight: 500;
-}
-.quick-empty { opacity: 0.6; pointer-events: none; }
-
-/* ===== 提示条 ===== */
-.tip-bar {
-  display: flex;
-  align-items: center;
-  padding: 22rpx 24rpx;
-  background: #E8F4FD;
-  border-radius: var(--radius-lg);
-}
-.tip-bar-active { background: #ECFDF5; }
-.tip-icon-text { font-size: 32rpx; margin-right: 14rpx; }
-.tip-content {
-  flex: 1;
-  font-size: var(--font-sm);
-  color: #1E40AF;
-  line-height: 1.5;
-}
-.tip-bar-active .tip-content { color: #065F46; }
-.tip-arrow {
-  font-size: 32rpx;
-  color: #9CA3AF;
-}
-
-/* ===== 用车小贴士Banner ===== */
-.tips-banner {
-  display: flex;
-  align-items: center;
-  padding: 22rpx 24rpx;
-  background: #FFFBF0;
-  border-radius: var(--radius-lg);
-  border: 2rpx solid #FDE68A;
-}
-.tips-banner-left { display: flex; align-items: center; flex: 1; overflow: hidden; }
-.tips-banner-icon { font-size: 44rpx; flex-shrink: 0; }
-.tips-banner-text { margin-left: 14rpx; overflow: hidden; }
-.tips-banner-label { font-size: 20rpx; color: #92400E; display: block; }
-.tips-banner-title { font-size: var(--font-sm); font-weight: 700; color: #92400E; display: block; }
-.tips-banner-right { display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0; margin-left: 16px; max-width: 50%; }
-.tips-banner-desc { font-size: 20rpx; color: var(--text-secondary); text-align: right; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-.tips-banner-arrow { font-size: 28rpx; color: #CCC; font-weight: 300; margin-top: 4rpx; }
-
-/* ===== 自定义导航栏 ===== */
-.nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(245, 245, 247, 0.95);
-  backdrop-filter: blur(20rpx);
-}
-
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24rpx;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  width: 160rpx;
-}
-
-.nav-logo {
-  width: 56rpx;
-  height: 56rpx;
-}
-
-.nav-title {
-  flex: 1;
-  text-align: center;
-  font-size: 34rpx;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.nav-right {
-  width: 160rpx;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.nav-lang {
-  font-size: 36rpx;
-  padding: 8rpx 12rpx;
-}
-
-/* ===== 用户欢迎区 ===== */
+/* ===== 用户欢迎区 → 与车辆信息融合 ===== */
 .welcome-section {
-  padding: 24rpx 24rpx 16rpx;
+  padding: var(--space-lg);
+  padding-top: 12rpx;
 }
 
 .welcome-row {
@@ -375,35 +25,353 @@
   border-radius: 50%;
   border: 3rpx solid var(--primary);
   background: var(--primary-light);
+  flex-shrink: 0;
 }
 
 .welcome-text {
   margin-left: 18rpx;
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
 }
 
 .welcome-name {
-  font-size: var(--font-lg);
+  font-size: var(--font-xl);
   font-weight: 700;
   color: var(--text-primary);
+  display: block;
 }
 
 .welcome-sub {
   font-size: var(--font-sm);
-  color: var(--text-light);
+  color: var(--text-muted);
   margin-top: 4rpx;
+  display: block;
 }
 
-/* ===== 数据概览卡片 ===== */
+/* 车辆标签 */
+.welcome-car-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10rpx;
+  padding: 6rpx 16rpx;
+  background: var(--primary-light);
+  border-radius: var(--radius-full);
+}
+
+.car-badge-icon {
+  font-size: 24rpx;
+  margin-right: 6rpx;
+}
+
+.car-badge-text {
+  font-size: var(--font-xs);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ===== 公告通知栏 ===== */
+.notice-bar {
+  margin: 0 var(--space-lg) var(--space-md);
+  background: #FFFBE6;
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-md);
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+}
+.dark-mode .notice-bar {
+  background: #2A2A1A;
+}
+.notice-swiper {
+  flex: 1;
+  height: 64rpx;
+}
+.notice-item {
+  display: flex;
+  align-items: center;
+  height: 64rpx;
+}
+.notice-tag {
+  font-size: 20rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 4rpx;
+  margin-right: 12rpx;
+  color: #fff;
+  font-weight: 600;
+}
+.notice-tag-new {
+  background: var(--orange);
+}
+.notice-tag-update {
+  background: var(--primary);
+}
+.notice-text {
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ===== 车辆卡片 ===== */
+.car-section {
+  margin: 0 var(--space-lg) var(--space-md);
+}
+
+/* 未绑车 Banner */
+.add-car-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-gradient);
+  border-radius: var(--radius-xl);
+  padding: 32rpx 28rpx;
+}
+.add-car-left {
+  flex: 1;
+  overflow: hidden;
+}
+.add-car-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: #FFFFFF;
+  display: block;
+}
+.add-car-sub {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-top: 8rpx;
+}
+.add-car-btn {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  padding: 12rpx 28rpx;
+  margin-top: 20rpx;
+  color: #FFFFFF;
+  font-size: var(--font-sm);
+  font-weight: 600;
+}
+.add-car-arrow {
+  margin-left: 4rpx;
+  font-size: 28rpx;
+}
+.add-car-right {
+  margin-left: var(--space-lg);
+  flex-shrink: 0;
+  font-size: 100rpx;
+  opacity: 0.85;
+}
+
+/* 已绑车卡片 */
+.mycar-card {
+  background: var(--primary-gradient);
+  border-radius: var(--radius-xl);
+  padding: 28rpx;
+}
+.mycar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+}
+.mycar-model-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow: hidden;
+}
+.mycar-emoji {
+  font-size: 48rpx;
+  flex-shrink: 0;
+}
+.mycar-text {
+  margin-left: 16rpx;
+  overflow: hidden;
+}
+.mycar-model {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  color: #FFFFFF;
+}
+.mycar-plate {
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 4rpx;
+  display: block;
+}
+.mycar-manage {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.6);
+}
+.mycar-manage-arrow {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.4);
+  margin-left: 2rpx;
+}
+.mycar-status {
+  padding-top: 16rpx;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+.mycar-status-text {
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ===== 快捷入口 2×2 ===== */
+.quick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.quick-item {
+  flex: 0 0 calc(50% - 6rpx);
+  width: calc(50% - 6rpx);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 24rpx 20rpx;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.quick-item:active {
+  background: var(--bg-card-hover);
+}
+
+.quick-icon-box {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  flex-shrink: 0;
+}
+
+.quick-name {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-left: 16rpx;
+  flex: 1;
+}
+
+.quick-badge {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  padding: 2rpx 12rpx;
+  background: var(--danger);
+  color: #FFF;
+  font-size: 18rpx;
+  border-radius: 16rpx;
+  font-weight: 500;
+}
+
+/* ===== 提示条 ===== */
+.tip-bar {
+  display: flex;
+  align-items: center;
+  padding: 18rpx var(--space-lg);
+  background: var(--primary-light);
+  border-radius: var(--radius-lg);
+}
+.dark-mode .tip-bar {
+  background: #1E2A4A;
+}
+.tip-bar-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+.tip-bar-text {
+  flex: 1;
+  font-size: var(--font-sm);
+  color: var(--primary);
+  line-height: 1.5;
+}
+.tip-bar-arrow {
+  font-size: 28rpx;
+  color: var(--text-muted);
+  margin-left: var(--space-sm);
+}
+
+/* ===== 用车小贴士 ===== */
+.tips-banner {
+  display: flex;
+  align-items: center;
+  padding: 18rpx var(--space-lg);
+  background: #FFFBF0;
+  border-radius: var(--radius-lg);
+  border: 1rpx solid #FDE68A;
+}
+.dark-mode .tips-banner {
+  background: #2A2A1A;
+  border-color: #4A4A2A;
+}
+.tips-banner-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow: hidden;
+}
+.tips-banner-icon {
+  font-size: 40rpx;
+  flex-shrink: 0;
+}
+.tips-banner-text {
+  margin-left: 14rpx;
+  overflow: hidden;
+}
+.tips-banner-label {
+  font-size: 20rpx;
+  color: #92400E;
+  display: block;
+}
+.dark-mode .tips-banner-label {
+  color: var(--warning);
+}
+.tips-banner-title {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: #92400E;
+  display: block;
+}
+.dark-mode .tips-banner-title {
+  color: var(--warning);
+}
+.tips-banner-right {
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+}
+.tips-banner-arrow {
+  font-size: 32rpx;
+  color: #CCC;
+}
+
+/* ===== 数据概览 ===== */
 .data-overview {
   display: flex;
   align-items: center;
-  margin: 8rpx 24rpx 16rpx;
-  padding: 28rpx 0;
-  background: var(--bg-white);
+  margin: var(--space-xs) var(--space-lg) var(--space-md);
+  padding: 24rpx 0;
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
+}
+.dark-mode .data-overview {
+  background: var(--bg-card);
 }
 
 .data-item {
@@ -412,51 +380,25 @@
   flex-direction: column;
   align-items: center;
 }
-
 .data-value {
-  font-size: 40rpx;
+  font-size: 38rpx;
   font-weight: 800;
   color: var(--text-primary);
 }
-
 .data-label {
   font-size: var(--font-xs);
-  color: var(--text-light);
-  margin-top: 6rpx;
+  color: var(--text-muted);
+  margin-top: 4rpx;
 }
-
 .data-divider {
   width: 1rpx;
-  height: 48rpx;
-  background: var(--border-color);
-}
-
-/* ===== 通用区域样式 ===== */
-.section {
-  margin: 0 24rpx 16rpx;
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20rpx 0 16rpx;
-}
-
-.section-title {
-  font-size: var(--font-lg);
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.section-more {
-  font-size: var(--font-sm);
-  color: var(--text-light);
+  height: 40rpx;
+  background: var(--border);
 }
 
 /* ===== 工具列表 ===== */
 .tool-list {
-  background: var(--bg-white);
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -466,15 +408,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24rpx;
+  padding: 22rpx var(--space-lg);
   border-bottom: 1rpx solid var(--border-light);
-  transition: background 0.2s;
 }
 .tool-item:last-child {
   border-bottom: none;
 }
 .tool-item:active {
-  background: #FAFAFA;
+  background: var(--bg-card-hover);
 }
 
 .tool-item-left {
@@ -485,21 +426,18 @@
 }
 
 .tool-icon-box {
-  width: 80rpx;
-  height: 80rpx;
+  width: 72rpx;
+  height: 72rpx;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 34rpx;
   flex-shrink: 0;
 }
 
-.tool-emoji {
-  font-size: 40rpx;
-}
-
 .tool-item-info {
-  margin-left: 20rpx;
+  margin-left: 18rpx;
   flex: 1;
   overflow: hidden;
 }
@@ -508,33 +446,35 @@
   font-size: var(--font-md);
   font-weight: 600;
   color: var(--text-primary);
-  display: block;
 }
 
 .tool-item-desc {
   font-size: var(--font-xs);
-  color: var(--text-light);
+  color: var(--text-muted);
   margin-top: 4rpx;
-  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .tool-arrow {
-  font-size: 36rpx;
-  color: #CCCCCC;
+  font-size: 32rpx;
+  color: #CCC;
   font-weight: 300;
+  margin-left: var(--space-sm);
+}
+.dark-mode .tool-arrow {
+  color: #555;
 }
 
 .tool-count {
   text-align: center;
-  padding: 16rpx 0;
+  padding: 14rpx 0;
 }
 
 .tool-count-text {
   font-size: var(--font-xs);
-  color: var(--text-light);
+  color: var(--text-muted);
 }
 
 /* ===== 充电优惠券（横向滚动） ===== */
@@ -545,30 +485,33 @@
 
 .coupon-list {
   display: flex;
-  gap: 20rpx;
-  padding-bottom: 8rpx;
+  gap: 16rpx;
+  padding-bottom: 4rpx;
 }
 
 .coupon-card {
   flex-shrink: 0;
-  width: 560rpx;
-  background: var(--bg-white);
+  width: 520rpx;
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
   padding: 24rpx;
   box-shadow: var(--shadow-sm);
-  border-top: 6rpx solid var(--coupon-orange);
+  border-top: 5rpx solid var(--orange);
   white-space: normal;
   position: relative;
 }
-.coupon-card.coupon-newbie { border-top-color: #FF6B35; }
-.coupon-card.coupon-bind { border-top-color: #0066FF; }
-.coupon-card.coupon-community { border-top-color: #10B981; }
+.coupon-card.coupon-bind {
+  border-top-color: var(--primary);
+}
+.coupon-card.coupon-community {
+  border-top-color: var(--success);
+}
 
 .coupon-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16rpx;
+  margin-bottom: 14rpx;
 }
 
 .coupon-amount-box {
@@ -577,84 +520,102 @@
 }
 
 .coupon-symbol {
-  font-size: 32rpx;
+  font-size: 28rpx;
   font-weight: 700;
-  color: #FF6B35;
+  color: var(--orange);
 }
-.coupon-card.coupon-bind .coupon-symbol { color: #0066FF; }
-.coupon-card.coupon-community .coupon-symbol { color: #10B981; }
+.coupon-card.coupon-bind .coupon-symbol {
+  color: var(--primary);
+}
+.coupon-card.coupon-community .coupon-symbol {
+  color: var(--success);
+}
 
 .coupon-amount {
-  font-size: 72rpx;
+  font-size: 64rpx;
   font-weight: 900;
-  color: #FF6B35;
+  color: var(--orange);
   line-height: 1;
-  margin-left: 4rpx;
+  margin-left: 2rpx;
 }
-.coupon-card.coupon-bind .coupon-amount { color: #0066FF; }
-.coupon-card.coupon-community .coupon-amount { color: #10B981; }
+.coupon-card.coupon-bind .coupon-amount {
+  color: var(--primary);
+}
+.coupon-card.coupon-community .coupon-amount {
+  color: var(--success);
+}
 
 .coupon-btn {
   font-size: var(--font-sm);
   font-weight: 600;
-  padding: 10rpx 32rpx;
-  border-radius: var(--radius-full, 9999rpx);
-  height: auto;
-  line-height: 1.4;
+  padding: 8rpx 28rpx;
+  border-radius: var(--radius-full);
   border: none;
+  background: #FFF7ED;
+  color: var(--orange);
+  line-height: 1.5;
 }
-.coupon-btn-orange { background: #FFF7ED; color: #FF6B35; }
-.coupon-btn-blue  { background: #E8F2FF; color: #0066FF; }
-.coupon-btn-green { background: #ECFDF5; color: #10B981; }
+.coupon-btn-blue {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+.coupon-btn-green {
+  background: #ECFDF5;
+  color: var(--success);
+}
+.dark-mode .coupon-btn {
+  background: #2A2A2A;
+  color: var(--text-primary);
+}
 
 .coupon-title {
   font-size: var(--font-md);
   font-weight: 700;
+  color: var(--text-primary);
   display: block;
-  margin-bottom: 10rpx;
-  line-height: 1.5;
+  margin-bottom: 8rpx;
+  line-height: 1.4;
 }
 
 .coupon-desc {
   font-size: var(--font-xs);
   color: var(--text-secondary);
   display: block;
-  line-height: 1.6;
-  margin-bottom: 14rpx;
+  line-height: 1.5;
+  margin-bottom: 12rpx;
 }
 
 .coupon-source {
   display: flex;
   align-items: center;
   font-size: var(--font-xs);
-  color: var(--text-light);
-}
-
-.source-name {
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .coupon-notice {
   font-size: 20rpx;
-  color: #EF4444;
-  margin-top: 12rpx;
-  padding: 10rpx 14rpx;
+  color: var(--danger);
+  margin-top: 10rpx;
+  padding: 8rpx 12rpx;
   background: #FEF2F2;
   border-radius: var(--radius-sm);
   line-height: 1.5;
+}
+.dark-mode .coupon-notice {
+  background: #2A1A1A;
 }
 
 /* ===== 兼职外快推荐 ===== */
 .sidejob-list {
   display: flex;
-  gap: 16rpx;
+  gap: 12rpx;
 }
 
 .sidejob-item {
   flex: 1;
-  background: var(--bg-white);
+  background: var(--bg-card);
   border-radius: var(--radius-lg);
-  padding: 24rpx 16rpx;
+  padding: 24rpx 14rpx;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -662,30 +623,27 @@
 }
 
 .sidejob-icon-box {
-  width: 88rpx;
-  height: 88rpx;
+  width: 76rpx;
+  height: 76rpx;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16rpx;
-}
-
-.sidejob-emoji {
-  font-size: 44rpx;
+  font-size: 38rpx;
+  margin-bottom: 14rpx;
 }
 
 .sidejob-name {
-  font-size: var(--font-md);
+  font-size: var(--font-sm);
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6rpx;
+  margin-bottom: 4rpx;
 }
 
 .sidejob-desc {
   font-size: var(--font-xs);
-  color: #EF4444;
-  margin-bottom: 16rpx;
+  color: var(--danger);
+  margin-bottom: 14rpx;
 }
 
 .sidejob-btn {
@@ -695,240 +653,7 @@
   color: var(--primary);
   background: var(--primary-light);
   border: none;
-  border-radius: var(--radius-full, 9999rpx);
-  padding: 10rpx 0;
-  height: auto;
+  border-radius: var(--radius-full);
+  padding: 8rpx 0;
   line-height: 1.4;
-}
-
-/* ===== 公告通知栏 ===== */
-.notice-bar {
-  margin: 0 24rpx 16rpx;
-  background: #FFFBE6;
-  border-radius: 8rpx;
-  padding: 0 16rpx;
-  height: 64rpx;
-  display: flex;
-  align-items: center;
-}
-.notice-swiper { flex: 1; height: 64rpx; }
-.notice-item { display: flex; align-items: center; height: 64rpx; }
-.notice-tag {
-  font-size: 20rpx;
-  padding: 2rpx 8rpx;
-  border-radius: 4rpx;
-  margin-right: 12rpx;
-  color: #fff;
-}
-.notice-tag-new { background: #FF6B35; }
-.notice-tag-update { background: #0066FF; }
-.notice-text {
-  font-size: 24rpx;
-  color: #666;
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* ===== 深色模式 ===== */
-.dark-mode .nav-bar {
-  background: rgba(26, 26, 26, 0.95) !important;
-}
-
-.dark-mode .notice-bar {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .notice-item {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .notice-text {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .welcome-section {
-  background: transparent !important;
-}
-
-.dark-mode .welcome-name {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .welcome-sub {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .desktop-guide-bubble {
-  background: #1E1E1E !important;
-  border-color: #333333 !important;
-  box-shadow: none !important;
-}
-
-.dark-mode .bubble-title {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .bubble-sub {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .bubble-icon {
-  background: #2a3a4a !important;
-}
-
-.dark-mode .quick-item {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .quick-icon {
-  background: #2a3a4a !important;
-}
-
-.dark-mode .quick-name {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .tip-bar {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .tip-bar-active {
-  background: #1a2a2a !important;
-}
-
-.dark-mode .tip-content {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .tip-bar-active .tip-content {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .tips-banner {
-  background: #2a2a1a !important;
-  border-color: #4a4a2a !important;
-}
-
-.dark-mode .tips-banner-label {
-  color: #F59E0B !important;
-}
-
-.dark-mode .tips-banner-title {
-  color: #F59E0B !important;
-}
-
-.dark-mode .tips-banner-desc {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .data-overview {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .data-value {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .data-label {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .data-divider {
-  background: #333333 !important;
-}
-
-.dark-mode .tool-list {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .tool-item {
-  border-color: #333333 !important;
-}
-
-.dark-mode .tool-item:active {
-  background: #2A2A2A !important;
-}
-
-.dark-mode .tool-icon-box {
-  background: #2a3a4a !important;
-}
-
-.dark-mode .tool-item-title {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .tool-item-desc {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .tool-arrow {
-  color: #666666 !important;
-}
-
-.dark-mode .tool-count-text {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .section-more {
-  color: #4D94FF !important;
-}
-
-.dark-mode .coupon-newbie,
-.dark-mode .coupon-bind,
-.dark-mode .coupon-community {
-  background: #1E1E1E !important;
-  border-color: #333333 !important;
-}
-
-.dark-mode .coupon-title {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .coupon-desc {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .coupon-source {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .coupon-notice {
-  color: #F59E0B !important;
-  background: #2a2a1a !important;
-}
-
-.dark-mode .coupon-btn,
-.dark-mode .coupon-btn-orange,
-.dark-mode .coupon-btn-blue,
-.dark-mode .coupon-btn-green {
-  background: #2A2A2A !important;
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .coupon-amount,
-.dark-mode .coupon-symbol {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .sidejob-item {
-  background: #1E1E1E !important;
-}
-
-.dark-mode .sidejob-icon-box {
-  background: #2a3a4a !important;
-}
-
-.dark-mode .sidejob-name {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .sidejob-desc {
-  color: #A0A0A0 !important;
-}
-
-.dark-mode .sidejob-btn {
-  background: #0066FF !important;
-  color: #FFFFFF !important;
 }

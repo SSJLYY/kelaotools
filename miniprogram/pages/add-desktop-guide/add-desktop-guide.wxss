@@ -84,7 +84,7 @@ page {
 .tips-card {
   margin: 24rpx;
   padding: 28rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 24rpx;
   box-shadow: 0 4rpx 20rpx rgba(15, 23, 42, 0.05);
 }
@@ -141,7 +141,7 @@ page {
   height: 56rpx;
   padding: 0 20rpx;
   border-radius: 999rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 1rpx solid #E5E7EB;
   display: flex;
   align-items: center;
@@ -169,7 +169,7 @@ page {
 
 .mock-panel {
   margin-top: 42rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 20rpx;
   padding: 16rpx;
 }
@@ -241,7 +241,7 @@ page {
   width: 92rpx;
   height: 92rpx;
   border-radius: 24rpx;
-  background: #FFF;
+  background: var(--bg-card);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,34 +292,100 @@ page {
 }
 
 /* ===== 深色模式 ===== */
-.dark-mode page {
+.page.dark-mode {
   background: #121212 !important;
 }
-
+.page.dark-mode {
+  background: #121212 !important;
+}
 .dark-mode .nav-bar {
   background: #1a1a1a !important;
 }
-
 .dark-mode .nav-title {
   color: #E5E5E5 !important;
 }
-
 .dark-mode .nav-back {
   color: #E5E5E5 !important;
 }
-
-.dark-mode .guide-card {
+.dark-mode .guide-section,
+.dark-mode .tips-card {
   background: #1E1E1E !important;
 }
-
-.dark-mode .guide-title {
+.dark-mode .section-title {
   color: #E5E5E5 !important;
 }
-
-.dark-mode .guide-desc {
+.dark-mode .section-badge {
+  background: #1a3a2a !important;
+  color: #10B981 !important;
+}
+.dark-mode .section-badge.blue {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+.dark-mode .mock-screen {
+  background: #1E1E1E !important;
+  border-color: #333333 !important;
+}
+.dark-mode .mock-title {
+  color: #E5E5E5 !important;
+}
+.dark-mode .mock-menu {
+  background: #2A2A2A !important;
+  border-color: #444444 !important;
+  color: #E5E5E5 !important;
+}
+.dark-mode .mock-divider {
+  background: #444444 !important;
+}
+.dark-mode .mock-arrow {
+  background: #1a2a3a !important;
+  color: #4D94FF !important;
+}
+.dark-mode .mock-panel {
+  background: #2A2A2A !important;
+}
+.dark-mode .mock-option {
+  border-bottom-color: #333333 !important;
   color: #A0A0A0 !important;
 }
-
-.dark-mode .guide-step {
+.dark-mode .active-option {
+  color: #4D94FF !important;
+  background: #1a2a3a !important;
+}
+.dark-mode .step-no {
+  background: #E5E5E5 !important;
+  color: #121212 !important;
+}
+.dark-mode .step-item {
   color: #A0A0A0 !important;
+}
+.dark-mode .mini-program-card {
+  background: #1E1E1E !important;
+}
+.dark-mode .mini-header {
+  color: #A0A0A0 !important;
+}
+.dark-mode .mini-icon {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+}
+.dark-mode .mini-icon.selected {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+}
+.dark-mode .mini-tip {
+  color: #A0A0A0 !important;
+}
+.dark-mode .tips-title {
+  color: #E5E5E5 !important;
+}
+.dark-mode .tips-text {
+  color: #A0A0A0 !important;
+}
+.dark-mode .copy-btn {
+  background: #E5E5E5 !important;
+  color: #121212 !important;
+}
+.dark-mode .hero-card {
+  background: linear-gradient(135deg, #0F172A, #1D4ED8) !important;
 }

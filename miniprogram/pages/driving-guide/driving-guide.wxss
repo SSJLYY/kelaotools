@@ -1,33 +1,33 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
-.page { min-height: 100vh; background: #F5F5F7; }
-.nav-bar { position: fixed; left: 0; right: 0; z-index: 100; background: #F5F5F7; }
+.page { min-height: 100vh; background: var(--bg); }
+.nav-bar { position: fixed; left: 0; right: 0; z-index: 100; background: var(--bg); }
 .nav-bar-inner { display: flex; align-items: center; padding: 0 16px; }
 .nav-left, .nav-right { width: 60px; height: 44px; display: flex; align-items: center; }
 .nav-right { justify-content: flex-end; }
-.nav-icon { font-size: 20px; color: #333; }
-.nav-title { flex: 1; text-align: center; font-size: 17px; font-weight: 600; color: #333; }
-.reset-text { font-size: 14px; color: #0066FF; }
-.progress-section { margin: 16px; background: #fff; border-radius: 12px; padding: 16px; }
+.nav-icon { font-size: 20px; color: var(--text-primary); }
+.nav-title { flex: 1; text-align: center; font-size: 17px; font-weight: 600; color: var(--text-primary); }
+.reset-text { font-size: 14px; color: var(--primary); }
+.progress-section { margin: 16px; background: var(--bg-card); border-radius: 12px; padding: 16px; }
 .progress-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
-.progress-title { font-size: 15px; font-weight: 600; color: #333; }
-.progress-count { font-size: 15px; font-weight: 600; color: #0066FF; }
+.progress-title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.progress-count { font-size: 15px; font-weight: 600; color: var(--primary); }
 .progress-bar { height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden; }
 .progress-fill { height: 100%; background: linear-gradient(90deg, #0066FF, #10B981); border-radius: 4px; transition: width 0.3s; }
-.progress-tip { font-size: 12px; color: #999; margin-top: 8px; display: block; }
-.category-section { margin: 0 16px 16px; background: #fff; border-radius: 12px; overflow: hidden; }
-.category-header { display: flex; align-items: center; padding: 12px 16px; background: #FAFAFA; border-bottom: 1px solid #f0f0f0; }
+.progress-tip { font-size: 12px; color: var(--text-muted); margin-top: 8px; display: block; }
+.category-section { margin: 0 16px 16px; background: var(--bg-card); border-radius: 12px; overflow: hidden; }
+.category-header { display: flex; align-items: center; padding: 12px 16px; background: #FAFAFA; border-bottom: 1rpx solid var(--border); }
 .category-icon { font-size: 18px; margin-right: 8px; }
-.category-name { font-size: 15px; font-weight: 600; color: #333; flex: 1; }
-.category-count { font-size: 13px; color: #999; }
+.category-name { font-size: 15px; font-weight: 600; color: var(--text-primary); flex: 1; }
+.category-count { font-size: 13px; color: var(--text-muted); }
 .check-list { padding: 0 16px; }
 .check-item { display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
 .check-item:last-child { border-bottom: none; }
-.check-item.checked .check-text { color: #999; text-decoration: line-through; }
+.check-item.checked .check-text { color: var(--text-muted); text-decoration: line-through; }
 .checkbox { width: 24px; height: 24px; border: 2px solid #ddd; border-radius: 6px; margin-right: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .checkbox-checked { background: #10B981; border-color: #10B981; }
 .check-icon { color: #fff; font-size: 14px; font-weight: bold; }
-.check-text { font-size: 14px; color: #333; flex: 1; }
+.check-text { font-size: 14px; color: var(--text-primary); flex: 1; }

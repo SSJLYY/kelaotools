@@ -29,8 +29,10 @@ App({
   },
 
   initDarkMode() {
-    const dark = darkmode.syncDarkMode();
+    const dark = darkmode.resolveDarkMode();
     this.globalData.darkMode = dark;
+    darkmode.setDarkMode(dark);
+    darkmode.applyDarkMode(dark);
     this._startDarkModeTimer();
   },
 
@@ -101,6 +103,9 @@ App({
         { cloud: 'tool_sort', local: 'kt_tool_sort' },
         { cloud: 'home_reminders', local: 'kt_home_reminders' },
         { cloud: 'charging_stations', local: 'kt_charging_stations' },
+        { cloud: 'charging_logs', local: 'kt_charging_logs' },
+        { cloud: 'maintenance_logs', local: 'kt_maintenance_logs' },
+        { cloud: 'ride_logs', local: 'kt_ride_logs' },
         { cloud: 'car_wash_logs', local: 'kt_car_wash_logs' },
         { cloud: 'modification_logs', local: 'kt_modification_logs' },
         { cloud: 'mileage_logs', local: 'kt_mileage_logs' },
@@ -182,6 +187,8 @@ App({
         { cloud: 'car_wash_logs', local: 'kt_car_wash_logs' },
         { cloud: 'modification_logs', local: 'kt_modification_logs' },
         { cloud: 'my_cars', local: 'kt_my_cars' },
+        { cloud: 'mileage_logs', local: 'kt_mileage_logs' },
+        { cloud: 'maintenance_reminders', local: 'kt_maintenance_reminders' },
         { cloud: 'my_car', local: 'kt_my_car' },
       ];
 

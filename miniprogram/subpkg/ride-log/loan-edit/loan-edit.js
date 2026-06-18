@@ -19,6 +19,7 @@ Page({
   },
 
   onLoad(options) {
+    this.loadDarkMode();
     this.setData(getNavBarInfo());
     const today = new Date().toISOString().slice(0, 10);
     const periods = [];

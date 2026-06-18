@@ -31,7 +31,7 @@ Page({
     navBarHeight: 44,
     navTotalHeight: 64,
 
-    carName: '小鹏 G9 2026款',
+    carName: 'ZEEKR 001 2025款',
     batteryCapacity: 78.2,
     wltpRange: 500,
 
@@ -69,7 +69,7 @@ Page({
     try {
       const car = wx.getStorageSync('kt_my_car') || {};
       const spec = CAR_SPECS[car.modelId] || CAR_SPECS.default;
-      const carName = car.model ? `${car.model}${car.year ? ` ${car.year}款` : ''}` : '小鹏 G9 2026款';
+      const carName = car.model ? `${car.model}${car.year ? ` ${car.year}款` : ''}` : 'ZEEKR 001 2025款';
       this.setData({
         carName,
         batteryCapacity: spec.battery,
@@ -78,7 +78,7 @@ Page({
     } catch (e) {
       const spec = CAR_SPECS.default;
       this.setData({
-        carName: '小鹏 G9 2026款',
+        carName: 'ZEEKR 001 2025款',
         batteryCapacity: spec.battery,
         wltpRange: spec.wltp,
       }, () => this.calculate());

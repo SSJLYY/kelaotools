@@ -1,58 +1,10 @@
 const { getNavBarInfo } = require('../../utils/nav');
+const scenesData = require('../../data/scenes.data');
+const soundsData = require('../../data/sounds.data');
 
-const SCENES = [
-  { id: 1, title: '一键舒适模式', desc: '驾驶模式自动切换为舒适，悬挂调软，方向盘轻盈', code: 'SCENE001', tags: ['功能','驾驶'] },
-  { id: 2, title: '极氪运动模式', desc: '动力响应更灵敏，悬挂变硬，适合激烈驾驶', code: 'SCENE002', tags: ['功能','驾驶'] },
-  { id: 3, title: '长途出行模式', desc: '自动调节座椅按摩、空调温度、音乐音量', code: 'SCENE003', tags: ['功能','舒适'] },
-  { id: 4, title: '午休模式', desc: '主驾座椅放平，空调恒温24°，播放白噪音', code: 'SCENE004', tags: ['功能','舒适'] },
-  { id: 5, title: '充电快捷入口', desc: '一键打开充电地图，显示附近可用充电桩', code: 'SCENE010', tags: ['充电','导航'] },
-  { id: 6, title: '家充预约模式', desc: '自动设置充电上限80%，启用谷电时段充电', code: 'SCENE011', tags: ['充电','节能'] },
-  { id: 7, title: '快充准备模式', desc: '自动预热电池至最佳充电温度，提升充电速度', code: 'SCENE012', tags: ['充电','电池'] },
-  { id: 8, title: '车载KTV模式', desc: '自动调节氛围灯、音响均衡器，打开唱吧App', code: 'SCENE020', tags: ['娱乐','灯光'] },
-  { id: 9, title: '影院模式', desc: '熄屏、氛围灯调暗、座椅后仰、空调静音', code: 'SCENE021', tags: ['娱乐','灯光'] },
-  { id: 10, title: '露营模式', desc: '外放电开启、车内恒温、氛围灯调为暖色', code: 'SCENE022', tags: ['娱乐','户外'] },
-  { id: 11, title: '迎宾灯语', desc: '解锁车辆时矩阵大灯流水点亮、尾灯呼吸、车内氛围灯渐亮', code: 'SCENE030', tags: ['迎宾','灯光'] },
-  { id: 12, title: '回家灯光秀', desc: '锁车后矩阵大灯延时关闭，照亮回家路', code: 'SCENE031', tags: ['迎宾','灯光'] },
-  { id: 13, title: '上车欢迎语', desc: '开门时播放自定义音效，中控屏显示问候语和天气信息', code: 'SCENE032', tags: ['迎宾','音效'] },
-  { id: 14, title: '离车自动锁车', desc: '携带蓝牙钥匙离开车辆后自动锁车并折叠后视镜', code: 'SCENE040', tags: ['开关门','安全'] },
-  { id: 15, title: '靠近自动解锁', desc: '携带钥匙靠近车辆自动解锁，后视镜展开并弹出门把手', code: 'SCENE041', tags: ['开关门','便利'] },
-  { id: 16, title: '儿童锁模式', desc: '后排车窗锁定、儿童锁开启、后排空调切换适宜温度', code: 'SCENE042', tags: ['开关门','安全'] },
-  { id: 17, title: 'D挡自动驻车', desc: '挂入D挡时自动启用Auto Hold，等灯更从容', code: 'SCENE050', tags: ['换挡','安全'] },
-  { id: 18, title: 'R挡360°影像', desc: '挂入R挡自动打开360°全景影像和透明底盘', code: 'SCENE051', tags: ['换挡','影像'] },
-  { id: 19, title: 'P挡自动手刹', desc: '挂入P挡自动拉起电子手刹，下车无需额外操作', code: 'SCENE052', tags: ['换挡','便利'] },
-  { id: 20, title: '雪地起步模式', desc: '降低电机扭矩输出斜率，优化雪地起步稳定性', code: 'SCENE060', tags: ['功能','安全'] },
-  { id: 21, title: '极氪001赛道主题', desc: '切换运动驾驶氛围，仪表主题、氛围灯与驾驶提醒同步进入性能状态', code: '72221053', tags: ['车型','功能'] },
-  { id: 22, title: '极氪001猎装露营', desc: '开启外放电提醒、后备箱照明、露营氛围灯和低风量恒温', code: '72221054', tags: ['车型','娱乐'] },
-  { id: 23, title: '极氪007通勤模式', desc: '上班通勤自动设置导航偏好、座椅加热/通风和舒适驾驶模式', code: '72221007', tags: ['车型','功能'] },
-  { id: 24, title: '极氪007哨兵提醒', desc: '停车后提醒开启安全看护，异常震动与电量状态及时提示', code: '72221008', tags: ['车型','功能'] },
-  { id: 25, title: '极氪009贵宾迎宾', desc: '二排座椅、空调、香氛和迎宾灯效联动', code: '72221009', tags: ['车型','迎宾'] },
-  { id: 26, title: '极氪009亲子出行', desc: '儿童锁、后排空调、舒缓音乐和车内照明一键切换', code: '72221010', tags: ['车型','开关门'] },
-  { id: 27, title: '极氪X城市灵动', desc: '窄路会车、低速跟车和轻盈转向提醒', code: '72221011', tags: ['车型','功能'] },
-  { id: 28, title: '极氪X宠物守护', desc: '临停时保持适宜温度并显示宠物提示', code: '72221012', tags: ['车型','娱乐'] },
-  { id: 29, title: '极氪7X家庭远行', desc: '长途导航、电量规划、后排舒适和儿童安全提醒联动', code: '72221013', tags: ['车型','充电'] },
-  { id: 30, title: '极氪MIX派对模式', desc: '车内灯光、音乐和空间布局提示联动', code: '72221014', tags: ['车型','娱乐'] },
-];
+const SCENES = scenesData;
 
-const SOUNDS = [
-  { id: 1, title: '乌萨奇呀哈', desc: '小红书:乌萨奇', code: 'SOUND001', cat: '乌萨奇' },
-  { id: 2, title: '小八乌拉呀哈', desc: '小红书:乌萨奇', code: 'SOUND002', cat: '乌萨奇' },
-  { id: 3, title: '乌萨奇笑哈哈', desc: '小红书:乌萨奇', code: 'SOUND003', cat: '乌萨奇' },
-  { id: 4, title: '圣诞老人来了', desc: '小红书:极氪车主', code: 'SOUND010', cat: '圣诞' },
-  { id: 5, title: '铃儿响叮当', desc: '小红书:极氪车主', code: 'SOUND011', cat: '圣诞' },
-  { id: 6, title: '小团团导航声', desc: '车友分享', code: 'SOUND020', cat: '小团团' },
-  { id: 7, title: '团团提醒系安全带', desc: '车友分享', code: 'SOUND021', cat: '小团团' },
-  { id: 8, title: '开门提示音-懒羊羊', desc: '小红书:极氪001', code: 'SOUND030', cat: '懒羊羊' },
-  { id: 9, title: '关门提示音-懒羊羊', desc: '小红书:极氪001', code: 'SOUND031', cat: '懒羊羊' },
-  { id: 10, title: '锁车声-卡皮巴拉', desc: '小红书:极氪007', code: 'SOUND040', cat: '卡皮巴拉' },
-  { id: 11, title: '解锁声-卡皮巴拉', desc: '小红书:极氪007', code: 'SOUND041', cat: '卡皮巴拉' },
-  { id: 12, title: '哈士奇开门声', desc: '车友分享', code: 'SOUND050', cat: '哈士奇' },
-  { id: 13, title: '蜡笔小新来电', desc: '小红书:极氪X', code: 'SOUND060', cat: '蜡笔小新' },
-  { id: 14, title: '小新说拜拜', desc: '小红书:极氪X', code: 'SOUND061', cat: '蜡笔小新' },
-  { id: 15, title: '极氪专属来电', desc: '极氪官方', code: 'SOUND070', cat: '来电音效' },
-  { id: 16, title: '001FR赛道来电', desc: '极氪官方', code: 'SOUND071', cat: '来电音效' },
-  { id: 17, title: '开门声-开关门', desc: '车友分享', code: 'SOUND080', cat: '开关门' },
-  { id: 18, title: '欢迎上车-极氪', desc: '小红书:极氪009', code: 'SOUND090', cat: '上车欢迎' },
-];
+const SOUNDS = soundsData;
 
 Page({
   data: { darkMode: false,

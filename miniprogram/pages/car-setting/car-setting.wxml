@@ -32,7 +32,7 @@
         data-id="{{item.id}}"
         hover-class="series-hover"
       >
-        <view class="series-icon-box">
+        <view class="series-icon-box" style="background:{{item.iconBg || '#F3F4F6'}};">
           <text class="series-emoji">{{item.emoji}}</text>
         </view>
         <view class="series-info">

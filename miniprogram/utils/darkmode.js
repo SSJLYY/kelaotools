@@ -38,6 +38,12 @@ function applyDarkMode(darkMode) {
     frontColor: darkMode ? '#ffffff' : '#000000',
     backgroundColor: darkMode ? '#1a1a1a' : '#F5F5F7',
   });
+  wx.setTabBarStyle({
+    color: darkMode ? '#AAAAAA' : '#999999',
+    selectedColor: darkMode ? '#5B8DEF' : '#2F66F6',
+    backgroundColor: darkMode ? '#2A2A2A' : '#FFFFFF',
+    borderStyle: darkMode ? 'black' : 'white',
+  });
 }
 
 function shouldDark(setting) {

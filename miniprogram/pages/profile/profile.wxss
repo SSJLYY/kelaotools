@@ -1,6 +1,6 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 /* 个人信息 */
@@ -24,16 +24,16 @@
   margin:24rpx 24rpx 12rpx;
   font-size:28rpx;
   font-weight:600;
-  color:#333;
+  color: var(--text-primary);
 }
 
 .edit-btn {
   font-size:26rpx;
   font-weight:400;
-  color:#0066FF;
+  color: var(--primary);
 }
 
-.info-card { margin:0 24rpx 20rpx;background:#FFF;border-radius:var(--radius-lg);padding:8rpx 0; }
+.info-card { margin:0 24rpx 20rpx;background: var(--bg-card);border-radius:var(--radius-lg);padding:8rpx 0; }
 .info-item { display:flex;align-items:center;justify-content:space-between;padding:22rpx 28rpx;border-bottom:1rpx solid #F5F5F5; }
 .info-item:last-child { border-bottom:none; }
 .info-left { display:flex;align-items:center;gap:12rpx; }
@@ -53,7 +53,7 @@
 .tool-sort-item:last-child { border-bottom:none; }
 .tool-sort-left { display:flex;align-items:center;gap:16rpx;flex:1; }
 .tool-icon { width:48rpx;height:48rpx; }
-.tool-name { font-size:28rpx;color:#333; }
+.tool-name { font-size:28rpx;color: var(--text-primary); }
 .tool-name.disabled { color:#CCC; }
 .tool-toggle {
   width:40rpx;
@@ -69,7 +69,7 @@
   color:transparent;
 }
 .toggle-icon.active {
-  color:#0066FF;
+  color: var(--primary);
 }
 .tool-sort-btns { display:flex;gap:16rpx; }
 .sort-btn {
@@ -81,7 +81,7 @@
   align-items:center;
   justify-content:center;
   font-size:24rpx;
-  color:#666;
+  color: var(--text-secondary);
 }
 .sort-btn:active { background:#E0E0E0; }
 

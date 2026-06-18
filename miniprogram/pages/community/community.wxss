@@ -1,190 +1,210 @@
-/* 自定义音效 */
-.search-bar { padding:20rpx 28rpx 12rpx; }
+/* ========================================
+   音效库页 — 简约风格
+   所有颜色通过 CSS 变量自动适配深色模式
+   ======================================== */
+
+/* 搜索栏 */
+.search-bar {
+  padding: 18rpx 28rpx var(--space-sm);
+}
+
 .search-box {
-  display:flex;align-items:center;background:#FFF;
-  border-radius:44rpx;padding:20rpx 28rpx;
-  box-shadow:0 2rpx 12rpx rgba(0,0,0,0.04);
-  border:2rpx solid rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-full);
+  padding: 18rpx 28rpx;
+  box-shadow: var(--shadow-sm);
+  border: 1rpx solid var(--border);
 }
-.search-icon { font-size:26rpx;margin-right:12rpx;opacity:0.5; }
-.search-placeholder { font-size:var(--font-sm);color:#B0B0B0; }
 
-.cat-scroll { margin-bottom:8rpx; }
-.cat-list { display:flex;gap:12rpx;padding:4rpx 28rpx 16rpx;white-space:nowrap; }
+.search-icon {
+  font-size: 26rpx;
+  margin-right: var(--space-sm);
+  opacity: 0.4;
+}
+
+.search-placeholder {
+  font-size: var(--font-sm);
+  color: var(--text-placeholder);
+}
+
+/* 分类标签 */
+.cat-scroll {
+  margin-bottom: var(--space-xs);
+}
+
+.cat-list {
+  display: flex;
+  gap: var(--space-sm);
+  padding: 4rpx 28rpx var(--space-md);
+  white-space: nowrap;
+}
+
 .cat-tag {
-  flex-shrink:0;padding:12rpx 28rpx;font-size:var(--font-xs);
-  color:var(--text-secondary);background:#FFF;
-  border-radius:36rpx;border:2rpx solid var(--border-color);
-  transition:all 0.2s ease;
+  flex-shrink: 0;
+  padding: 10rpx 26rpx;
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border-radius: var(--radius-full);
+  border: 2rpx solid var(--border);
+  transition: all 0.2s;
 }
+
 .cat-active {
-  background:var(--primary);color:#FFF;border-color:var(--primary);
-  font-weight:600;box-shadow:0 4rpx 16rpx rgba(0,102,255,0.2);
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 4rpx 14rpx rgba(47, 102, 246, 0.25);
 }
 
+/* 分享 Banner */
 .share-banner {
-  display:flex;align-items:center;margin:0 28rpx 16rpx;
-  padding:20rpx 24rpx;background:linear-gradient(135deg,#E8F2FF,#EDE9FE);
-  border-radius:var(--radius-md);
+  display: flex;
+  align-items: center;
+  margin: 0 28rpx var(--space-md);
+  padding: 18rpx var(--space-lg);
+  background: var(--primary-light);
+  border-radius: var(--radius-md);
 }
-.share-icon { font-size:30rpx;margin-right:12rpx; }
-.share-text { flex:1;font-size:var(--font-xs);color:var(--primary); }
+
+.share-icon {
+  font-size: 28rpx;
+  margin-right: var(--space-sm);
+}
+
+.share-text {
+  flex: 1;
+  font-size: var(--font-xs);
+  color: var(--primary);
+}
+
 .share-btn {
-  font-size:20rpx!important;font-weight:600;color:#FFF!important;
-  background:var(--primary)!important;border-radius:28rpx!important;
-  padding:8rpx 24rpx!important;height:auto!important;line-height:1.6!important;
+  font-size: 20rpx !important;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  background: var(--primary) !important;
+  border-radius: var(--radius-full) !important;
+  padding: 8rpx 22rpx !important;
+  line-height: 1.6 !important;
 }
 
-/* 音效列表 */
-.sound-list { padding:0 28rpx; }
+/* 音效卡片 */
+.sound-list {
+  padding: 0 28rpx;
+}
+
 .sound-card {
-  background:#FFF;border-radius:20rpx;margin-bottom:16rpx;
-  padding:24rpx;box-shadow:0 2rpx 16rpx rgba(0,0,0,0.04);
-  border:2rpx solid rgba(0,0,0,0.03);
-  transition:transform 0.15s ease;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--space-md);
+  padding: 22rpx;
+  box-shadow: var(--shadow-sm);
 }
-.sound-main { display:flex;align-items:center; }
 
-/* 播放按钮 - 更精致 */
+.sound-main {
+  display: flex;
+  align-items: center;
+}
+
 .sound-play-btn {
-  width:56rpx;height:56rpx;border-radius:50%;
-  background:linear-gradient(135deg,var(--primary),#4A8AFF);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  box-shadow:0 4rpx 16rpx rgba(0,102,255,0.25);
-  transition:transform 0.15s ease;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4rpx 14rpx rgba(47, 102, 246, 0.25);
 }
+
 .sound-play-btn.playing {
-  background:linear-gradient(135deg,#FF6B6B,#FF8E8E);
-  box-shadow:0 4rpx 16rpx rgba(255,107,107,0.3);
+  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+  box-shadow: 0 4rpx 14rpx rgba(255, 107, 107, 0.3);
 }
-.play-icon { font-size:20rpx;color:#FFF; }
 
-/* 信息区域 - 名称突出，次要信息淡化 */
-.sound-info { flex:1;margin-left:20rpx;overflow:hidden; }
+.play-icon {
+  font-size: 20rpx;
+  color: #FFFFFF;
+}
+
+.sound-info {
+  flex: 1;
+  margin-left: 18rpx;
+  overflow: hidden;
+}
+
 .sound-title {
-  font-size:var(--font-md);font-weight:600;color:var(--text-primary);
-  display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 .sound-meta {
-  display:flex;align-items:center;margin-top:6rpx;gap:8rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 4rpx;
+  gap: var(--space-xs);
 }
-.sound-source { font-size:20rpx;color:var(--text-light);opacity:0.7; }
-.sound-dot { font-size:20rpx;color:var(--text-light);opacity:0.4; }
-.sound-duration { font-size:20rpx;color:var(--text-light);opacity:0.7; }
 
-/* 操作按钮 - 紧凑精致 */
-.sound-actions { display:flex;align-items:center;gap:12rpx;flex-shrink:0; }
+.sound-source,
+.sound-duration {
+  font-size: 20rpx;
+  color: var(--text-muted);
+}
+
+.sound-dot {
+  font-size: 20rpx;
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.sound-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
 .action-btn {
-  width:52rpx;height:52rpx;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  transition:all 0.15s ease;
-}
-.fav-btn { background:#FFF5E6; }
-.fav-btn .action-icon { font-size:24rpx;color:#F59E0B; }
-.fav-active { background:#FEF3C7; }
-.fav-active .action-icon { color:#D97706; }
-.copy-btn { background:var(--primary-light); }
-.copy-btn .action-icon { font-size:22rpx; }
-
-/* 空状态 */
-.empty { text-align:center;padding:120rpx 0; }
-.empty-emoji { font-size:80rpx;display:block; }
-.empty-text { font-size:var(--font-md);color:var(--text-light);margin-top:20rpx;display:block; }
-
-/* ===== 深色模式 ===== */
-.dark-mode .search-box {
-  background: #1E1E1E !important;
-  border-color: rgba(255,255,255,0.06) !important;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.dark-mode .search-icon {
-  color: #A0A0A0 !important;
+.fav-btn {
+  background: #FFF5E6;
 }
-
-.dark-mode .search-placeholder {
-  color: #666666 !important;
-}
-
-.dark-mode .cat-tag {
-  background: #2A2A2A !important;
-  color: #A0A0A0 !important;
-  border-color: #444444 !important;
-}
-
-.dark-mode .cat-active {
-  background: #0066FF !important;
-  color: #FFFFFF !important;
-  border-color: #0066FF !important;
-  box-shadow: 0 4rpx 16rpx rgba(0,102,255,0.3) !important;
-}
-
-.dark-mode .share-banner {
-  background: linear-gradient(135deg, #1a2a3a, #2a1a3a) !important;
-}
-
-.dark-mode .share-text {
-  color: #4D94FF !important;
-}
-
-.dark-mode .sound-card {
-  background: #1E1E1E !important;
-  border-color: rgba(255,255,255,0.04) !important;
-}
-
-.dark-mode .sound-play-btn {
-  background: linear-gradient(135deg, #0066FF, #4A8AFF) !important;
-  box-shadow: 0 4rpx 16rpx rgba(0,102,255,0.3) !important;
-}
-
-.dark-mode .sound-play-btn.playing {
-  background: linear-gradient(135deg, #FF6B6B, #FF8E8E) !important;
-  box-shadow: 0 4rpx 16rpx rgba(255,107,107,0.3) !important;
-}
-
-.dark-mode .play-icon {
-  color: #FFFFFF !important;
-}
-
-.dark-mode .sound-title {
-  color: #E5E5E5 !important;
-}
-
-.dark-mode .sound-source {
-  color: #888888 !important;
-}
-
-.dark-mode .sound-dot {
-  color: #666666 !important;
-}
-
-.dark-mode .sound-duration {
-  color: #888888 !important;
-}
-
 .dark-mode .fav-btn {
-  background: #2A2A1A !important;
+  background: #2A2A1A;
 }
 
-.dark-mode .fav-btn .action-icon {
-  color: #F59E0B !important;
+.fav-active {
+  background: #FEF3C7;
 }
-
 .dark-mode .fav-active {
-  background: #3A3A1A !important;
+  background: #3A3A1A;
 }
 
-.dark-mode .fav-active .action-icon {
-  color: #F59E0B !important;
+.action-icon {
+  font-size: 22rpx;
+  color: #F59E0B;
 }
 
-.dark-mode .copy-btn {
-  background: #1a2a3a !important;
+.copy-btn {
+  background: var(--primary-light);
 }
-
-.dark-mode .copy-btn .action-icon {
-  color: #4D94FF !important;
-}
-
-.dark-mode .empty-text {
-  color: #A0A0A0 !important;
+.copy-btn .action-icon {
+  font-size: 20rpx;
+  color: var(--primary);
 }

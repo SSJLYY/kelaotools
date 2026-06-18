@@ -1,6 +1,6 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 /* 用车小贴士 */
@@ -11,10 +11,10 @@
 .nav-title-text { flex:1;text-align:center;font-size:34rpx;font-weight:600; }
 .category-scroll { margin-bottom:8rpx; }
 .category-list { display:flex;gap:12rpx;padding:8rpx 24rpx 16rpx;white-space:nowrap; }
-.category-tag { flex-shrink:0;padding:12rpx 28rpx;font-size:var(--font-xs);color:var(--text-secondary);background:#FFF;border-radius:36rpx;border:2rpx solid var(--border-color); }
+.category-tag { flex-shrink:0;padding:12rpx 28rpx;font-size:var(--font-xs);color:var(--text-secondary);background: var(--bg-card);border-radius:36rpx;border:2rpx solid var(--border-color); }
 .tag-active { background:var(--primary);color:#FFF;border-color:var(--primary);font-weight:600; }
 .tips-list { padding:0 24rpx; }
-.tip-card { background:#FFF;border-radius:var(--radius-lg);padding:24rpx 20rpx;margin-bottom:16rpx;box-shadow:var(--shadow-sm); }
+.tip-card { background: var(--bg-card);border-radius:var(--radius-lg);padding:24rpx 20rpx;margin-bottom:16rpx;box-shadow:var(--shadow-sm); }
 .tip-card:active { background:#FAFAFA; }
 .tip-top { display:flex;align-items:flex-start; }
 .tip-icon-box { width:72rpx;height:72rpx;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0; }

@@ -11,7 +11,7 @@ page {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(245, 247, 250, 0.96);
+  background: var(--bg);
   backdrop-filter: blur(20rpx);
 }
 
@@ -58,7 +58,7 @@ page {
   justify-content: center;
   padding: 14rpx 28rpx;
   border-radius: 36rpx;
-  background: #FFF;
+  background: var(--bg-card);
   color: #64748B;
   border: 2rpx solid #E2E8F0;
   font-size: 26rpx;
@@ -132,7 +132,7 @@ page {
   min-height: 118rpx;
   padding: 22rpx 28rpx;
   margin-bottom: 18rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 2rpx solid #DFE7F0;
   border-radius: 24rpx;
   box-sizing: border-box;
@@ -202,7 +202,7 @@ page {
 .empty-state {
   margin: 80rpx 32rpx 0;
   padding: 56rpx 28rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 24rpx;
   text-align: center;
 }
@@ -278,7 +278,7 @@ page {
 .form-card {
   margin: 0 28rpx;
   padding: 28rpx 28rpx 16rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 2rpx solid #E2E8F0;
   border-radius: 24rpx;
 }
@@ -382,10 +382,26 @@ page {
 }
 
 /* ===== 深色模式 ===== */
-.dark-mode .page,
-.dark-mode page {
+.page.dark-mode,
+.page.dark-mode {
   background: #121212 !important;
   color: #E5E5E5 !important;
+}
+
+.dark-mode .category-chip {
+  background: #2A2A2A !important;
+  color: #A0A0A0 !important;
+  border-color: #444444 !important;
+}
+
+.dark-mode .chip-active {
+  background: #0066FF !important;
+  color: #FFFFFF !important;
+  border-color: #0066FF !important;
+}
+
+.dark-mode .category-scroll {
+  background: transparent !important;
 }
 
 .dark-mode .nav-bar {
@@ -402,18 +418,6 @@ page {
 
 .dark-mode .nav-spacer {
   color: #E5E5E5 !important;
-}
-
-.dark-mode .category-tag {
-  background: #2A2A2A !important;
-  color: #A0A0A0 !important;
-  border-color: #444444 !important;
-}
-
-.dark-mode .tag-active {
-  background: #0066FF !important;
-  color: #FFFFFF !important;
-  border-color: #0066FF !important;
 }
 
 .dark-mode .summary-card {

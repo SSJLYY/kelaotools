@@ -1,5 +1,5 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
+.page.dark-mode { background: #121212 !important; }
 .dark-mode .nav-bar { background: #1a1a1a !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
@@ -10,7 +10,7 @@
 .nav-back-icon { font-size:48rpx;font-weight:300;color:var(--text-primary); }
 .nav-title-text { flex:1;text-align:center;font-size:34rpx;font-weight:600; }
 
-.content-card { margin:16rpx 24rpx;background:#FFF;border-radius:var(--radius-lg);padding:32rpx 28rpx;box-shadow:var(--shadow-sm); }
+.content-card { margin:16rpx 24rpx;background: var(--bg-card);border-radius:var(--radius-lg);padding:32rpx 28rpx;box-shadow:var(--shadow-sm); }
 .card-header { text-align:center;margin-bottom:20rpx; }
 .tip-icon-box { width:100rpx;height:100rpx;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20rpx; }
 .tip-icon { font-size:52rpx; }
@@ -22,7 +22,7 @@
 .card-content { white-space:pre-wrap; }
 .content-line { font-size:var(--font-sm);color:var(--text-primary);line-height:2;display:block; }
 
-.related-section { margin:24rpx;background:#FFF;border-radius:var(--radius-lg);padding:24rpx 20rpx;box-shadow:var(--shadow-sm); }
+.related-section { margin:24rpx;background: var(--bg-card);border-radius:var(--radius-lg);padding:24rpx 20rpx;box-shadow:var(--shadow-sm); }
 .related-title { font-size:var(--font-md);font-weight:700;display:block;margin-bottom:16rpx; }
 .related-item { display:flex;align-items:center;padding:16rpx 0;border-bottom:1rpx solid var(--border-light); }
 .related-item:last-child { border-bottom:none; }

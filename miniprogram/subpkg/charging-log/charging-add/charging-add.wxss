@@ -5,7 +5,7 @@
 .nav-back-icon { font-size:48rpx; font-weight:300; color:var(--text-primary); }
 .nav-title-text { flex:1; text-align:center; font-size:34rpx; font-weight:600; }
 
-.form-section { margin:16rpx 24rpx; background:#FFF; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); }
+.form-section { margin:16rpx 24rpx; background: var(--bg-card); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); }
 .form-item { padding:24rpx; border-bottom:1rpx solid var(--border-light); }
 .form-item:last-child { border-bottom:none; }
 .form-label { font-size:var(--font-sm); font-weight:600; color:var(--text-primary); display:block; margin-bottom:12rpx; }
@@ -104,7 +104,7 @@
 }
 
 /* ===== 深色模式补充 ===== */
-.dark-mode page {
+.page.dark-mode {
   background: #121212 !important;
   color: #E5E5E5 !important;
 }

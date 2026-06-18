@@ -1,6 +1,6 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 /* 添加车辆 - 样式 */
@@ -62,7 +62,7 @@
   justify-content: center;
   font-size: 24rpx;
   font-weight: 600;
-  color: #999;
+  color: var(--text-muted);
 }
 .step-active .step-circle {
   background: var(--primary);
@@ -74,7 +74,7 @@
 }
 .step-label {
   font-size: 20rpx;
-  color: #999;
+  color: var(--text-muted);
   margin-top: 8rpx;
 }
 .step-active .step-label {
@@ -186,7 +186,7 @@
   font-size: var(--font-xs);
   color: var(--primary);
   padding: 6rpx 16rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: var(--radius-sm);
 }
 
@@ -372,7 +372,7 @@
 }
 .province-panel {
   width: 100%;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 24rpx 24rpx 0 0;
   padding-bottom: env(safe-area-inset-bottom);
   max-height: 60vh;

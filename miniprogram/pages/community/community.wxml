@@ -1,5 +1,5 @@
 <!-- 自定义音效 -->
-<view class="page {{darkMode ? 'dark-mode' : ''}}" style="background:{{darkMode ? '#121212' : '#F5F5F7'}};min-height:100vh;">
+<view class="page {{darkMode ? 'dark-mode' : ''}}" style="min-height:100vh;">
 
   <!-- 搜索栏 -->
   <view class="search-bar">

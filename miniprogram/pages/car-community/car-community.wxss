@@ -1,11 +1,11 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar {
@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar-inner {
@@ -32,7 +32,7 @@
 
 .nav-icon {
   font-size: 20px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .nav-title {
@@ -40,7 +40,7 @@
   text-align: center;
   font-size: 17px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .content {
@@ -63,14 +63,14 @@
   align-items: center;
   gap: 4px;
   padding: 6px 14px;
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16px;
   font-size: 13px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .category-tag.active {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .post-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 16px;
 }
@@ -110,7 +110,7 @@
 
 .post-cat-name {
   font-size: 12px;
-  color: #0066FF;
+  color: var(--primary);
   background: #E6F0FF;
   padding: 2px 8px;
   border-radius: 4px;
@@ -118,21 +118,21 @@
 
 .post-time {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .post-title {
   display: block;
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .post-content {
   display: block;
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 12px;
   overflow: hidden;
@@ -147,12 +147,12 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 12px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid var(--border);
 }
 
 .post-user {
   font-size: 13px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .post-actions {
@@ -176,12 +176,12 @@
 
 .action-count {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 /* 详情页 */
 .detail-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 12px;
@@ -196,21 +196,21 @@
 
 .detail-time {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .detail-title {
   display: block;
   font-size: 20px;
   font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
 .detail-content {
   display: block;
   font-size: 15px;
-  color: #333;
+  color: var(--text-primary);
   line-height: 1.8;
   margin-bottom: 16px;
 }
@@ -220,12 +220,12 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid var(--border);
 }
 
 .detail-user {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .detail-actions {
@@ -235,7 +235,7 @@
 
 /* 评论区 */
 .comment-section {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 16px;
 }
@@ -244,7 +244,7 @@
   display: block;
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -252,7 +252,7 @@
   display: block;
   text-align: center;
   font-size: 14px;
-  color: #999;
+  color: var(--text-muted);
   padding: 40px 0;
 }
 
@@ -271,12 +271,12 @@
 
 .empty-text {
   font-size: 15px;
-  color: #999;
+  color: var(--text-muted);
   margin-bottom: 24px;
 }
 
 .empty-btn {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
   padding: 10px 24px;
   border-radius: 8px;
@@ -285,7 +285,7 @@
 
 /* 表单 */
 .form-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 20px;
 }
@@ -293,7 +293,7 @@
 .form-title {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -304,7 +304,7 @@
 
 .form-label {
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 8px;
   display: block;
 }
@@ -312,7 +312,7 @@
 .form-input {
   width: 100%;
   height: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 0 12px;
   font-size: 14px;
@@ -321,25 +321,25 @@
 
 .form-picker {
   height: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .picker-arrow {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .form-textarea {
   width: 100%;
   height: 150px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 12px;
   font-size: 14px;
@@ -363,11 +363,11 @@
 }
 
 .btn-cancel {
-  background: #f5f5f5;
-  color: #666;
+  background: var(--bg-input);
+  color: var(--text-secondary);
 }
 
 .btn-save {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
 }

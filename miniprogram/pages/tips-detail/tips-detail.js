@@ -9,6 +9,7 @@ Page({
   },
 
   onLoad(options) {
+    this.loadDarkMode();
     this.initNavBar();
     const id = parseInt(options.id) || 1;
     const tip = tipsData.find(t => t.id === id) || tipsData[0];

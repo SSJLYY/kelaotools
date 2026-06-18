@@ -1,6 +1,6 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
 .page {
@@ -54,7 +54,7 @@
   flex: 1;
   height: 64rpx;
   border-radius: 12rpx;
-  background: #FFF;
+  background: var(--bg-card);
   color: #64748B;
   display: flex;
   align-items: center;
@@ -80,7 +80,7 @@
 .insight-card,
 .card {
   margin: 0 28rpx 24rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border-radius: 18rpx;
   box-sizing: border-box;
 }
@@ -315,7 +315,7 @@
 .charging-card {
   flex: 1;
   height: 124rpx;
-  background: #FFF;
+  background: var(--bg-card);
   border: 1rpx solid #E2E8F0;
   border-radius: 18rpx;
   display: flex;
@@ -409,8 +409,7 @@
 .dark-mode .nav-title-text { color: #E5E5E5 !important; }
 .dark-mode .nav-back-icon { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
-.dark-mode .period-tabs { background: #1E1E1E !important; }
-.dark-mode .period-tab { color: #A0A0A0 !important; }
+.dark-mode .period-tab { background: #2A2A2A !important; color: #A0A0A0 !important; }
 .dark-mode .period-active { background: #0066FF !important; color: #FFFFFF !important; }
 .dark-mode .source-tip { color: #A0A0A0 !important; }
 .dark-mode .insight-card { background: #2a2a1a !important; }
@@ -418,19 +417,23 @@
 .dark-mode .insight-text { color: #F59E0B !important; }
 .dark-mode .budget-card { background: #1E1E1E !important; }
 .dark-mode .section-title { color: #E5E5E5 !important; }
+.dark-mode .block-title { color: #E5E5E5 !important; }
 .dark-mode .budget-set { background: #2A2A2A !important; color: #E5E5E5 !important; }
 .dark-mode .budget-save { background: #0066FF !important; color: #FFFFFF !important; }
 .dark-mode .budget-input { background: #2A2A2A !important; color: #E5E5E5 !important; }
+.dark-mode .budget-progress { background: #333333 !important; }
 .dark-mode .overview-card { background: #1E1E1E !important; }
 .dark-mode .overview-value { color: #E5E5E5 !important; }
 .dark-mode .overview-label { color: #A0A0A0 !important; }
 .dark-mode .overview-divider { background: #333333 !important; }
+.dark-mode .thin-line { background: #333333 !important; }
 .dark-mode .daily-value { color: #E5E5E5 !important; }
 .dark-mode .category-card { background: #1E1E1E !important; }
 .dark-mode .category-name { color: #E5E5E5 !important; }
 .dark-mode .category-percent { color: #A0A0A0 !important; }
+.dark-mode .category-bar-wrap { background: #333333 !important; }
 .dark-mode .charging-grid { background: transparent !important; }
-.dark-mode .charging-card { background: #1E1E1E !important; }
+.dark-mode .charging-card { background: #1E1E1E !important; border-color: #333333 !important; }
 .dark-mode .charging-value { color: #E5E5E5 !important; }
 .dark-mode .charging-label { color: #A0A0A0 !important; }
 .dark-mode .trend-card { background: #1E1E1E !important; }

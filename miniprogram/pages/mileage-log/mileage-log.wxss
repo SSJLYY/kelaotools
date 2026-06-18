@@ -1,11 +1,12 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; color: #E5E5E5 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar {
@@ -13,7 +14,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar-inner {
@@ -32,7 +33,7 @@
 
 .nav-icon {
   font-size: 20px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .nav-title {
@@ -40,7 +41,7 @@
   text-align: center;
   font-size: 17px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .content {
@@ -49,7 +50,7 @@
 
 /* 统计卡片 */
 .stats-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 16px;
@@ -69,13 +70,13 @@
   display: block;
   font-size: 24px;
   font-weight: 700;
-  color: #0066FF;
+  color: var(--primary);
 }
 
 .stats-label {
   display: block;
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
   margin-top: 4px;
 }
 
@@ -93,7 +94,7 @@
 }
 
 .record-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 16px;
 }
@@ -107,7 +108,7 @@
 .record-type {
   font-size: 14px;
   font-weight: 600;
-  color: #0066FF;
+  color: var(--primary);
   background: #E6F0FF;
   padding: 2px 10px;
   border-radius: 4px;
@@ -117,7 +118,7 @@
   flex: 1;
   text-align: right;
   font-size: 13px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .record-delete {
@@ -141,12 +142,12 @@
 .mileage-value {
   font-size: 28px;
   font-weight: 700;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .mileage-unit {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
   margin-left: 4px;
 }
 
@@ -163,28 +164,28 @@
 
 .consumption-unit {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
   margin-left: 4px;
 }
 
 .record-route {
   font-size: 13px;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .route-text {
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .record-note {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
   padding-top: 8px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid var(--border);
 }
 
-/* 空状态 */
+/* 空状�?*/
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -199,12 +200,12 @@
 
 .empty-text {
   font-size: 15px;
-  color: #999;
+  color: var(--text-muted);
   margin-bottom: 24px;
 }
 
 .empty-btn {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
   padding: 10px 24px;
   border-radius: 8px;
@@ -213,7 +214,7 @@
 
 /* 表单 */
 .form-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 20px;
 }
@@ -221,7 +222,7 @@
 .form-title {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -232,7 +233,7 @@
 
 .form-label {
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 8px;
   display: block;
 }
@@ -240,7 +241,7 @@
 .form-input {
   width: 100%;
   height: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 0 12px;
   font-size: 14px;
@@ -249,25 +250,25 @@
 
 .form-picker {
   height: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .picker-arrow {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .form-textarea {
   width: 100%;
   height: 80px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 12px;
   font-size: 14px;
@@ -291,12 +292,12 @@
 }
 
 .btn-cancel {
-  background: #f5f5f5;
-  color: #666;
+  background: var(--bg-input);
+  color: var(--text-secondary);
 }
 
 .btn-save {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
 }
 
@@ -319,7 +320,7 @@
 
 .assist-value {
   font-size: 13px;
-  color: #333;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -339,9 +340,9 @@
   display: block;
 }
 
-/* 年度汇总卡片 */
+/* 年度汇总卡�?*/
 .year-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 16px;
@@ -357,7 +358,7 @@
 .year-title {
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .year-picker {
@@ -365,13 +366,13 @@
   align-items: center;
   gap: 4px;
   padding: 4px 12px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 6px;
 }
 
 .year-picker-text {
   font-size: 14px;
-  color: #0066FF;
+  color: var(--primary);
   font-weight: 600;
 }
 
@@ -389,7 +390,7 @@
   display: block;
   font-size: 20px;
   font-weight: 700;
-  color: #0066FF;
+  color: var(--primary);
 }
 
 .year-assist-color {
@@ -399,12 +400,12 @@
 .year-stats-label {
   display: block;
   font-size: 11px;
-  color: #999;
+  color: var(--text-muted);
   margin-top: 4px;
 }
 
 .year-month-list {
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid var(--border);
   padding-top: 12px;
 }
 
@@ -418,7 +419,7 @@
 .year-month-name {
   width: 32px;
   font-size: 13px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .year-month-bar-wrap {
@@ -431,7 +432,7 @@
 
 .year-month-bar {
   height: 100%;
-  background: #0066FF;
+  background: var(--primary);
   border-radius: 4px;
   min-width: 2px;
 }
@@ -440,7 +441,7 @@
   width: 60px;
   text-align: right;
   font-size: 12px;
-  color: #333;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -479,9 +480,17 @@
 .dark-mode .year-month-bar-wrap { background: #333 !important; }
 .dark-mode .year-month-value { color: #E5E5E5 !important; }
 .dark-mode .form-label { color: #E5E5E5 !important; }
-.dark-mode .form-input { background: #2A2A2A !important; border-color: #444 !important; color: #E5E5E5 !important; }
-.dark-mode .form-picker { background: #2A2A2A !important; border-color: #444 !important; color: #E5E5E5 !important; }
-.dark-mode .form-textarea { background: #2A2A2A !important; border-color: #444 !important; color: #E5E5E5 !important; }
+.dark-mode .form-input { background: var(--bg-input); border-color: #444 !important; color: #E5E5E5 !important; }
+.dark-mode .form-picker { background: var(--bg-input); border-color: #444 !important; color: #E5E5E5 !important; }
+.dark-mode .form-textarea { background: var(--bg-input); border-color: #444 !important; color: #E5E5E5 !important; }
 .dark-mode .form-hint { color: #FBBF24 !important; }
 .dark-mode .assist-label { color: #FBBF24 !important; }
 .dark-mode .assist-ratio { background: #3A2A00 !important; color: #FBBF24 !important; }
+.dark-mode .empty-state { background: transparent !important; }
+.dark-mode .empty-text { color: #A0A0A0 !important; }
+.dark-mode .empty-btn { background: #0066FF !important; color: #FFFFFF !important; }
+.dark-mode .form-title { color: #E5E5E5 !important; }
+.dark-mode .btn-cancel { background: #2A2A2A !important; color: #A0A0A0 !important; }
+.dark-mode .btn-save { background: #0066FF !important; color: #FFFFFF !important; }
+.dark-mode .picker-arrow { color: #A0A0A0 !important; }
+.dark-mode .record-delete { color: #EF4444 !important; }

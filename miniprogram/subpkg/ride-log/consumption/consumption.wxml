@@ -1,40 +1,55 @@
 <!-- 电耗油耗计算 -->
 <view class="{{darkMode ? 'dark-mode' : ''}}" style="padding:24rpx;min-height:100vh;background:{{darkMode ? '#121212' : '#F5F5F7'}};">
   <view style="display:flex;align-items:center;margin-bottom:24rpx;">
-    <text bindtap="onBack" style="font-size:48rpx;font-weight:300;">‹</text>
-    <text style="font-size:34rpx;font-weight:700;flex:1;text-align:center;">电耗计算</text>
+    <text bindtap="onBack" style="color:{{darkMode ? '#E8E8EC' : '#333'}};font-size:48rpx;font-weight:300;">‹</text>
+    <text style="font-size:34rpx;font-weight:700;flex:1;text-align:center;color:{{darkMode ? '#E8E8EC' : '#333'}};">电耗计算</text>
     <view style="width:50rpx;"></view>
   </view>
 
   <!-- 模式切换 -->
-  <view style="display:flex;background:#FFF;border-radius:40rpx;padding:6rpx;margin-bottom:24rpx;">
-    <view style="flex:1;text-align:center;padding:16rpx 0;border-radius:34rpx;font-size:28rpx;font-weight:700;{{mode==='elec'?'background:linear-gradient(135deg,#0066FF,#5B3FFF);color:#FFF;':'color:#999;'}}" bindtap="onMode" data-mode="elec">⚡ 电耗</view>
-    <view style="flex:1;text-align:center;padding:16rpx 0;border-radius:34rpx;font-size:28rpx;font-weight:700;{{mode==='fuel'?'background:linear-gradient(135deg,#F59E0B,#EF4444);color:#FFF;':'color:#999;'}}" bindtap="onMode" data-mode="fuel">⛽ 油耗</view>
+  <view style="display:flex;background:{{darkMode ? '#1A1A1A' : '#FFF'}};border-radius:40rpx;padding:6rpx;margin-bottom:24rpx;">
+    <view style="flex:1;text-align:center;padding:16rpx 0;border-radius:34rpx;font-size:28rpx;font-weight:700;{{mode==='elec' ? 'background:linear-gradient(135deg,#0066FF,#5B3FFF);color:#FFF;' : ('color:'+(darkMode ? '#9CA3AF' : '#999')+';')}}" bindtap="onMode" data-mode="elec">⚡ 电耗</view>
+    <view style="flex:1;text-align:center;padding:16rpx 0;border-radius:34rpx;font-size:28rpx;font-weight:700;{{mode==='fuel' ? 'background:linear-gradient(135deg,#F59E0B,#EF4444);color:#FFF;' : ('color:'+(darkMode ? '#9CA3AF' : '#999')+';')}}" bindtap="onMode" data-mode="fuel">⛽ 油耗</view>
   </view>
 
   <!-- 电耗模式 -->
   <block wx:if="{{mode==='elec'}}">
-    <view style="background:#FFF;border-radius:16rpx;padding:28rpx;box-shadow:0 2rpx 12rpx rgba(0,0,0,0.04);">
-      <view style="margin-bottom:24rpx;"><text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;">行驶里程(km)</text><input style="background:{{darkMode ? '#121212' : '#F5F5F7'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{distance}}" bindinput="onInput" data-field="distance" placeholder="如：400"/></view>
-      <view style="margin-bottom:24rpx;"><text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;">充电电量(kWh)</text><input style="background:{{darkMode ? '#121212' : '#F5F5F7'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{kwhUsed}}" bindinput="onInput" data-field="kwhUsed" placeholder="如：60"/></view>
+    <view style="background:{{darkMode ? '#1A1A1A' : '#FFF'}};border-radius:16rpx;padding:28rpx;box-shadow:0 2rpx 12rpx rgba(0,0,0,0.04);">
+      <view style="margin-bottom:24rpx;">
+        <text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;color:{{darkMode ? '#E8E8EC' : '#333'}};">行驶里程(km)</text>
+        <input style="background:{{darkMode ? '#262626' : '#F5F5F7'}};color:{{darkMode ? '#E8E8EC' : '#333'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{distance}}" bindinput="onInput" data-field="distance" placeholder="如：400"/>
+      </view>
+      <view style="margin-bottom:24rpx;">
+        <text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;color:{{darkMode ? '#E8E8EC' : '#333'}};">充电电量(kWh)</text>
+        <input style="background:{{darkMode ? '#262626' : '#F5F5F7'}};color:{{darkMode ? '#E8E8EC' : '#333'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{kwhUsed}}" bindinput="onInput" data-field="kwhUsed" placeholder="如：60"/>
+      </view>
       <button class="primary-btn" bindtap="onCalc">计算</button>
-      <view wx:if="{{resultElec}}" style="margin-top:24rpx;padding:24rpx;background:#ECFDF5;border-radius:12rpx;text-align:center;">
-        <text style="font-size:20rpx;color:#10B981;">百公里电耗</text>
-        <text style="font-size:48rpx;font-weight:900;color:#10B981;display:block;margin-top:8rpx;">{{resultElec}} kWh/100km</text>
+      <view wx:if="{{resultElec}}" style="margin-top:24rpx;padding:24rpx;background:{{darkMode ? '#1A2A2A' : '#ECFDF5'}};border-radius:12rpx;text-align:center;">
+        <text style="font-size:20rpx;color:{{darkMode ? '#34D399' : '#10B981'}};">百公里电耗</text>
+        <text style="font-size:48rpx;font-weight:900;color:{{darkMode ? '#34D399' : '#10B981'}};display:block;margin-top:8rpx;">{{resultElec}} kWh/100km</text>
       </view>
     </view>
   </block>
 
   <!-- 油耗模式 -->
   <block wx:if="{{mode==='fuel'}}">
-    <view style="background:#FFF;border-radius:16rpx;padding:28rpx;box-shadow:0 2rpx 12rpx rgba(0,0,0,0.04);">
-      <view style="margin-bottom:24rpx;"><text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;">加油量(L)</text><input style="background:{{darkMode ? '#121212' : '#F5F5F7'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{fuelVol}}" bindinput="onInput" data-field="fuelVol" placeholder="如：40"/></view>
-      <view style="margin-bottom:24rpx;"><text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;">行驶里程(km)</text><input style="background:{{darkMode ? '#121212' : '#F5F5F7'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{distance}}" bindinput="onInput" data-field="distance" placeholder="如：500"/></view>
-      <view style="margin-bottom:24rpx;"><text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;">油价(元/L)</text><input style="background:{{darkMode ? '#121212' : '#F5F5F7'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{fuelPrice}}" bindinput="onInput" data-field="fuelPrice" placeholder="如：8.5"/></view>
+    <view style="background:{{darkMode ? '#1A1A1A' : '#FFF'}};border-radius:16rpx;padding:28rpx;box-shadow:0 2rpx 12rpx rgba(0,0,0,0.04);">
+      <view style="margin-bottom:24rpx;">
+        <text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;color:{{darkMode ? '#E8E8EC' : '#333'}};">加油量(L)</text>
+        <input style="background:{{darkMode ? '#262626' : '#F5F5F7'}};color:{{darkMode ? '#E8E8EC' : '#333'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{fuelVol}}" bindinput="onInput" data-field="fuelVol" placeholder="如：40"/>
+      </view>
+      <view style="margin-bottom:24rpx;">
+        <text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;color:{{darkMode ? '#E8E8EC' : '#333'}};">行驶里程(km)</text>
+        <input style="background:{{darkMode ? '#262626' : '#F5F5F7'}};color:{{darkMode ? '#E8E8EC' : '#333'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{distance}}" bindinput="onInput" data-field="distance" placeholder="如：500"/>
+      </view>
+      <view style="margin-bottom:24rpx;">
+        <text style="font-size:28rpx;font-weight:600;display:block;margin-bottom:8rpx;color:{{darkMode ? '#E8E8EC' : '#333'}};">油价(元/L)</text>
+        <input style="background:{{darkMode ? '#262626' : '#F5F5F7'}};color:{{darkMode ? '#E8E8EC' : '#333'}};border-radius:8rpx;padding:16rpx;font-size:28rpx;" type="digit" value="{{fuelPrice}}" bindinput="onInput" data-field="fuelPrice" placeholder="如：8.5"/>
+      </view>
       <button class="primary-btn" bindtap="onCalc">计算</button>
-      <view wx:if="{{resultFuel}}" style="margin-top:24rpx;padding:24rpx;background:#FEF3C7;border-radius:12rpx;text-align:center;">
-        <text style="font-size:20rpx;color:#92400E;">百公里油耗 / 每公里费用</text>
-        <text style="font-size:48rpx;font-weight:900;color:#92400E;display:block;margin-top:8rpx;">{{resultFuel}}</text>
+      <view wx:if="{{resultFuel}}" style="margin-top:24rpx;padding:24rpx;background:{{darkMode ? '#2A2A1A' : '#FEF3C7'}};border-radius:12rpx;text-align:center;">
+        <text style="font-size:20rpx;color:{{darkMode ? '#FBBF24' : '#92400E'}};">百公里油耗 / 每公里费用</text>
+        <text style="font-size:48rpx;font-weight:900;color:{{darkMode ? '#FBBF24' : '#92400E'}};display:block;margin-top:8rpx;">{{resultFuel}}</text>
       </view>
     </view>
   </block>

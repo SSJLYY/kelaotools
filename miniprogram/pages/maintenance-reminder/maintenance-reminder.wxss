@@ -1,11 +1,24 @@
 /* ===== 深色模式 ===== */
-.dark-mode .page { background: #121212 !important; }
-.dark-mode .nav-bar { background: #1a1a1a !important; }
+.page.dark-mode { background: #121212 !important; }
+.dark-mode .nav-bar { background: rgba(15, 15, 15, 0.97) !important; }
 .dark-mode .nav-title { color: #E5E5E5 !important; }
 .dark-mode .nav-back { color: #E5E5E5 !important; }
+.dark-mode .nav-icon { color: #E5E5E5 !important; }
+.dark-mode .reminder-status.normal { color: #10B981 !important; background: #1a2a1a !important; }
+.dark-mode .reminder-status.urgent { color: #F59E0B !important; background: #2a2a1a !important; }
+.dark-mode .reminder-status.overdue { color: #EF4444 !important; background: #2a1a1a !important; }
+.dark-mode .reminder-type { color: #E5E5E5 !important; }
+.dark-mode .date-label { color: #A0A0A0 !important; }
+.dark-mode .date-value { color: #E5E5E5 !important; }
+.dark-mode .date-arrow { color: #666666 !important; }
+.dark-mode .interval-text { color: #A0A0A0 !important; }
+.dark-mode .reminder-note { color: #A0A0A0 !important; border-top-color: #333333 !important; }
+.dark-mode .reminder-actions { border-top-color: #333333 !important; }
+.dark-mode .form-title { color: #E5E5E5 !important; }
+.dark-mode .form-label { color: #E5E5E5 !important; }
 .page {
   min-height: 100vh;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar {
@@ -13,7 +26,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: #F5F5F7;
+  background: var(--bg);
 }
 
 .nav-bar-inner {
@@ -32,7 +45,7 @@
 
 .nav-icon {
   font-size: 20px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .nav-title {
@@ -40,7 +53,7 @@
   text-align: center;
   font-size: 17px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .content {
@@ -77,7 +90,7 @@
 }
 
 .reminder-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 16px;
   border-left: 4px solid #10B981;
@@ -101,7 +114,7 @@
 .reminder-type {
   font-size: 16px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .reminder-status {
@@ -143,7 +156,7 @@
 .date-label {
   display: block;
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
   margin-bottom: 4px;
 }
 
@@ -151,7 +164,7 @@
   display: block;
   font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .date-arrow {
@@ -161,19 +174,19 @@
 
 .reminder-interval {
   font-size: 12px;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
 .interval-text {
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .reminder-note {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
   padding-top: 8px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid var(--border);
   margin-bottom: 8px;
 }
 
@@ -181,7 +194,7 @@
   display: flex;
   gap: 12px;
   padding-top: 12px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid var(--border);
 }
 
 .action-btn {
@@ -220,12 +233,12 @@
 
 .empty-text {
   font-size: 15px;
-  color: #999;
+  color: var(--text-muted);
   margin-bottom: 24px;
 }
 
 .empty-btn {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
   padding: 10px 24px;
   border-radius: 8px;
@@ -234,7 +247,7 @@
 
 /* 表单 */
 .form-card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   padding: 20px;
 }
@@ -242,7 +255,7 @@
 .form-title {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -253,7 +266,7 @@
 
 .form-label {
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
   margin-bottom: 8px;
   display: block;
 }
@@ -261,7 +274,7 @@
 .form-input {
   width: 100%;
   height: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 0 12px;
   font-size: 14px;
@@ -270,25 +283,25 @@
 
 .form-picker {
   height: 44px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  color: #333;
+  color: var(--text-primary);
 }
 
 .picker-arrow {
   font-size: 12px;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .form-textarea {
   width: 100%;
   height: 80px;
-  border: 1px solid #e0e0e0;
+  border: 1rpx solid var(--border);
   border-radius: 8px;
   padding: 12px;
   font-size: 14px;
@@ -312,11 +325,11 @@
 }
 
 .btn-cancel {
-  background: #f5f5f5;
-  color: #666;
+  background: var(--bg-input);
+  color: var(--text-secondary);
 }
 
 .btn-save {
-  background: #0066FF;
+  background: var(--primary);
   color: #fff;
 }

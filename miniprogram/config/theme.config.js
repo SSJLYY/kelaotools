@@ -1,18 +1,21 @@
 module.exports = {
-  // 主色调
+  // 主色调 — 与 app.wxss CSS 变量同步
   color: {
-    primary: '#3B82F6',
-    secondary: '#8B5CF6',
-    gradient: 'linear-gradient(135deg, #3B82F6, #8B5CF6)',
-    textPrimary: '#1F2937',
+    primary: '#2F66F6',
+    secondary: '#6366F1',
+    gradient: 'linear-gradient(135deg, #2F66F6, #6366F1)',
+    textPrimary: '#1A1D28',
     textSecondary: '#6B7280',
-    textLight: '#9CA3AF',
-    bgPage: '#F3F4F6',
+    textMuted: '#9CA3AF',
+    bg: '#F7F8FA',
     bgCard: '#FFFFFF',
+    bgInput: '#F3F4F6',
     success: '#10B981',
     danger: '#EF4444',
     warning: '#F59E0B',
-    border: '#E5E7EB',
+    orange: '#FF6B35',
+    border: '#EEF0F4',
+    borderLight: '#F3F4F6',
   },
 
   // 圆角
@@ -20,6 +23,7 @@ module.exports = {
     sm: '8rpx',
     md: '12rpx',
     lg: '16rpx',
+    xl: '20rpx',
     full: '9999rpx',
   },
 
@@ -30,5 +34,15 @@ module.exports = {
     md: '16rpx',
     lg: '24rpx',
     xl: '32rpx',
+  },
+
+  // 字号
+  fontSize: {
+    xs: '22rpx',
+    sm: '24rpx',
+    md: '28rpx',
+    lg: '32rpx',
+    xl: '36rpx',
+    xxl: '44rpx',
   },
 };

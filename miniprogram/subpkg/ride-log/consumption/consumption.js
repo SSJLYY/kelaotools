@@ -1,5 +1,9 @@
 Page({
   data: { darkMode: false, mode:'elec', distance:'', kwhUsed:'', fuelVol:'', fuelPrice:'', resultElec:'', resultFuel:'' },
+
+  onLoad() { this.loadDarkMode(); },
+  onShow() { this.loadDarkMode(); },
+
   onMode(e) { this.setData({ mode:e.currentTarget.dataset.mode, resultElec:'', resultFuel:'' }); },
   onInput(e) { this.setData({ [e.currentTarget.dataset.field]: e.detail.value }); },
   onCalc() {
